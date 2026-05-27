@@ -1,0 +1,21 @@
+{
+  "freeTier": {
+    "maxAccounts": 1,
+    "maxTimers": 5,
+    "alertThresholds": [0, 30]
+  },
+  "proTier": {
+    "price": "$4.99/mo",
+    "features": [
+      "Unlimited accounts",
+      "Unlimited timers",
+      "Custom alert thresholds",
+      "Priority DMs"
+    ]
+  },
+  "upgrade": {
+    "title": "Upgrade to WarGuard Pro",
+    "tagline": "Never miss a timer. Never lose your base.",
+    "footer": "Pro activates automatically after payment."
+  }
+}

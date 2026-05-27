@@ -1,0 +1,90 @@
+{
+  "_comment": "Gear data for Last Z heroes. Each hero has 4 slots: gun, helmet, armor, boots. Plus an exclusive piece. Tiers: purple < orange < exclusive < mythic. Enhancement levels: purple max 30, orange max 50 (75 with hexagons, 100 mythic). Sources: lastzguides.com/gear.html, packsify.com, ldshop.gg 2026. Stats at max enhancement (orange Lv50 base).",
+  "slots": [
+    {
+      "id": "gun",
+      "name": "Gun",
+      "icon": "🔫",
+      "primaryStat": "Hero ATK",
+      "notes": "Main damage source for heroes. Always prioritize upgrading first for DPS heroes."
+    },
+    {
+      "id": "helmet",
+      "name": "Helmet",
+      "icon": "⛑️",
+      "primaryStat": "Hero HP / DEF",
+      "notes": "Defensive piece. Good for frontline heroes and tanky builds."
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "icon": "🛡️",
+      "primaryStat": "Hero DEF / Damage Resistance",
+      "notes": "Core defensive piece. Damage resistance is the rarest and most valuable stat."
+    },
+    {
+      "id": "boots",
+      "name": "Boots",
+      "icon": "👟",
+      "primaryStat": "Hero HP / Speed",
+      "notes": "Utility and survivability. Speed bonus affects march time."
+    },
+    {
+      "id": "exclusive",
+      "name": "Exclusive",
+      "icon": "💎",
+      "primaryStat": "Skill 2 Damage (+450–600)",
+      "notes": "Hero-specific piece. Unlocks the hero's 3rd skill passive bonus. Craft after completing orange set."
+    }
+  ],
+  "tiers": [
+    {
+      "id": "purple",
+      "name": "Purple",
+      "color": "purple",
+      "maxLevel": 30,
+      "notes": "Do NOT enhance. Convert all purple gear to Enhancement Alloy immediately."
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "color": "orange",
+      "maxLevel": 50,
+      "hexagons": 5,
+      "hexBonus": "+5 max level each (cap 75)",
+      "mythicBonus": "+25 max level (cap 100)",
+      "notes": "The F2P endgame target. First promotion (Lv50→first hexagon) costs only 100 Power Cores — enormous stat gain, highest priority upgrade."
+    },
+    {
+      "id": "exclusive",
+      "name": "Exclusive",
+      "color": "gold",
+      "maxLevel": 100,
+      "notes": "Hero-specific. Craft after orange set is complete. Provides Skill 2 damage bonus and unlocks Skill 3 passive."
+    },
+    {
+      "id": "mythic",
+      "name": "Mythic",
+      "color": "red",
+      "maxLevel": 100,
+      "notes": "Endgame whale tier. Mythic transformation adds +25 to max enhancement cap."
+    }
+  ],
+  "priorityGuide": {
+    "dpsHeroes": ["Gun first", "Helmet second", "Boots third", "Armor last"],
+    "tankHeroes": ["Armor first", "Boots second", "Helmet third", "Gun last"],
+    "generalTips": [
+      "Never spend Enhancement Alloy or Power Cores on purple, blue, or green gear",
+      "First hexagon promotion (Orange Lv50) is the highest priority — 100 Power Cores + 1M Zent for massive stats",
+      "Complete the orange set before crafting the exclusive piece",
+      "Damage resistance (found on armor) is the rarest and most impactful stat in PvP"
+    ]
+  },
+  "statGuide": {
+    "attack": { "stat": "ATK%", "role": "DPS", "notes": "Direct damage multiplier. Best on Gun slot." },
+    "hp": { "stat": "HP%", "role": "Tank", "notes": "Survivability. Best on Helmet and Boots." },
+    "defense": { "stat": "DEF%", "role": "Tank", "notes": "Reduces damage taken. Best on Armor." },
+    "damageResistance": { "stat": "Damage Resistance", "role": "PvP Tank", "notes": "The rarest stat in the game. A separate damage multiplier that stacks with DEF. Only found on high-tier Armor pieces." },
+    "skillDamage": { "stat": "Skill Damage +", "role": "DPS", "notes": "Flat bonus to Skill 2 damage. Exclusive pieces add +450–600." }
+  }
+}

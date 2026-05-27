@@ -1,0 +1,74 @@
+{
+  "_comment": "Vehicle/tank modification data for Last Z. Vehicles unlock at level thresholds. Upgrade levels run 0–240 across all vehicles. Tier cost structure: L0-45 (1-6 wrenches/level), L50-100 (8-40/level), L105-200 (100-360/level), L205-240 (360-480/level). Total to reach L240: ~70,700 wrenches. Unlock costs verified against lastz.stresswar.com 2026. Sources: lastz.stresswar.com/tank, ldshop.gg/blog/last-z/vehicle-modification-guide.html",
+  "vehicles": [
+    {
+      "id": "conqueror",
+      "name": "Conqueror",
+      "unlockLevel": 1,
+      "unlockWrenches": 0,
+      "totalWrenches": 149,
+      "description": "Starter vehicle covering levels 0–44. Teaches modification mechanics. Limited investment recommended — upgrade only enough to unlock Cheetah.",
+      "keyUpgrades": [
+        { "name": "Elite Weapon Modification I", "level": 10, "effect": "Basic hero ATK bonus — first combat stat upgrade" },
+        { "name": "Elite Tire Modification I", "level": 20, "effect": "Basic march speed bonus" },
+        { "name": "Elite Trunk Modification I", "level": 35, "effect": "Basic hero HP bonus" }
+      ]
+    },
+    {
+      "id": "cheetah",
+      "name": "Armored Vehicle Cheetah",
+      "unlockLevel": 45,
+      "unlockWrenches": 150,
+      "totalWrenches": 1579,
+      "description": "First meaningful vehicle covering levels 45–94. Magnetic Storm Shield is the priority upgrade — rush it before investing anywhere else.",
+      "keyUpgrades": [
+        { "name": "Elite Weapon Modification II", "level": 50, "effect": "Hero ATK bonus — significant step up from Conqueror tier" },
+        { "name": "Magnetic Storm Shield", "level": 65, "effect": "Boosts hero defense — first major combat upgrade, priority target" },
+        { "name": "Elite Trunk Modification II", "level": 80, "effect": "Hero HP bonus at Veteran tier cost scale" },
+        { "name": "Plasma Chain", "level": 90, "effect": "Combat chain damage — unlocks before Hercules transition" }
+      ]
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules Tank",
+      "unlockLevel": 95,
+      "unlockWrenches": 1730,
+      "totalWrenches": 8709,
+      "description": "Mid-game milestone covering levels 95–144. Wrench costs jump to 100–360 per level. War Frenzy is the priority upgrade for PvP attack power.",
+      "keyUpgrades": [
+        { "name": "Elite Weapon Modification III", "level": 105, "effect": "Hero ATK bonus — Expert tier, large step up in cost and effect" },
+        { "name": "War Frenzy", "level": 120, "effect": "Increases hero attack — strong offensive boost for PvP and PvE" },
+        { "name": "Elite Tire Modification III", "level": 135, "effect": "March speed and mobility upgrade at Expert tier" },
+        { "name": "Bio-Virus", "level": 140, "effect": "Combat damage-over-time effect" }
+      ]
+    },
+    {
+      "id": "destroyer",
+      "name": "Destroyer",
+      "unlockLevel": 145,
+      "unlockWrenches": 10440,
+      "totalWrenches": 24859,
+      "description": "End-game vehicle covering levels 145–194. Shield Boost provides damage resistance — a separate multiplier that stacks with DEF, extremely valuable in PvP.",
+      "keyUpgrades": [
+        { "name": "Elite Weapon Modification IV", "level": 155, "effect": "Hero ATK bonus — Master tier stat gain" },
+        { "name": "Apocalypse Vision", "level": 165, "effect": "Combat vision and awareness enhancement" },
+        { "name": "Shield Boost", "level": 175, "effect": "Damage resistance bonus — multiplicative with DEF, top-priority PvP upgrade" },
+        { "name": "Elite Trunk Modification IV", "level": 185, "effect": "Hero HP upgrade at Master tier scale" }
+      ]
+    },
+    {
+      "id": "destroyer_ex",
+      "name": "Destroyer EX",
+      "unlockLevel": 195,
+      "unlockWrenches": 35300,
+      "totalWrenches": 70700,
+      "description": "Strongest vehicle in Last Z. Covers levels 195–240 at 360–480 wrenches per level. Full modification requires ~70,700 total wrenches — endgame investment only.",
+      "keyUpgrades": [
+        { "name": "Elite Weapon Modification V", "level": 205, "effect": "Hero ATK bonus — Grandmaster tier, highest ATK upgrade" },
+        { "name": "Phase Amp", "level": 215, "effect": "Advanced phase damage amplification — unique to Destroyer EX" },
+        { "name": "Phase Ascent", "level": 228, "effect": "Final-tier phase bonus — maximum combat power" },
+        { "name": "Modding Overlord", "level": 240, "effect": "Maximum modification level — full vehicle mastery" }
+      ]
+    }
+  ]
+}

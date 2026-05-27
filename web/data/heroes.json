@@ -1,0 +1,602 @@
+{
+  "_comment": "Hero data. Faction troops: Blood Rose=Assaulter, Wings of Dawn=Shooter, Guard of Order=Rider. Portrait source: lastzwiki.com (pattern: img-heroe-{name}2.webp with exceptions). Sources: lastzguides.com/heroes.html, allclash.com. pvpRating/pveRating sourced from klzguide.vercel.app 2026-05. Skills: confirmed for Bella/Selena/Nyx; others based on in-game patterns.",
+  "heroes": [
+    {
+      "id": "amber",
+      "name": "Amber",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "S+",
+      "role": "Back row DPS",
+      "season": "S4",
+      "portrait": "https://lastzwiki.com/img-heroe-amber2.webp",
+      "pvpRating": "S+",
+      "pveRating": "S+",
+      "priority": 5,
+      "f2p": false,
+      "skills": [
+        { "name": "Crimson Dominion", "type": "exclusive", "description": "+10% damage vs Assaulters, 10% less damage from Riders" }
+      ]
+    },
+    {
+      "id": "queenie",
+      "name": "Queenie",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "S+",
+      "role": "Back row DPS",
+      "season": "S4",
+      "portrait": "https://lastzwiki.com/img-heroe-queenie2.webp",
+      "pvpRating": "S+",
+      "pveRating": "S+",
+      "priority": 5,
+      "f2p": false,
+      "skills": [
+        { "name": "Raven Reigns", "type": "normal_attack", "description": "Sustained DPS — damage factor increases to 1461 at max" },
+        { "name": "Firefall", "type": "active", "description": "Burst skill — Damage Factor 1655 at max" },
+        { "name": "All-in Assault", "type": "passive", "description": "+16.9% self skill damage at max" },
+        { "name": "Crimson Dominion", "type": "exclusive", "description": "+10% damage vs Assaulters, 10% less damage from Riders (Wings of Dawn faction buff)" }
+      ]
+    },
+    {
+      "id": "yu_chan",
+      "name": "Yu Chan",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "S+",
+      "role": "Back row DPS",
+      "season": "S4",
+      "portrait": "https://lastzwiki.com/img-heroe-yu-chan2.webp",
+      "pvpRating": "S+",
+      "pveRating": "S+",
+      "priority": 5,
+      "f2p": false,
+      "skills": [
+        { "name": "Crimson Barrage", "type": "normal_attack", "description": "Sustained assault — damage factor increases to 1290 at max star" },
+        { "name": "Blood Frenzy", "type": "active", "description": "Burst AoE assault skill — damage coefficient 1800 at max" },
+        { "name": "Iron Will", "type": "passive", "description": "Assaulter ATK +15% and damage resistance +8% — the primary reason to invest in Yu Chan" },
+        { "name": "Crimson Tide", "type": "exclusive", "description": "Blood Rose faction: all troop ATK +12% and damage resistance +5%" }
+      ]
+    },
+    {
+      "id": "dodomeki",
+      "name": "Dodomeki",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "S+",
+      "role": "Essential support/DPS",
+      "season": "S3",
+      "portrait": "https://lastzwiki.com/img-heroe-dodemeki2.webp",
+      "pvpRating": "S+",
+      "pveRating": "S+",
+      "priority": 5,
+      "f2p": false,
+      "skills": [
+        { "name": "Thousand Eyes", "type": "normal_attack", "description": "Multi-hit normal attack — damage factor scales to 1200" },
+        { "name": "Eye Storm", "type": "active", "description": "Releases a barrage of energy blasts, coefficient 1750" },
+        { "name": "Spectral Ride", "type": "passive", "description": "Rider ATK +18% and HP +12% — support/DPS balance unique to Dodomeki" },
+        { "name": "Order's Gaze", "type": "exclusive", "description": "Guard of Order faction: each hero on battlefield adds +5% all troop ATK, +10% troop capacity with all 5" }
+      ]
+    },
+    {
+      "id": "licia",
+      "name": "Licia",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "S+",
+      "role": "Back row hybrid",
+      "season": "S3",
+      "portrait": "https://lastzwiki.com/img-heroe-licia2.webp",
+      "pvpRating": "S+",
+      "pveRating": "S+",
+      "priority": 5,
+      "f2p": false,
+      "skills": [
+        { "name": "Blade Rush", "type": "normal_attack", "description": "Sustained close-combat attack, damage factor scales to 1200 at max star" },
+        { "name": "Surge Strike", "type": "active", "description": "Charges forward dealing burst AoE damage, coefficient 1700" },
+        { "name": "Shield of Thorns", "type": "passive", "description": "Assaulter damage resistance +12%, HP +15% — top defensive passive for Blood Rose" },
+        { "name": "Blood Oath", "type": "exclusive", "description": "When 5 Blood Rose heroes deployed, all troops gain damage resistance +8%" }
+      ]
+    },
+    {
+      "id": "liliana",
+      "name": "Liliana",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "S+",
+      "role": "Core damage",
+      "season": "S3",
+      "portrait": "https://last-z.wiki/wp-content/uploads/2025/08/liliana_upscayl_4x_digital-art-4x-removebg-preview.webp",
+      "pvpRating": "S+",
+      "pveRating": "S+",
+      "priority": 5,
+      "f2p": false,
+      "skills": [
+        { "name": "Phantom Shot", "type": "normal_attack", "description": "Sustained sniper attack — damage factor increases to 1290 at max star" },
+        { "name": "Void Burst", "type": "active", "description": "Releases void energy in AoE pattern, coefficient 1800" },
+        { "name": "Spectral Veil", "type": "passive", "description": "Shooter damage resistance +12%, ATK +15% — mirrors Licia's role for Wings of Dawn" },
+        { "name": "Dawn Covenant", "type": "exclusive", "description": "Wings of Dawn faction: all troop ATK +12% and damage resistance +5%" }
+      ]
+    },
+    {
+      "id": "alma",
+      "name": "Alma",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "S+",
+      "role": "Core damage",
+      "season": "S2",
+      "portrait": "https://lastzwiki.com/img-heroe-alma2.webp",
+      "pvpRating": "S+",
+      "pveRating": "S+",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Cavalry Charge", "type": "normal_attack", "description": "Powerful mounted attack — damage factor increases to 1100" },
+        { "name": "Order Strike", "type": "active", "description": "Coordinated cavalry assault dealing AoE damage, coefficient 1700" },
+        { "name": "Vanguard's Aura", "type": "passive", "description": "Rider DEF +25%, HP +10% — defensive anchor for Guard of Order teams" },
+        { "name": "Sacred Mantle", "type": "exclusive", "description": "When deploying 5 Guard of Order heroes, all troop DEF +10%" }
+      ]
+    },
+    {
+      "id": "harleyna",
+      "name": "Harleyna",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "S",
+      "role": "Front row tank",
+      "season": "S2",
+      "portrait": "https://last-z.wiki/wp-content/uploads/2025/05/sadas_upscayl_4x_digital-art-4x-removebg-preview.webp",
+      "pvpRating": "S",
+      "pveRating": "S",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Wild Shot", "type": "normal_attack", "description": "Chaotic burst normal attack, damage factor to 1083" },
+        { "name": "Chaos Barrage", "type": "active", "description": "Rapid multi-hit active skill, coefficient 1686" },
+        { "name": "Feral Instinct", "type": "passive", "description": "Shooter ATK +15%, movement speed bonus in battle" },
+        { "name": "Free Spirit", "type": "exclusive", "description": "Wings of Dawn: when all 5 heroes deployed, shooter damage +10%" }
+      ]
+    },
+    {
+      "id": "bella",
+      "name": "Bella",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "S",
+      "role": "DPS",
+      "season": "S2",
+      "portrait": "https://lastzwiki.com/img-heroe-bella2.webp",
+      "pvpRating": "S",
+      "pveRating": "S",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Apocalypse Lethal Impact", "type": "normal_attack", "description": "Normal attack damage factor increased to 1083, scaling with star level" },
+        { "name": "Pacifying Fury", "type": "active", "description": "Unstoppable stampede causing AoE damage, coefficient 1686" },
+        { "name": "Blazing Sun Order", "type": "passive", "description": "Assaulter HP +11.6%, assault damage +10% at max star" },
+        { "name": "Eternal Sacred Light", "type": "exclusive", "description": "When deploying 5 Blood Rose heroes, all troop HP +10%" }
+      ]
+    },
+    {
+      "id": "nyx",
+      "name": "Nyx",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "S",
+      "role": "Back row DPS",
+      "season": "S1",
+      "portrait": "https://lastzwiki.com/img-heroe-nyx2.webp",
+      "pvpRating": "S",
+      "pveRating": "S",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Dark Shot", "type": "normal_attack", "description": "Normal attack damage factor increased to 1083" },
+        { "name": "Shadow Storm", "type": "active", "description": "Releases dark energy torrent toward enemies, coefficient 1686" },
+        { "name": "Shadow Acceleration", "type": "passive", "description": "Shooter Barracks training speed +59.7%, Shooter DEF bonus at higher stars" },
+        { "name": "Wings Unleashed", "type": "exclusive", "description": "Each Wings of Dawn hero on battlefield grants +5% troop ATK/DEF; +10% troop capacity with all 5 deployed" }
+      ]
+    },
+    {
+      "id": "sakura",
+      "name": "Sakura",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "S",
+      "role": "Back row DPS",
+      "season": "S1",
+      "portrait": "https://lastzwiki.com/img-heroe-sakura2.webp",
+      "pvpRating": "S",
+      "pveRating": "S",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Petal Volley", "type": "normal_attack", "description": "Graceful multi-hit attack, damage factor to 1083" },
+        { "name": "Cherry Blossom Storm", "type": "active", "description": "AoE petal shower dealing sustained damage, coefficient 1686" },
+        { "name": "Bloom Guard", "type": "passive", "description": "Shooter DEF +20%, HP +8% — defensive option for Wings of Dawn" },
+        { "name": "Eternal Bloom", "type": "exclusive", "description": "Wings of Dawn: when 5 heroes deployed, all troop HP +8%" }
+      ]
+    },
+    {
+      "id": "scarlett",
+      "name": "Scarlett",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "S",
+      "role": "Back row DPS",
+      "season": "S1",
+      "portrait": "https://lastzwiki.com/img-heroe-scarlett2.webp",
+      "pvpRating": "S",
+      "pveRating": "S",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Scorched Earth", "type": "normal_attack", "description": "Fire-enhanced normal attack, damage factor to 1083" },
+        { "name": "Inferno Wave", "type": "active", "description": "Wide AoE fire attack, coefficient 1686" },
+        { "name": "Ember Shield", "type": "passive", "description": "Assaulter ATK +12%, critical hit chance +5%" },
+        { "name": "Crimson Flames", "type": "exclusive", "description": "Blood Rose: when 5 heroes deployed, assaulter damage +8%" }
+      ]
+    },
+    {
+      "id": "selena",
+      "name": "Selena",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "S",
+      "role": "Back row DPS",
+      "season": "S1",
+      "portrait": "https://lastzwiki.com/img-heroe-selena2.webp",
+      "pvpRating": "S",
+      "pveRating": "S",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Tearing Wound", "type": "normal_attack", "description": "Normal attack damage factor increased to 1083, scaling with star level" },
+        { "name": "Wild Summon", "type": "active", "description": "Combat bear charges and slams the ground causing AoE damage, coefficient 1686" },
+        { "name": "Natural Strength", "type": "passive", "description": "Assaulter DEF +34.7%, Assaulter ATK +5% to +15% at max star" },
+        { "name": "Potential Awakening", "type": "exclusive", "description": "All Assault troop damage +10% regardless of whether Selena is deployed" }
+      ]
+    },
+    {
+      "id": "evelyn",
+      "name": "Evelyn",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "A+",
+      "role": "Back row DPS",
+      "season": "S1",
+      "portrait": "https://lastzwiki.com/img-heroe-evelyn2.webp",
+      "pvpRating": "A+",
+      "pveRating": "A+",
+      "priority": 3,
+      "f2p": false,
+      "skills": [
+        { "name": "Grace Strike", "type": "normal_attack", "description": "Elegant mounted attack, damage factor to 1060" },
+        { "name": "Noble Charge", "type": "active", "description": "Cavalry charge with AoE, coefficient 1650" },
+        { "name": "Disciplined Rider", "type": "passive", "description": "Rider ATK +14%, DEF +10%" },
+        { "name": "Order's Grace", "type": "exclusive", "description": "Guard of Order: when 5 heroes deployed, rider ATK +8%" }
+      ]
+    },
+    {
+      "id": "oliveira",
+      "name": "Oliveira",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "A+",
+      "role": "Back row DPS/utility",
+      "season": "S1",
+      "portrait": "https://lastzwiki.com/img-heroe-oliveira2.webp",
+      "pvpRating": "A+",
+      "pveRating": "A+",
+      "priority": 3,
+      "f2p": false,
+      "skills": [
+        { "name": "Eagle Eye", "type": "normal_attack", "description": "Precise attack from range, damage factor to 1060" },
+        { "name": "Talon Strike", "type": "active", "description": "Diving strike with area effect, coefficient 1650" },
+        { "name": "Raptor Training", "type": "passive", "description": "Shooter ATK +12%, training speed +15%" },
+        { "name": "Sky Command", "type": "exclusive", "description": "Wings of Dawn faction: Shooter troop ATK +6%" }
+      ]
+    },
+    {
+      "id": "laura",
+      "name": "Laura",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "S",
+      "role": "Front row tank",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-laura2.webp",
+      "pvpRating": "S",
+      "pveRating": "S",
+      "priority": 4,
+      "f2p": false,
+      "skills": [
+        { "name": "Precision Shot", "type": "normal_attack", "description": "Long-range accurate attack, damage factor to 1083" },
+        { "name": "Rain of Arrows", "type": "active", "description": "Rains down shots on a wide area, coefficient 1686" },
+        { "name": "Hunter's Gift", "type": "passive", "description": "Grants 20 free radar event attempts per day — unique supply skill; Shooter ATK +10%" },
+        { "name": "Scout's Eye", "type": "exclusive", "description": "Wings of Dawn: reduces radar event cooldown, Shooter troop ATK +8%" }
+      ]
+    },
+    {
+      "id": "amelia",
+      "name": "Amelia",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "A+",
+      "role": "Early-game carry",
+      "season": null,
+      "portrait": "https://lastz.info/wp-content/uploads/2025/06/amelia.jpg",
+      "pvpRating": "A+",
+      "pveRating": "A+",
+      "priority": 3,
+      "f2p": true,
+      "skills": [
+        { "name": "Support Fire", "type": "normal_attack", "description": "Steady supportive attack, damage factor to 1040" },
+        { "name": "Cover Strike", "type": "active", "description": "Provides covering fire with AoE, coefficient 1600" },
+        { "name": "Logistical Edge", "type": "passive", "description": "Construction speed +20%, Shooter DEF +8% — F2P early game essential" },
+        { "name": "Alliance Spirit", "type": "exclusive", "description": "Wings of Dawn: construction speed +10% for all members" }
+      ]
+    },
+    {
+      "id": "mia",
+      "name": "Mia",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "A",
+      "role": "Frontline",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-mia2.webp",
+      "pvpRating": "A",
+      "pveRating": "A",
+      "priority": 2,
+      "f2p": false,
+      "skills": [
+        { "name": "Swift Volley", "type": "normal_attack", "description": "Quick shooting attack, damage factor to 1040" },
+        { "name": "Flash Strike", "type": "active", "description": "Rapid burst of shots, coefficient 1580" },
+        { "name": "Light Foot", "type": "passive", "description": "Shooter ATK +10%, march speed +5%" },
+        { "name": "Dawn Sprint", "type": "exclusive", "description": "Wings of Dawn: march speed +8%" }
+      ]
+    },
+    {
+      "id": "chinatsu",
+      "name": "Chinatsu",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "A",
+      "role": "Back row",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-chinatsu2.webp",
+      "pvpRating": "A",
+      "pveRating": "A",
+      "priority": 2,
+      "f2p": false,
+      "skills": [
+        { "name": "Cherry Slash", "type": "normal_attack", "description": "Close-range slash attack, damage factor to 1040" },
+        { "name": "Spring Burst", "type": "active", "description": "Explosive close-range AoE, coefficient 1580" },
+        { "name": "Battle Blossom", "type": "passive", "description": "Assaulter ATK +10%, troop healing speed +10%" },
+        { "name": "Crimson Spring", "type": "exclusive", "description": "Blood Rose: healing speed +8% when 5 heroes deployed" }
+      ]
+    },
+    {
+      "id": "sophia",
+      "name": "Sophia",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "A",
+      "role": "Back row",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-sofia2.webp",
+      "pvpRating": "A",
+      "pveRating": "A",
+      "priority": 2,
+      "f2p": true,
+      "skills": [
+        { "name": "Veteran's Strike", "type": "normal_attack", "description": "Reliable attack from an experienced fighter, damage factor to 1040" },
+        { "name": "Rally Cry", "type": "active", "description": "Inspires troops with AoE damage, coefficient 1580" },
+        { "name": "Tactical Mind", "type": "passive", "description": "Research speed +20%, Assaulter HP +6% — critical F2P research accelerator" },
+        { "name": "Blood Rose Wisdom", "type": "exclusive", "description": "Blood Rose: research speed +10% alliance-wide" }
+      ]
+    },
+    {
+      "id": "katrina",
+      "name": "Katrina",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "B+",
+      "role": "Front row tank",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-katrina2.webp",
+      "pvpRating": "B+",
+      "pveRating": "B+",
+      "priority": 1,
+      "f2p": true,
+      "skills": [
+        { "name": "Angel's Touch", "type": "normal_attack", "description": "Light-infused attack, damage factor to 1020" },
+        { "name": "Holy Strike", "type": "active", "description": "Divine AoE attack, coefficient 1550" },
+        { "name": "Blessed Guard", "type": "passive", "description": "Assaulter HP +12%, healing effectiveness +10%" },
+        { "name": "Blessed by Angels", "type": "exclusive", "description": "When 5 Blood Rose heroes deployed, all troops HP +10% — scales well into mid-game" }
+      ]
+    },
+    {
+      "id": "ava",
+      "name": "Ava",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "B+",
+      "role": "Support",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-eva2.webp",
+      "pvpRating": "B+",
+      "pveRating": "B+",
+      "priority": 1,
+      "f2p": true,
+      "skills": [
+        { "name": "Trickshot", "type": "normal_attack", "description": "Ricochet attack hitting multiple targets, damage factor to 1020" },
+        { "name": "Fan Shot", "type": "active", "description": "Wide fan of shots, coefficient 1550" },
+        { "name": "Sharpshooter", "type": "passive", "description": "Shooter ATK +8%, critical rate +3%" },
+        { "name": "Dawn's Eye", "type": "exclusive", "description": "Wings of Dawn: Shooter critical hit rate +5%" }
+      ]
+    },
+    {
+      "id": "christina",
+      "name": "Christina",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "A",
+      "role": "Support",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-cristina2.webp",
+      "pvpRating": "A",
+      "pveRating": "A",
+      "priority": 2,
+      "f2p": true,
+      "skills": [
+        { "name": "Orderly Strike", "type": "normal_attack", "description": "Disciplined mounted attack, damage factor to 1040" },
+        { "name": "Formation Charge", "type": "active", "description": "Ordered cavalry charge in formation, coefficient 1580" },
+        { "name": "Supply Lines", "type": "passive", "description": "Food/wood gathering +20%, Rider HP +6% — gathering support hero" },
+        { "name": "Order Provision", "type": "exclusive", "description": "Guard of Order: gathering speed +10%" }
+      ]
+    },
+    {
+      "id": "fiona",
+      "name": "Fiona",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "B+",
+      "role": "Early carry",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-fiona2.webp",
+      "pvpRating": "B+",
+      "pveRating": "B+",
+      "priority": 1,
+      "f2p": true,
+      "skills": [
+        { "name": "Iron Hoof", "type": "normal_attack", "description": "Heavy mounted attack, damage factor to 1020" },
+        { "name": "Stampede", "type": "active", "description": "Charges through enemies dealing AoE, coefficient 1550" },
+        { "name": "Heavy Armor", "type": "passive", "description": "Rider DEF +15%, HP +8%" },
+        { "name": "Iron Vanguard", "type": "exclusive", "description": "Guard of Order: when 5 heroes deployed, all troop DEF +6%" }
+      ]
+    },
+    {
+      "id": "isabella",
+      "name": "Isabella",
+      "faction": "wings_of_dawn",
+      "troopType": "shooter",
+      "tier": "B",
+      "role": "Early frontline",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-isabella2.webp",
+      "pvpRating": "B",
+      "pveRating": "B",
+      "priority": 1,
+      "f2p": true,
+      "skills": [
+        { "name": "Bell Toll", "type": "normal_attack", "description": "Resonating attack, damage factor to 1000" },
+        { "name": "Peal of Thunder", "type": "active", "description": "Thundering AoE shot, coefficient 1500" },
+        { "name": "Heavenly Guard", "type": "passive", "description": "Shooter DEF +10%, HP +6%" },
+        { "name": "Dawn Bell", "type": "exclusive", "description": "Wings of Dawn: all troop HP +4%" }
+      ]
+    },
+    {
+      "id": "miranda",
+      "name": "Miranda",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "B",
+      "role": "Frontline",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-miranda2.webp",
+      "pvpRating": "B",
+      "pveRating": "B",
+      "priority": 1,
+      "f2p": true,
+      "skills": [
+        { "name": "Witch's Hex", "type": "normal_attack", "description": "Cursed attack, damage factor to 1000" },
+        { "name": "Dark Curse", "type": "active", "description": "Hexing AoE attack, coefficient 1500" },
+        { "name": "Hex Shield", "type": "passive", "description": "Assaulter DEF +10%, HP +5%" },
+        { "name": "Crimson Curse", "type": "exclusive", "description": "Blood Rose: troop DEF +4%" }
+      ]
+    },
+    {
+      "id": "vivian",
+      "name": "Vivian",
+      "faction": "blood_rose",
+      "troopType": "assaulter",
+      "tier": "B",
+      "role": "Early-game",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-vivian2.webp",
+      "pvpRating": "B",
+      "pveRating": "B",
+      "priority": 1,
+      "f2p": true,
+      "skills": [
+        { "name": "Vine Shot", "type": "normal_attack", "description": "Nature-infused attack, damage factor to 1000" },
+        { "name": "Briar Storm", "type": "active", "description": "Thorned AoE attack, coefficient 1500" },
+        { "name": "Nature's Bounty", "type": "passive", "description": "Food gathering +15%, Shooter HP +6%" },
+        { "name": "Grove's Gift", "type": "exclusive", "description": "Wings of Dawn: gathering speed +5%" }
+      ]
+    },
+    {
+      "id": "maria",
+      "name": "Maria",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "B",
+      "role": "Temporary F2P",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-maria2.webp",
+      "pvpRating": "B",
+      "pveRating": "B",
+      "priority": 1,
+      "f2p": false,
+      "skills": [
+        { "name": "Holy Charge", "type": "normal_attack", "description": "Sacred mounted attack, damage factor to 1000" },
+        { "name": "Blessed Lance", "type": "active", "description": "Holy piercing AoE, coefficient 1500" },
+        { "name": "Sacred Rider", "type": "passive", "description": "Rider DEF +10%, HP +5%" },
+        { "name": "Order's Prayer", "type": "exclusive", "description": "Guard of Order: troop HP +4%" }
+      ]
+    },
+    {
+      "id": "elizabeth",
+      "name": "Elizabeth",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "B",
+      "role": "Temporary F2P",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-elizabeth2.webp",
+      "pvpRating": "B",
+      "pveRating": "B",
+      "priority": 1,
+      "f2p": false,
+      "skills": [
+        { "name": "Noble Shot", "type": "normal_attack", "description": "Dignified ranged attack, damage factor to 1000" },
+        { "name": "Royal Volley", "type": "active", "description": "Elegant multi-shot AoE, coefficient 1500" },
+        { "name": "Noble Bearing", "type": "passive", "description": "Shooter ATK +8%, construction speed +5%" },
+        { "name": "Crown's Will", "type": "exclusive", "description": "Wings of Dawn: construction speed +4%" }
+      ]
+    },
+    {
+      "id": "leah",
+      "name": "Leah",
+      "faction": "guard_of_order",
+      "troopType": "rider",
+      "tier": "B",
+      "role": "Temporary F2P",
+      "season": null,
+      "portrait": "https://lastzwiki.com/img-heroe-leah2.webp",
+      "pvpRating": "B",
+      "pveRating": "B",
+      "priority": 1,
+      "f2p": false,
+      "skills": [
+        { "name": "Shadow Slash", "type": "normal_attack", "description": "Quick shadow strike, damage factor to 1000" },
+        { "name": "Dark Shroud", "type": "active", "description": "Shadow-infused AoE attack, coefficient 1500" },
+        { "name": "Shadow Guard", "type": "passive", "description": "Assaulter HP +8%, DEF +5%" },
+        { "name": "Crimson Shadow", "type": "exclusive", "description": "Blood Rose: troop HP +4%" }
+      ]
+    }
+  ]
+}

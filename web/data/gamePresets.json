@@ -1,0 +1,152 @@
+{
+    "_comment": "Apocalypse Time = UTC-2. Server reset = 00:00 AT = 02:00 UTC. All intervalMs in milliseconds.",
+    "presets": {
+        "full_prep": {
+            "name": "Full Preparedness",
+            "choiceLabel": "🎯 Full Preparedness — new sub-event (every 4h)",
+            "type": "prepare",
+            "intervalMs": 14400000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "description": "New 4h theme at AT 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 — check in-game for active theme",
+            "enabled": true
+        },
+        "radar": {
+            "name": "Radar Reset",
+            "choiceLabel": "📡 Radar Reset (every 8h)",
+            "type": "radar",
+            "intervalMs": 28800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "description": "Every 8h — AT 00:00, 08:00, 16:00",
+            "enabled": true
+        },
+        "arena_brawl": {
+            "name": "Arena Brawl",
+            "choiceLabel": "🏟️ Arena Brawl (daily 01:30 UTC)",
+            "type": "arena",
+            "intervalMs": 86400000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 1,
+            "anchorMinuteUTC": 30,
+            "description": "Daily at 01:30 UTC — 30 min before server reset (AT 23:30)",
+            "enabled": true
+        },
+        "daily_quests": {
+            "name": "Daily Quests (Dawn's Light)",
+            "choiceLabel": "📋 Daily Quests — Dawn's Light",
+            "type": "daily_quests",
+            "intervalMs": 86400000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "description": "Daily at 02:00 UTC (AT 00:00)",
+            "enabled": false
+        },
+        "merit_chest": {
+            "name": "Merit Chest",
+            "choiceLabel": "🎁 Merit Chest (daily)",
+            "type": "merit_chest",
+            "intervalMs": 86400000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "description": "Daily at 02:00 UTC (AT 00:00)",
+            "enabled": false
+        },
+        "lucky_attempts": {
+            "name": "Lucky Lucky Lucky (5 free)",
+            "choiceLabel": "🎲 Lucky Lucky Lucky — 5 free (daily)",
+            "type": "lucky_attempts",
+            "intervalMs": 86400000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "description": "Daily at 02:00 UTC (AT 00:00)",
+            "enabled": false
+        },
+        "vs_vehicle": {
+            "name": "VS — Vehicle Day (Mon)",
+            "choiceLabel": "🔧 VS — Vehicle Day (Monday)",
+            "type": "vehicle",
+            "intervalMs": 604800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "anchorDayUTC": 1,
+            "description": "Monday 02:00 UTC — use wrenches & blueprints",
+            "enabled": false
+        },
+        "vs_building": {
+            "name": "VS — Building Day (Tue)",
+            "choiceLabel": "🏗️ VS — Building Day (Tuesday)",
+            "type": "construction",
+            "intervalMs": 604800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "anchorDayUTC": 2,
+            "description": "Tuesday 02:00 UTC — use construction speed-ups",
+            "enabled": false
+        },
+        "vs_research": {
+            "name": "VS — Research Day (Wed)",
+            "choiceLabel": "🔬 VS — Research Day (Wednesday)",
+            "type": "research",
+            "intervalMs": 604800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "anchorDayUTC": 3,
+            "description": "Wednesday 02:00 UTC — use research speed-ups & badges",
+            "enabled": false
+        },
+        "vs_heroes": {
+            "name": "VS — Heroes Day (Thu)",
+            "choiceLabel": "🦸 VS — Heroes Day (Thursday)",
+            "type": "heroes",
+            "intervalMs": 604800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "anchorDayUTC": 4,
+            "description": "Thursday 02:00 UTC — use hero fragments & cores",
+            "enabled": false
+        },
+        "vs_training": {
+            "name": "VS — Training Day (Fri)",
+            "choiceLabel": "⚔️ VS — Training Day (Friday)",
+            "type": "troops",
+            "intervalMs": 604800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "anchorDayUTC": 5,
+            "description": "Friday 02:00 UTC — train troops & use speed-ups",
+            "enabled": false
+        },
+        "vs_combat": {
+            "name": "VS — Combat Day (Sat)",
+            "choiceLabel": "💀 VS — Combat Day (Saturday)",
+            "type": "combat",
+            "intervalMs": 604800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "anchorDayUTC": 6,
+            "description": "Saturday 02:00 UTC — kill enemies & orange wanted missions",
+            "enabled": false
+        },
+        "canyon_clash": {
+            "name": "Canyon Clash (Fri combat)",
+            "choiceLabel": "🏔️ Canyon Clash (Friday combat)",
+            "type": "canyon",
+            "intervalMs": 604800000,
+            "recurringMode": "fixed",
+            "anchorHourUTC": 2,
+            "anchorDayUTC": 5,
+            "description": "Friday — combat day (time voted by alliance)",
+            "enabled": false
+        },
+        "tyrant": {
+            "name": "The Tyrant",
+            "choiceLabel": "👑 The Tyrant (every ~2 days)",
+            "type": "tyrant",
+            "intervalMs": 172800000,
+            "recurringMode": "relative",
+            "description": "Every ~2 days from last spawn (R4/R5 launches)",
+            "enabled": false
+        }
+    }
+}

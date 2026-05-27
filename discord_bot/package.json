@@ -1,0 +1,26 @@
+{
+  "name": "warguard-bot",
+  "version": "1.0.0",
+  "description": "WarGuard — personal game companion Discord bot for Last Z / Last War players",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "NODE_ENV=development DOTENV_CONFIG_PATH=.env.dev ts-node -r dotenv/config src/index.ts",
+    "emulator": "firebase emulators:start --only firestore --project warguard-dev",
+    "deploy-commands": "DOTENV_CONFIG_PATH=.env.dev ts-node -r dotenv/config src/deploy-commands.ts",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "firebase-admin": "^12.7.0",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/node-cron": "^3.0.11",
+    "typescript": "^5.7.2",
+    "ts-node": "^10.9.2"
+  }
+}

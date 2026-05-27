@@ -1,0 +1,285 @@
+{
+  "_comment": "HQ upgrade data for levels 1-35. Costs in raw integers (game units). buildTimeMinutes sourced from lastzguides.com/hq-construction-cost.html 2026. cp=0 pending source. Current game max: level 35. Building level requirements match HQ level being upgraded to. Sources: lastz.stresswar.com/hq, lastzguides.com/hq-construction-cost.html",
+  "levels": [
+    {
+      "level": 1,
+      "heroesCap": 5,
+      "requiredBuildings": [],
+      "cost": { "wood": 12000, "food": 0, "zent": 0, "steel": 0 },
+      "buildTimeMinutes": 0,
+      "cp": 0
+    },
+    {
+      "level": 2,
+      "heroesCap": 10,
+      "requiredBuildings": [],
+      "cost": { "wood": 0, "food": 10300, "zent": 0, "steel": 0 },
+      "buildTimeMinutes": 0,
+      "cp": 0
+    },
+    {
+      "level": 3,
+      "heroesCap": 15,
+      "requiredBuildings": [],
+      "cost": { "wood": 0, "food": 15500, "zent": 0, "steel": 0 },
+      "buildTimeMinutes": 0,
+      "cp": 0
+    },
+    {
+      "level": 4,
+      "heroesCap": 20,
+      "requiredBuildings": ["City Wall"],
+      "cost": { "wood": 0, "food": 23300, "zent": 0, "steel": 0 },
+      "buildTimeMinutes": 2,
+      "cp": 0
+    },
+    {
+      "level": 5,
+      "heroesCap": 25,
+      "requiredBuildings": ["Radar", "Assaulter Camp"],
+      "cost": { "wood": 0, "food": 46600, "zent": 0, "steel": 0 },
+      "buildTimeMinutes": 13,
+      "cp": 0
+    },
+    {
+      "level": 6,
+      "heroesCap": 30,
+      "requiredBuildings": ["Military Center"],
+      "cost": { "wood": 139900, "food": 139900, "zent": 27400, "steel": 0 },
+      "buildTimeMinutes": 20,
+      "cp": 0
+    },
+    {
+      "level": 7,
+      "heroesCap": 35,
+      "requiredBuildings": ["Alliance Center", "Training Ground"],
+      "cost": { "wood": 279900, "food": 279900, "zent": 54800, "steel": 0 },
+      "buildTimeMinutes": 41,
+      "cp": 0
+    },
+    {
+      "level": 8,
+      "heroesCap": 40,
+      "requiredBuildings": ["Laboratory", "Assaulter Camp"],
+      "cost": { "wood": 447900, "food": 447900, "zent": 87800, "steel": 0 },
+      "buildTimeMinutes": 76,
+      "cp": 0
+    },
+    {
+      "level": 9,
+      "heroesCap": 45,
+      "requiredBuildings": ["Laboratory", "Hospital"],
+      "cost": { "wood": 716600, "food": 716600, "zent": 140000, "steel": 0 },
+      "buildTimeMinutes": 110,
+      "cp": 0
+    },
+    {
+      "level": 10,
+      "heroesCap": 50,
+      "requiredBuildings": ["Laboratory", "Shooter Camp"],
+      "cost": { "wood": 859900, "food": 859900, "zent": 168000, "steel": 0 },
+      "buildTimeMinutes": 165,
+      "cp": 0
+    },
+    {
+      "level": 11,
+      "heroesCap": 55,
+      "requiredBuildings": ["Laboratory", "Rider Camp"],
+      "cost": { "wood": 2100000, "food": 2100000, "zent": 421000, "steel": 0 },
+      "buildTimeMinutes": 233,
+      "cp": 0
+    },
+    {
+      "level": 12,
+      "heroesCap": 60,
+      "requiredBuildings": ["Laboratory", "City Walls"],
+      "cost": { "wood": 3600000, "food": 3600000, "zent": 716000, "steel": 0 },
+      "buildTimeMinutes": 301,
+      "cp": 0
+    },
+    {
+      "level": 13,
+      "heroesCap": 65,
+      "requiredBuildings": ["Laboratory", "Alliance Center"],
+      "cost": { "wood": 4000000, "food": 4000000, "zent": 788000, "steel": 0 },
+      "buildTimeMinutes": 482,
+      "cp": 0
+    },
+    {
+      "level": 14,
+      "heroesCap": 70,
+      "requiredBuildings": ["Laboratory", "Assaulter Camp"],
+      "cost": { "wood": 5600000, "food": 5600000, "zent": 1100000, "steel": 0 },
+      "buildTimeMinutes": 771,
+      "cp": 0
+    },
+    {
+      "level": 15,
+      "heroesCap": 75,
+      "requiredBuildings": ["Laboratory", "Shooter Camp"],
+      "cost": { "wood": 7800000, "food": 7800000, "zent": 1500000, "steel": 0 },
+      "buildTimeMinutes": 1097,
+      "cp": 0
+    },
+    {
+      "level": 16,
+      "heroesCap": 80,
+      "requiredBuildings": ["Laboratory", "Rider Camp"],
+      "cost": { "wood": 14000000, "food": 14000000, "zent": 2700000, "steel": 0 },
+      "buildTimeMinutes": 1645,
+      "cp": 0
+    },
+    {
+      "level": 17,
+      "heroesCap": 85,
+      "requiredBuildings": ["Laboratory", "City Walls"],
+      "cost": { "wood": 18200000, "food": 18200000, "zent": 3500000, "steel": 0 },
+      "buildTimeMinutes": 2377,
+      "cp": 0
+    },
+    {
+      "level": 18,
+      "heroesCap": 90,
+      "requiredBuildings": ["Laboratory", "Alliance Center"],
+      "cost": { "wood": 31900000, "food": 31900000, "zent": 6200000, "steel": 0 },
+      "buildTimeMinutes": 2880,
+      "cp": 0
+    },
+    {
+      "level": 19,
+      "heroesCap": 95,
+      "requiredBuildings": ["Laboratory", "Assaulter Camp"],
+      "cost": { "wood": 38200000, "food": 38200000, "zent": 7500000, "steel": 0 },
+      "buildTimeMinutes": 4795,
+      "cp": 0
+    },
+    {
+      "level": 20,
+      "heroesCap": 100,
+      "requiredBuildings": ["Laboratory", "Shooter Camp"],
+      "cost": { "wood": 68900000, "food": 68900000, "zent": 13500000, "steel": 0 },
+      "buildTimeMinutes": 7795,
+      "cp": 0
+    },
+    {
+      "level": 21,
+      "heroesCap": 105,
+      "requiredBuildings": ["Laboratory", "Rider Camp"],
+      "cost": { "wood": 96400000, "food": 96400000, "zent": 18900000, "steel": 0 },
+      "buildTimeMinutes": 4403,
+      "cp": 0
+    },
+    {
+      "level": 22,
+      "heroesCap": 110,
+      "requiredBuildings": ["Laboratory", "City Walls"],
+      "cost": { "wood": 125400000, "food": 125400000, "zent": 24600000, "steel": 0 },
+      "buildTimeMinutes": 17280,
+      "cp": 0
+    },
+    {
+      "level": 23,
+      "heroesCap": 115,
+      "requiredBuildings": ["Laboratory", "Alliance Center"],
+      "cost": { "wood": 156800000, "food": 156800000, "zent": 30700000, "steel": 0 },
+      "buildTimeMinutes": 25920,
+      "cp": 0
+    },
+    {
+      "level": 24,
+      "heroesCap": 120,
+      "requiredBuildings": ["Laboratory", "Assaulter Camp"],
+      "cost": { "wood": 196000000, "food": 196000000, "zent": 38400000, "steel": 0 },
+      "buildTimeMinutes": 36224,
+      "cp": 0
+    },
+    {
+      "level": 25,
+      "heroesCap": 125,
+      "requiredBuildings": ["Laboratory", "Shooter Camp"],
+      "cost": { "wood": 333200000, "food": 333200000, "zent": 65300000, "steel": 0 },
+      "buildTimeMinutes": 50617,
+      "cp": 0
+    },
+    {
+      "level": 26,
+      "heroesCap": 130,
+      "requiredBuildings": ["Laboratory", "Rider Camp"],
+      "cost": { "wood": 466500000, "food": 466500000, "zent": 91400000, "steel": 0 },
+      "buildTimeMinutes": 70768,
+      "cp": 0
+    },
+    {
+      "level": 27,
+      "heroesCap": 135,
+      "requiredBuildings": ["Laboratory", "City Walls"],
+      "cost": { "wood": 606400000, "food": 606400000, "zent": 119000000, "steel": 0 },
+      "buildTimeMinutes": 91927,
+      "cp": 0
+    },
+    {
+      "level": 28,
+      "heroesCap": 140,
+      "requiredBuildings": ["Laboratory", "Alliance Center"],
+      "cost": { "wood": 806500000, "food": 806500000, "zent": 157700000, "steel": 0 },
+      "buildTimeMinutes": 119433,
+      "cp": 0
+    },
+    {
+      "level": 29,
+      "heroesCap": 145,
+      "requiredBuildings": ["Laboratory", "Assaulter Camp"],
+      "cost": { "wood": 1100000000, "food": 1100000000, "zent": 221300000, "steel": 0 },
+      "buildTimeMinutes": 155191,
+      "cp": 0
+    },
+    {
+      "level": 30,
+      "heroesCap": 150,
+      "requiredBuildings": ["Laboratory", "Shooter Camp"],
+      "cost": { "wood": 1400000000, "food": 1400000000, "zent": 277100000, "steel": 0 },
+      "buildTimeMinutes": 201676,
+      "cp": 0
+    },
+    {
+      "level": 31,
+      "heroesCap": 155,
+      "requiredBuildings": ["Laboratory", "Rider Camp"],
+      "cost": { "wood": 1200000000, "food": 1200000000, "zent": 241400000, "steel": 2200000 },
+      "buildTimeMinutes": 197218,
+      "cp": 0
+    },
+    {
+      "level": 32,
+      "heroesCap": 160,
+      "requiredBuildings": ["Laboratory", "City Walls"],
+      "cost": { "wood": 1400000000, "food": 1400000000, "zent": 289800000, "steel": 3100000 },
+      "buildTimeMinutes": 236661,
+      "cp": 0
+    },
+    {
+      "level": 33,
+      "heroesCap": 165,
+      "requiredBuildings": ["Laboratory", "Alliance Center"],
+      "cost": { "wood": 1700000000, "food": 1700000000, "zent": 347600000, "steel": 4100000 },
+      "buildTimeMinutes": 283994,
+      "cp": 0
+    },
+    {
+      "level": 34,
+      "heroesCap": 170,
+      "requiredBuildings": ["Laboratory", "Assaulter Camp"],
+      "cost": { "wood": 2000000000, "food": 2000000000, "zent": 399500000, "steel": 5300000 },
+      "buildTimeMinutes": 326593,
+      "cp": 0
+    },
+    {
+      "level": 35,
+      "heroesCap": 175,
+      "requiredBuildings": ["Laboratory", "Shooter Camp"],
+      "cost": { "wood": 2300000000, "food": 2300000000, "zent": 459800000, "steel": 6400000 },
+      "buildTimeMinutes": 375582,
+      "cp": 0
+    }
+  ]
+}
