@@ -2,12 +2,12 @@ import { Timestamp } from '../firebase'
 import { userRef, accountRef, usersCol } from '../firebase'
 import { UserDoc, AccountDoc, FREE_TIER } from '../types'
 
-export async function getOrCreateUser(discordId: string): Promise<UserDoc> {
+export async function getOrCreateUser(discordId: string): Promise<{ user: UserDoc; isNew: boolean }> {
   const ref = userRef(discordId)
   const snap = await ref.get()
 
   if (snap.exists) {
-    return snap.data() as UserDoc
+    return { user: snap.data() as UserDoc, isNew: false }
   }
 
   // First time — create user with a default "Main" account
@@ -29,7 +29,7 @@ export async function getOrCreateUser(discordId: string): Promise<UserDoc> {
   batch.set(accountRef(discordId, 'Main'), defaultAccount)
   await batch.commit()
 
-  return user
+  return { user, isNew: true }
 }
 
 export async function createAccount(discordId: string, name: string): Promise<void> {

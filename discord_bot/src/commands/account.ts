@@ -41,7 +41,7 @@ export const data = new SlashCommandBuilder()
 export async function execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ ephemeral: true })
 
-  const user = await getOrCreateUser(interaction.user.id)
+  const { user } = await getOrCreateUser(interaction.user.id)
   const sub = interaction.options.getSubcommand()
 
   if (sub === 'add') {

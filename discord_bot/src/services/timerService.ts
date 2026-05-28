@@ -1,6 +1,47 @@
 import { Timestamp } from '../firebase'
 import { timersCol } from '../firebase'
-import { TimerDoc, TimerType } from '../types'
+import { TimerDoc, TimerType, GAME_PRESETS, GamePreset } from '../types'
+
+export function nextPresetOccurrence(preset: GamePreset): Date {
+  const now = Date.now()
+  const anchorMin = preset.anchorMinuteUTC ?? 0
+
+  if (preset.anchorDayUTC !== undefined && preset.anchorHourUTC !== undefined) {
+    const d = new Date()
+    d.setUTCHours(preset.anchorHourUTC, anchorMin, 0, 0)
+    const currentDay = new Date().getUTCDay()
+    let daysUntil = (preset.anchorDayUTC - currentDay + 7) % 7
+    if (daysUntil === 0 && d.getTime() <= now) daysUntil = 7
+    d.setUTCDate(d.getUTCDate() + daysUntil)
+    return d
+  }
+
+  if (preset.anchorHourUTC !== undefined) {
+    const anchor = new Date()
+    anchor.setUTCHours(preset.anchorHourUTC, anchorMin, 0, 0)
+    const anchorMs = anchor.getTime()
+    const offset = ((now - anchorMs) % preset.intervalMs + preset.intervalMs) % preset.intervalMs
+    return new Date(now + (preset.intervalMs - offset))
+  }
+
+  return new Date(now + preset.intervalMs)
+}
+
+export async function seedDefaultPresets(discordId: string, accountName: string): Promise<void> {
+  const enabled = Object.entries(GAME_PRESETS).filter(([, p]) => p.enabled)
+  await Promise.all(
+    enabled.map(([, preset]) =>
+      addTimer(discordId, accountName, {
+        type: preset.type,
+        label: preset.name,
+        expiresAt: nextPresetOccurrence(preset),
+        recurring: true,
+        intervalMs: preset.intervalMs,
+        recurringMode: preset.recurringMode,
+      }),
+    ),
+  )
+}
 
 interface AddTimerInput {
   type: TimerType

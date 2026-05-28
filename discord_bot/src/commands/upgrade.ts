@@ -15,7 +15,7 @@ export const data = new SlashCommandBuilder()
 export async function execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ ephemeral: true })
 
-  const user = await getOrCreateUser(interaction.user.id)
+  const { user } = await getOrCreateUser(interaction.user.id)
 
   if (user.isPro) {
     await interaction.editReply('You\'re already on **WarGuard Pro**. Thanks for the support!')

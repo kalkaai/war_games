@@ -8,7 +8,6 @@ import * as timerCommand from './commands/timer'
 import * as accountCommand from './commands/account'
 import * as alertsCommand from './commands/alerts'
 import * as upgradeCommand from './commands/upgrade'
-
 const commands = [
   timerCommand.data.toJSON(),
   accountCommand.data.toJSON(),

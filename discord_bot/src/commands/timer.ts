@@ -5,47 +5,12 @@ import {
   Colors,
 } from 'discord.js'
 import { getOrCreateUser } from '../services/accountService'
-import { addTimer, listTimers, deleteTimer, clearExpiredTimers } from '../services/timerService'
+import { addTimer, listTimers, deleteTimer, clearExpiredTimers, nextPresetOccurrence, seedDefaultPresets } from '../services/timerService'
 import { parseDuration } from '../utils/parseDuration'
 import { formatTimeUntil, formatDuration } from '../utils/formatDuration'
-import { TIMER_TYPES, TIMER_EMOJI, FREE_TIER, GAME_PRESETS, GamePreset } from '../types'
+import { TIMER_TYPES, TIMER_EMOJI, GAME_PRESETS } from '../types'
 import { AutocompleteInteraction } from 'discord.js'
 
-/**
- * Returns the next Date aligned to a fixed server cycle.
- * For interval events (e.g. Arms Race 4h from 02:00 UTC):
- *   finds the next phase boundary in the cycle.
- * For weekly events (anchorDayUTC set):
- *   finds the next occurrence of that weekday+hour in UTC.
- */
-function nextPresetOccurrence(preset: GamePreset): Date {
-  const now = Date.now()
-
-  const anchorMin = preset.anchorMinuteUTC ?? 0
-
-  if (preset.anchorDayUTC !== undefined && preset.anchorHourUTC !== undefined) {
-    // Weekly: next occurrence of (anchorDayUTC, anchorHourUTC:anchorMin) in UTC
-    const d = new Date()
-    d.setUTCHours(preset.anchorHourUTC, anchorMin, 0, 0)
-    const currentDay = new Date().getUTCDay()
-    let daysUntil = (preset.anchorDayUTC - currentDay + 7) % 7
-    if (daysUntil === 0 && d.getTime() <= now) daysUntil = 7
-    d.setUTCDate(d.getUTCDate() + daysUntil)
-    return d
-  }
-
-  if (preset.anchorHourUTC !== undefined) {
-    // Cycle: next phase boundary aligned to anchorHourUTC:anchorMin
-    const anchor = new Date()
-    anchor.setUTCHours(preset.anchorHourUTC, anchorMin, 0, 0)
-    const anchorMs = anchor.getTime()
-    const offset = ((now - anchorMs) % preset.intervalMs + preset.intervalMs) % preset.intervalMs
-    return new Date(now + (preset.intervalMs - offset))
-  }
-
-  // Relative: just now + interval
-  return new Date(now + preset.intervalMs)
-}
 
 export async function autocomplete(interaction: AutocompleteInteraction): Promise<void> {
   const focused = interaction.options.getFocused().toLowerCase()
@@ -121,11 +86,14 @@ export const data = new SlashCommandBuilder()
   .addSubcommand((sub) =>
     sub.setName('clear').setDescription('Remove all expired timers'),
   )
+  .addSubcommand((sub) =>
+    sub.setName('setup_all_presets').setDescription('Start all built-in game event timers at once'),
+  )
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ ephemeral: true })
 
-  const user = await getOrCreateUser(interaction.user.id)
+  const { user } = await getOrCreateUser(interaction.user.id)
   const sub = interaction.options.getSubcommand()
 
   if (sub === 'add') {
@@ -140,12 +108,9 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       return
     }
 
-    const activeTimers = await listTimers(interaction.user.id, user.activeAccount)
-    const liveTimers = activeTimers.filter((t) => t.expiresAt.toDate() > new Date())
-
-    if (!user.isPro && liveTimers.length >= FREE_TIER.MAX_TIMERS) {
+    if (!user.isPro) {
       await interaction.editReply(
-        `You've reached the free tier limit of **${FREE_TIER.MAX_TIMERS} active timers**.\nUse \`/upgrade\` to unlock unlimited timers.`,
+        '⚙️ **Custom timers are a Pro feature.**\nFree accounts can use `/timer preset` for all built-in game events — unlimited and free.\n\nUse `/upgrade` to unlock custom timers.',
       )
       return
     }
@@ -178,16 +143,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (sub === 'preset') {
     const eventKey = interaction.options.getString('event', true)
     const preset = GAME_PRESETS[eventKey]
-
-    const activeTimers = await listTimers(interaction.user.id, user.activeAccount)
-    const liveTimers = activeTimers.filter((t) => t.expiresAt.toDate() > new Date())
-
-    if (!user.isPro && liveTimers.length >= FREE_TIER.MAX_TIMERS) {
-      await interaction.editReply(
-        `You've reached the free tier limit of **${FREE_TIER.MAX_TIMERS} active timers**.\nUse \`/upgrade\` to unlock unlimited timers.`,
-      )
-      return
-    }
 
     const expiresAt = nextPresetOccurrence(preset)
     await addTimer(interaction.user.id, user.activeAccount, {
@@ -266,5 +221,27 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         ? `Cleared ${count} expired timer${count !== 1 ? 's' : ''}.`
         : 'No expired timers to clear.',
     )
+    return
+  }
+
+  if (sub === 'setup_all_presets') {
+    await seedDefaultPresets(user.discordId, user.activeAccount)
+
+    const enabled = Object.values(GAME_PRESETS).filter((p) => p.enabled)
+    const list = enabled.map((p) => `${TIMER_EMOJI[p.type]} ${p.name}`).join('\n')
+
+    const embed = new EmbedBuilder()
+      .setColor(Colors.Green)
+      .setTitle('✅ All Event Timers Started')
+      .setDescription(
+        `The following recurring timers have been added to **${user.activeAccount}**:\n\n${list}`,
+      )
+      .addFields({
+        name: 'What happens next',
+        value: "You'll get a DM 30 minutes before each event resets.\nUse `/timer list` to see all active timers.",
+      })
+      .setFooter({ text: 'Switch accounts with /account switch, then run this again to set up that account too.' })
+
+    await interaction.editReply({ embeds: [embed] })
   }
 }
