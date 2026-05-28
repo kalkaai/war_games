@@ -1,5 +1,5 @@
 import { Timestamp } from '../firebase'
-import { userRef, accountRef, usersCol } from '../firebase'
+import { userRef, accountRef, usersCol, timersCol } from '../firebase'
 import { UserDoc, AccountDoc, FREE_TIER } from '../types'
 
 export async function getOrCreateUser(discordId: string): Promise<{ user: UserDoc; isNew: boolean }> {
@@ -16,6 +16,7 @@ export async function getOrCreateUser(discordId: string): Promise<{ user: UserDo
     activeAccount: 'Main',
     alertThresholds: [...FREE_TIER.ALERT_THRESHOLDS],
     isPro: false,
+    hasActiveTimers: false,
     createdAt: Timestamp.now(),
   }
 
@@ -58,10 +59,29 @@ export async function setProStatus(discordId: string, isPro: boolean): Promise<v
 }
 
 /**
- * Returns all user docs — used by the timer checker to iterate all users.
- * At MVP scale this is fine; paginate when user count grows large.
+ * Returns all user docs. Prefer getActiveUsers() in the alert checker.
  */
 export async function getAllUsers(): Promise<UserDoc[]> {
   const snap = await usersCol.get()
   return snap.docs.map((d: any) => d.data() as UserDoc)
+}
+
+/**
+ * Returns only users with at least one active timer.
+ * Used by the alert checker to skip dormant accounts and reduce Firestore reads.
+ */
+export async function getActiveUsers(): Promise<UserDoc[]> {
+  const snap = await usersCol.where('hasActiveTimers', '==', true).get()
+  return snap.docs.map((d: any) => d.data() as UserDoc)
+}
+
+/**
+ * Recomputes hasActiveTimers by scanning all timer subcollections for the user.
+ * Called after any timer deletion to keep the flag accurate.
+ */
+export async function refreshHasActiveTimers(discordId: string): Promise<void> {
+  const accounts = await listAccounts(discordId)
+  const snaps = await Promise.all(accounts.map((a) => timersCol(discordId, a.name).get()))
+  const hasTimers = snaps.some((snap) => !snap.empty)
+  await userRef(discordId).update({ hasActiveTimers: hasTimers })
 }

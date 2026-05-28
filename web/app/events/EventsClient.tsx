@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { sendGAEvent } from "@next/third-parties/google";
+import { GameIcon, type GameIconType } from "../components/GameIcon";
 
 type RecurringEvent = {
   name: string;
-  emoji: string;
+  iconKey: GameIconType;
   description: string;
   utcTimes: readonly string[];
   interval: string;
@@ -81,7 +82,12 @@ export default function EventsClient({ recurring }: { recurring: readonly Recurr
                   className="border-b border-purple-900/30 even:bg-purple-900/10"
                 >
                   <td className="px-4 py-2 text-white">
-                    {j === 0 ? `${ev.emoji} ${ev.name}` : ""}
+                    {j === 0 ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        <GameIcon type={ev.iconKey} size={14} className="shrink-0 text-purple-400" />
+                        {ev.name}
+                      </span>
+                    ) : ""}
                   </td>
                   <td className="px-4 py-2 font-mono text-purple-300">{utcTime}</td>
                   <td className="px-4 py-2 font-mono font-semibold text-purple-100">

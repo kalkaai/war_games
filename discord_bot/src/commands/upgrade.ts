@@ -3,6 +3,7 @@ import {
   ChatInputCommandInteraction,
   EmbedBuilder,
   Colors,
+  MessageFlags,
 } from 'discord.js'
 import { getOrCreateUser } from '../services/accountService'
 import { FREE_TIER } from '../types'
@@ -13,7 +14,7 @@ export const data = new SlashCommandBuilder()
   .setDescription('Upgrade to WarGuard Pro — unlimited accounts, timers, and custom alerts')
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-  await interaction.deferReply({ ephemeral: true })
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral })
 
   const { user } = await getOrCreateUser(interaction.user.id)
 

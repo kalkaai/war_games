@@ -9,7 +9,7 @@ import { addTimer, listTimers, deleteTimer, clearExpiredTimers, nextPresetOccurr
 import { parseDuration } from '../utils/parseDuration'
 import { formatTimeUntil, formatDuration } from '../utils/formatDuration'
 import { TIMER_TYPES, TIMER_EMOJI, GAME_PRESETS } from '../types'
-import { AutocompleteInteraction } from 'discord.js'
+import { AutocompleteInteraction, MessageFlags } from 'discord.js'
 
 
 export async function autocomplete(interaction: AutocompleteInteraction): Promise<void> {
@@ -91,7 +91,7 @@ export const data = new SlashCommandBuilder()
   )
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-  await interaction.deferReply({ ephemeral: true })
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral })
 
   const { user } = await getOrCreateUser(interaction.user.id)
   const sub = interaction.options.getSubcommand()
@@ -131,7 +131,6 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         { name: 'Label', value: label, inline: true },
         { name: 'Type', value: type, inline: true },
         { name: 'Expires', value: formatTimeUntil(expiresAt), inline: true },
-        { name: 'Account', value: user.activeAccount, inline: true },
         ...(repeat ? [{ name: 'Repeats', value: `Every ${formatDuration(durationMs)}`, inline: true }] : []),
       )
       .setFooter({ text: repeat ? "Auto-repeats after expiry." : "You'll get a DM before it expires." })
@@ -143,6 +142,14 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   if (sub === 'preset') {
     const eventKey = interaction.options.getString('event', true)
     const preset = GAME_PRESETS[eventKey]
+
+    const existing = await listTimers(interaction.user.id, user.activeAccount)
+    if (existing.some((t) => t.label === preset.name)) {
+      await interaction.editReply(
+        `You're already tracking **${preset.name}**. Use \`/timer delete ${preset.name}\` to remove it first.`,
+      )
+      return
+    }
 
     const expiresAt = nextPresetOccurrence(preset)
     await addTimer(interaction.user.id, user.activeAccount, {
@@ -159,7 +166,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       .setColor(Colors.Green)
       .setTitle(`${emoji} ${preset.name} 🔁`)
       .setDescription(
-        `Recurring event started on **${user.activeAccount}**.\n` +
+        `Recurring event started.\n` +
         `Next alert: ${formatTimeUntil(expiresAt)}\n` +
         `Schedule: ${preset.description}`,
       )
@@ -177,7 +184,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
     if (live.length === 0) {
       await interaction.editReply(
-        `No active timers on **${user.activeAccount}**. Use \`/timer add\` to start tracking.`,
+        `No active timers. Use \`/timer add\` to start tracking.`,
       )
       return
     }
@@ -225,22 +232,32 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   }
 
   if (sub === 'setup_all_presets') {
-    await seedDefaultPresets(user.discordId, user.activeAccount)
+    const { added, skipped } = await seedDefaultPresets(user.discordId, user.activeAccount)
 
-    const enabled = Object.values(GAME_PRESETS).filter((p) => p.enabled)
-    const list = enabled.map((p) => `${TIMER_EMOJI[p.type]} ${p.name}`).join('\n')
+    if (added.length === 0) {
+      await interaction.editReply(
+        `All event timers are already set up. Use \`/timer list\` to see them.`,
+      )
+      return
+    }
+
+    const addedList = added.map((name) => {
+      const preset = Object.values(GAME_PRESETS).find((p) => p.name === name)!
+      return `${TIMER_EMOJI[preset.type]} ${name}`
+    }).join('\n')
 
     const embed = new EmbedBuilder()
       .setColor(Colors.Green)
-      .setTitle('✅ All Event Timers Started')
-      .setDescription(
-        `The following recurring timers have been added to **${user.activeAccount}**:\n\n${list}`,
-      )
+      .setTitle('✅ Event Timers Started')
+      .setDescription(`The following recurring timers have been added:\n\n${addedList}`)
       .addFields({
         name: 'What happens next',
         value: "You'll get a DM 30 minutes before each event resets.\nUse `/timer list` to see all active timers.",
       })
-      .setFooter({ text: 'Switch accounts with /account switch, then run this again to set up that account too.' })
+
+    if (skipped.length > 0) {
+      embed.setFooter({ text: `${skipped.length} already tracked and skipped.` })
+    }
 
     await interaction.editReply({ embeds: [embed] })
   }

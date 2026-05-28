@@ -3,6 +3,7 @@ import {
   ChatInputCommandInteraction,
   EmbedBuilder,
   Colors,
+  MessageFlags,
 } from 'discord.js'
 import {
   getOrCreateUser,
@@ -39,7 +40,7 @@ export const data = new SlashCommandBuilder()
   )
 
 export async function execute(interaction: ChatInputCommandInteraction) {
-  await interaction.deferReply({ ephemeral: true })
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral })
 
   const { user } = await getOrCreateUser(interaction.user.id)
   const sub = interaction.options.getSubcommand()

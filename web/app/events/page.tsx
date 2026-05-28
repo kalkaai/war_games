@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EventsClient from "./EventsClient";
+import { GameIcon, type GameIconType } from "../components/GameIcon";
 
 export const metadata: Metadata = {
   title: "Events — WarGuard | Last Z",
@@ -14,46 +15,46 @@ export const metadata: Metadata = {
   },
 };
 
-const VS_SCHEDULE = [
-  { day: "Monday",    emoji: "🔧", label: "Vehicle Day",   tip: "Use wrenches & blueprints" },
-  { day: "Tuesday",   emoji: "🏗️", label: "Building Day",  tip: "Use construction speed-ups" },
-  { day: "Wednesday", emoji: "🔬", label: "Research Day",  tip: "Use research speed-ups & badges" },
-  { day: "Thursday",  emoji: "🦸", label: "Heroes Day",    tip: "Use hero fragments & cores" },
-  { day: "Friday",    emoji: "⚔️", label: "Training Day",  tip: "Train troops & use speed-ups" },
-  { day: "Saturday",  emoji: "💀", label: "Combat Day",    tip: "Kill enemies & orange wanted missions" },
-  { day: "Sunday",    emoji: "😴", label: "Rest Day",      tip: "No VS event" },
-] as const;
+const VS_SCHEDULE: { day: string; iconKey: GameIconType; label: string; tip: string }[] = [
+  { day: "Monday",    iconKey: "vehicle",      label: "Vehicle Day",   tip: "Use wrenches & blueprints" },
+  { day: "Tuesday",   iconKey: "construction", label: "Building Day",  tip: "Use construction speed-ups" },
+  { day: "Wednesday", iconKey: "research",     label: "Research Day",  tip: "Use research speed-ups & badges" },
+  { day: "Thursday",  iconKey: "heroes",       label: "Heroes Day",    tip: "Use hero fragments & cores" },
+  { day: "Friday",    iconKey: "troops",       label: "Training Day",  tip: "Train troops & use speed-ups" },
+  { day: "Saturday",  iconKey: "combat",       label: "Combat Day",    tip: "Kill enemies & orange wanted missions" },
+  { day: "Sunday",    iconKey: "rest",         label: "Rest Day",      tip: "No VS event" },
+];
 
-const RECURRING = [
+const RECURRING: { name: string; iconKey: GameIconType; description: string; utcTimes: string[]; interval: string }[] = [
   {
     name: "Full Preparedness",
-    emoji: "🎯",
+    iconKey: "prepare",
     description: "New 4-hour sub-event every 4h — AT 00:00, 04:00, 08:00, 12:00, 16:00, 20:00",
     utcTimes: ["02:00", "06:00", "10:00", "14:00", "18:00", "22:00"],
     interval: "Every 4h",
   },
   {
     name: "Radar Reset",
-    emoji: "📡",
+    iconKey: "radar",
     description: "Radar resets every 8 hours — AT 00:00, 08:00, 16:00",
     utcTimes: ["02:00", "10:00", "18:00"],
     interval: "Every 8h",
   },
   {
     name: "Arena Brawl",
-    emoji: "🏟️",
+    iconKey: "arena",
     description: "Daily 30 min before server reset — AT 23:30",
     utcTimes: ["01:30"],
     interval: "Daily",
   },
   {
     name: "Canyon Clash",
-    emoji: "🏔️",
+    iconKey: "canyon",
     description: "Friday — time voted by alliance leadership",
     utcTimes: [],
     interval: "Weekly (Fri)",
   },
-] as const;
+];
 
 export default function EventsPage() {
   return (
@@ -84,7 +85,10 @@ export default function EventsPage() {
                 >
                   <td className="px-4 py-3 font-medium text-white">{row.day}</td>
                   <td className="px-4 py-3 text-purple-200">
-                    <span className="mr-2">{row.emoji}</span>{row.label}
+                    <span className="inline-flex items-center gap-2">
+                      <GameIcon type={row.iconKey} size={16} className="shrink-0 text-purple-400" />
+                      {row.label}
+                    </span>
                   </td>
                   <td className="px-4 py-3 text-purple-300/70">{row.tip}</td>
                 </tr>
@@ -101,7 +105,9 @@ export default function EventsPage() {
           {RECURRING.map((ev) => (
             <div key={ev.name} className="rounded-xl border border-purple-800/50 bg-purple-900/30 p-5">
               <div className="flex items-center gap-3">
-                <span className="text-2xl">{ev.emoji}</span>
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-purple-800/50 text-purple-300 shrink-0">
+                  <GameIcon type={ev.iconKey} size={22} />
+                </div>
                 <div>
                   <p className="font-semibold text-white">{ev.name}</p>
                   <p className="text-xs text-purple-400">{ev.interval}</p>

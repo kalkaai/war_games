@@ -5,6 +5,7 @@ import * as timerCommand from './commands/timer'
 import * as accountCommand from './commands/account'
 import * as alertsCommand from './commands/alerts'
 import * as upgradeCommand from './commands/upgrade'
+import * as helpCommand from './commands/help'
 import { startTimerChecker } from './workers/timerChecker'
 
 // --- Command registry ---
@@ -20,6 +21,7 @@ commands.set(timerCommand.data.name, timerCommand)
 commands.set(accountCommand.data.name, accountCommand)
 commands.set(alertsCommand.data.name, alertsCommand)
 commands.set(upgradeCommand.data.name, upgradeCommand)
+commands.set(helpCommand.data.name, helpCommand)
 
 // --- Discord client ---
 
@@ -53,7 +55,7 @@ client.on(Events.InteractionCreate, async (interaction: Interaction) => {
     await command.execute(interaction)
   } catch (err) {
     console.error(`[Command: ${interaction.commandName}]`, err)
-    const msg = { content: 'Something went wrong. Please try again.', ephemeral: true }
+    const msg = { content: 'Something went wrong. Please try again.', flags: ['Ephemeral'] as const }
     if (interaction.replied || interaction.deferred) {
       await interaction.followUp(msg)
     } else {

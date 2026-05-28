@@ -1,6 +1,7 @@
 import { Timestamp } from '../firebase'
-import { timersCol } from '../firebase'
+import { timersCol, userRef } from '../firebase'
 import { TimerDoc, TimerType, GAME_PRESETS, GamePreset } from '../types'
+import { refreshHasActiveTimers } from './accountService'
 
 export function nextPresetOccurrence(preset: GamePreset): Date {
   const now = Date.now()
@@ -27,20 +28,36 @@ export function nextPresetOccurrence(preset: GamePreset): Date {
   return new Date(now + preset.intervalMs)
 }
 
-export async function seedDefaultPresets(discordId: string, accountName: string): Promise<void> {
+export async function seedDefaultPresets(
+  discordId: string,
+  accountName: string,
+): Promise<{ added: string[]; skipped: string[] }> {
+  const snap = await timersCol(discordId, accountName).get()
+  const existingLabels = new Set(snap.docs.map((d: any) => (d.data() as TimerDoc).label))
+
   const enabled = Object.entries(GAME_PRESETS).filter(([, p]) => p.enabled)
+  const added: string[] = []
+  const skipped: string[] = []
+
   await Promise.all(
-    enabled.map(([, preset]) =>
-      addTimer(discordId, accountName, {
+    enabled.map(async ([, preset]) => {
+      if (existingLabels.has(preset.name)) {
+        skipped.push(preset.name)
+        return
+      }
+      await addTimer(discordId, accountName, {
         type: preset.type,
         label: preset.name,
         expiresAt: nextPresetOccurrence(preset),
         recurring: true,
         intervalMs: preset.intervalMs,
         recurringMode: preset.recurringMode,
-      }),
-    ),
+      })
+      added.push(preset.name)
+    }),
   )
+
+  return { added, skipped }
 }
 
 interface AddTimerInput {
@@ -75,6 +92,7 @@ export async function addTimer(
   }
 
   await ref.set(timer)
+  await userRef(discordId).update({ hasActiveTimers: true })
 }
 
 export async function deleteTimerById(
@@ -83,6 +101,7 @@ export async function deleteTimerById(
   timerId: string,
 ): Promise<void> {
   await timersCol(discordId, accountName).doc(timerId).delete()
+  await refreshHasActiveTimers(discordId)
 }
 
 export async function listTimers(discordId: string, accountName: string): Promise<TimerDoc[]> {
@@ -101,6 +120,7 @@ export async function deleteTimer(
   if (snap.empty) return false
 
   await snap.docs[0].ref.delete()
+  await refreshHasActiveTimers(discordId)
   return true
 }
 
@@ -114,7 +134,7 @@ export async function clearExpiredTimers(discordId: string, accountName: string)
   const batch = col.firestore.batch()
   snap.docs.forEach((d: any) => batch.delete(d.ref))
   await batch.commit()
-
+  await refreshHasActiveTimers(discordId)
   return snap.docs.length
 }
 

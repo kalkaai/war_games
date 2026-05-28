@@ -35,6 +35,7 @@ export interface UserDoc {
   activeAccount: string
   alertThresholds: number[]  // minutes before expiry, e.g. [60, 30, 10]
   isPro: boolean
+  hasActiveTimers: boolean
   createdAt: Timestamp
 }
 

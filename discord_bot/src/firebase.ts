@@ -25,10 +25,13 @@ if (!useMemoryStore) {
 
 // ── Conditional exports ───────────────────────────────────────────────────────
 
-export { Timestamp } from './db/memoryStore'
-
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const mem = require('./db/memoryStore')
+
+export const Timestamp = useMemoryStore
+  ? (mem.Timestamp as typeof import('./db/memoryStore').Timestamp)
+  : admin.firestore.Timestamp
+
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const fb  = useMemoryStore ? mem : (() => {
   const { getFirestore } = require('firebase-admin/firestore')

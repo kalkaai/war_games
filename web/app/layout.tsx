@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { WarGuardLogo } from "./components/WarGuardLogo";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -157,10 +158,7 @@ export default function RootLayout({
         {/* Sticky header */}
         <header className="sticky top-0 z-50 w-full border-b border-purple-900/40 bg-[#0a0014]/80 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-            <span className="text-xl font-bold tracking-tight text-white shrink-0 flex items-center gap-2">
-              WarGuard
-              <span className="rounded bg-purple-600/70 px-1.5 py-0.5 text-xs font-medium text-purple-100">Beta</span>
-            </span>
+            <WarGuardLogo />
             <nav aria-label="Primary" className="hidden lg:flex items-center gap-1 mx-4">
               {[
                 { href: "/events",    label: "Events" },
