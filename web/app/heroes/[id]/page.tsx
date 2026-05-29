@@ -13,12 +13,12 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { id: string } }): Metadata {
   const hero = heroes.find((h) => h.id === params.id);
   if (!hero) return {};
-  const desc = `${hero.name} Last Z hero guide: ${hero.tier} tier ${hero.role}. PvP ${hero.pvpRating} · PvE ${hero.pveRating}. Skills, ratings, and investment priority.`;
+  const desc = `${hero.name} Last Z: Survival Shooter hero guide: ${hero.tier} tier ${hero.role}. PvP ${hero.pvpRating} · PvE ${hero.pveRating}. Skills, ratings, and investment priority.`;
   return {
-    title: `${hero.name} — GAMIDES | Last Z`,
+    title: `${hero.name} — GAMIDES | Last Z: Survival Shooter`,
     description: desc,
     openGraph: {
-      title: `${hero.name} — GAMIDES | Last Z`,
+      title: `${hero.name} — GAMIDES | Last Z: Survival Shooter`,
       description: desc,
     },
     alternates: {

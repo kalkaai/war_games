@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { sendGAEvent } from "@next/third-parties/google";
 import hqData from "@/data/hq.json";
 import type { HQLevel } from "@/types";
@@ -35,13 +36,19 @@ export default function HQTable() {
   const router = useRouter();
   const highlight = searchParams.get("level") ? parseInt(searchParams.get("level")!, 10) : null;
 
+  useEffect(() => {
+    if (!highlight) return;
+    const el = document.getElementById(`level-${highlight}`);
+    el?.scrollIntoView({ block: "center", behavior: "smooth" });
+  }, [highlight]);
+
   function handleSearch(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const lv = fd.get("level") as string;
     if (lv) {
       sendGAEvent("event", "hq_search", { level: lv });
-      router.push(`/hq?level=${lv}#level-${lv}`);
+      router.push(`/hq?level=${lv}`);
     } else {
       router.push("/hq");
     }

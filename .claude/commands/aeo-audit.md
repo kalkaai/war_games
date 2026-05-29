@@ -11,7 +11,7 @@ AI answer engines extract facts directly from page content. They prefer:
 - Tabular data with clear column headers
 - Questions used as headings (H2/H3)
 - Factual, numeric data (costs, durations, levels) — not vague descriptions
-- Clear entity context ("Last Z game", not just "the game")
+- Clear entity context ("Last Z: Survival Shooter game", not just "the game")
 
 GAMIDES's reference data (HQ costs, research badges, hero skills) is exactly what AI engines want to cite. This audit ensures the content is structured to be extracted correctly.
 
@@ -34,7 +34,7 @@ For each page:
 
 ## Check 3 — Entity clarity
 
-- [ ] Every page includes "Last Z" in the H1 or within the first 100 words
+- [ ] Every page includes "Last Z: Survival Shooter" in the H1 or within the first 100 words
 - [ ] Game-specific terms are not assumed — brief context given on first use
   - Example: "Apocalypse Time (AT) — the game's timezone, UTC-2" on first mention
 - [ ] The site name "GAMIDES" appears in the page title

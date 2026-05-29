@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Beginner Guide — GAMIDES | Last Z",
-  description: "Last Z: Survival Shooter beginner guide — HQ priorities, hero investment, alliance tips, and resource management for new players.",
+  title: "Beginner Guide — GAMIDES | Last Z: Survival Shooter",
+  description: "Last Z: Survival Shooter: Survival Shooter beginner guide — HQ priorities, hero investment, alliance tips, and resource management for new players.",
   openGraph: {
-    title: "Beginner Guide — GAMIDES | Last Z",
-    description: "Last Z beginner guide: HQ priorities, hero investment, alliance tips, and resource management for new players.",
+    title: "Beginner Guide — GAMIDES | Last Z: Survival Shooter",
+    description: "Last Z: Survival Shooter beginner guide: HQ priorities, hero investment, alliance tips, and resource management for new players.",
 
   },
   alternates: {
@@ -62,22 +62,22 @@ const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What should you do on Day 1 in Last Z?",
+      "name": "What should you do on Day 1 in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "Complete the tutorial to unlock all systems and claim the reward bundle. Immediately join an active alliance — alliance bonuses, help requests, and technology boosts are critical from day one. Your first HQ upgrades should be as fast as possible; do not idle the build queue." }
     },
     {
       "@type": "Question",
-      "name": "What is the HQ upgrade order in Last Z?",
+      "name": "What is the HQ upgrade order in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "HQ level is the single most important progression gate. It determines your hero level cap, building level caps, and which research trees you can unlock. Key milestones: HQ 11 unlocks the Rider Camp, HQ 25 accelerates research dramatically, HQ 30 is required to start the T10 troop research path." }
     },
     {
       "@type": "Question",
-      "name": "Which faction should I choose in Last Z?",
+      "name": "Which faction should I choose in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "Pick one troop type and stick with it: Assaulter (Blood Rose), Shooter (Wings of Dawn), or Rider (Guard of Order). Wings of Dawn is recommended for beginners due to balanced stats. Guard of Order (Rider) is the strongest in late-game PvP due to the Amber/Dodomeki combo." }
     },
     {
       "@type": "Question",
-      "name": "What is the research priority in Last Z?",
+      "name": "What is the research priority in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "Research Military Strategies first — it provides core ATK/DEF/HP bonuses all troop types benefit from. Then work on Fully Armed Alliance for alliance bonuses. Do not research Hero Training beyond the Cockpit node early — it has poor badge-to-power ratio compared to Military Strategies." }
     }
   ]
@@ -86,9 +86,9 @@ const jsonLd = {
 export default function GuidePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Beginner Guide</h1>
+      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter Beginner Guide</h1>
       <p className="mt-2 text-purple-200/80">
-        Essential tips for new Last Z players — from day 1 through mid-game.
+        Essential tips for new Last Z: Survival Shooter players — from day 1 through mid-game.
       </p>
 
       <div className="mt-8 space-y-6">

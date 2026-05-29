@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import gearData from "@/data/gear.json";
 
 export const metadata: Metadata = {
-  title: "Gear Guide — GAMIDES | Last Z",
-  description: "Last Z hero gear slots, tiers, enhancement levels, and upgrade priority. Covers purple, orange, exclusive, and mythic gear with max enhancement stats.",
+  title: "Gear Guide — GAMIDES | Last Z: Survival Shooter",
+  description: "Last Z: Survival Shooter hero gear slots, tiers, enhancement levels, and upgrade priority. Covers purple, orange, exclusive, and mythic gear with max enhancement stats.",
   openGraph: {
-    title: "Gear Guide — GAMIDES | Last Z",
-    description: "Last Z hero gear slots, tiers, enhancement levels, and upgrade priority. Purple, orange, exclusive, and mythic gear.",
+    title: "Gear Guide — GAMIDES | Last Z: Survival Shooter",
+    description: "Last Z: Survival Shooter hero gear slots, tiers, enhancement levels, and upgrade priority. Purple, orange, exclusive, and mythic gear.",
 
   },
   alternates: {
@@ -22,18 +22,18 @@ const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is the best gear upgrade priority in Last Z?",
+      "name": "What is the best gear upgrade priority in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "For DPS heroes: Gun first, Helmet second, Boots third, Armor last. For Tank/Support heroes: Armor first, Boots second, Helmet third, Gun last. Never spend Enhancement Alloy on purple, blue, or green gear. The first hexagon promotion (Orange Lv50) costs 100 Power Cores and provides the highest stat gain per resource in the game." }
     },
     {
       "@type": "Question",
-      "name": "What are the gear tiers in Last Z?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Last Z has four gear tiers: Purple (max Lv 30 — convert to Alloy immediately), Orange (max Lv 50, extends to 75 with hexagons — the F2P endgame target), Exclusive (hero-specific, max Lv 100 — craft after completing orange set), and Mythic (endgame tier, adds +25 to max enhancement cap)." }
+      "name": "What are the gear tiers in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Last Z: Survival Shooter has four gear tiers: Purple (max Lv 30 — convert to Alloy immediately), Orange (max Lv 50, extends to 75 with hexagons — the F2P endgame target), Exclusive (hero-specific, max Lv 100 — craft after completing orange set), and Mythic (endgame tier, adds +25 to max enhancement cap)." }
     },
     {
       "@type": "Question",
-      "name": "What is damage resistance in Last Z gear?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Damage resistance is the rarest and most impactful PvP stat in Last Z. It applies as a separate multiplier that stacks multiplicatively with DEF%. It is only found on high-tier Armor pieces and is a key reason why Licia and Liliana are top-tier heroes — their passives provide this stat." }
+      "name": "What is damage resistance in Last Z: Survival Shooter gear?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Damage resistance is the rarest and most impactful PvP stat in Last Z: Survival Shooter. It applies as a separate multiplier that stacks multiplicatively with DEF%. It is only found on high-tier Armor pieces and is a key reason why Licia and Liliana are top-tier heroes — their passives provide this stat." }
     }
   ]
 };
@@ -42,9 +42,9 @@ export default function GearPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
 
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Gear Guide</h1>
+      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter Gear Guide</h1>
       <p className="mt-2 text-purple-200/80">
-        Hero equipment slots, tiers, and investment priorities for Last Z.
+        Hero equipment slots, tiers, and investment priorities for Last Z: Survival Shooter.
       </p>
 
       {/* Slots */}

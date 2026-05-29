@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "GAMIDES — Last Z Reference";
+export const alt = "GAMIDES — Last Z: Survival Shooter Reference";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -91,7 +91,7 @@ export default function Image() {
               textTransform: "uppercase",
             }}
           >
-            Last Z Reference
+            Last Z: Survival Shooter
           </div>
 
           {/* Section pills */}

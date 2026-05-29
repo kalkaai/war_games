@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PvP & Formations — GAMIDES | Last Z",
-  description: "Last Z PvP guide: troop type counters, front and back row formations, faction team compositions, and VS event strategy for competitive play.",
+  title: "PvP & Formations — GAMIDES | Last Z: Survival Shooter",
+  description: "Last Z: Survival Shooter PvP guide: troop type counters, front and back row formations, faction team compositions, and VS event strategy for competitive play.",
   openGraph: {
-    title: "PvP & Formations — GAMIDES | Last Z",
-    description: "Last Z PvP guide: troop counters, formations, faction compositions, and competitive strategy for arena and alliance battles.",
+    title: "PvP & Formations — GAMIDES | Last Z: Survival Shooter",
+    description: "Last Z: Survival Shooter PvP guide: troop counters, formations, faction compositions, and competitive strategy for arena and alliance battles.",
 
   },
   alternates: {
@@ -82,17 +82,17 @@ const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How does the troop counter system work in Last Z?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Last Z uses a rock-paper-scissors counter triangle: Assaulters beat Riders, Shooters beat Assaulters, and Riders beat Shooters. Matching your troops against the opponent's weakness provides a significant combat advantage in PvP." }
+      "name": "How does the troop counter system work in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Last Z: Survival Shooter uses a rock-paper-scissors counter triangle: Assaulters beat Riders, Shooters beat Assaulters, and Riders beat Shooters. Matching your troops against the opponent's weakness provides a significant combat advantage in PvP." }
     },
     {
       "@type": "Question",
-      "name": "What is the best PvP formation in Last Z?",
+      "name": "What is the best PvP formation in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "The strongest formation is a Full Faction Stack — deploy all 5 heroes of one faction to trigger exclusive skill bonuses from every hero. Place HP/DEF heroes in the front row and ATK heroes in the back row. The front two heroes absorb the bulk of incoming damage." }
     },
     {
       "@type": "Question",
-      "name": "Do hero passive skills require specific row placement in Last Z?",
+      "name": "Do hero passive skills require specific row placement in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "No. A hero's passive skills (Skill 3 and 4) are always active regardless of front or back row placement — only deploying the hero to war is required, not specific row positioning. This is a common misconception among new players." }
     }
   ]
@@ -101,7 +101,7 @@ const jsonLd = {
 export default function PvPPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z PvP & Formations</h1>
+      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter PvP & Formations</h1>
       <p className="mt-2 text-purple-200/80">
         Troop counters, formation strategy, and meta tips for competitive play.
       </p>

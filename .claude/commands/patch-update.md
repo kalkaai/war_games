@@ -1,4 +1,4 @@
-Parse a Last Z game patch and update the affected data files.
+Parse a Last Z: Survival Shooter game patch and update the affected data files.
 
 Patch notes or description: $ARGUMENTS
 
@@ -36,7 +36,7 @@ Read the affected files to understand the current values before making changes.
 ## Step 3 — Validate the patch notes
 
 Before making any edits:
-- Cross-check changed values against at least one external source (stresswar.com or the Last Z wiki)
+- Cross-check changed values against at least one external source (stresswar.com or the Last Z: Survival Shooter wiki)
 - Flag any change that seems inconsistent with the surrounding data (e.g., a cost that breaks the scaling pattern of adjacent levels)
 - If a value is unverified, mark it with a comment `// UNVERIFIED — patch note only` in a separate tracking note (not in the JSON itself)
 

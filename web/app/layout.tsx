@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Link from "next/link";
 import { GameidesLogo } from "./components/GameidesLogo";
+import { PrimaryNav } from "./components/PrimaryNav";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -17,13 +18,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "GAMIDES — The Last Z Reference",
+  title: "GAMIDES — The Last Z: Survival Shooter Reference",
   description:
-    "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z players. The complete game reference for serious Last Z players.",
+    "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game reference.",
   openGraph: {
-    title: "GAMIDES — The Last Z Reference",
+    title: "GAMIDES — The Last Z: Survival Shooter Reference",
     description:
-      "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z players. The complete game reference.",
+      "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game reference.",
     type: "website",
     url: "https://www.gamides.com",
     images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
@@ -123,10 +124,10 @@ const websiteJsonLd = {
   "@type": "WebSite",
   "name": "GAMIDES",
   "url": "https://www.gamides.com",
-  "description": "Community reference hub for Last Z players — event schedules, HQ upgrade tables, research trees, hero guides, and calculators.",
+  "description": "Community reference hub for Last Z: Survival Shooter players — event schedules, HQ upgrade tables, research trees, hero guides, and calculators.",
   "about": {
     "@type": "VideoGame",
-    "name": "Last Z",
+    "name": "Last Z: Survival Shooter",
     "description": "Competitive strategy and survival game with base building, research, hero collection, and alliance PvP.",
   },
 };
@@ -138,7 +139,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
 
         {/* Skip link */}
@@ -176,32 +177,12 @@ export default function RootLayout({
         <header className="sticky top-0 z-50 w-full border-b border-purple-900/40 bg-[#180030]/85 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <GameidesLogo />
-            <nav aria-label="Primary" className="hidden lg:flex items-center gap-1 mx-4">
-              {[
-                { href: "/events",    label: "Events" },
-                { href: "/hq",        label: "HQ" },
-                { href: "/research",  label: "Research" },
-                { href: "/heroes",    label: "Heroes" },
-                { href: "/tank",      label: "Vehicles" },
-                { href: "/gear",      label: "Gear" },
-                { href: "/pvp",       label: "PvP" },
-                { href: "/guide",     label: "Guide" },
-                { href: "/calc",      label: "Calc" },
-              ].map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="rounded px-2.5 py-1.5 text-sm text-purple-200/90 transition-colors hover:bg-purple-800/50 hover:text-white"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
+            <PrimaryNav />
           </div>
         </header>
 
         {/* Page content */}
-        <main id="main-content" className="relative z-10">
+        <main id="main-content" className="relative z-10 flex-1">
           {children}
         </main>
 
@@ -216,8 +197,13 @@ export default function RootLayout({
             >
               Add GAMIDES to Discord
             </a>
-            <p className="mt-2">GAMIDES — Personal companion for Last Z players.</p>
-            <p className="mt-2 text-purple-200/80">Copyright &copy; {new Date().getFullYear()} GAMIDES. Not affiliated with Last Z or its developers.</p>
+            <p className="mt-2">GAMIDES — Personal companion for Last Z: Survival Shooter players.</p>
+            <p className="mt-2 text-purple-200/80">Copyright &copy; {new Date().getFullYear()} GAMIDES. Not affiliated with Last Z: Survival Shooter or its developers.</p>
+            <p className="mt-2">
+              <Link href="/credits" className="text-purple-400 hover:text-purple-300 transition-colors">
+                Credits
+              </Link>
+            </p>
           </div>
         </footer>
 

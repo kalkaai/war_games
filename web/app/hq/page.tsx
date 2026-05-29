@@ -3,11 +3,11 @@ import { Suspense } from "react";
 import HQTable from "./HQTable";
 
 export const metadata: Metadata = {
-  title: "HQ Upgrades — GAMIDES | Last Z",
-  description: "Last Z HQ upgrade requirements for levels 1–35: required buildings, resource costs, heroes cap, and build times. Updated for 2026.",
+  title: "HQ Upgrades — GAMIDES | Last Z: Survival Shooter",
+  description: "Last Z: Survival Shooter HQ upgrade requirements for levels 1–35: required buildings, resource costs, heroes cap, and build times. Updated for 2026.",
   openGraph: {
-    title: "HQ Upgrades — GAMIDES | Last Z",
-    description: "Last Z HQ upgrade requirements for levels 1–35: required buildings, resource costs, heroes cap, and build times.",
+    title: "HQ Upgrades — GAMIDES | Last Z: Survival Shooter",
+    description: "Last Z: Survival Shooter HQ upgrade requirements for levels 1–35: required buildings, resource costs, heroes cap, and build times.",
 
   },
   alternates: {
@@ -21,13 +21,13 @@ const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What resources does each HQ level require in Last Z?",
-      "acceptedAnswer": { "@type": "Answer", "text": "HQ upgrades in Last Z require Food, Wood, and Zent resources in increasing amounts at each level, along with specific buildings being upgraded to a minimum level. A Laboratory is required for every HQ upgrade from level 8 onward." }
+      "name": "What resources does each HQ level require in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "HQ upgrades in Last Z: Survival Shooter require Food, Wood, and Zent resources in increasing amounts at each level, along with specific buildings being upgraded to a minimum level. A Laboratory is required for every HQ upgrade from level 8 onward." }
     },
     {
       "@type": "Question",
-      "name": "Why is HQ level important in Last Z?",
-      "acceptedAnswer": { "@type": "Answer", "text": "HQ level is the single most important progression gate in Last Z. It determines your hero level cap, building level caps, troop tier access, and which research trees you can unlock. Key milestones: HQ 11 unlocks Rider Camp T4, HQ 25 dramatically accelerates research, HQ 30 unlocks the T10 troop research path." }
+      "name": "Why is HQ level important in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "HQ level is the single most important progression gate in Last Z: Survival Shooter. It determines your hero level cap, building level caps, troop tier access, and which research trees you can unlock. Key milestones: HQ 11 unlocks Rider Camp T4, HQ 25 dramatically accelerates research, HQ 30 unlocks the T10 troop research path." }
     }
   ]
 };

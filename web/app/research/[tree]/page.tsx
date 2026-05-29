@@ -17,12 +17,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const tree = trees.find((t) => t.id === params.tree);
   if (!tree) return {};
-  const desc = `Last Z ${tree.name} research tree: ${tree.nodeCount} nodes, ${(tree.totalBadges / 1_000_000).toFixed(2)}M badges to max. Interactive progress tracker included.`;
+  const desc = `Last Z: Survival Shooter ${tree.name} research tree: ${tree.nodeCount} nodes, ${(tree.totalBadges / 1_000_000).toFixed(2)}M badges to max. Interactive progress tracker included.`;
   return {
-    title: `${tree.name} — Research | GAMIDES | Last Z`,
+    title: `${tree.name} — Research | GAMIDES | Last Z: Survival Shooter`,
     description: desc,
     openGraph: {
-      title: `${tree.name} — Research | GAMIDES | Last Z`,
+      title: `${tree.name} — Research | GAMIDES | Last Z: Survival Shooter`,
       description: desc,
     },
     alternates: {

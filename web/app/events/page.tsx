@@ -8,33 +8,33 @@ const jsonLd = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "When does each VS event run in Last Z?",
+      "name": "When does each VS event run in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "VS events rotate daily Monday–Sunday: Monday is Vehicle Day (wrenches & blueprints), Tuesday is Building Day (construction speed-ups), Wednesday is Research Day (research speed-ups & badges), Thursday is Heroes Day (fragments & cores), Friday is Training Day (troop training), Saturday is Combat Day (kill enemies & complete orange wanted missions), Sunday is Rest Day (no VS event)." }
     },
     {
       "@type": "Question",
-      "name": "What is Apocalypse Time (AT) in Last Z?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Apocalypse Time (AT) is Last Z's server timezone used for all event schedules. AT = UTC − 2 hours. All game events, raids, and daily resets run on AT midnight (00:00 AT = 02:00 UTC)." }
+      "name": "What is Apocalypse Time (AT) in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Apocalypse Time (AT) is Last Z: Survival Shooter's server timezone used for all event schedules. AT = UTC − 2 hours. All game events, raids, and daily resets run on AT midnight (00:00 AT = 02:00 UTC)." }
     },
     {
       "@type": "Question",
-      "name": "When does Radar Reset happen in Last Z?",
+      "name": "When does Radar Reset happen in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "Radar Reset occurs every 8 hours at AT 00:00, 08:00, and 16:00 (equivalent to UTC 02:00, 10:00, 18:00). This resets the radar charges used for scouting enemy bases." }
     },
     {
       "@type": "Question",
-      "name": "When is Arena Brawl in Last Z?",
+      "name": "When is Arena Brawl in Last Z: Survival Shooter?",
       "acceptedAnswer": { "@type": "Answer", "text": "Arena Brawl runs daily for 30 minutes starting at AT 23:30 (UTC 01:30), just before the daily server reset at AT midnight." }
     }
   ]
 };
 
 export const metadata: Metadata = {
-  title: "Events — GAMIDES | Last Z",
-  description: "Last Z event schedules: VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl. Includes timezone converter for all events.",
+  title: "Events — GAMIDES | Last Z: Survival Shooter",
+  description: "Last Z: Survival Shooter event schedules: VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl. Includes timezone converter for all events.",
   openGraph: {
-    title: "Events — GAMIDES | Last Z",
-    description: "Last Z event schedules: VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl. Timezone converter included.",
+    title: "Events — GAMIDES | Last Z: Survival Shooter",
+    description: "Last Z: Survival Shooter event schedules: VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl. Timezone converter included.",
 
   },
   alternates: {
@@ -87,9 +87,9 @@ export default function EventsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
 
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Events &amp; VS Schedule</h1>
+      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter Events &amp; VS Schedule</h1>
       <p className="mt-2 text-purple-100/95">
-        <strong>Apocalypse Time (AT)</strong> is Last Z&apos;s server timezone — AT = UTC − 2 hours. All game events, raids, and resets run on AT midnight. Times below are shown in UTC and your local timezone.
+        <strong>Apocalypse Time (AT)</strong> is Last Z: Survival Shooter&apos;s server timezone — AT = UTC − 2 hours. All game events, raids, and resets run on AT midnight. Times below are shown in UTC and your local timezone.
       </p>
 
       {/* VS Weekly Rotation */}

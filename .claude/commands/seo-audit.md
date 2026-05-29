@@ -17,7 +17,7 @@ If no page is specified, audit all pages in `web/app/`.
 ### Heading hierarchy
 - [ ] Each page has exactly one `<h1>`
 - [ ] `<h2>` used for major sections, `<h3>` for subsections — no skipped levels
-- [ ] `<h1>` includes the primary keyword for that page (e.g., "Last Z HQ Upgrade Levels")
+- [ ] `<h1>` includes the primary keyword for that page (e.g., "Last Z: Survival Shooter HQ Upgrade Levels")
 
 ### Structured data (JSON-LD)
 - [ ] Reference table pages (HQ, research) have `FAQPage` or `Table` schema where appropriate
@@ -30,7 +30,7 @@ If no page is specified, audit all pages in `web/app/`.
 - [ ] Internal links use `<Link>` from `next/link`, not raw `<a>` tags
 
 ### Content
-- [ ] Page titles and headings use terms players actually search for (e.g., "Last Z" not just "game")
+- [ ] Page titles and headings use terms players actually search for (e.g., "Last Z: Survival Shooter" not just "game")
 - [ ] Each page answers a clear question a player would search
 
 ## Output format

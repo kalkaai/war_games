@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "GAMIDES — Last Z Reference",
-  description: "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z players. The complete game reference site.",
+  title: "GAMIDES — Last Z: Survival Shooter Reference",
+  description: "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game reference site.",
   openGraph: {
-    title: "GAMIDES — Last Z Reference",
-    description: "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z players.",
+    title: "GAMIDES — Last Z: Survival Shooter Reference",
+    description: "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players.",
 
   },
   alternates: {
@@ -68,14 +68,14 @@ export default function HomePage() {
       {/* Hero */}
       <section className="flex min-h-[70vh] flex-col items-center justify-center py-20 text-center">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
-          The Last Z Reference
+          The Last Z: Survival Shooter Reference
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-purple-100/95 sm:text-xl">
           Event schedules, upgrade tables, research trees, and calculators for
-          serious Last Z players.
+          serious Last Z: Survival Shooter players.
         </p>
         <p className="mt-3 max-w-xl text-sm text-purple-200/75">
-          <strong>Last Z</strong> is a competitive strategy &amp; survival game with base building, research, hero collection, and alliance PvP. <strong>GAMIDES</strong> is the community reference hub.
+          <strong>Last Z: Survival Shooter</strong> is a competitive strategy &amp; survival game with base building, research, hero collection, and alliance PvP. <strong>GAMIDES</strong> is the community reference hub.
         </p>
         <div className="mt-10 flex flex-col items-center gap-4">
           <a

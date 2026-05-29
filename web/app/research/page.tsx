@@ -4,11 +4,11 @@ import researchData from "@/data/research.json";
 import type { ResearchTree } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Research Trees — GAMIDES | Last Z",
-  description: "All 9 Last Z research trees with badge costs, node counts, and interactive progress tracking. Plan your research investment per tree.",
+  title: "Research Trees — GAMIDES | Last Z: Survival Shooter",
+  description: "All 9 Last Z: Survival Shooter research trees with badge costs, node counts, and interactive progress tracking. Plan your research investment per tree.",
   openGraph: {
-    title: "Research Trees — GAMIDES | Last Z",
-    description: "All 9 Last Z research trees with badge costs, node counts, and interactive progress tracking.",
+    title: "Research Trees — GAMIDES | Last Z: Survival Shooter",
+    description: "All 9 Last Z: Survival Shooter research trees with badge costs, node counts, and interactive progress tracking.",
 
   },
   alternates: {
@@ -29,9 +29,9 @@ export default function ResearchPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
 
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Research Trees</h1>
+      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter Research Trees</h1>
       <p className="mt-2 text-purple-100/95">
-        9 trees · {fmtBadges(totalBadges)} total badges to max everything. <strong>Badges</strong> are the primary research currency in Last Z, earned from daily tasks and events, and spent across trees to unlock stat bonuses (ATK, DEF, HP, march speed, and more).
+        9 trees · {fmtBadges(totalBadges)} total badges to max everything. <strong>Badges</strong> are the primary research currency in Last Z: Survival Shooter, earned from daily tasks and events, and spent across trees to unlock stat bonuses (ATK, DEF, HP, march speed, and more).
       </p>
 
       <h2 className="mt-8 text-xl font-bold text-white">Which Research Tree Should You Focus On First?</h2>
