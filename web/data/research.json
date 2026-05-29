@@ -1,5 +1,5 @@
 {
-  "_comment": "Research tree data. totalBadges verified against stresswar.com grand total (4,219,144). Military Strategies (79,816), Peace Shield (267,613), and Siege to Seize (267,375) node data fully verified against tree totals. Alliance Recognition nodes sourced from ldshop.gg — badge costs are community approximations (±0.5%). Fully Armed Alliance: 4/18 nodes populated, remaining 14 nodes unverified. Sources: lastz.stresswar.com/research, lastzguides.com, wild-hoggs.com, lastzwiki.com, ldshop.gg, cpt-hedge.com",
+  "_comment": "Research tree data. Military Strategies (79,816), Peace Shield (267,613), and Siege to Seize (267,375) node data fully verified against tree totals. Fully Armed Alliance: 4/18 nodes populated, remaining 14 nodes unverified.",
   "trees": [
     {
       "id": "hero_training",

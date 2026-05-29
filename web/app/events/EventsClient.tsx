@@ -41,7 +41,7 @@ export default function EventsClient({ recurring }: { recurring: readonly Recurr
   const filteredRecurring = recurring.filter((ev) => ev.utcTimes.length > 0);
 
   return (
-    <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-5">
+    <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-5">
       <div className="flex flex-wrap items-center gap-4">
         <label htmlFor="timezone-select" className="text-sm font-medium text-purple-200">Your timezone offset:</label>
         <select

@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import gearData from "@/data/gear.json";
 
 export const metadata: Metadata = {
-  title: "Gear Guide — WarGuard | Last Z",
+  title: "Gear Guide — GAMIDES | Last Z",
   description: "Last Z hero gear slots, tiers, enhancement levels, and upgrade priority. Covers purple, orange, exclusive, and mythic gear with max enhancement stats.",
   openGraph: {
-    title: "Gear Guide — WarGuard | Last Z",
+    title: "Gear Guide — GAMIDES | Last Z",
     description: "Last Z hero gear slots, tiers, enhancement levels, and upgrade priority. Purple, orange, exclusive, and mythic gear.",
 
   },
   alternates: {
-    canonical: "https://warguard.app/gear",
+    canonical: "https://www.gamides.com/gear",
   },
 };
 
@@ -43,7 +43,7 @@ export default function GearPage() {
     <div className="mx-auto max-w-4xl px-4 py-10">
 
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Gear Guide</h1>
-      <p className="mt-2 text-purple-300/70">
+      <p className="mt-2 text-purple-200/80">
         Hero equipment slots, tiers, and investment priorities for Last Z.
       </p>
 
@@ -54,7 +54,7 @@ export default function GearPage() {
           {slots.map((slot) => (
             <div
               key={slot.id}
-              className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-4"
+              className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4"
             >
               <div className="flex items-center gap-2">
                 <span className="text-2xl">{slot.icon}</span>
@@ -63,7 +63,7 @@ export default function GearPage() {
                   <p className="text-xs text-purple-400">{slot.primaryStat}</p>
                 </div>
               </div>
-              <p className="mt-2 text-xs text-purple-300/70">{slot.notes}</p>
+              <p className="mt-2 text-xs text-purple-200/80">{slot.notes}</p>
             </div>
           ))}
         </div>
@@ -92,7 +92,7 @@ export default function GearPage() {
                       {tier.name} Tier
                       <span className="ml-2 text-xs text-purple-400/60">max Lv {tier.maxLevel}</span>
                     </p>
-                    <p className="mt-1 text-sm text-purple-200/80">{tier.notes}</p>
+                    <p className="mt-1 text-sm text-purple-100/95">{tier.notes}</p>
                   </div>
                   {"hexagons" in tier && (
                     <span className="shrink-0 rounded bg-purple-800/50 px-2 py-0.5 text-xs text-purple-300">
@@ -110,26 +110,26 @@ export default function GearPage() {
       <section className="mt-10">
         <h2 className="text-xl font-bold text-white">What Is the Best Gear Upgrade Priority?</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-4">
+          <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4">
             <p className="font-semibold text-purple-200">DPS Heroes</p>
             <ol className="mt-2 list-decimal list-inside space-y-1">
               {priorityGuide.dpsHeroes.map((s) => (
-                <li key={s} className="text-sm text-purple-300/80">{s}</li>
+                <li key={s} className="text-sm text-purple-200/90">{s}</li>
               ))}
             </ol>
           </div>
-          <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-4">
+          <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4">
             <p className="font-semibold text-purple-200">Tank / Support Heroes</p>
             <ol className="mt-2 list-decimal list-inside space-y-1">
               {priorityGuide.tankHeroes.map((s) => (
-                <li key={s} className="text-sm text-purple-300/80">{s}</li>
+                <li key={s} className="text-sm text-purple-200/90">{s}</li>
               ))}
             </ol>
           </div>
         </div>
         <ul className="mt-4 space-y-2">
           {priorityGuide.generalTips.map((tip) => (
-            <li key={tip} className="flex gap-2 text-sm text-purple-200/80">
+            <li key={tip} className="flex gap-2 text-sm text-purple-100/95">
               <span className="shrink-0 text-purple-500">→</span>
               {tip}
             </li>
@@ -154,7 +154,7 @@ export default function GearPage() {
                 <tr key={row.stat} className="border-b border-purple-900/20">
                   <td className="px-4 py-2.5 font-medium text-white">{row.stat}</td>
                   <td className="px-4 py-2.5 text-purple-300">{row.role}</td>
-                  <td className="px-4 py-2.5 text-purple-300/70">{row.notes}</td>
+                  <td className="px-4 py-2.5 text-purple-200/80">{row.notes}</td>
                 </tr>
               ))}
             </tbody>
@@ -162,8 +162,8 @@ export default function GearPage() {
         </div>
       </section>
 
-      <p className="mt-8 text-xs text-purple-400/50">
-        Data sourced from lastzguides.com, packsify.com, and ldshop.gg. Last updated May 2026.
+      <p className="mt-8 text-xs text-purple-300/70">
+        Last updated May 2026.
       </p>
       <script
         type="application/ld+json"

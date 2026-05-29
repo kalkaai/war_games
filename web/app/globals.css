@@ -4,7 +4,7 @@
 
 /* ── Dark gaming theme CSS variables (shadcn convention, always-dark) ── */
 :root {
-  --background: 270 100% 4%;       /* #0a0014 — deep purple-black */
+  --background: 270 100% 8%;       /* #0a0014 — deep purple-black */
   --foreground: 214 32% 91%;       /* #e2e8f0 */
 
   --card: 268 77% 10%;
@@ -45,7 +45,7 @@ html {
 }
 
 body {
-  background-color: #0a0014;
+  background-color: #180030;
   color: #e2e8f0;
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   min-height: 100vh;

@@ -33,7 +33,7 @@ function SpeedupCalc() {
   const oneDay = Math.ceil(totalMins / 1440);
 
   return (
-    <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-5">
+    <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-5">
       <h2 className="text-lg font-bold text-white">⏱️ How Many Speed-Ups Do You Need?</h2>
       <p className="mt-1 text-xs text-purple-400">How many speed-ups do you need?</p>
 
@@ -98,7 +98,7 @@ function BadgeBudgetCalc() {
   const canPartial = trees.filter((t) => t.totalBadges > available && available > 0);
 
   return (
-    <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-5">
+    <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-5">
       <h2 className="text-lg font-bold text-white">🎖️ Badge Budget</h2>
       <p className="mt-1 text-xs text-purple-400">Which trees can you max with your badge count?</p>
 
@@ -192,7 +192,7 @@ function ResourcePlanner() {
   );
 
   return (
-    <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-5">
+    <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-5">
       <h2 className="text-lg font-bold text-white">🏰 HQ Resource Planner</h2>
       <p className="mt-1 text-xs text-purple-400">Total resources needed to upgrade between two levels.</p>
 
@@ -266,7 +266,7 @@ function CPCalc() {
   const hasData = slice.some((l) => l.cp > 0);
 
   return (
-    <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-5">
+    <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-5">
       <h2 className="text-lg font-bold text-white">⭐ CP Calculator</h2>
       <p className="mt-1 text-xs text-purple-400">Combat Power gained from HQ upgrades.</p>
 
@@ -320,7 +320,7 @@ export default function CalcClient() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Calculators</h1>
-      <p className="mt-2 text-purple-300/70">All calculations are client-side — nothing is sent to a server.</p>
+      <p className="mt-2 text-purple-200/80">All calculations are client-side — nothing is sent to a server.</p>
 
       <div className="mt-8 space-y-6">
         <SpeedupCalc />

@@ -3,15 +3,15 @@ import tanksData from "@/data/tanks.json";
 import type { Vehicle } from "@/types";
 
 export const metadata: Metadata = {
-  title: "Tank & Vehicles — WarGuard | Last Z",
+  title: "Tank & Vehicles — GAMIDES | Last Z",
   description: "Last Z vehicle modification guide: Conqueror, Cheetah, Hercules, Destroyer, and Destroyer EX upgrade paths with wrench costs and key upgrades.",
   openGraph: {
-    title: "Tank & Vehicles — WarGuard | Last Z",
+    title: "Tank & Vehicles — GAMIDES | Last Z",
     description: "Last Z vehicle modification guide: Conqueror, Cheetah, Hercules, Destroyer, and Destroyer EX upgrade paths with wrench costs.",
 
   },
   alternates: {
-    canonical: "https://warguard.app/tank",
+    canonical: "https://www.gamides.com/tank",
   },
 };
 
@@ -36,7 +36,7 @@ export default function TankPage() {
     <div className="mx-auto max-w-4xl px-4 py-10">
 
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Tank & Vehicles</h1>
-      <p className="mt-2 text-purple-300/70">
+      <p className="mt-2 text-purple-200/80">
         Vehicle modification progression · Currency: Golden Wrenches + Blueprints
       </p>
 
@@ -60,8 +60,8 @@ export default function TankPage() {
                     </span>
                   )}
                 </div>
-                <h2 className="mt-2 text-lg font-bold text-white">{vehicle.name}</h2>
-                <p className="text-sm text-purple-300/70">{vehicle.description}</p>
+                <h3 className="mt-2 text-lg font-bold text-white">{vehicle.name}</h3>
+                <p className="text-sm text-purple-200/80">{vehicle.description}</p>
               </div>
               <div className="rounded-lg border border-purple-800/40 bg-purple-900/30 px-4 py-2 text-center">
                 <p className="text-xs text-purple-400">Unlock cost</p>
@@ -89,7 +89,7 @@ export default function TankPage() {
                           {upg.name}
                           {upg.level && <span className="ml-2 text-xs text-purple-400">Lv {upg.level}</span>}
                         </p>
-                        <p className="text-xs text-purple-300/70">{upg.effect}</p>
+                        <p className="text-xs text-purple-200/80">{upg.effect}</p>
                       </div>
                     </div>
                   ))}
@@ -109,8 +109,8 @@ export default function TankPage() {
         </p>
       </div>
 
-      <p className="mt-6 text-xs text-purple-400/50">
-        Unlock costs verified against lastz.stresswar.com. Key upgrade levels are named milestones — individual level costs vary by tier. Last updated May 2026.
+      <p className="mt-6 text-xs text-purple-300/70">
+        Key upgrade levels are named milestones — individual level costs vary by tier. Last updated May 2026.
       </p>
     </div>
   );

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { WarGuardLogo } from "./components/WarGuardLogo";
+import Link from "next/link";
+import { GameidesLogo } from "./components/GameidesLogo";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -16,14 +17,16 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "WarGuard — The Last Z Reference",
+  title: "GAMIDES — The Last Z Reference",
   description:
-    "Event schedules, HQ upgrade tables, research trees, and calculators for Last Z players. Never miss a timer.",
+    "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z players. The complete game reference for serious Last Z players.",
   openGraph: {
-    title: "WarGuard — The Last Z Reference",
+    title: "GAMIDES — The Last Z Reference",
     description:
-      "Event schedules, HQ upgrade tables, research trees, and calculators for Last Z players.",
+      "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z players. The complete game reference.",
     type: "website",
+    url: "https://www.gamides.com",
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
 };
 
@@ -115,6 +118,19 @@ const STARS = [
 const discordInviteUrl =
   process.env.NEXT_PUBLIC_DISCORD_INVITE_URL ?? "#";
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "GAMIDES",
+  "url": "https://www.gamides.com",
+  "description": "Community reference hub for Last Z players — event schedules, HQ upgrade tables, research trees, hero guides, and calculators.",
+  "about": {
+    "@type": "VideoGame",
+    "name": "Last Z",
+    "description": "Competitive strategy and survival game with base building, research, hero collection, and alliance PvP.",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -123,6 +139,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
 
         {/* Skip link */}
         <a
@@ -156,9 +173,9 @@ export default function RootLayout({
         </div>
 
         {/* Sticky header */}
-        <header className="sticky top-0 z-50 w-full border-b border-purple-900/40 bg-[#0a0014]/80 backdrop-blur-sm">
+        <header className="sticky top-0 z-50 w-full border-b border-purple-900/40 bg-[#180030]/85 backdrop-blur-sm">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-            <WarGuardLogo />
+            <GameidesLogo />
             <nav aria-label="Primary" className="hidden lg:flex items-center gap-1 mx-4">
               {[
                 { href: "/events",    label: "Events" },
@@ -170,25 +187,16 @@ export default function RootLayout({
                 { href: "/pvp",       label: "PvP" },
                 { href: "/guide",     label: "Guide" },
                 { href: "/calc",      label: "Calc" },
-                { href: "/changelog", label: "Changelog" },
               ].map(({ href, label }) => (
-                <a
+                <Link
                   key={href}
                   href={href}
-                  className="rounded px-2.5 py-1.5 text-sm text-purple-300/80 transition-colors hover:bg-purple-900/50 hover:text-white"
+                  className="rounded px-2.5 py-1.5 text-sm text-purple-200/90 transition-colors hover:bg-purple-800/50 hover:text-white"
                 >
                   {label}
-                </a>
+                </Link>
               ))}
             </nav>
-            <a
-              href={discordInviteUrl}
-              className="rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 shrink-0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Add Discord Bot →
-            </a>
           </div>
         </header>
 
@@ -199,17 +207,17 @@ export default function RootLayout({
 
         {/* Footer */}
         <footer className="relative z-10 border-t border-purple-900/40 mt-20 py-8">
-          <div className="mx-auto max-w-6xl px-4 text-center text-sm text-purple-300/60">
+          <div className="mx-auto max-w-6xl px-4 text-center text-sm text-purple-200/75">
             <a
               href={discordInviteUrl}
-              className="text-purple-400 hover:text-purple-300 transition-colors"
+              className="inline-block rounded-md bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Add WarGuard to Discord
+              Add GAMIDES to Discord
             </a>
-            <p className="mt-2">WarGuard — Personal companion for Last Z players.</p>
-            <p className="mt-2 text-purple-300/40">&copy; {new Date().getFullYear()} WarGuard. Not affiliated with Last Z or its developers.</p>
+            <p className="mt-2">GAMIDES — Personal companion for Last Z players.</p>
+            <p className="mt-2 text-purple-200/80">Copyright &copy; {new Date().getFullYear()} GAMIDES. Not affiliated with Last Z or its developers.</p>
           </div>
         </footer>
 

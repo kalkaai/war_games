@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PvP & Formations — WarGuard | Last Z",
+  title: "PvP & Formations — GAMIDES | Last Z",
   description: "Last Z PvP guide: troop type counters, front and back row formations, faction team compositions, and VS event strategy for competitive play.",
   openGraph: {
-    title: "PvP & Formations — WarGuard | Last Z",
+    title: "PvP & Formations — GAMIDES | Last Z",
     description: "Last Z PvP guide: troop counters, formations, faction compositions, and competitive strategy for arena and alliance battles.",
 
   },
   alternates: {
-    canonical: "https://warguard.app/pvp",
+    canonical: "https://www.gamides.com/pvp",
   },
 };
 
@@ -102,20 +102,20 @@ export default function PvPPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z PvP & Formations</h1>
-      <p className="mt-2 text-purple-300/70">
+      <p className="mt-2 text-purple-200/80">
         Troop counters, formation strategy, and meta tips for competitive play.
       </p>
 
       {/* Troop counter triangle */}
       <section className="mt-8">
         <h2 className="text-xl font-bold text-white">How Does the Troop Counter System Work?</h2>
-        <p className="mt-1 text-sm text-purple-300/70">
+        <p className="mt-1 text-sm text-purple-200/80">
           Each troop type has a hard counter. Match your troops against the opponent&apos;s weakness.
         </p>
         <div className="mt-4 overflow-x-auto">
           <table aria-label="Troop counter triangle" className="w-full text-sm">
             <thead>
-              <tr className="border-b border-purple-800/50">
+              <tr className="border-b border-purple-700/60">
                 <th scope="col" className="py-2 text-left text-purple-300">Your troops</th>
                 <th scope="col" className="py-2 text-left text-green-400">Counters</th>
                 <th scope="col" className="py-2 text-left text-red-400">Weak against</th>
@@ -137,14 +137,14 @@ export default function PvPPage() {
       {/* Formations */}
       <section className="mt-10">
         <h2 className="text-xl font-bold text-white">Formations</h2>
-        <p className="mt-1 text-sm text-purple-300/70">
+        <p className="mt-1 text-sm text-purple-200/80">
           Heroes are arranged in a 2-front / 3-back row configuration.
         </p>
         <div className="mt-4 space-y-4">
           {FORMATIONS.map((f) => (
             <div
               key={f.name}
-              className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-5"
+              className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-5"
             >
               <div className="flex flex-wrap items-center gap-2">
                 <h3 className="font-bold text-white">{f.name}</h3>
@@ -152,7 +152,7 @@ export default function PvPPage() {
                   {f.tag}
                 </span>
               </div>
-              <p className="mt-2 text-sm text-purple-200/80">{f.description}</p>
+              <p className="mt-2 text-sm text-purple-100/95">{f.description}</p>
               <div className="mt-3 grid grid-cols-2 gap-3">
                 <div>
                   <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-purple-400">
@@ -198,7 +198,7 @@ export default function PvPPage() {
               <p className="font-semibold text-white">
                 {t.icon} {t.tip}
               </p>
-              <p className="mt-1 text-sm text-purple-200/80">{t.detail}</p>
+              <p className="mt-1 text-sm text-purple-100/95">{t.detail}</p>
             </div>
           ))}
         </div>

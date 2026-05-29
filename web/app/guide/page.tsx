@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Beginner Guide — WarGuard | Last Z",
+  title: "Beginner Guide — GAMIDES | Last Z",
   description: "Last Z: Survival Shooter beginner guide — HQ priorities, hero investment, alliance tips, and resource management for new players.",
   openGraph: {
-    title: "Beginner Guide — WarGuard | Last Z",
+    title: "Beginner Guide — GAMIDES | Last Z",
     description: "Last Z beginner guide: HQ priorities, hero investment, alliance tips, and resource management for new players.",
 
   },
   alternates: {
-    canonical: "https://warguard.app/guide",
+    canonical: "https://www.gamides.com/guide",
   },
 };
 
@@ -87,7 +87,7 @@ export default function GuidePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Beginner Guide</h1>
-      <p className="mt-2 text-purple-300/70">
+      <p className="mt-2 text-purple-200/80">
         Essential tips for new Last Z players — from day 1 through mid-game.
       </p>
 
@@ -95,18 +95,18 @@ export default function GuidePage() {
         {SECTIONS.map((s) => (
           <div
             key={s.title}
-            className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-5"
+            className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-5"
           >
             <h2 className="flex items-center gap-2 text-lg font-bold text-white">
               <span>{s.icon}</span>
               {s.title}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-purple-200/80">{s.body}</p>
+            <p className="mt-2 text-sm leading-relaxed text-purple-100/95">{s.body}</p>
           </div>
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-purple-400/50">
+      <p className="mt-8 text-xs text-purple-300/70">
         Guide reflects Season 4 meta. Last updated May 2026.
       </p>
       <script

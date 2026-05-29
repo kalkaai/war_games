@@ -2,16 +2,43 @@ import type { Metadata } from "next";
 import EventsClient from "./EventsClient";
 import { GameIcon, type GameIconType } from "../components/GameIcon";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When does each VS event run in Last Z?",
+      "acceptedAnswer": { "@type": "Answer", "text": "VS events rotate daily Monday–Sunday: Monday is Vehicle Day (wrenches & blueprints), Tuesday is Building Day (construction speed-ups), Wednesday is Research Day (research speed-ups & badges), Thursday is Heroes Day (fragments & cores), Friday is Training Day (troop training), Saturday is Combat Day (kill enemies & complete orange wanted missions), Sunday is Rest Day (no VS event)." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Apocalypse Time (AT) in Last Z?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Apocalypse Time (AT) is Last Z's server timezone used for all event schedules. AT = UTC − 2 hours. All game events, raids, and daily resets run on AT midnight (00:00 AT = 02:00 UTC)." }
+    },
+    {
+      "@type": "Question",
+      "name": "When does Radar Reset happen in Last Z?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Radar Reset occurs every 8 hours at AT 00:00, 08:00, and 16:00 (equivalent to UTC 02:00, 10:00, 18:00). This resets the radar charges used for scouting enemy bases." }
+    },
+    {
+      "@type": "Question",
+      "name": "When is Arena Brawl in Last Z?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Arena Brawl runs daily for 30 minutes starting at AT 23:30 (UTC 01:30), just before the daily server reset at AT midnight." }
+    }
+  ]
+};
+
 export const metadata: Metadata = {
-  title: "Events — WarGuard | Last Z",
+  title: "Events — GAMIDES | Last Z",
   description: "Last Z event schedules: VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl. Includes timezone converter for all events.",
   openGraph: {
-    title: "Events — WarGuard | Last Z",
+    title: "Events — GAMIDES | Last Z",
     description: "Last Z event schedules: VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl. Timezone converter included.",
 
   },
   alternates: {
-    canonical: "https://warguard.app/events",
+    canonical: "https://www.gamides.com/events",
   },
 };
 
@@ -60,18 +87,18 @@ export default function EventsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
 
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Events</h1>
-      <p className="mt-2 text-purple-300/70">
-        All times shown in UTC and your local time. AT (Apocalypse Time) = UTC − 2.
+      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z Events &amp; VS Schedule</h1>
+      <p className="mt-2 text-purple-100/95">
+        <strong>Apocalypse Time (AT)</strong> is Last Z&apos;s server timezone — AT = UTC − 2 hours. All game events, raids, and resets run on AT midnight. Times below are shown in UTC and your local timezone.
       </p>
 
       {/* VS Weekly Rotation */}
       <section className="mt-10">
         <h2 className="mb-4 text-xl font-bold text-white">When Does Each VS Event Run?</h2>
-        <div className="overflow-x-auto rounded-xl border border-purple-800/50">
+        <div className="overflow-x-auto rounded-xl border border-purple-700/60">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-purple-800/50 bg-purple-900/60">
+              <tr className="border-b border-purple-700/60 bg-purple-900/60">
                 <th className="px-4 py-3 text-left font-semibold text-purple-200">Day</th>
                 <th className="px-4 py-3 text-left font-semibold text-purple-200">VS Event</th>
                 <th className="px-4 py-3 text-left font-semibold text-purple-200">Strategy</th>
@@ -90,7 +117,7 @@ export default function EventsPage() {
                       {row.label}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-purple-300/70">{row.tip}</td>
+                  <td className="px-4 py-3 text-purple-200/80">{row.tip}</td>
                 </tr>
               ))}
             </tbody>
@@ -103,7 +130,7 @@ export default function EventsPage() {
         <h2 className="mb-4 text-xl font-bold text-white">Recurring Events</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {RECURRING.map((ev) => (
-            <div key={ev.name} className="rounded-xl border border-purple-800/50 bg-purple-900/30 p-5">
+            <div key={ev.name} className="rounded-xl border border-purple-700/60 bg-purple-900/30 p-5">
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-purple-800/50 text-purple-300 shrink-0">
                   <GameIcon type={ev.iconKey} size={22} />
@@ -113,7 +140,7 @@ export default function EventsPage() {
                   <p className="text-xs text-purple-400">{ev.interval}</p>
                 </div>
               </div>
-              <p className="mt-2 text-sm text-purple-300/70">{ev.description}</p>
+              <p className="mt-2 text-sm text-purple-200/80">{ev.description}</p>
               {ev.utcTimes.length > 0 && (
                 <div className="mt-3 flex flex-wrap gap-2">
                   {ev.utcTimes.map((t) => (
@@ -134,6 +161,7 @@ export default function EventsPage() {
         <EventsClient recurring={RECURRING} />
       </section>
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </div>
   );
 }

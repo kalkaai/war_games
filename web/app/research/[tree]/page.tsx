@@ -19,15 +19,14 @@ export async function generateMetadata({
   if (!tree) return {};
   const desc = `Last Z ${tree.name} research tree: ${tree.nodeCount} nodes, ${(tree.totalBadges / 1_000_000).toFixed(2)}M badges to max. Interactive progress tracker included.`;
   return {
-    title: `${tree.name} — Research | WarGuard | Last Z`,
+    title: `${tree.name} — Research | GAMIDES | Last Z`,
     description: desc,
     openGraph: {
-      title: `${tree.name} — Research | WarGuard | Last Z`,
+      title: `${tree.name} — Research | GAMIDES | Last Z`,
       description: desc,
-  
     },
     alternates: {
-      canonical: `https://warguard.app/research/${params.tree}`,
+      canonical: `https://www.gamides.com/research/${params.tree}`,
     },
   };
 }
@@ -36,5 +35,20 @@ export default function ResearchTreePage({ params }: { params: { tree: string } 
   const tree = trees.find((t) => t.id === params.tree);
   if (!tree) notFound();
 
-  return <ResearchTreeClient tree={tree} />;
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gamides.com" },
+      { "@type": "ListItem", "position": 2, "name": "Research", "item": "https://www.gamides.com/research" },
+      { "@type": "ListItem", "position": 3, "name": tree.name, "item": `https://www.gamides.com/research/${params.tree}` },
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <ResearchTreeClient tree={tree} />
+    </>
+  );
 }

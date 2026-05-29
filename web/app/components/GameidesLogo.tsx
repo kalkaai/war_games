@@ -1,37 +1,38 @@
-export function WarGuardLogo() {
+export function GameidesLogo() {
   return (
     <a href="/" className="flex items-center gap-2.5 shrink-0 group">
-      {/* Shield icon */}
+      {/* Controller icon */}
       <svg
-        width="22"
-        height="26"
-        viewBox="0 0 22 26"
+        width="24"
+        height="20"
+        viewBox="0 0 24 20"
         fill="none"
         aria-hidden="true"
-        className="transition-colors group-hover:stroke-purple-300"
+        className="transition-opacity group-hover:opacity-80"
       >
-        {/* Shield body */}
+        {/* Controller body */}
         <path
-          d="M11 1L1 5.5V12c0 6 4.5 10.5 10 12.5 5.5-2 10-6.5 10-12.5V5.5L11 1z"
+          d="M5 3 L19 3 Q22 3 22 6 L22 12 Q22 15 19 15 L17 15 L16 19 Q15.5 20 14 20 L10 20 Q8.5 20 8 19 L7 15 L5 15 Q2 15 2 12 L2 6 Q2 3 5 3 Z"
           fill="rgba(109,40,217,0.25)"
           stroke="rgba(167,139,250,0.9)"
           strokeWidth="1.5"
           strokeLinejoin="round"
         />
-        {/* W chevron inside shield */}
+        {/* D-pad */}
         <path
-          d="M5 10l2 7 4-5 4 5 2-7"
+          d="M7.5 7.5 L7.5 10.5 M6 9 L9 9"
           stroke="rgba(216,180,254,0.85)"
           strokeWidth="1.5"
           strokeLinecap="round"
-          strokeLinejoin="round"
-          fill="none"
         />
+        {/* Face buttons */}
+        <circle cx="15.5" cy="8" r="1.2" stroke="rgba(216,180,254,0.85)" strokeWidth="1.2" />
+        <circle cx="17.5" cy="10" r="1.2" stroke="rgba(216,180,254,0.85)" strokeWidth="1.2" />
       </svg>
 
       {/* Wordmark */}
       <span className="text-xl font-bold tracking-tight text-white group-hover:text-purple-100 transition-colors">
-        WarGuard
+        GAMIDES
       </span>
 
       {/* Beta badge */}

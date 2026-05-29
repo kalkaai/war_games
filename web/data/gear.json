@@ -1,5 +1,5 @@
 {
-  "_comment": "Gear data for Last Z heroes. Each hero has 4 slots: gun, helmet, armor, boots. Plus an exclusive piece. Tiers: purple < orange < exclusive < mythic. Enhancement levels: purple max 30, orange max 50 (75 with hexagons, 100 mythic). Sources: lastzguides.com/gear.html, packsify.com, ldshop.gg 2026. Stats at max enhancement (orange Lv50 base).",
+  "_comment": "Gear data for Last Z heroes. Each hero has 4 slots: gun, helmet, armor, boots. Plus an exclusive piece. Tiers: purple < orange < exclusive < mythic. Enhancement levels: purple max 30, orange max 50 (75 with hexagons, 100 mythic). Stats at max enhancement (orange Lv50 base).",
   "slots": [
     {
       "id": "gun",

@@ -1,5 +1,5 @@
 {
-  "_comment": "Vehicle/tank modification data for Last Z. Vehicles unlock at level thresholds. Upgrade levels run 0–240 across all vehicles. Tier cost structure: L0-45 (1-6 wrenches/level), L50-100 (8-40/level), L105-200 (100-360/level), L205-240 (360-480/level). Total to reach L240: ~70,700 wrenches. Unlock costs verified against lastz.stresswar.com 2026. Sources: lastz.stresswar.com/tank, ldshop.gg/blog/last-z/vehicle-modification-guide.html",
+  "_comment": "Vehicle/tank modification data for Last Z. Vehicles unlock at level thresholds. Upgrade levels run 0–240 across all vehicles. Tier cost structure: L0-45 (1-6 wrenches/level), L50-100 (8-40/level), L105-200 (100-360/level), L205-240 (360-480/level). Total to reach L240: ~70,700 wrenches.",
   "vehicles": [
     {
       "id": "conqueror",

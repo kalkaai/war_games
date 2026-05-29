@@ -79,10 +79,10 @@ export default function HQTable() {
       </form>
 
       {/* Table */}
-      <div className="mt-6 overflow-x-auto rounded-xl border border-purple-800/50">
+      <div className="mt-6 overflow-x-auto rounded-xl border border-purple-700/60">
         <table aria-label="HQ upgrade requirements" className="w-full text-sm">
           <thead className="sticky top-[57px] z-20">
-            <tr className="border-b border-purple-800/50 bg-[#0a0014]">
+            <tr className="border-b border-purple-700/60 bg-[#0a0014]">
               <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Level</th>
               <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Required Buildings</th>
               {RESOURCE_COLS.map((c) => (
@@ -124,7 +124,7 @@ export default function HQTable() {
                   <td className="px-4 py-2.5 text-purple-200">
                     {row.requiredBuildings.length > 0
                       ? row.requiredBuildings.join(", ")
-                      : <span className="text-purple-400/50">—</span>}
+                      : <span className="text-purple-300/70">—</span>}
                   </td>
                   {RESOURCE_COLS.map((c) => (
                     <td key={c.key} className="px-4 py-2.5 text-right font-mono text-purple-200">

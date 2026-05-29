@@ -66,7 +66,7 @@ export default function HeroDetailClient({ hero }: { hero: Hero }) {
       <div className={`mt-6 rounded-xl border p-6 ${FACTION_COLORS[hero.faction]}`}>
         <div className="flex gap-5">
           {/* Portrait */}
-          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-xl bg-purple-900/50">
+          <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-xl bg-purple-800/50">
             {hero.portrait && !imgError ? (
               <Image
                 src={hero.portrait}
@@ -87,7 +87,7 @@ export default function HeroDetailClient({ hero }: { hero: Hero }) {
           <div className="flex flex-col justify-between">
             <div>
               <h1 className="text-2xl font-extrabold text-white">{hero.name}</h1>
-              <p className="mt-0.5 text-sm text-purple-300/70">{hero.role}</p>
+              <p className="mt-0.5 text-sm text-purple-200/80">{hero.role}</p>
             </div>
 
             {/* Badges */}
@@ -116,19 +116,19 @@ export default function HeroDetailClient({ hero }: { hero: Hero }) {
 
       {/* Ratings & Priority */}
       <div className="mt-4 grid grid-cols-3 gap-3">
-        <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-4 text-center">
+        <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4 text-center">
           <p className="text-xs text-purple-400">PvP</p>
           <p className={`mt-1 rounded px-2 py-0.5 text-lg font-extrabold inline-block ${TIER_COLORS[hero.pvpRating] ?? "text-white"}`}>
             {hero.pvpRating || "—"}
           </p>
         </div>
-        <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-4 text-center">
+        <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4 text-center">
           <p className="text-xs text-purple-400">PvE</p>
           <p className={`mt-1 rounded px-2 py-0.5 text-lg font-extrabold inline-block ${TIER_COLORS[hero.pveRating] ?? "text-white"}`}>
             {hero.pveRating || "—"}
           </p>
         </div>
-        <div className="rounded-xl border border-purple-800/50 bg-purple-900/20 p-4 text-center">
+        <div className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4 text-center">
           <p className="text-xs text-purple-400">Priority</p>
           <div className="mt-2 flex justify-center gap-1">
             {Array.from({ length: 5 }, (_, i) => (
@@ -159,7 +159,7 @@ export default function HeroDetailClient({ hero }: { hero: Hero }) {
                   <span className="text-sm font-semibold text-white">{sk.name}</span>
                 </div>
                 {sk.description && (
-                  <p className="mt-1.5 text-xs text-purple-300/80">{sk.description}</p>
+                  <p className="mt-1.5 text-xs text-purple-200/90">{sk.description}</p>
                 )}
               </div>
             ))}

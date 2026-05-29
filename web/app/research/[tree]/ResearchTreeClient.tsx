@@ -76,7 +76,7 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
           <h1 className="text-3xl font-extrabold text-white">
             {tree.icon} {tree.name}
           </h1>
-          <p className="mt-1 text-sm text-purple-300/70">{tree.description}</p>
+          <p className="mt-1 text-sm text-purple-200/80">{tree.description}</p>
           {tree.unlockRequirement && (
             <p className="mt-2 text-xs text-amber-300/80">🔒 Requires: {tree.unlockRequirement}</p>
           )}
@@ -92,7 +92,7 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
       </div>
 
       {/* Progress bar */}
-      <div className="mt-6 rounded-xl border border-purple-800/50 bg-purple-900/20 p-4">
+      <div className="mt-6 rounded-xl border border-purple-700/60 bg-purple-900/20 p-4">
         <div className="flex justify-between text-sm">
           <span className="text-purple-200">
             {loaded ? fmtBadges(spentBadges) : "—"} badges spent
@@ -135,7 +135,7 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
                   "flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left transition-all",
                   done
                     ? "border-purple-500/60 bg-purple-600/20 opacity-70"
-                    : "border-purple-800/50 bg-purple-900/20 hover:border-purple-600 hover:bg-purple-900/40",
+                    : "border-purple-700/60 bg-purple-900/20 hover:border-purple-600 hover:bg-purple-900/40",
                 ].join(" ")}
               >
                 <div className="flex items-center gap-3">

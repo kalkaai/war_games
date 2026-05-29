@@ -1,5 +1,5 @@
 {
-  "_comment": "HQ upgrade data for levels 1-35. Costs in raw integers (game units). buildTimeMinutes sourced from lastzguides.com/hq-construction-cost.html 2026. cp=0 pending source. Current game max: level 35. Building level requirements match HQ level being upgraded to. Sources: lastz.stresswar.com/hq, lastzguides.com/hq-construction-cost.html",
+  "_comment": "HQ upgrade data for levels 1-35. Costs in raw integers (game units). cp=0 pending source. Current game max: level 35. Building level requirements match HQ level being upgraded to.",
   "levels": [
     {
       "level": 1,

@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import CalcClient from "./CalcClient";
 
 export const metadata: Metadata = {
-  title: "Calculators — WarGuard | Last Z",
+  title: "Calculators — GAMIDES | Last Z",
   description: "Last Z calculators: speed-up timer converter, badge budget planner, HQ resource totals, and CP gain estimator. All calculations run client-side.",
   openGraph: {
-    title: "Calculators — WarGuard | Last Z",
+    title: "Calculators — GAMIDES | Last Z",
     description: "Last Z calculators: speed-up timer, badge budget planner, HQ resource totals, and CP gain estimator. All client-side.",
 
   },
   alternates: {
-    canonical: "https://warguard.app/calc",
+    canonical: "https://www.gamides.com/calc",
   },
 };
 

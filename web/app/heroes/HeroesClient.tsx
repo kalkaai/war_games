@@ -76,7 +76,7 @@ function HeroCard({ hero }: { hero: Hero }) {
       className={`block rounded-xl border p-4 transition-all hover:scale-[1.02] hover:brightness-110 ${FACTION_COLORS[hero.faction]}`}
     >
       {/* Portrait */}
-      <div className="relative mx-auto mb-3 h-24 w-24 overflow-hidden rounded-lg bg-purple-900/50">
+      <div className="relative mx-auto mb-3 h-24 w-24 overflow-hidden rounded-lg bg-purple-800/50">
         {hero.portrait && !imgError ? (
           <Image
             src={hero.portrait}
@@ -140,7 +140,7 @@ export default function HeroesClient() {
     <div className="mx-auto max-w-6xl px-4 py-10">
 
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Heroes</h1>
-      <p className="mt-2 text-purple-300/70">
+      <p className="mt-2 text-purple-200/80">
         {heroes.length} heroes across 3 factions · Tiers based on Season 4 rankings
       </p>
 
@@ -201,7 +201,7 @@ export default function HeroesClient() {
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-purple-400/50">
+      <p className="mt-8 text-xs text-purple-300/70">
         Tier list based on Season 4 community rankings.
       </p>
     </div>
