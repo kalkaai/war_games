@@ -1,4 +1,4 @@
-Validate the research tree data and interactive component for the WarGuard web app.
+Validate the research tree data and interactive component for the GAMIDES web app.
 
 Tree to validate (optional): $ARGUMENTS
 

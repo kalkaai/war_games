@@ -1,4 +1,4 @@
-Scaffold a Claude API route handler for the WarGuard web app.
+Scaffold a Claude API route handler for the GAMIDES web app.
 
 Route purpose: $ARGUMENTS
 

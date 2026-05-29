@@ -1,4 +1,4 @@
-Review a component or page for WarGuard web project conventions.
+Review a component or page for GAMIDES web project conventions.
 
 File to review: $ARGUMENTS
 

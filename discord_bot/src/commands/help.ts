@@ -8,14 +8,14 @@ import {
 
 export const data = new SlashCommandBuilder()
   .setName('help')
-  .setDescription('Show all WarGuard commands')
+  .setDescription('Show all GAMIDES commands')
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ flags: MessageFlags.Ephemeral })
 
   const embed = new EmbedBuilder()
     .setColor(Colors.Blurple)
-    .setTitle('WarGuard — Commands')
+    .setTitle('GAMIDES — Commands')
     .addFields(
       {
         name: '⏱️ Timers',

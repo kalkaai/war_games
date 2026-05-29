@@ -1,4 +1,4 @@
-Run the full feature workflow for the WarGuard web app.
+Run the full feature workflow for the GAMIDES web app.
 
 Feature to build: $ARGUMENTS
 

@@ -73,7 +73,7 @@ export async function runAlertCheck(client: Client): Promise<void> {
                   ? `**${timer.label}** (${timer.type}) has finished.${recurringFootnote}`
                   : `**${timer.label}** (${timer.type}) expires ${formatTimeUntil(timer.expiresAt.toDate())}.`,
               )
-              .setFooter({ text: `WarGuard — ${account.name}` })
+              .setFooter({ text: `GAMIDES — ${account.name}` })
               .setTimestamp()
 
             await dmChannel.send({ embeds: [embed] })

@@ -1,4 +1,4 @@
-Audit the WarGuard web app for ARIA accessibility compliance.
+Audit the GAMIDES web app for ARIA accessibility compliance.
 
 Page to audit (optional): $ARGUMENTS
 

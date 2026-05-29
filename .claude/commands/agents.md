@@ -1,4 +1,4 @@
-Launch the standard WarGuard web agent suite for the task described.
+Launch the standard GAMIDES web agent suite for the task described.
 
 Task: $ARGUMENTS
 
@@ -26,7 +26,7 @@ Launch in parallel:
 
 Then launch sequentially:
 
-**Agent 3 (Plan):** "Design the implementation for [task] in the WarGuard Next.js web app. Context from exploration: [paste Agent 1 + 2 results]. Identify: which files to create/modify, server vs client component decisions, data flow, and any risks."
+**Agent 3 (Plan):** "Design the implementation for [task] in the GAMIDES Next.js web app. Context from exploration: [paste Agent 1 + 2 results]. Identify: which files to create/modify, server vs client component decisions, data flow, and any risks."
 
 ---
 
@@ -38,7 +38,7 @@ Launch in parallel:
 
 **Agent 2 (Explore):** "Read discord_bot/src/data/ — list all JSON data files and summarize their structure. These will be used as tool-accessible game data in the Claude API routes."
 
-**Agent 3 (Plan, background):** "Plan the Claude API chat route for the WarGuard web app: streaming via ReadableStream, tool use for HQ and research lookups from static JSON, prompt caching on the system prompt, claude-opus-4-6 with adaptive thinking. Context: Next.js 14 App Router, TypeScript, static game data in /data/*.json."
+**Agent 3 (Plan, background):** "Plan the Claude API chat route for the GAMIDES web app: streaming via ReadableStream, tool use for HQ and research lookups from static JSON, prompt caching on the system prompt, claude-opus-4-6 with adaptive thinking. Context: Next.js 14 App Router, TypeScript, static game data in /data/*.json."
 
 ---
 
@@ -112,3 +112,22 @@ After all four complete, summarize the findings by priority:
 1. Blocking issues (missing metadata, broken tables, unnecessary client bundles)
 2. High-value quick fixes (question headings, track() calls, robots.txt)
 3. Nice-to-have (FAQ schema, source attribution, Speed Insights)
+
+---
+
+## Pattern I — Responsive audit (multi-platform)
+
+Use when adding new pages or before a production release to verify layout works across mobile, tablet, and desktop.
+
+Launch in parallel:
+
+**Agent 1 (Explore) — Layout & tables:** "Read every page.tsx and *Client.tsx in web/app/. For each file list: (1) all Tailwind breakpoint classes used (sm:/md:/lg:/xl:), (2) any fixed pixel widths (w-[Npx], min-w-[Npx]) that could overflow a 375px viewport, (3) any <table> or grid component NOT wrapped in a div with overflow-x-auto, (4) any overflow-hidden on a container that holds a data table. Report file path and line number for every finding."
+
+**Agent 2 (Explore) — Touch targets & typography:** "Read every interactive component in web/app/ (buttons, links, inputs, selects, filter controls). For each: (1) check tap target is at least 44×44px — flag anything with h-6/w-6 or smaller without sufficient padding, (2) check body/label text is text-sm or larger (never text-xs for readable content), (3) check all <input> and <select> elements have text-base or larger (iOS zooms on <16px inputs), (4) check heading sizes use responsive variants not fixed large sizes. Report file path and line number."
+
+**Agent 3 (Explore) — Navigation & iOS Safari:** "Read web/app/layout.tsx and web/app/globals.css. Check: (1) the header/nav is usable on mobile (collapses, scrolls, or fits at 375px width), (2) the starfield div has pointer-events-none, (3) no global overflow: hidden on html or body that would break scroll, (4) no position: fixed elements overlapping iPhone bottom safe area without env(safe-area-inset-bottom), (5) no 100vw widths — should be w-full. Report any failures with exact fix."
+
+After all three complete, summarize by priority:
+1. Breaking issues (table overflow, fixed widths clipping content, nav unusable on mobile)
+2. Usability issues (small tap targets, iOS zoom on inputs)
+3. Polish (heading scale, safe-area padding)

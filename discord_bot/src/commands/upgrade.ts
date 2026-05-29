@@ -11,7 +11,7 @@ import configData from '../data/config.json'
 
 export const data = new SlashCommandBuilder()
   .setName('upgrade')
-  .setDescription('Upgrade to WarGuard Pro — unlimited accounts, timers, and custom alerts')
+  .setDescription('Upgrade to GAMIDES Pro — unlimited accounts, timers, and custom alerts')
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ flags: MessageFlags.Ephemeral })
@@ -19,7 +19,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const { user } = await getOrCreateUser(interaction.user.id)
 
   if (user.isPro) {
-    await interaction.editReply('You\'re already on **WarGuard Pro**. Thanks for the support!')
+    await interaction.editReply('You\'re already on **GAMIDES Pro**. Thanks for the support!')
     return
   }
 

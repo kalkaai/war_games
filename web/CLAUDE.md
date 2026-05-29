@@ -1,4 +1,4 @@
-# WarGuard Web — Developer Guide
+# GAMIDES Web — Developer Guide
 
 ## What this is
 

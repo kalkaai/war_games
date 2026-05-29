@@ -1,4 +1,4 @@
-Build a new reference page for the WarGuard web app.
+Build a new reference page for the GAMIDES web app.
 
 Page to build: $ARGUMENTS
 

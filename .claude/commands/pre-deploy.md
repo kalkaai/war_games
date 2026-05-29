@@ -1,4 +1,4 @@
-Run the pre-deployment checklist for the WarGuard web app.
+Run the pre-deployment checklist for the GAMIDES web app.
 
 Environment: $ARGUMENTS (e.g., "staging" or "production" — defaults to production if not specified)
 

@@ -1,4 +1,4 @@
-Check performance and bundle size for the WarGuard web app.
+Check performance and bundle size for the GAMIDES web app.
 
 Page or component to check (optional): $ARGUMENTS
 

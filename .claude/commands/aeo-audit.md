@@ -1,4 +1,4 @@
-Audit the WarGuard web app for Answer Engine Optimization (AEO) — readiness to be cited by AI search engines (Perplexity, ChatGPT Search, Google AI Overviews, Grok, etc.).
+Audit the GAMIDES web app for Answer Engine Optimization (AEO) — readiness to be cited by AI search engines (Perplexity, ChatGPT Search, Google AI Overviews, Grok, etc.).
 
 Page to audit (optional): $ARGUMENTS
 
@@ -13,7 +13,7 @@ AI answer engines extract facts directly from page content. They prefer:
 - Factual, numeric data (costs, durations, levels) — not vague descriptions
 - Clear entity context ("Last Z game", not just "the game")
 
-WarGuard's reference data (HQ costs, research badges, hero skills) is exactly what AI engines want to cite. This audit ensures the content is structured to be extracted correctly.
+GAMIDES's reference data (HQ costs, research badges, hero skills) is exactly what AI engines want to cite. This audit ensures the content is structured to be extracted correctly.
 
 ---
 
@@ -37,7 +37,7 @@ For each page:
 - [ ] Every page includes "Last Z" in the H1 or within the first 100 words
 - [ ] Game-specific terms are not assumed — brief context given on first use
   - Example: "Apocalypse Time (AT) — the game's timezone, UTC-2" on first mention
-- [ ] The site name "WarGuard" appears in the page title
+- [ ] The site name "GAMIDES" appears in the page title
 
 ## Check 4 — Table structure
 

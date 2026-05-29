@@ -1,4 +1,4 @@
-Set up or audit Google Ads (AdWords) integration for the WarGuard web app.
+Set up or audit Google Ads (AdWords) integration for the GAMIDES web app.
 
 Task (optional): $ARGUMENTS
 
@@ -6,7 +6,7 @@ If no task is specified, run a full audit of the current ads setup and recommend
 
 ## Context
 
-WarGuard is a static Next.js site (`output: 'export'`). Google Ads integration is done via:
+GAMIDES is a static Next.js site (`output: 'export'`). Google Ads integration is done via:
 - **Google Ads tag (gtag.js)** — loads via `<Script>` in `app/layout.tsx`
 - **Conversion tracking** — fires on specific user actions (Discord click, page views)
 - **Remarketing** — optional, tags visitors for retargeting campaigns

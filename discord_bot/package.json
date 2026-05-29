@@ -1,7 +1,7 @@
 {
-  "name": "warguard-bot",
+  "name": "gamides-bot",
   "version": "1.0.0",
-  "description": "WarGuard — personal game companion Discord bot for Last Z / Last War players",
+  "description": "GAMIDES — personal game companion Discord bot for Last Z / Last War players",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

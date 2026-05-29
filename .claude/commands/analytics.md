@@ -1,4 +1,4 @@
-Set up or audit analytics for the WarGuard web app.
+Set up or audit analytics for the GAMIDES web app.
 
 Mode (optional): $ARGUMENTS
 - `audit` — check what's currently instrumented and report gaps

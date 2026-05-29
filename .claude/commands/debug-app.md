@@ -1,4 +1,4 @@
-Debug a runtime issue in the WarGuard web app.
+Debug a runtime issue in the GAMIDES web app.
 
 Issue description: $ARGUMENTS
 

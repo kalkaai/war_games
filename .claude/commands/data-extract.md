@@ -1,4 +1,4 @@
-Extract and populate a game data JSON file for the WarGuard web app.
+Extract and populate a game data JSON file for the GAMIDES web app.
 
 Target file: $ARGUMENTS
 

@@ -1,4 +1,4 @@
-Audit SEO metadata and structured data for the WarGuard web app.
+Audit SEO metadata and structured data for the GAMIDES web app.
 
 Page to audit (optional): $ARGUMENTS
 

@@ -76,7 +76,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         embeds: [
           new EmbedBuilder()
             .setColor(Colors.Green)
-            .setTitle('✅ WarGuard Alert Test')
+            .setTitle('✅ GAMIDES Alert Test')
             .setDescription(
               'Alert delivery is working! You\'ll receive DMs like this when your timers are about to expire.',
             )

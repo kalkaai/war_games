@@ -30,7 +30,7 @@ const client = new Client({
 })
 
 client.once(Events.ClientReady, (c) => {
-  console.log(`[WarGuard] Logged in as ${c.user.tag}`)
+  console.log(`[GAMIDES] Logged in as ${c.user.tag}`)
   startTimerChecker(client)
 })
 
