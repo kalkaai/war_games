@@ -33,7 +33,19 @@ export async function seedDefaultPresets(
   accountName: string,
 ): Promise<{ added: string[]; skipped: string[] }> {
   const snap = await timersCol(discordId, accountName).get()
-  const existingLabels = new Set(snap.docs.map((d: any) => (d.data() as TimerDoc).label))
+  const now = new Date()
+
+  // Only treat a label as "active" if its timer hasn't expired yet
+  const activeLabels = new Set<string>()
+  const expiredRefsByLabel = new Map<string, any>()
+  for (const doc of snap.docs) {
+    const data = doc.data() as TimerDoc
+    if (data.expiresAt.toDate() > now) {
+      activeLabels.add(data.label)
+    } else {
+      expiredRefsByLabel.set(data.label, doc.ref)
+    }
+  }
 
   const enabled = Object.entries(GAME_PRESETS).filter(([, p]) => p.enabled)
   const added: string[] = []
@@ -41,9 +53,13 @@ export async function seedDefaultPresets(
 
   await Promise.all(
     enabled.map(async ([, preset]) => {
-      if (existingLabels.has(preset.name)) {
+      if (activeLabels.has(preset.name)) {
         skipped.push(preset.name)
         return
+      }
+      // Remove stale expired doc before recreating
+      if (expiredRefsByLabel.has(preset.name)) {
+        await expiredRefsByLabel.get(preset.name).delete()
       }
       await addTimer(discordId, accountName, {
         type: preset.type,
