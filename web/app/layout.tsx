@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Link from "next/link";
 import { GameidesLogo } from "./components/GameidesLogo";
@@ -199,16 +200,25 @@ export default function RootLayout({
             </a>
             <p className="mt-2">GAMIDES — Personal companion for Last Z: Survival Shooter players.</p>
             <p className="mt-2 text-purple-200/80">Copyright &copy; {new Date().getFullYear()} GAMIDES. Not affiliated with Last Z: Survival Shooter or its developers.</p>
-            <p className="mt-2">
-              <Link href="/credits" className="text-purple-400 hover:text-purple-300 transition-colors">
-                Credits
-              </Link>
+            <p className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1">
+              <Link href="/credits" className="text-purple-400 hover:text-purple-300 transition-colors">Credits</Link>
+              <Link href="/privacy" className="text-purple-400 hover:text-purple-300 transition-colors">Privacy</Link>
+              <Link href="/terms" className="text-purple-400 hover:text-purple-300 transition-colors">Terms</Link>
+              <Link href="/disclosure" className="text-purple-400 hover:text-purple-300 transition-colors">Disclosure</Link>
             </p>
           </div>
         </footer>
 
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
+        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
         )}
       </body>
     </html>

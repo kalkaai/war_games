@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#2e0060"/>
+      <stop offset="100%" stop-color="#0a0018"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ctrlBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6d28d9"/>
+      <stop offset="100%" stop-color="#3b0764"/>
+    </linearGradient>
+    <linearGradient id="ctrlFace" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2e0060"/>
+      <stop offset="100%" stop-color="#160030"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="512" cy="512" r="512" fill="#080015"/>
+  <circle cx="512" cy="512" r="500" fill="url(#bg)"/>
+
+  <!-- Outer rings -->
+  <circle cx="512" cy="512" r="490" fill="none" stroke="#5b21b6" stroke-width="4" opacity="0.7"/>
+  <circle cx="512" cy="512" r="476" fill="none" stroke="#4c1d95" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Tick marks -->
+  <g stroke="#a855f7" stroke-width="5" stroke-linecap="round" opacity="0.9">
+    <line x1="512" y1="22"  x2="512" y2="60"/>
+    <line x1="512" y1="964" x2="512" y2="1002"/>
+    <line x1="22"  y1="512" x2="60"  y2="512"/>
+    <line x1="964" y1="512" x2="1002" y2="512"/>
+    <line x1="167" y1="167" x2="191" y2="191"/>
+    <line x1="857" y1="167" x2="833" y2="191"/>
+    <line x1="167" y1="857" x2="191" y2="833"/>
+    <line x1="857" y1="857" x2="833" y2="833"/>
+  </g>
+
+  <!-- Glow blob behind controller -->
+  <ellipse cx="512" cy="420" rx="310" ry="220" fill="url(#glow)"/>
+
+  <!-- ===== CONTROLLER (scaled to fit comfortably) ===== -->
+  <!-- Left grip -->
+  <path d="M272 432 Q244 430 232 460 L216 548 Q210 592 232 620 Q256 648 292 636 L326 618 Q346 606 352 582 L368 500 Z"
+        fill="url(#ctrlBody)" stroke="#9333ea" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Right grip -->
+  <path d="M752 432 Q780 430 792 460 L808 548 Q814 592 792 620 Q768 648 732 636 L698 618 Q678 606 672 582 L656 500 Z"
+        fill="url(#ctrlBody)" stroke="#9333ea" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Main body -->
+  <path d="M368 340 Q368 312 396 310 L628 310 Q656 312 656 340 L656 514 Q656 542 628 544 L576 544 L562 584 Q556 604 538 606 L486 606 Q468 604 462 584 L448 544 L396 544 Q368 542 368 514 Z"
+        fill="url(#ctrlBody)" stroke="#9333ea" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Inner panel -->
+  <path d="M390 322 Q390 302 410 300 L614 300 Q634 302 634 322 L634 504 Q634 524 614 526 L410 526 Q390 524 390 504 Z"
+        fill="url(#ctrlFace)" stroke="#6d28d9" stroke-width="2"/>
+
+  <!-- Shoulder bumpers -->
+  <rect x="390" y="298" width="88" height="15" rx="7" fill="#5b21b6" stroke="#9333ea" stroke-width="2"/>
+  <rect x="546" y="298" width="88" height="15" rx="7" fill="#5b21b6" stroke="#9333ea" stroke-width="2"/>
+
+  <!-- ===== D-PAD ===== -->
+  <rect x="430" y="346" width="26" height="78" rx="6" fill="#c4b5fd" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="410" y="366" width="66" height="26" rx="6" fill="#c4b5fd" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="430" y="366" width="26" height="26" fill="#a78bfa"/>
+
+  <!-- ===== FACE BUTTONS ===== -->
+  <circle cx="592" cy="352" r="19" fill="#3b0764" stroke="#a855f7" stroke-width="2.5"/>
+  <text x="592" y="359" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="20" font-weight="900" fill="#e9d5ff">Y</text>
+  <circle cx="592" cy="428" r="19" fill="#3b0764" stroke="#a855f7" stroke-width="2.5"/>
+  <text x="592" y="435" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="20" font-weight="900" fill="#e9d5ff">A</text>
+  <circle cx="554" cy="390" r="19" fill="#3b0764" stroke="#a855f7" stroke-width="2.5"/>
+  <text x="554" y="397" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="20" font-weight="900" fill="#e9d5ff">X</text>
+  <circle cx="630" cy="390" r="19" fill="#3b0764" stroke="#a855f7" stroke-width="2.5"/>
+  <text x="630" y="397" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-size="20" font-weight="900" fill="#e9d5ff">B</text>
+
+  <!-- Select / Start -->
+  <rect x="468" y="386" width="28" height="14" rx="7" fill="#4c1d95" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="528" y="386" width="28" height="14" rx="7" fill="#4c1d95" stroke="#7c3aed" stroke-width="1.5"/>
+
+  <!-- Home button -->
+  <circle cx="512" cy="524" r="16" fill="#6d28d9" stroke="#c4b5fd" stroke-width="2.5"/>
+  <circle cx="512" cy="524" r="7"  fill="#e9d5ff"/>
+
+  <!-- Joysticks on grips -->
+  <circle cx="287" cy="490" r="20" fill="#3b0764" stroke="#7c3aed" stroke-width="2"/>
+  <circle cx="287" cy="490" r="10" fill="#5b21b6"/>
+  <circle cx="737" cy="490" r="20" fill="#3b0764" stroke="#7c3aed" stroke-width="2"/>
+  <circle cx="737" cy="490" r="10" fill="#5b21b6"/>
+
+  <!-- ===== WORDMARK ===== -->
+  <!-- Use smaller font size and no letter-spacing to ensure it fits inside the circle -->
+  <text x="512" y="740"
+        text-anchor="middle"
+        font-family="Arial Black,Arial,sans-serif"
+        font-size="88"
+        font-weight="900"
+        fill="#ffffff">GAMIDES</text>
+
+  <!-- Accent line -->
+  <line x1="240" y1="762" x2="784" y2="762" stroke="#7c3aed" stroke-width="2.5" opacity="0.8"/>
+
+  <!-- Subtitle -->
+  <text x="512" y="806"
+        text-anchor="middle"
+        font-family="Arial,sans-serif"
+        font-size="32"
+        font-weight="400"
+        fill="#a855f7">LAST Z TRACKER</text>
+
+  <!-- Outer border -->
+  <circle cx="512" cy="512" r="510" fill="none" stroke="#1e0040" stroke-width="4"/>
+</svg>
