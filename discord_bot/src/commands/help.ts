@@ -5,6 +5,7 @@ import {
   Colors,
   MessageFlags,
 } from 'discord.js'
+import { PRO_ENABLED } from '../types'
 
 export const data = new SlashCommandBuilder()
   .setName('help')
@@ -21,29 +22,28 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         name: '⏱️ Timers',
         value: [
           '`/setup` — Start all built-in event timers at once',
-          '`/timer preset` — Start a single recurring event timer',
           '`/timer list` — View your active timers',
           '`/timer delete` — Remove a timer by label',
           '`/timer clear` — Remove all expired timers',
-          '`/timer add` — Add a custom timer *(Pro only)*',
+          ...(PRO_ENABLED ? ['`/timer add` — Add a custom timer *(Pro only)*'] : []),
         ].join('\n'),
       },
       {
         name: '🔔 Alerts',
-        value: '`/alerts` — Set how early you want DM alerts (e.g. 30 min, 10 min before)',
+        value: '`/alerts test` — Send a test DM to confirm alert delivery\n`/alerts status` — Show your current alert settings',
       },
       {
         name: '👤 Accounts',
         value: [
           '`/account list` — View your account profiles',
-          '`/account add` — Create a new profile *(Pro only)*',
-          '`/account switch` — Switch active profile *(Pro only)*',
+          '`/account add` — Create a new profile',
+          '`/account switch` — Switch active profile',
         ].join('\n'),
       },
-      {
+      ...(PRO_ENABLED ? [{
         name: '⭐ Pro',
         value: '`/upgrade` — Unlock custom timers, multiple accounts & custom alert thresholds',
-      },
+      }] : []),
     )
     .setFooter({ text: 'You\'ll get DMs before timers expire — make sure DMs from server members are enabled.' })
 

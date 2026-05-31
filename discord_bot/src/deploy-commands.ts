@@ -8,11 +8,15 @@ import * as timerCommand from './commands/timer'
 import * as accountCommand from './commands/account'
 import * as alertsCommand from './commands/alerts'
 import * as upgradeCommand from './commands/upgrade'
+import * as helpCommand from './commands/help'
+import * as setupCommand from './commands/setup'
 const commands = [
   timerCommand.data.toJSON(),
   accountCommand.data.toJSON(),
   alertsCommand.data.toJSON(),
   upgradeCommand.data.toJSON(),
+  helpCommand.data.toJSON(),
+  setupCommand.data.toJSON(),
 ]
 
 const rest = new REST().setToken(process.env.DISCORD_TOKEN!)

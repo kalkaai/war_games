@@ -1,4 +1,5 @@
 {
+  "proEnabled": false,
   "freeTier": {
     "maxAccounts": 1,
     "maxTimers": 5,

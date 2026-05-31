@@ -164,14 +164,23 @@ export async function getTimersDueForAlert(
   thresholdMinutes: number,
 ): Promise<TimerDoc[]> {
   const now = new Date()
-  const windowStart = new Date(now.getTime() + (thresholdMinutes - 1) * 60 * 1000)
-  const windowEnd = new Date(now.getTime() + thresholdMinutes * 60 * 1000)
-
   const col = timersCol(discordId, accountName)
-  const snap = await col
-    .where('expiresAt', '>=', Timestamp.fromDate(windowStart))
-    .where('expiresAt', '<=', Timestamp.fromDate(windowEnd))
-    .get()
+
+  let snap: any
+  if (thresholdMinutes === 0) {
+    // Catch ALL expired timers regardless of how long they've been expired.
+    // Using a 1-minute window here would permanently miss timers if the bot
+    // was down or a check cycle was skipped.
+    snap = await col.where('expiresAt', '<=', Timestamp.fromDate(now)).get()
+  } else {
+    // Pre-expiry warning: 1-minute window centred on the threshold.
+    const windowStart = new Date(now.getTime() + (thresholdMinutes - 1) * 60 * 1000)
+    const windowEnd = new Date(now.getTime() + thresholdMinutes * 60 * 1000)
+    snap = await col
+      .where('expiresAt', '>=', Timestamp.fromDate(windowStart))
+      .where('expiresAt', '<=', Timestamp.fromDate(windowEnd))
+      .get()
+  }
 
   return snap.docs
     .map((d: any) => d.data() as TimerDoc)

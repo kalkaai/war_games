@@ -6,7 +6,7 @@ import {
   MessageFlags,
 } from 'discord.js'
 import { getOrCreateUser, updateAlertThresholds } from '../services/accountService'
-import { FREE_TIER } from '../types'
+import { FREE_TIER, PRO_ENABLED } from '../types'
 
 export const data = new SlashCommandBuilder()
   .setName('alerts')
@@ -14,7 +14,7 @@ export const data = new SlashCommandBuilder()
   .addSubcommand((sub) =>
     sub
       .setName('set')
-      .setDescription('Set when to alert you before a timer expires (Pro only: multiple thresholds)')
+      .setDescription('Set when to alert you before a timer expires')
       .addStringOption((opt) =>
         opt
           .setName('minutes')
@@ -48,15 +48,17 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     }
 
     if (!user.isPro && parsed.length > 1) {
+      const upgradeHint = PRO_ENABLED ? '\nUpgrade with `/upgrade` to set multiple thresholds.' : ''
       await interaction.editReply(
-        `Free tier supports **one alert threshold** (currently ${FREE_TIER.ALERT_THRESHOLDS[0]} min).\nUpgrade with \`/upgrade\` to set multiple thresholds.`,
+        `Free tier supports **one alert threshold** (currently ${FREE_TIER.ALERT_THRESHOLDS[0]} min).${upgradeHint}`,
       )
       return
     }
 
     if (!user.isPro && parsed[0] !== FREE_TIER.ALERT_THRESHOLDS[0]) {
+      const upgradeHint = PRO_ENABLED ? '\nUse `/upgrade` to customize alert times.' : ''
       await interaction.editReply(
-        `Free tier is fixed at **${FREE_TIER.ALERT_THRESHOLDS[0]}-minute alerts**.\nUse \`/upgrade\` to customize alert times.`,
+        `Free tier is fixed at **${FREE_TIER.ALERT_THRESHOLDS[0]}-minute alerts**.${upgradeHint}`,
       )
       return
     }

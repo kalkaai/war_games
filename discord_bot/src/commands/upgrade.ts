@@ -6,7 +6,7 @@ import {
   MessageFlags,
 } from 'discord.js'
 import { getOrCreateUser } from '../services/accountService'
-import { FREE_TIER } from '../types'
+import { FREE_TIER, PRO_ENABLED } from '../types'
 import configData from '../data/config.json'
 
 export const data = new SlashCommandBuilder()
@@ -15,6 +15,11 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   await interaction.deferReply({ flags: MessageFlags.Ephemeral })
+
+  if (!PRO_ENABLED) {
+    await interaction.editReply('Pro tier is not available yet. Stay tuned!')
+    return
+  }
 
   const { user } = await getOrCreateUser(interaction.user.id)
 

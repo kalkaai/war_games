@@ -77,6 +77,8 @@ import configData from '../data/config.json'
 
 export const GAME_PRESETS: Record<string, GamePreset> = presetsData.presets as Record<string, GamePreset>
 
+export const PRO_ENABLED: boolean = configData.proEnabled
+
 export const FREE_TIER = {
   MAX_ACCOUNTS: configData.freeTier.maxAccounts,
   MAX_TIMERS: configData.freeTier.maxTimers,

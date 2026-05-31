@@ -6,6 +6,7 @@ import { formatTimeUntil, formatDuration } from '../utils/formatDuration'
 
 export async function runAlertCheck(client: Client): Promise<void> {
   const users = await getActiveUsers()
+  if (users.length === 0) return
 
   await Promise.allSettled(users.map(async (user) => {
     const accounts = await listAccounts(user.discordId)

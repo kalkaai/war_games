@@ -8,7 +8,7 @@ import { getOrCreateUser } from '../services/accountService'
 import { addTimer, listTimers, deleteTimer, clearExpiredTimers, nextPresetOccurrence, seedDefaultPresets } from '../services/timerService'
 import { parseDuration } from '../utils/parseDuration'
 import { formatTimeUntil, formatDuration } from '../utils/formatDuration'
-import { TIMER_TYPES, TIMER_EMOJI, GAME_PRESETS } from '../types'
+import { TIMER_TYPES, TIMER_EMOJI, GAME_PRESETS, PRO_ENABLED } from '../types'
 import { AutocompleteInteraction, MessageFlags } from 'discord.js'
 
 
@@ -27,51 +27,6 @@ export async function autocomplete(interaction: AutocompleteInteraction): Promis
 export const data = new SlashCommandBuilder()
   .setName('timer')
   .setDescription('Manage your game timers')
-  .addSubcommand((sub) =>
-    sub
-      .setName('add')
-      .setDescription('Add a new timer')
-      .addStringOption((opt) =>
-        opt
-          .setName('type')
-          .setDescription('Type of timer')
-          .setRequired(true)
-          .addChoices(
-            { name: '🏗️ Construction', value: 'construction' },
-            { name: '🔬 Research', value: 'research' },
-            { name: '⚔️ Troops', value: 'troops' },
-            { name: '💊 Healing', value: 'healing' },
-            { name: '🛡️ Shield', value: 'shield' },
-          ),
-      )
-      .addStringOption((opt) =>
-        opt
-          .setName('duration')
-          .setDescription('Time remaining, e.g. 4h30m, 2h, 45m')
-          .setRequired(true),
-      )
-      .addStringOption((opt) =>
-        opt.setName('label').setDescription('Optional label, e.g. "HQ upgrade"').setRequired(false),
-      )
-      .addBooleanOption((opt) =>
-        opt
-          .setName('repeat')
-          .setDescription('Auto-reset after expiry? (makes it a recurring timer)')
-          .setRequired(false),
-      ),
-  )
-  .addSubcommand((sub) =>
-    sub
-      .setName('preset')
-      .setDescription('Start a recurring timer for a known game event')
-      .addStringOption((opt) =>
-        opt
-          .setName('event')
-          .setDescription('Game event to track')
-          .setRequired(true)
-          .setAutocomplete(true),
-      ),
-  )
   .addSubcommand((sub) =>
     sub.setName('list').setDescription('Show all your active timers'),
   )
@@ -97,6 +52,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   const sub = interaction.options.getSubcommand()
 
   if (sub === 'add') {
+    if (!PRO_ENABLED) {
+      await interaction.editReply('Custom timers are not available yet. Use `/timer preset` for built-in game events.')
+      return
+    }
+
     const type = interaction.options.getString('type', true) as typeof TIMER_TYPES[number]
     const durationStr = interaction.options.getString('duration', true)
     const label = interaction.options.getString('label') ?? type
@@ -184,7 +144,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
     if (live.length === 0) {
       await interaction.editReply(
-        `No active timers. Use \`/timer add\` to start tracking.`,
+        `No active timers. Use \`/timer preset\` or \`/setup\` to start tracking.`,
       )
       return
     }

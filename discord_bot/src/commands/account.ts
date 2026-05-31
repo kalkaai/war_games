@@ -11,7 +11,7 @@ import {
   switchAccount,
   listAccounts,
 } from '../services/accountService'
-import { FREE_TIER } from '../types'
+import { FREE_TIER, PRO_ENABLED } from '../types'
 
 export const data = new SlashCommandBuilder()
   .setName('account')
@@ -51,8 +51,9 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     const accounts = await listAccounts(interaction.user.id)
 
     if (!user.isPro && accounts.length >= FREE_TIER.MAX_ACCOUNTS) {
+      const upgradeHint = PRO_ENABLED ? '\nUse `/upgrade` to unlock unlimited accounts.' : ''
       await interaction.editReply(
-        `Free tier supports **${FREE_TIER.MAX_ACCOUNTS} account profile**.\nUse \`/upgrade\` to unlock unlimited accounts.`,
+        `Free tier supports **${FREE_TIER.MAX_ACCOUNTS} account profile**.${upgradeHint}`,
       )
       return
     }
@@ -104,7 +105,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       .setFooter({
         text: user.isPro
           ? 'Pro — unlimited accounts'
-          : `Free tier — ${accounts.length}/${FREE_TIER.MAX_ACCOUNTS} account`,
+          : `${accounts.length}/${FREE_TIER.MAX_ACCOUNTS} account profile`,
       })
 
     await interaction.editReply({ embeds: [embed] })
