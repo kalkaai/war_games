@@ -19,13 +19,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "GAMIDES — The Last Z: Survival Shooter Reference",
+  title: "GAMIDES — The Last Z: Survival Shooter Game Guide",
   description:
-    "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game reference.",
+    "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game guide.",
   openGraph: {
-    title: "GAMIDES — The Last Z: Survival Shooter Reference",
+    title: "GAMIDES — The Last Z: Survival Shooter Game Guide",
     description:
-      "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game reference.",
+      "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game guide.",
     type: "website",
     url: "https://www.gamides.com",
     images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
@@ -128,7 +128,7 @@ const websiteJsonLd = {
   "@type": "WebSite",
   "name": "GAMIDES",
   "url": "https://www.gamides.com",
-  "description": "Community reference hub for Last Z: Survival Shooter players — event schedules, HQ upgrade tables, research trees, hero guides, and calculators.",
+  "description": "Community game guide for Last Z: Survival Shooter players — event schedules, HQ upgrade tables, research trees, hero guides, and calculators.",
   "about": {
     "@type": "VideoGame",
     "name": "Last Z: Survival Shooter",
