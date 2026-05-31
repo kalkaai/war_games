@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     url: "https://www.gamides.com",
     images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
+  other: {
+    "google-adsense-account": "ca-pub-2170985466863364",
+  },
 };
 
 // 80-star starfield: deterministic values, no Math.random() at runtime.
