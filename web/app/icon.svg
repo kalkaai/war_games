@@ -1,19 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 26" fill="none">
-  <!-- Shield body -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Controller body -->
   <path
-    d="M11 1L1 5.5V12c0 6 4.5 10.5 10 12.5 5.5-2 10-6.5 10-12.5V5.5L11 1z"
-    fill="#4c1d95"
+    d="M5 4 L19 4 Q22 4 22 7 L22 13 Q22 16 19 16 L17 16 L16 20 Q15.5 21 14 21 L10 21 Q8.5 21 8 20 L7 16 L5 16 Q2 16 2 13 L2 7 Q2 4 5 4 Z"
+    fill="#5b21b6"
     stroke="#a78bfa"
     stroke-width="1.5"
     stroke-linejoin="round"
   />
-  <!-- W chevron -->
+  <!-- D-pad -->
   <path
-    d="M5 10l2 7 4-5 4 5 2-7"
-    stroke="white"
+    d="M7.5 8.5 L7.5 11.5 M6 10 L9 10"
+    stroke="#ddd6fe"
     stroke-width="1.5"
     stroke-linecap="round"
-    stroke-linejoin="round"
-    fill="none"
   />
+  <!-- Face buttons -->
+  <circle cx="15.5" cy="9" r="1.2" stroke="#ddd6fe" stroke-width="1.2" />
+  <circle cx="17.5" cy="11" r="1.2" stroke="#ddd6fe" stroke-width="1.2" />
 </svg>
