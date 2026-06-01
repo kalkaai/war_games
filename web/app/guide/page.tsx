@@ -107,10 +107,52 @@ export default function GuidePage() {
         ))}
       </div>
 
+      {/* Deep-dive guides */}
+      <div className="mt-8">
+        <h2 className="text-xl font-bold text-white">Event Strategy Guides</h2>
+        <div className="mt-4 space-y-3">
+          {[
+            {
+              href: "/guide/canyon-clash",
+              title: "Canyon Clash",
+              desc: "Weekly alliance PvP · faction counters · 45-min battle · War Frenzy timing",
+              color: "border-red-800/40 bg-red-900/10 hover:border-red-700/60 hover:bg-red-900/20",
+              arrow: "text-red-400",
+            },
+            {
+              href: "/guide/server-war",
+              title: "Server War (SVS)",
+              desc: "Bi-weekly server vs server · turret mechanics · capital conquest · attacker & defender strategy",
+              color: "border-blue-800/40 bg-blue-900/10 hover:border-blue-700/60 hover:bg-blue-900/20",
+              arrow: "text-blue-400",
+            },
+            {
+              href: "/guide/zombie-siege",
+              title: "Zombie Siege",
+              desc: "30-wave alliance defense · wrench rewards · War Frenzy · reinforcement rules",
+              color: "border-green-800/40 bg-green-900/10 hover:border-green-700/60 hover:bg-green-900/20",
+              arrow: "text-green-400",
+            },
+          ].map((g) => (
+            <Link
+              key={g.href}
+              href={g.href}
+              className={`flex items-center justify-between rounded-xl border p-5 transition-colors ${g.color}`}
+            >
+              <div>
+                <p className="font-bold text-white">{g.title}</p>
+                <p className="mt-0.5 text-sm text-purple-200/70">{g.desc}</p>
+              </div>
+              <span className={`ml-4 shrink-0 text-lg ${g.arrow}`}>→</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
       {/* Badge farming guide link */}
       <Link
         href="/guide/badges"
-        className="mt-8 flex items-center justify-between rounded-xl border border-amber-700/40 bg-amber-900/10 p-5 transition-colors hover:border-amber-600/60 hover:bg-amber-900/20"
+        className="mt-4 flex items-center justify-between rounded-xl border border-amber-700/40 bg-amber-900/10 p-5 transition-colors hover:border-amber-600/60 hover:bg-amber-900/20"
       >
         <div>
           <p className="font-bold text-white">Badge Farming Guide</p>

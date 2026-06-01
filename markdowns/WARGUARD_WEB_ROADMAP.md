@@ -483,7 +483,7 @@ Items ordered by priority.
 
 ---
 
-### P1 — Redeem Codes Page
+### ✅ P1 — Redeem Codes Page — SHIPPED June 2026
 
 **Gap:** LootBar maintains a regularly updated redeem codes page — one of the highest-traffic searches for any live-service game. We have no codes page.
 
@@ -499,7 +499,7 @@ Items ordered by priority.
 
 ---
 
-### P1 — Badge Farming Guide
+### ✅ P1 — Badge Farming Guide — SHIPPED June 2026
 
 **Gap:** LootBar has a detailed badge farming guide covering all monthly badge sources. Players actively search "how to get badges fast Last Z" — we have no dedicated badge guide.
 
