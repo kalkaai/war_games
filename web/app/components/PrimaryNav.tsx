@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { href: "/pvp",      label: "PvP" },
   { href: "/alliance", label: "Alliance" },
   { href: "/guide",    label: "Guide" },
+  { href: "/codes",    label: "Codes" },
   { href: "/calc",     label: "Calc" },
 ];
 

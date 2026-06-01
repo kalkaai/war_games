@@ -418,51 +418,36 @@ Full audit vs. lastzdata.com. Items ordered by priority. Note: items already cap
 
 ---
 
-### P1 — Alliance Duel Calculator (Missing Category)
+### ✅ P1 — Alliance Duel Calculator (Missing Category) — SHIPPED May 2026
 
-**Gap:** lastzdata.com covers Alliance Duel as a dedicated calculator and guide section. We have zero Alliance Duel coverage — not a single page. This is a major recurring game event.
+**Gap:** lastzdata.com covers Alliance Duel as a dedicated calculator and guide section. We had zero Alliance Duel coverage.
 
-**What the Alliance Duel is:** A multi-day competitive event between alliances. Each day focuses on a different activity (Day 1: Modded Vehicle Power, Day 2: Shelter Upgrade, Day 3: Age of Science). Players earn Alliance Recognition badges through a 19-node research tree (356,770 total badges).
-
-**What to build:**
-
-*Data:*
-- Add `alliance.json` with 19 Alliance Recognition research nodes: names, per-level badge costs, stat bonuses (resource gathering +%, event multipliers +%, march speed, training rewards, chest unlocks, "One More" daily doubler)
-
-*Page (`/alliance`):*
-- Alliance Recognition tracker (same pattern as research tree detail):
-  - Sequential mode: prerequisite-locked node progression
-  - Custom mode: freely set any node level regardless of order
-  - Spent / Remaining badge counter (total pool: 356,770)
-  - Progress bar + % complete
-  - Save to localStorage
-- Alliance Duel weekly event guide section:
-  - Day 1: Modded Vehicle Power — tips (upgrade tank mods, spend wrenches)
-  - Day 2: Shelter Upgrade — tips (queue building upgrades in advance)
-  - Day 3: Age of Science — tips (use research speed-ups, time badge spend)
-  - What rewards to expect (orange-tier items, alliance chests)
-
-**Why P1:** Alliance Duel is a high-engagement recurring event. Players actively search for tips and badge tracking for it. Neither stresswar.com nor our site covers it. This is a clear gap to own.
+**Built:**
+- `alliance.json`: all 19 Alliance Recognition nodes with per-level badge costs (356,770 total verified), stat bonuses, categories, priority order, and 6-day event structure with tips
+- `/alliance` page: tracker + day-by-day guide in one page
+  - 19 nodes grouped by category (Chest Unlocks / Point Multipliers / Activity Incentives / Productivity / Resource Gathering)
+  - Progress bar + badge counter + "+300% combined multiplier" callout
+  - Collapsible 6-day event guide (Mon–Sat) with key items and strategy tips per day
+  - localStorage persistence (`wg_alliance_ar`), reset button
+- "Alliance" added to primary nav
 
 ---
 
-### P1 — T10 Research Calculator (Calculator Upgrade)
+### ✅ P1 — T10 Research Calculator (Calculator Upgrade) — SHIPPED May 2026
 
-**Gap:** Our `/calc` Badge Budget Calculator asks "can I max tree X with Y badges?" — lastzdata.com has a dedicated T10 Research Calculator that tracks the 22 specific technologies required to unlock Tier 10 units, with per-tech level sliders and sequential/custom modes.
+**Gap:** Our `/calc` had no T10 tracker. lastzdata.com has a dedicated calculator for the 22 technologies needed to unlock Tier 10 troops.
 
-**What the T10 path is:** A specific sequence of research nodes across trees that unlocks T10 troops — the most important long-term progression milestone for competitive players.
-
-**What to build:**
-- Add a dedicated T10 Research Calculator to `/calc` (or as `/calc/t10`):
-  - 22 technology sliders (level 0 → max per tech)
-  - Sequential mode: prerequisites locked until parent nodes are complete
-  - Custom mode: set any tech independently
-  - Per-tech: stat shown, level range, badge cost per level, cumulative cost
-  - Live Spent / Remaining / % complete summary panel
-  - Example techs: Fire Up (10 levels, 21,350 badges), Recharge Shield (20 levels, 219,000 badges), Unit Special Training (1 level, 54,900 badges)
-- Save progress to localStorage
-
-**Why P1:** T10 units are the defining milestone for competitive Last Z players. A T10-specific tracker answers the most common planning question: "how many badges until I unlock T10?"
+**Built:**
+- `t10.json`: all 22 Unit Special Training nodes with full per-level badge costs (1,488,100 total verified), prerequisite arrays, phase groupings, 4 milestone checkpoints
+- `/calc/t10` page: full T10 tracker
+  - Sequential mode (default): locks nodes behind prerequisites, shows lock icon + "Requires: X, Y" on blocked nodes
+  - Custom mode: free toggling
+  - Phase milestone cards (Tier I / Bridge / Tier II / T10 Unlocked) showing remaining badges each
+  - Building requirements callout (Lab/HQ/Barracks all Lv 30)
+  - Recharge Shield priority callout (+50% Troop HP — don't skip it)
+  - Mark all complete + Reset buttons
+  - localStorage persistence (`wg_t10`)
+- T10 link card added to `/calc` index page
 
 ---
 
@@ -482,16 +467,121 @@ Full audit vs. lastzdata.com. Items ordered by priority. Note: items already cap
 
 ---
 
-### P3 — Alliance Duel Day-by-Day Event Guides
+### ✅ P3 — Alliance Duel Day-by-Day Event Guides — SHIPPED May 2026
 
-**Gap:** lastzdata.com publishes written guides for each day of Alliance Duel (Day 1/2/3 tips, authored by players). We have no Alliance Duel guide content.
+**Gap:** No Alliance Duel guide content anywhere on the site.
+
+**Built:** Included in the `/alliance` page — collapsible 6-day event guide (Mon–Sat) with key items, strategy tips, and reward callouts per day. Sourced from lastzguides.com and lastzdata.com.
+
+---
+
+## Competitive Gap Closure — lootbar.com Comparison (May 2026)
+
+Full audit vs. lootbar.com Last Z content. LootBar is a diamond top-up commerce site whose Last Z coverage is entirely written articles — no interactive tools. We are already ahead on tools. These gaps are all written guide/reference content. Commerce features (top-ups, CD keys) are explicitly excluded.
+
+Items ordered by priority.
+
+---
+
+### P1 — Redeem Codes Page
+
+**Gap:** LootBar maintains a regularly updated redeem codes page — one of the highest-traffic searches for any live-service game. We have no codes page.
 
 **What to build:**
-- Extend the `/alliance` page (or add `/guide/alliance-duel`) with:
-  - Day-by-day breakdown: what activity is scored, what items to use, what to prepare in advance
-  - Tip cards per day (same card format as `/guide` page)
-  - "What rewards to expect" section (orange-tier items, recognition badges, chest drops)
-- Static content in the page file — no data file needed
+- `/codes` page with current active redeem codes for Last Z: Survival Shooter
+- Table: Code | Rewards | Expiry (if known) | Source
+- "How to redeem" instructions (in-game steps)
+- "Last updated" datestamp at top
+- Static data in page file — update manually when new codes drop (typically monthly or on events)
+- SEO title: "Last Z Survival Shooter Redeem Codes [Month Year] — GAMIDES"
+
+**Why P1:** Redeem code searches are the highest-volume queries for any live game. Players search for them multiple times per month. Every visit is a return visit opportunity and a discovery vector for the rest of the site.
+
+---
+
+### P1 — Badge Farming Guide
+
+**Gap:** LootBar has a detailed badge farming guide covering all monthly badge sources. Players actively search "how to get badges fast Last Z" — we have no dedicated badge guide.
+
+**What to build:**
+- Dedicated section on `/guide` (or `/guide/badges`) covering all badge sources:
+  - Daily tasks (base amount per day)
+  - Alliance Duel (Wednesday Age of Science — main weekly source)
+  - VS weekly events (Research Day)
+  - Events and limited-time sources
+  - Monthly budget: what 250,000+ badges/month looks like
+- Practical "badge priority" table: which sources to prioritize, which to never miss
+
+---
+
+### P2 — Event Strategy Guides
+
+**Gap:** LootBar covers several recurring events with full strategy guides. Our `/guide` page has general tips but no per-event deep dives.
+
+**What to build** (one section per event, all on `/guide` or as `/guide/[event]` subpages):
+
+- **Canyon Clash** — weekly PvP event; hero lineups, how scoring works, rewards
+- **SVS / Capital Clash** — server-vs-server event; 9-box reward structure, scoring by activity
+- **Zombie Saga** — wave survival event; best lineups, reward tiers, survival tips
+- **Battlefield Breakout** — event mechanics, mastery tips, scoring
+
+Each event guide: what the event is, how scoring works, what items to use, how to maximize rewards, what to avoid.
+
+---
+
+### P2 — F2P Progression Guide (Expanded)
+
+**Gap:** LootBar has a comprehensive F2P strategy guide covering diamond management, HQ rushing priorities, and common beginner mistakes. Our `/guide` has general tips but not a full F2P roadmap.
+
+**What to build:**
+- Dedicated F2P guide section on `/guide`:
+  - Diamond management: what to spend on, what to never buy
+  - Weekly task priority order (what earns the most per time invested)
+  - HQ rush vs. research balance
+  - When to shield, when to attack
+  - Common mistakes that set F2P players back
+  - Monthly progression milestones for F2P accounts
+
+---
+
+### P3 — Troop Formation & Assembly Guide
+
+**Gap:** LootBar has a troop assembly and optimization guide covering unit types, upgrades, and battle formations.
+
+**What to build:**
+- Section on `/guide` or `/pvp` covering:
+  - T1–T10 troop tier overview (when to train which tier)
+  - Assaulter / Shooter / Rider roles and faction synergies
+  - Formation slots: how many march slots, optimal troop mixes
+  - When to promote vs. train new troops
+  - Resource cost tradeoffs by tier
+
+---
+
+### P3 — City Capture & Defense Guide
+
+**Gap:** LootBar has a city capture and defense guide — relevant for higher-level PvP players competing for territory.
+
+**What to build:**
+- Section on `/pvp` or `/guide` covering:
+  - How city capture works (mechanics, requirements)
+  - Defense setup: shield timing, trap placement, garrison
+  - Offensive approach: scouting, timing attacks, rally mechanics
+  - Alliance coordination for city capture events
+
+---
+
+### P3 — Season Migration Guide
+
+**Gap:** LootBar publishes season migration guides when new seasons launch (e.g., Season 5). These are time-sensitive but recurring.
+
+**What to build:**
+- A `/guide/migration` page or section that explains:
+  - What server migration is and when it happens
+  - Migration score: how it's calculated, what contributes
+  - Elite tier requirements (what CP/score is needed)
+  - What carries over vs. resets on migration
+- Update content each season cycle
 
 ---
 

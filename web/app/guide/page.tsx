@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Beginner Guide — GAMIDES | Last Z: Survival Shooter",
@@ -106,7 +107,21 @@ export default function GuidePage() {
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-purple-300/70">
+      {/* Badge farming guide link */}
+      <Link
+        href="/guide/badges"
+        className="mt-8 flex items-center justify-between rounded-xl border border-amber-700/40 bg-amber-900/10 p-5 transition-colors hover:border-amber-600/60 hover:bg-amber-900/20"
+      >
+        <div>
+          <p className="font-bold text-white">Badge Farming Guide</p>
+          <p className="mt-0.5 text-sm text-amber-200/80">
+            All badge sources ranked · 138K–280K/month · when and where to spend
+          </p>
+        </div>
+        <span className="ml-4 shrink-0 text-amber-400 text-lg">→</span>
+      </Link>
+
+      <p className="mt-6 text-xs text-purple-300/70">
         Guide reflects Season 4 meta. Last updated May 2026.
       </p>
       <script
