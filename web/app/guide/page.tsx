@@ -149,6 +149,20 @@ export default function GuidePage() {
         </div>
       </div>
 
+      {/* F2P guide link */}
+      <Link
+        href="/guide/f2p"
+        className="mt-4 flex items-center justify-between rounded-xl border border-purple-700/40 bg-purple-900/20 p-5 transition-colors hover:border-purple-600/60 hover:bg-purple-900/30"
+      >
+        <div>
+          <p className="font-bold text-white">F2P Progression Guide</p>
+          <p className="mt-0.5 text-sm text-purple-200/70">
+            Diamond management · daily checklist · HQ vs research balance · common mistakes
+          </p>
+        </div>
+        <span className="ml-4 shrink-0 text-purple-400 text-lg">→</span>
+      </Link>
+
       {/* Badge farming guide link */}
       <Link
         href="/guide/badges"

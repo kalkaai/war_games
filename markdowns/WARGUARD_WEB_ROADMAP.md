@@ -514,7 +514,7 @@ Items ordered by priority.
 
 ---
 
-### P2 — Event Strategy Guides
+### ✅ P2 — Event Strategy Guides — SHIPPED June 2026
 
 **Gap:** LootBar covers several recurring events with full strategy guides. Our `/guide` page has general tips but no per-event deep dives.
 
@@ -529,7 +529,7 @@ Each event guide: what the event is, how scoring works, what items to use, how t
 
 ---
 
-### P2 — F2P Progression Guide (Expanded)
+### ✅ P2 — F2P Progression Guide — SHIPPED June 2026
 
 **Gap:** LootBar has a comprehensive F2P strategy guide covering diamond management, HQ rushing priorities, and common beginner mistakes. Our `/guide` has general tips but not a full F2P roadmap.
 
