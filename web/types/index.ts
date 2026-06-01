@@ -147,6 +147,28 @@ export interface GearSet {
   pieces: GearPiece[];
 }
 
+// ── Alliance Recognition data ─────────────────────────────────────────────────
+
+export interface AllianceNode {
+  id: string;
+  name: string;
+  maxLevel: number;
+  totalBadges: number;
+  costPerLevel?: number[];
+  stat: string;
+  category: "chests" | "multiplier" | "incentive" | "utility" | "gather";
+  priority: number;
+}
+
+export interface AllianceDuelDay {
+  day: number;
+  name: string;
+  weekday: string;
+  description: string;
+  keyItems: string[];
+  tips: string[];
+}
+
 // ── Tank / Vehicle data ───────────────────────────────────────────────────────
 
 export interface TankModification {

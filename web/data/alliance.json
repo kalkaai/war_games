@@ -1,0 +1,278 @@
+{
+  "_comment": "Alliance Recognition research tree for Last Z. 19 nodes, 356,770 total badges. Unlocked after first Alliance Duel event. Data sourced from lastzguides.com and lastzdata.com (May 2026).",
+  "totalBadges": 356770,
+  "nodes": [
+    {
+      "id": "premium_rewards",
+      "name": "Premium Rewards",
+      "maxLevel": 1,
+      "totalBadges": 1200,
+      "costPerLevel": [1200],
+      "stat": "Unlocks Alliance Duel daily chests 4, 5, 6",
+      "category": "chests",
+      "priority": 1
+    },
+    {
+      "id": "event_expert",
+      "name": "Event Expert",
+      "maxLevel": 20,
+      "totalBadges": 18210,
+      "costPerLevel": [160, 190, 230, 260, 310, 370, 430, 520, 610, 710, 800, 920, 1000, 1200, 1400, 1400, 1600, 1700, 2000, 2400],
+      "stat": "+100% Alliance Duel Points (all tasks)",
+      "category": "multiplier",
+      "priority": 2
+    },
+    {
+      "id": "super_rewards",
+      "name": "Super Rewards",
+      "maxLevel": 1,
+      "totalBadges": 4100,
+      "costPerLevel": [4100],
+      "stat": "Unlocks Alliance Duel daily chests 7, 8, 9",
+      "category": "chests",
+      "priority": 3
+    },
+    {
+      "id": "incentive_vehicle",
+      "name": "Incentive — Modified Vehicle",
+      "maxLevel": 10,
+      "totalBadges": 14250,
+      "costPerLevel": [520, 620, 730, 880, 1000, 1300, 1600, 2000, 2500, 3100],
+      "stat": "+100% Modified Vehicle Day Points",
+      "category": "incentive",
+      "priority": 4
+    },
+    {
+      "id": "incentive_development",
+      "name": "Incentive — Development",
+      "maxLevel": 10,
+      "totalBadges": 14250,
+      "costPerLevel": [520, 620, 730, 880, 1000, 1300, 1600, 2000, 2500, 3100],
+      "stat": "+100% Development Day Points",
+      "category": "incentive",
+      "priority": 5
+    },
+    {
+      "id": "incentive_gathering",
+      "name": "Incentive — Gathering",
+      "maxLevel": 10,
+      "totalBadges": 14250,
+      "costPerLevel": [520, 620, 730, 880, 1000, 1300, 1600, 2000, 2500, 3100],
+      "stat": "+100% Gathering Day Points",
+      "category": "incentive",
+      "priority": 6
+    },
+    {
+      "id": "incentive_training",
+      "name": "Incentive — Training",
+      "maxLevel": 10,
+      "totalBadges": 14250,
+      "costPerLevel": [520, 620, 730, 880, 1000, 1300, 1600, 2000, 2500, 3100],
+      "stat": "+100% Training Day Points",
+      "category": "incentive",
+      "priority": 7
+    },
+    {
+      "id": "incentive_equipment",
+      "name": "Incentive — Equipment",
+      "maxLevel": 10,
+      "totalBadges": 14250,
+      "costPerLevel": [520, 620, 730, 880, 1000, 1300, 1600, 2000, 2500, 3100],
+      "stat": "+100% Equipment Day Points",
+      "category": "incentive",
+      "priority": 8
+    },
+    {
+      "id": "incentive_creeps",
+      "name": "Incentive — Creeps",
+      "maxLevel": 10,
+      "totalBadges": 14250,
+      "costPerLevel": [520, 620, 730, 880, 1000, 1300, 1600, 2000, 2500, 3100],
+      "stat": "+100% Creep Kill Points",
+      "category": "incentive",
+      "priority": 9
+    },
+    {
+      "id": "incentive_recruiting",
+      "name": "Incentive — Recruiting",
+      "maxLevel": 10,
+      "totalBadges": 22100,
+      "costPerLevel": [820, 980, 1100, 1300, 1600, 2000, 2500, 3100, 3900, 4800],
+      "stat": "+100% Recruiting Points",
+      "category": "incentive",
+      "priority": 10
+    },
+    {
+      "id": "incentive_killing",
+      "name": "Incentive — Killing",
+      "maxLevel": 10,
+      "totalBadges": 22100,
+      "costPerLevel": [820, 980, 1100, 1300, 1600, 2000, 2500, 3100, 3900, 4800],
+      "stat": "+100% Killing Points",
+      "category": "incentive",
+      "priority": 11
+    },
+    {
+      "id": "event_king",
+      "name": "Event King",
+      "maxLevel": 20,
+      "totalBadges": 142700,
+      "costPerLevel": [1200, 1500, 1700, 2000, 2300, 2800, 3300, 4000, 4700, 5500, 6200, 7100, 8100, 9300, 10800, 11200, 13000, 13700, 15600, 18700],
+      "stat": "+200% Alliance Duel Points (all tasks)",
+      "category": "multiplier",
+      "priority": 12
+    },
+    {
+      "id": "one_more",
+      "name": "One More!",
+      "maxLevel": 1,
+      "totalBadges": 20500,
+      "costPerLevel": [20500],
+      "stat": "2x Daily Alliance Duel Chest Rewards",
+      "category": "chests",
+      "priority": 13
+    },
+    {
+      "id": "augmented_engine",
+      "name": "Augmented Engine",
+      "maxLevel": 10,
+      "totalBadges": 8030,
+      "costPerLevel": [300, 360, 420, 500, 590, 740, 920, 1100, 1400, 1700],
+      "stat": "+20% March Speed",
+      "category": "utility",
+      "priority": 14
+    },
+    {
+      "id": "transport_capacity",
+      "name": "Transport Capacity Up",
+      "maxLevel": 10,
+      "totalBadges": 8030,
+      "costPerLevel": [300, 360, 420, 500, 590, 740, 920, 1100, 1400, 1700],
+      "stat": "+20% Troop Load Capacity",
+      "category": "utility",
+      "priority": 15
+    },
+    {
+      "id": "production_line",
+      "name": "Production Line Expansion",
+      "maxLevel": 10,
+      "totalBadges": 8030,
+      "costPerLevel": [300, 360, 420, 500, 590, 740, 920, 1100, 1400, 1700],
+      "stat": "+20 Units Per Batch",
+      "category": "utility",
+      "priority": 16
+    },
+    {
+      "id": "fast_production",
+      "name": "Fast Production",
+      "maxLevel": 10,
+      "totalBadges": 8030,
+      "costPerLevel": [300, 360, 420, 500, 590, 740, 920, 1100, 1400, 1700],
+      "stat": "+50% Training Speed",
+      "category": "utility",
+      "priority": 17
+    },
+    {
+      "id": "collect_wood",
+      "name": "Collect Wood",
+      "maxLevel": 10,
+      "totalBadges": 4120,
+      "stat": "+50% Food & Wood Gathering Speed",
+      "category": "gather",
+      "priority": 18
+    },
+    {
+      "id": "zent_gatherer",
+      "name": "Zent Gatherer",
+      "maxLevel": 10,
+      "totalBadges": 4120,
+      "stat": "+50% Zent & Electricity Gathering Speed",
+      "category": "gather",
+      "priority": 19
+    }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "name": "Modded Vehicle Boost",
+      "weekday": "Monday",
+      "description": "Score points by spending vehicle modification resources. Save everything — Golden Wrenches, Blueprints, and Component Boxes — for this day only.",
+      "keyItems": ["Golden Wrenches", "Modification Blueprints", "Vehicle Component Boxes (Lv 1–5)", "Chip Chests"],
+      "tips": [
+        "Do NOT open wrenches, blueprints, or component boxes on any other day — all must be saved for Monday.",
+        "Golden Wrenches are the highest-value item: 5,000 base points each (18,400+ with max Alliance Recognition).",
+        "Orange Chip Chests are extremely valuable — approximately 1,000,000 points each.",
+        "Killing Creeps and Boomers scores here too — coordinate with your alliance.",
+        "Radar missions and resource gathering also count but are lower priority."
+      ]
+    },
+    {
+      "day": 2,
+      "name": "Shelter Upgrade",
+      "weekday": "Tuesday",
+      "description": "Score points through building upgrades, construction speed-ups, orange bounty missions, and refugee recruitment.",
+      "keyItems": ["Construction Speed-Ups", "Orange Bounty Tickets", "Orange Refugees", "Purple Refugees"],
+      "tips": [
+        "Construction speed-ups score 107 points each — use all accumulated speed-ups today.",
+        "Orange Bounty missions award ~805,000 points for 5 completed. Save 20–40 Refresh Tickets to reroll for orange bounties.",
+        "Orange Refugees: 107,000 pts. Purple: 26,000 pts. Blue: 5,300 pts. Green: 0 pts — skip all green refugees.",
+        "Alliance Recognition research (Incentive — Development) also scores on this day — invest badges here if you haven't maxed it.",
+        "Target 2.2M+ points for full rewards; 6M is achievable with full resources."
+      ]
+    },
+    {
+      "day": 3,
+      "name": "Age of Science",
+      "weekday": "Wednesday",
+      "description": "Score points by spending research badges and using research speed-ups. This is the most important day for Alliance Recognition progress.",
+      "keyItems": ["Research Badges", "Research Speed-Ups (1-min)", "S-rank Orange Intercity Trucks"],
+      "tips": [
+        "Save ALL badges for Wednesday — spend none on other days. 20,000 badges ≈ 2M+ points.",
+        "Completing Alliance Recognition nodes here scores double — badges spent + Duel points from node bonuses.",
+        "Rush Premium Rewards → Event Expert → Super Rewards first on this day for compounding scoring.",
+        "Only S-rank (orange) Intercity Trade Trucks count — approximately 4 trucks = 1,200,000 points. Purple/blue trucks score nothing.",
+        "1-minute research speed-ups are efficient here — queue short research and chain speed-ups."
+      ]
+    },
+    {
+      "day": 4,
+      "name": "Hero Initiative",
+      "weekday": "Thursday",
+      "description": "Score points by spending hero fragments, equipment materials, and power cores.",
+      "keyItems": ["Hero Fragments (any color)", "Exclusive Equipment Fragments (orange only)", "Power Cores", "Prime Recruitment Tickets", "Enhancement Alloys", "Orange Skill Books"],
+      "tips": [
+        "Hero Fragments of any color (orange, purple, blue) all score — spend all accumulated fragments today.",
+        "Enhancement Alloys score — but ONLY use on orange-tier equipment. Never waste on purple or blue gear.",
+        "This is generally the easiest day to hit high scores with consistent daily hero investment.",
+        "Prime Recruitment Tickets and equipment upgrades also count here."
+      ]
+    },
+    {
+      "day": 5,
+      "name": "Holistic Growth",
+      "weekday": "Friday",
+      "description": "Score points by training troops and using training speed-ups. Save every speed-up from the entire week for today.",
+      "keyItems": ["Training Speed-Ups", "Radar Tasks"],
+      "tips": [
+        "Save every single training speed-up accumulated all week — spend none before Friday.",
+        "Lower-tier troops maximize points per speed-up minute — consider training T1/T2 if you have queued speed-ups.",
+        "Hold Radar tasks from earlier in the week and complete them today for bonus points.",
+        "Season 2 Overlord items also score here — use any that have accumulated."
+      ]
+    },
+    {
+      "day": 6,
+      "name": "Enemy Buster",
+      "weekday": "Saturday",
+      "description": "Score points by killing enemy troops and completing combat objectives. Unique Valor Medal rewards — exchangeable for orange equipment in the Black Market.",
+      "keyItems": ["Enemy Troops", "Orange Wanted Missions", "S-rank Orange Intercity Trucks"],
+      "tips": [
+        "Killing enemy alliance troops scores the most points — coordinate attacks with your alliance.",
+        "Having your own troops killed in combat also scores.",
+        "Orange Wanted missions contribute — complete all available.",
+        "Valor Medal reward: 5,200 per full unlock (10,400 with max Alliance Recognition via One More!).",
+        "Valor Medals exchange for orange equipment in the Black Market — one of the best gear sources in the game."
+      ]
+    }
+  ]
+}

@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { href: "/tank",     label: "Vehicles" },
   { href: "/gear",     label: "Gear" },
   { href: "/pvp",      label: "PvP" },
+  { href: "/alliance", label: "Alliance" },
   { href: "/guide",    label: "Guide" },
   { href: "/calc",     label: "Calc" },
 ];
