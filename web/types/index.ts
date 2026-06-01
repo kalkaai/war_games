@@ -147,6 +147,25 @@ export interface GearSet {
   pieces: GearPiece[];
 }
 
+// ── T10 Research data ─────────────────────────────────────────────────────────
+
+export interface T10Node {
+  id: string;
+  name: string;
+  maxLevel: number;
+  totalBadges: number;
+  costPerLevel: number[];
+  prerequisites: string[];
+  stat: string;
+  phase: 1 | 2 | 3 | 4;
+}
+
+export interface T10PhaseMilestone {
+  phase: number;
+  label: string;
+  badges: number;
+}
+
 // ── Alliance Recognition data ─────────────────────────────────────────────────
 
 export interface AllianceNode {

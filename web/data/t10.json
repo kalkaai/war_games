@@ -1,0 +1,238 @@
+{
+  "_comment": "T10 Troops research tree (Unit Special Training) for Last Z. 22 nodes, 1,488,100 total badges. Unlocks Tier 10 troops. Requires Lab Lv 30, HQ Lv 30, Barracks Lv 30. Data sourced from lastzguides.com, lastzwiki.com, ztools.co.uk (May 2026).",
+  "totalBadges": 1488100,
+  "nodes": [
+    {
+      "id": "fire_up_1",
+      "name": "Fire Up I",
+      "maxLevel": 10,
+      "totalBadges": 21350,
+      "costPerLevel": [700, 950, 1100, 1300, 1500, 1900, 2400, 3000, 3800, 4700],
+      "prerequisites": [],
+      "stat": "Troop Attack",
+      "phase": 1
+    },
+    {
+      "id": "armor_upgrade_1",
+      "name": "Armor Upgrade I",
+      "maxLevel": 10,
+      "totalBadges": 21350,
+      "costPerLevel": [700, 950, 1100, 1300, 1500, 1900, 2400, 3000, 3800, 4700],
+      "prerequisites": [],
+      "stat": "Troop Defense",
+      "phase": 1
+    },
+    {
+      "id": "fast_production_1",
+      "name": "Fast Production I",
+      "maxLevel": 10,
+      "totalBadges": 26700,
+      "costPerLevel": [900, 1100, 1300, 1600, 1900, 2400, 3000, 3800, 4800, 5900],
+      "prerequisites": ["fire_up_1", "armor_upgrade_1"],
+      "stat": "Training Speed",
+      "phase": 1
+    },
+    {
+      "id": "mobility_enhancement_1",
+      "name": "Mobility Enhancement I",
+      "maxLevel": 10,
+      "totalBadges": 36200,
+      "costPerLevel": [1300, 1500, 1800, 2200, 2600, 3300, 4100, 5100, 6400, 7900],
+      "prerequisites": ["fast_production_1"],
+      "stat": "March Speed",
+      "phase": 1
+    },
+    {
+      "id": "melee_combat_1",
+      "name": "Melee Combat I",
+      "maxLevel": 10,
+      "totalBadges": 36200,
+      "costPerLevel": [1300, 1500, 1800, 2200, 2600, 3300, 4100, 5100, 6400, 7900],
+      "prerequisites": ["fast_production_1"],
+      "stat": "Assaulter Combat",
+      "phase": 1
+    },
+    {
+      "id": "weapon_upgrading_1",
+      "name": "Weapon Upgrading I",
+      "maxLevel": 10,
+      "totalBadges": 36200,
+      "costPerLevel": [1300, 1500, 1800, 2200, 2600, 3300, 4100, 5100, 6400, 7900],
+      "prerequisites": ["fast_production_1"],
+      "stat": "Shooter Combat",
+      "phase": 1
+    },
+    {
+      "id": "stronger_armor_1",
+      "name": "Stronger Armor I",
+      "maxLevel": 10,
+      "totalBadges": 36200,
+      "costPerLevel": [1300, 1500, 1800, 2200, 2600, 3300, 4100, 5100, 6400, 7900],
+      "prerequisites": ["mobility_enhancement_1"],
+      "stat": "Rider Combat",
+      "phase": 1
+    },
+    {
+      "id": "shield_upgrade_1",
+      "name": "Shield Upgrade I",
+      "maxLevel": 10,
+      "totalBadges": 36200,
+      "costPerLevel": [1300, 1500, 1800, 2200, 2600, 3300, 4100, 5100, 6400, 7900],
+      "prerequisites": ["melee_combat_1"],
+      "stat": "Troop HP",
+      "phase": 1
+    },
+    {
+      "id": "camo_coating_1",
+      "name": "Camo Coating I",
+      "maxLevel": 10,
+      "totalBadges": 36200,
+      "costPerLevel": [1300, 1500, 1800, 2200, 2600, 3300, 4100, 5100, 6400, 7900],
+      "prerequisites": ["weapon_upgrading_1"],
+      "stat": "Troop DEF Resistance",
+      "phase": 1
+    },
+    {
+      "id": "propulsion",
+      "name": "Propulsion",
+      "maxLevel": 10,
+      "totalBadges": 39800,
+      "costPerLevel": [1400, 1700, 2000, 2400, 2900, 3600, 4500, 5600, 7100, 8600],
+      "prerequisites": ["stronger_armor_1", "shield_upgrade_1", "camo_coating_1"],
+      "stat": "March Speed & Formation",
+      "phase": 2
+    },
+    {
+      "id": "fast_production_2",
+      "name": "Fast Production II",
+      "maxLevel": 10,
+      "totalBadges": 39800,
+      "costPerLevel": [1400, 1700, 2000, 2400, 2900, 3600, 4500, 5600, 7100, 8600],
+      "prerequisites": ["stronger_armor_1", "shield_upgrade_1", "camo_coating_1"],
+      "stat": "Training Speed",
+      "phase": 2
+    },
+    {
+      "id": "fire_up_2",
+      "name": "Fire Up II",
+      "maxLevel": 10,
+      "totalBadges": 58200,
+      "costPerLevel": [2100, 2500, 2900, 3600, 4200, 5200, 6500, 8200, 10300, 12700],
+      "prerequisites": ["propulsion"],
+      "stat": "Troop Attack",
+      "phase": 2
+    },
+    {
+      "id": "armor_upgrade_2",
+      "name": "Armor Upgrade II",
+      "maxLevel": 10,
+      "totalBadges": 58200,
+      "costPerLevel": [2100, 2500, 2900, 3600, 4200, 5200, 6500, 8200, 10300, 12700],
+      "prerequisites": ["fast_production_2"],
+      "stat": "Troop Defense",
+      "phase": 2
+    },
+    {
+      "id": "demolition_crew",
+      "name": "Demolition Crew",
+      "maxLevel": 5,
+      "totalBadges": 32600,
+      "costPerLevel": [2900, 3700, 5300, 8000, 12700],
+      "prerequisites": ["fire_up_2", "armor_upgrade_2"],
+      "stat": "Siege & Destruction Value",
+      "phase": 2
+    },
+    {
+      "id": "mobility_enhancement_2",
+      "name": "Mobility Enhancement II",
+      "maxLevel": 15,
+      "totalBadges": 116500,
+      "costPerLevel": [2000, 2400, 2800, 3300, 3900, 4700, 5500, 6500, 7800, 9000, 10300, 11700, 13300, 15400, 17900],
+      "prerequisites": ["demolition_crew"],
+      "stat": "March Speed",
+      "phase": 3
+    },
+    {
+      "id": "melee_combat_2",
+      "name": "Melee Combat II",
+      "maxLevel": 15,
+      "totalBadges": 116500,
+      "costPerLevel": [2000, 2400, 2800, 3300, 3900, 4700, 5500, 6500, 7800, 9000, 10300, 11700, 13300, 15400, 17900],
+      "prerequisites": ["demolition_crew"],
+      "stat": "Assaulter Combat",
+      "phase": 3
+    },
+    {
+      "id": "weapon_upgrading_2",
+      "name": "Weapon Upgrading II",
+      "maxLevel": 15,
+      "totalBadges": 116500,
+      "costPerLevel": [2000, 2400, 2800, 3300, 3900, 4700, 5500, 6500, 7800, 9000, 10300, 11700, 13300, 15400, 17900],
+      "prerequisites": ["demolition_crew"],
+      "stat": "Shooter Combat",
+      "phase": 3
+    },
+    {
+      "id": "stronger_armor_2",
+      "name": "Stronger Armor II",
+      "maxLevel": 15,
+      "totalBadges": 116500,
+      "costPerLevel": [2000, 2400, 2800, 3300, 3900, 4700, 5500, 6500, 7800, 9000, 10300, 11700, 13300, 15400, 17900],
+      "prerequisites": ["mobility_enhancement_2"],
+      "stat": "Rider Combat",
+      "phase": 3
+    },
+    {
+      "id": "shield_upgrade_2",
+      "name": "Shield Upgrade II",
+      "maxLevel": 15,
+      "totalBadges": 116500,
+      "costPerLevel": [2000, 2400, 2800, 3300, 3900, 4700, 5500, 6500, 7800, 9000, 10300, 11700, 13300, 15400, 17900],
+      "prerequisites": ["melee_combat_2"],
+      "stat": "Troop HP",
+      "phase": 3
+    },
+    {
+      "id": "camo_coating_2",
+      "name": "Camo Coating II",
+      "maxLevel": 15,
+      "totalBadges": 116500,
+      "costPerLevel": [2000, 2400, 2800, 3300, 3900, 4700, 5500, 6500, 7800, 9000, 10300, 11700, 13300, 15400, 17900],
+      "prerequisites": ["weapon_upgrading_2"],
+      "stat": "Troop DEF Resistance",
+      "phase": 3
+    },
+    {
+      "id": "recharge_shield",
+      "name": "Recharge Shield",
+      "maxLevel": 20,
+      "totalBadges": 219000,
+      "costPerLevel": [1900, 2300, 2600, 3000, 3600, 4400, 5100, 6100, 7200, 8400, 9500, 10900, 12400, 14300, 16600, 17200, 19900, 21000, 23900, 28700],
+      "prerequisites": ["stronger_armor_2", "shield_upgrade_2", "camo_coating_2"],
+      "stat": "+50% Troop HP — major combat buff",
+      "phase": 4
+    },
+    {
+      "id": "unit_special_training",
+      "name": "Unit Special Training",
+      "maxLevel": 1,
+      "totalBadges": 54900,
+      "costPerLevel": [54900],
+      "prerequisites": ["recharge_shield"],
+      "stat": "Unlocks T10 Elite Troops",
+      "phase": 4
+    }
+  ],
+  "phaseMilestones": [
+    { "phase": 1, "label": "Tier I Complete",    "badges": 286600 },
+    { "phase": 2, "label": "Bridge Complete",    "badges": 515200 },
+    { "phase": 3, "label": "Tier II Complete",   "badges": 1214200 },
+    { "phase": 4, "label": "T10 Unlocked",       "badges": 1488100 }
+  ],
+  "phaseNames": {
+    "1": "Tier I Basics",
+    "2": "Mid-Tier Bridge",
+    "3": "Tier II Expansion",
+    "4": "T10 Unlock"
+  }
+}

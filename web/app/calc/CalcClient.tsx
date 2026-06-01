@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
 import researchData from "@/data/research.json";
 import hqData from "@/data/hq.json";
@@ -322,7 +323,21 @@ export default function CalcClient() {
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Calculators</h1>
       <p className="mt-2 text-purple-200/80">All calculations are client-side — nothing is sent to a server.</p>
 
-      <div className="mt-8 space-y-6">
+      {/* T10 tracker link card */}
+      <Link
+        href="/calc/t10"
+        className="mt-8 flex items-center justify-between rounded-xl border border-amber-700/40 bg-amber-900/10 p-5 transition-colors hover:border-amber-600/60 hover:bg-amber-900/20"
+      >
+        <div>
+          <p className="font-bold text-white">T10 Research Calculator</p>
+          <p className="mt-0.5 text-sm text-amber-200/80">
+            22 nodes · 1,488,100 badges · prerequisite chain · phase milestones
+          </p>
+        </div>
+        <span className="text-amber-400 text-lg">→</span>
+      </Link>
+
+      <div className="mt-6 space-y-6">
         <SpeedupCalc />
         <BadgeBudgetCalc />
         <ResourcePlanner />
