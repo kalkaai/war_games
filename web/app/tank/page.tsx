@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import tanksData from "@/data/tanks.json";
 import type { Vehicle } from "@/types";
+import TankTrackerClient from "./TankTrackerClient";
 
 export const metadata: Metadata = {
   title: "Tank & Vehicles — GAMIDES | Last Z: Survival Shooter",
-  description: "Last Z: Survival Shooter vehicle modification guide: Conqueror, Cheetah, Hercules, Destroyer, and Destroyer EX upgrade paths with wrench costs and key upgrades.",
+  description: "Last Z: Survival Shooter vehicle modification tracker: all 49 modifications, wrench costs, time estimates, and progress tracking. Covers Conqueror through Destroyer EX.",
   openGraph: {
     title: "Tank & Vehicles — GAMIDES | Last Z: Survival Shooter",
-    description: "Last Z: Survival Shooter vehicle modification guide: Conqueror, Cheetah, Hercules, Destroyer, and Destroyer EX upgrade paths with wrench costs.",
-
+    description: "Last Z: Survival Shooter vehicle modification tracker: all 49 modifications, wrench costs, time estimates, and progress tracking.",
   },
   alternates: {
     canonical: "https://www.gamides.com/tank",
@@ -37,11 +37,26 @@ export default function TankPage() {
 
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter Tank & Vehicles</h1>
       <p className="mt-2 text-purple-200/80">
-        Vehicle modification progression · Currency: Golden Wrenches + Blueprints
+        49 modifications · Lv 0–240 · 70,700 total wrenches · Progress saves automatically
       </p>
 
-      {/* Timeline */}
-      <h2 className="mt-10 text-xl font-bold text-white">How Does Vehicle Progression Work?</h2>
+      {/* Interactive tracker */}
+      <div className="mt-6">
+        <TankTrackerClient />
+      </div>
+
+      {/* VS Vehicle Day tip */}
+      <div className="mt-10 rounded-xl border border-yellow-700/40 bg-yellow-900/10 p-5">
+        <h3 className="font-semibold text-yellow-200">🔧 VS Vehicle Day (Monday)</h3>
+        <p className="mt-1 text-sm text-yellow-100/70">
+          Use Golden Wrenches and Blueprints on Monday for VS event points.
+          Save your modifications for Monday to maximise double-dipping on resources and VS score.
+        </p>
+      </div>
+
+      {/* Vehicle stage guide */}
+      <h2 className="mt-10 text-xl font-bold text-white">Vehicle Upgrade Path Overview</h2>
+      <p className="mt-1 text-sm text-purple-200/80">The 5 vehicles in order of progression.</p>
       <div className="mt-4 space-y-4">
         {vehicles.map((vehicle, i) => (
           <div key={vehicle.id} className={`rounded-xl border p-5 ${STAGE_COLORS[i] ?? STAGE_COLORS[0]}`}>
@@ -100,18 +115,6 @@ export default function TankPage() {
         ))}
       </div>
 
-      {/* VS Vehicle Day tip */}
-      <div className="mt-8 rounded-xl border border-yellow-700/40 bg-yellow-900/10 p-5">
-        <h3 className="font-semibold text-yellow-200">🔧 VS Vehicle Day (Monday)</h3>
-        <p className="mt-1 text-sm text-yellow-100/70">
-          Use Golden Wrenches and Blueprints on Monday for VS event points.
-          Save your modifications for Monday to maximise double-dipping on resources and VS score.
-        </p>
-      </div>
-
-      <p className="mt-6 text-xs text-purple-300/70">
-        Key upgrade levels are named milestones — individual level costs vary by tier. Last updated May 2026.
-      </p>
     </div>
   );
 }

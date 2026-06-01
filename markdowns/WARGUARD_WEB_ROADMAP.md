@@ -336,63 +336,54 @@ Full audit vs. lastz.stresswar.com. Items ordered by priority.
 
 ---
 
-### P1 — Tank Modification Tracker (High Impact)
+### ✅ P1 — Tank Modification Tracker (High Impact) — SHIPPED May 2026
 
 **Gap:** Our `/tank` is a static 5-card summary. Their site is a full interactive tracker with all 49 modifications, individual sub-level toggles (levels 0–240), and a live Spent / Remaining wrench counter.
 
-**What to build:**
-- Add full modification data to `tanks.json`: 49 mods across 8 difficulty tiers (Intern Modifier → Modding Overlord), each with sub-levels and wrench cost per sub-level
-- Convert `/tank` from static guide to interactive tracker:
-  - Toggle each sub-level complete
-  - Live wrench Spent / Remaining counter (max: 70,700)
-  - Progress saved in localStorage (same pattern as research trees)
-  - Tier groupings with color badges
-- Named mods to include: Elite Weapon I/II/III, Elite Tire I/II/III, Elite Trunk I/II/III, Plasma Chain, Inferno Furnace, Phase Amp, plus all others
+**Built:**
+- All 49 modifications added to `tanks.json`: 8 tiers (Intern Modifier → Modding Overlord), levels 0–240, wrench cost per sub-level, total wrenches per mod
+- `TankTrackerClient` component: tier-grouped mod list with amber vehicle-unlock dividers, toggle per mod, Spent/Remaining/progress bar in localStorage (`wg_tank_mods`), reset button
+- Vehicle milestone time estimates: weekly rate input → calculates time to Cheetah / Hercules / Destroyer / Destroyer EX / Lv 240
+- Static vehicle stage guide preserved below tracker
 
 ---
 
-### P1 — HQ Data: Levels 36–40
+### ⏳ P1 — HQ Data: Levels 36–40 — DEFERRED
 
 **Gap:** Our `hq.json` only covers levels 1–35. Their site shows levels up to 40 (36–40 marked "unconfirmed").
 
-**What to build:**
-- Research and add levels 36–40 to `hq.json` (required buildings, resource costs, heroes cap, build time)
-- Mark unverified rows with a `confirmed: false` flag; display a visual "Unconfirmed" badge in the table
-- Update HQ resource planner calculator to support range up to level 40
+**Status:** Deferred — HQ 35 is confirmed as the current game maximum. Stresswar.com's 36–40 rows are speculative. No data to add until the game adds higher HQ levels in a future patch.
 
 ---
 
-### P1 — Shooter Training Research Tree
+### ⏳ P1 — Shooter Training Research Tree — DEFERRED
 
 **Gap:** Their changelog documents a "Shooter Training" tree added as a new research category. Our `research.json` does not include it.
 
-**What to build:**
-- Research node names, badge costs, and stat bonuses for the Shooter Training tree
-- Add as a 10th tree to `research.json`
-- Appears automatically on `/research` grid and is fully interactive on `/research/shooter-training`
+**Status:** Deferred — Shooter Training is a post-endgame tree that unlocks only after 100% completion of Field Research (~594K badges). No public node-level data (names, badge costs, stat bonuses) exists yet. Will revisit when community data surfaces.
 
 ---
 
-### P2 — Hero Roster Tracker
+### ✅ P2 — Hero Roster Tracker — SHIPPED May 2026
 
 **Gap:** Their heroes page has an "+ Activate" button per hero — players mark which heroes they've unlocked. We have no owned/unlocked state.
 
-**What to build:**
-- Add a toggle per hero card on `/heroes` (e.g., "Owned" checkbox or star icon)
-- Save to localStorage keyed by hero ID
-- Show owned count in header (e.g., "12 / 30 heroes owned")
-- Optional: filter view to "Owned only" or "Not yet owned"
+**Built:**
+- `+` / `✓` toggle button on each hero card (top-left of portrait), persisted to localStorage (`wg_heroes_owned`)
+- "X / 30 owned" count shown in `/heroes` header when any are marked
+- Green "Owned (N)" filter pill (visible only once user has marked at least one hero)
+- Empty state when "Owned" filter is active but nothing marked yet
 
 ---
 
-### P2 — Global Research Badge Tracker
+### ✅ P2 — Global Research Badge Tracker — SHIPPED May 2026
 
 **Gap:** Their `/research` index shows a single global Spent / Remaining badge counter across all trees. We only show per-tree progress on individual tree pages.
 
-**What to build:**
-- On `/research` index, compute total badges spent across all trees from localStorage
-- Display "X badges spent · Y remaining" summary at top of page (same pattern as per-tree view)
-- Pulls from the same localStorage keys already written by `ResearchTreeClient`
+**Built:**
+- `ResearchGlobalStats` client component on `/research` index page
+- Reads all `wg_research_*` localStorage keys on mount, sums badges for completed nodes across all trees
+- Shows Spent / Remaining / progress bar / % — invisible to new visitors (renders null if no progress)
 
 ---
 
@@ -411,14 +402,13 @@ Full audit vs. lastz.stresswar.com. Items ordered by priority.
 
 ---
 
-### P3 — Research Auto-Complete Toggle
+### ✅ P3 — Research Auto-Complete Toggle — SHIPPED May 2026
 
 **Gap:** Their changelog mentions an "auto-complete toggle" on research trees — likely a "mark all nodes complete" button.
 
-**What to build:**
-- Add "Mark all complete" / "Mark all incomplete" toggle button to each research tree detail page
-- Sits alongside the existing "Reset progress" button
-- Updates localStorage in one action
+**Built:**
+- "Mark all complete" button on each research tree detail page (visible when not all nodes are done)
+- Sequential / Custom mode toggle on tree detail pages: Sequential auto-completes all preceding nodes when a node is clicked; Custom allows free toggling
 
 ---
 
@@ -476,28 +466,19 @@ Full audit vs. lastzdata.com. Items ordered by priority. Note: items already cap
 
 ---
 
-### P2 — Tank Calculator: Weekly Rate → Time Estimate
+### ✅ P2 — Tank Calculator: Weekly Rate → Time Estimate — SHIPPED May 2026
 
-**Gap:** lastzdata.com's Modified Vehicle Calculator includes a unique feature our roadmap item doesn't: input your weekly wrench collection rate → get a time estimate (days, months, years) to complete full progression. This is more useful than just a toggle tracker.
+**Gap:** lastzdata.com's Modified Vehicle Calculator includes a unique feature our roadmap item doesn't: input your weekly wrench collection rate → get a time estimate (days, months, years) to complete full progression.
 
-**What to build (add-on to P1 Tank Tracker from stresswar.com section):**
-- Add "Weekly wrenches earned" number input at the top of `/tank`
-- Compute: estimated days/months to reach each vehicle milestone (Cheetah, Hercules, Destroyer, Destroyer-EX, full 70,700)
-- Show floating or sticky "At your pace: X months to Destroyer" summary
-- No save needed — derived from wrench count + current progress state
+**Built:** Included in `TankTrackerClient` — "Weekly wrenches earned" input → computes time to each of 5 milestones (Cheetah, Hercules, Destroyer, Destroyer EX, Lv 240 max). Shows remaining wrenches and formatted time estimate per milestone card.
 
 ---
 
-### P2 — Sequential vs. Custom Mode (Calculator Pattern)
+### ✅ P2 — Sequential vs. Custom Mode (Calculator Pattern) — SHIPPED May 2026
 
-**Gap:** lastzdata.com uses a Sequential / Custom toggle across all their trackers. Sequential locks nodes behind prerequisites (matching how the game works); Custom lets players set any level freely for planning hypotheticals. We have no equivalent — our research trees always require sequential clicking.
+**Gap:** lastzdata.com uses a Sequential / Custom toggle across all their trackers. We had no equivalent.
 
-**What to build:**
-- Add a mode toggle to research tree detail pages (`/research/[tree]`):
-  - **Sequential** (default): clicking a node auto-completes all parents (current behavior)
-  - **Custom**: any node can be toggled independently, no prerequisite enforcement
-- Apply same pattern to the T10 calculator and Alliance Duel tracker when built
-- Single `useState` flag, no localStorage needed for the mode itself
+**Built:** Mode toggle on all research tree detail pages (`/research/[tree]`). Sequential auto-completes all preceding nodes when a node is clicked; Custom allows free toggling of any node regardless of order. Pill-style toggle UI, `useState` flag only (no localStorage for mode itself). Apply same pattern to Alliance Duel and T10 Calculator when built.
 
 ---
 

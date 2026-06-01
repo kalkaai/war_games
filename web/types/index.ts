@@ -149,6 +149,16 @@ export interface GearSet {
 
 // ── Tank / Vehicle data ───────────────────────────────────────────────────────
 
+export interface TankModification {
+  level: number;
+  name: string;
+  tier: string;
+  wrenchesPerSub: number;
+  subLevels: number;
+  totalWrenches: number;
+  vehicleUnlock?: string;
+}
+
 export interface VehicleUpgrade {
   name: string;
   level?: number;
