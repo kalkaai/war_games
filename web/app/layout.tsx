@@ -179,8 +179,10 @@ export default function RootLayout({
 
         {/* Sticky header */}
         <header className="sticky top-0 z-50 w-full border-b border-purple-900/40 bg-[#180030]/85 backdrop-blur-sm">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-            <GameidesLogo />
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4">
+            <div className="py-3">
+              <GameidesLogo />
+            </div>
             <PrimaryNav />
           </div>
         </header>
@@ -204,6 +206,7 @@ export default function RootLayout({
             <p className="mt-2">GAMIDES — Personal companion for Last Z: Survival Shooter players.</p>
             <p className="mt-2 text-purple-200/80">Copyright &copy; {new Date().getFullYear()} GAMIDES. Not affiliated with Last Z: Survival Shooter or its developers.</p>
             <p className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1">
+              <Link href="/feedback" className="text-purple-400 hover:text-purple-300 transition-colors">Feedback</Link>
               <Link href="/credits" className="text-purple-400 hover:text-purple-300 transition-colors">Credits</Link>
               <Link href="/privacy" className="text-purple-400 hover:text-purple-300 transition-colors">Privacy</Link>
               <Link href="/terms" className="text-purple-400 hover:text-purple-300 transition-colors">Terms</Link>

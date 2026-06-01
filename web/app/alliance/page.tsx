@@ -1,6 +1,33 @@
 import type { Metadata } from "next";
 import AllianceTrackerClient from "./AllianceTrackerClient";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many badges does Alliance Recognition cost in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Alliance Recognition costs 356,770 total badges to complete all 19 nodes in Last Z: Survival Shooter. The tree includes Chest Unlocks, Point Multipliers, Activity Incentives, Productivity, and Resource Gathering categories." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Alliance Recognition do in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Alliance Recognition unlocks nodes that multiply your Alliance Duel points. Event Expert and Event King at max give +300% Alliance Duel points — turning 1 Golden Wrench into 18,000+ points instead of 5,000. It pays back in 3–4 Duel cycles and generates ~4,000 extra badges per week." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Alliance Duel in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Alliance Duel is a 6-day weekly event in Last Z: Survival Shooter where alliance members earn points by spending resources on specific days: Day 1 (Monday) vehicle modifications, Day 2 (Tuesday) construction, Day 3 (Wednesday) research/badges, Day 4 (Thursday) hero upgrades, Day 5 (Friday) troop training, Day 6 (Saturday) alliance technology." }
+    },
+    {
+      "@type": "Question",
+      "name": "When should you spend badges in Alliance Duel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Spend badges on Day 3 (Wednesday — Age of Science) in Alliance Duel. Badges score Duel points AND complete research nodes simultaneously, giving double value from every badge spent." }
+    }
+  ]
+};
+
 export const metadata: Metadata = {
   title: "Alliance Duel & Alliance Recognition — GAMIDES | Last Z: Survival Shooter",
   description:
@@ -34,6 +61,8 @@ export default function AlliancePage() {
           Spend badges on <strong className="text-white">Wednesday (Age of Science)</strong> — badges score Duel points AND complete research nodes simultaneously.
         </p>
       </div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Interactive tracker */}
       <div className="mt-8">

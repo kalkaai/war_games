@@ -211,6 +211,7 @@ export default function AllianceTrackerClient() {
               <button
                 onClick={() => setActiveDay(open ? null : d.day)}
                 aria-expanded={open}
+                aria-controls={`duel-day-panel-${d.day}`}
                 className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left"
               >
                 <div className="flex items-center gap-3">
@@ -224,7 +225,7 @@ export default function AllianceTrackerClient() {
               </button>
 
               {open && (
-                <div className="border-t border-purple-800/30 px-5 pb-5 pt-4">
+                <div id={`duel-day-panel-${d.day}`} className="border-t border-purple-800/30 px-5 pb-5 pt-4">
                   <p className="text-sm text-purple-200/90">{d.description}</p>
 
                   <div className="mt-3">

@@ -2,6 +2,28 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import T10TrackerClient from "./T10TrackerClient";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many badges does T10 research cost in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Unit Special Training (T10) research tree in Last Z: Survival Shooter costs 1,488,100 total badges across 22 nodes and 4 phases. This unlocks the ability to train Tier 10 troops, which requires Laboratory Lv 30, HQ Lv 30, and Barracks Lv 30." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the building requirements to train T10 troops in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "To train Tier 10 troops in Last Z: Survival Shooter, you need: Laboratory Level 30, HQ Level 30, and Barracks Level 30. All three buildings must reach Level 30 before T10 troops can be trained — even after completing the Unit Special Training research." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best T10 research node in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The Recharge Shield node in Phase 4 of the T10 research tree is the most powerful: it grants +50% Troop HP across 20 levels for 219,000 badges total. Partial levels provide significant HP scaling that multiplies with base defense. Invest here as soon as it unlocks before completing Unit Special Training." }
+    }
+  ]
+};
+
 export const metadata: Metadata = {
   title: "T10 Research Calculator — GAMIDES | Last Z: Survival Shooter",
   description:
@@ -19,6 +41,7 @@ export const metadata: Metadata = {
 export default function T10Page() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="flex items-center gap-2 text-sm text-purple-400">
         <Link href="/calc" className="hover:text-purple-200 transition-colors">Calculators</Link>
         <span>›</span>

@@ -116,6 +116,28 @@ const REDEEM_STEPS = [
   "Tap Confirm, then open your in-game Mailbox to collect rewards.",
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you redeem codes in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "To redeem codes in Last Z: Survival Shooter: open the game, tap your avatar, go to Settings and copy your 14–16 digit Player ID (UID). In a browser, visit last-z.com/giftCenter, log in with your UID, enter the code exactly (codes are case-sensitive), and tap Confirm. Collect rewards from your in-game Mailbox. You must be HQ Level 10 or higher." }
+    },
+    {
+      "@type": "Question",
+      "name": "When do new Last Z redeem codes come out?",
+      "acceptedAnswer": { "@type": "Answer", "text": "New Last Z: Survival Shooter redeem codes drop weekly on Mondays from the official Discord and X/Twitter channels. Additional codes release when the Facebook, Discord, or X pages hit follower milestones (150K, 180K, 250K, 280K…), during major patches, and on seasonal events (Christmas, New Year, Valentine's, Spring). Most codes have a 200,000-redemption cap and expire quickly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Last Z redeem codes expire?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, most Last Z: Survival Shooter redeem codes expire. Codes marked 'Active' have been confirmed across multiple sources. Codes marked 'Try it' may still work — codes without a published expiry date can remain active for months. Always try codes as soon as they are released as many have a 200,000-redemption cap." }
+    }
+  ]
+};
+
 const STATUS_STYLES = {
   active: {
     row: "border-green-800/30",
@@ -132,6 +154,7 @@ const STATUS_STYLES = {
 export default function CodesPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">
         Last Z Redeem Codes — June 2026
       </h1>
@@ -155,14 +178,14 @@ export default function CodesPage() {
       </div>
 
       {/* Code table */}
-      <div className="mt-6 overflow-hidden rounded-xl border border-purple-800/40">
-        <table className="w-full text-sm">
+      <div className="mt-6 overflow-x-auto rounded-xl border border-purple-800/40">
+        <table aria-label="Last Z redeem codes" className="w-full text-sm">
           <thead>
             <tr className="border-b border-purple-800/40 bg-purple-900/40">
-              <th className="px-4 py-3 text-left font-semibold text-purple-300">Code</th>
-              <th className="px-4 py-3 text-left font-semibold text-purple-300">Rewards</th>
-              <th className="hidden px-4 py-3 text-left font-semibold text-purple-300 sm:table-cell">Notes</th>
-              <th className="px-4 py-3 text-left font-semibold text-purple-300">Status</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-300">Code</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-300">Rewards</th>
+              <th scope="col" className="hidden px-4 py-3 text-left font-semibold text-purple-300 sm:table-cell">Notes</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-300">Status</th>
             </tr>
           </thead>
           <tbody>

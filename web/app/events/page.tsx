@@ -96,12 +96,12 @@ export default function EventsPage() {
       <section className="mt-10">
         <h2 className="mb-4 text-xl font-bold text-white">When Does Each VS Event Run?</h2>
         <div className="overflow-x-auto rounded-xl border border-purple-700/60">
-          <table className="w-full text-sm">
+          <table aria-label="VS weekly event schedule" className="w-full text-sm">
             <thead>
               <tr className="border-b border-purple-700/60 bg-purple-900/60">
-                <th className="px-4 py-3 text-left font-semibold text-purple-200">Day</th>
-                <th className="px-4 py-3 text-left font-semibold text-purple-200">VS Event</th>
-                <th className="px-4 py-3 text-left font-semibold text-purple-200">Strategy</th>
+                <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Day</th>
+                <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">VS Event</th>
+                <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Strategy</th>
               </tr>
             </thead>
             <tbody>

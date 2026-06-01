@@ -77,7 +77,7 @@ function HeroCard({ hero, owned, onToggleOwned }: { hero: Hero; owned: boolean; 
       <button
         onClick={() => onToggleOwned(hero.id)}
         aria-label={owned ? `${hero.name} owned — click to unmark` : `Mark ${hero.name} as owned`}
-        className={`absolute left-2 top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold transition-colors ${
+        className={`absolute left-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-colors ${
           owned
             ? "bg-green-500 text-white"
             : "bg-black/40 text-white/50 hover:bg-black/60 hover:text-white"
@@ -186,24 +186,18 @@ export default function HeroesClient() {
   const ownedCount = ownedLoaded ? owned.size : 0;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10">
-
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Heroes</h1>
-        {ownedLoaded && ownedCount > 0 && (
-          <span className="text-sm text-purple-300">
-            <span className="font-semibold text-white">{ownedCount}</span> / {heroes.length} owned
-          </span>
-        )}
-      </div>
-      <p className="mt-2 text-purple-200/80">
-        {heroes.length} heroes across 3 factions · Tiers based on Season 4 rankings
-      </p>
+    <div>
+      {ownedLoaded && ownedCount > 0 && (
+        <p className="mt-1 text-sm text-purple-300">
+          <span className="font-semibold text-white">{ownedCount}</span> / {heroes.length} owned
+        </p>
+      )}
 
       {/* Filter + Sort */}
       <div className="mt-6 flex flex-wrap items-center gap-2">
         <button
           onClick={() => { sendGAEvent("event", "filter_faction", { faction: "all" }); setFilter("all"); }}
+          aria-pressed={filter === "all"}
           className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${filter === "all" ? "bg-purple-600 text-white" : "border border-purple-700 text-purple-300 hover:border-purple-500"}`}
         >
           All ({heroes.length})
@@ -214,6 +208,7 @@ export default function HeroesClient() {
             <button
               key={f}
               onClick={() => { sendGAEvent("event", "filter_faction", { faction: f }); setFilter(f); }}
+              aria-pressed={filter === f}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${filter === f ? "bg-purple-600 text-white" : "border border-purple-700 text-purple-300 hover:border-purple-500"}`}
             >
               {FACTION_LABELS[f]} ({count})
@@ -223,6 +218,7 @@ export default function HeroesClient() {
         {ownedLoaded && ownedCount > 0 && (
           <button
             onClick={() => { sendGAEvent("event", "filter_faction", { faction: "owned" }); setFilter("owned"); }}
+            aria-pressed={filter === "owned"}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${filter === "owned" ? "bg-green-600 text-white" : "border border-green-800 text-green-400 hover:border-green-600"}`}
           >
             Owned ({ownedCount})
@@ -232,12 +228,14 @@ export default function HeroesClient() {
         <div className="ml-auto flex gap-1">
           <button
             onClick={() => { sendGAEvent("event", "sort_heroes", { sort: "tier" }); setSort("tier"); }}
+            aria-pressed={sort === "tier"}
             className={`rounded px-3 py-1.5 text-xs font-medium transition-colors ${sort === "tier" ? "bg-purple-700 text-white" : "border border-purple-800 text-purple-400 hover:border-purple-600"}`}
           >
             Sort: Tier
           </button>
           <button
             onClick={() => { sendGAEvent("event", "sort_heroes", { sort: "priority" }); setSort("priority"); }}
+            aria-pressed={sort === "priority"}
             className={`rounded px-3 py-1.5 text-xs font-medium transition-colors ${sort === "priority" ? "bg-purple-700 text-white" : "border border-purple-800 text-purple-400 hover:border-purple-600"}`}
           >
             Sort: Priority
