@@ -149,6 +149,20 @@ export default function GuidePage() {
         </div>
       </div>
 
+      {/* More guides */}
+      <div className="mt-4 grid gap-3 sm:grid-cols-3">
+        {[
+          { href: "/guide/troop-formation", title: "Troop Formation", desc: "T1–T10 tiers · faction roles · march optimisation" },
+          { href: "/guide/city-capture", title: "City Capture & Defense", desc: "Shield strategy · resource protection · trap accounts" },
+          { href: "/guide/migration", title: "Season Migration", desc: "Score factors · tier requirements · what carries over" },
+        ].map((g) => (
+          <Link key={g.href} href={g.href} className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4 transition-colors hover:border-purple-500 hover:bg-purple-900/30">
+            <p className="font-bold text-white">{g.title}</p>
+            <p className="mt-0.5 text-xs text-purple-300/80">{g.desc}</p>
+          </Link>
+        ))}
+      </div>
+
       {/* F2P guide link */}
       <Link
         href="/guide/f2p"

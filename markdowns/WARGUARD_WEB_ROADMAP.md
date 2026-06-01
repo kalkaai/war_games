@@ -544,7 +544,7 @@ Each event guide: what the event is, how scoring works, what items to use, how t
 
 ---
 
-### P3 — Troop Formation & Assembly Guide
+### ✅ P3 — Troop Formation & Assembly Guide — SHIPPED June 2026
 
 **Gap:** LootBar has a troop assembly and optimization guide covering unit types, upgrades, and battle formations.
 
@@ -558,7 +558,7 @@ Each event guide: what the event is, how scoring works, what items to use, how t
 
 ---
 
-### P3 — City Capture & Defense Guide
+### ✅ P3 — City Capture & Defense Guide — SHIPPED June 2026
 
 **Gap:** LootBar has a city capture and defense guide — relevant for higher-level PvP players competing for territory.
 
@@ -571,7 +571,7 @@ Each event guide: what the event is, how scoring works, what items to use, how t
 
 ---
 
-### P3 — Season Migration Guide
+### ✅ P3 — Season Migration Guide — SHIPPED June 2026
 
 **Gap:** LootBar publishes season migration guides when new seasons launch (e.g., Season 5). These are time-sensitive but recurring.
 

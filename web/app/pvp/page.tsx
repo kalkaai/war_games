@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "PvP & Formations — GAMIDES | Last Z: Survival Shooter",
@@ -203,6 +204,19 @@ export default function PvPPage() {
           ))}
         </div>
       </section>
+      {/* Deep-dive guide links */}
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        {[
+          { href: "/guide/troop-formation", title: "Troop Formation & Assembly", desc: "T1–T10 tier guide · faction commitment · march optimisation · promotion mechanics" },
+          { href: "/guide/city-capture", title: "City Capture & Defense", desc: "Shield timing · resource protection · trap accounts · rally mechanics" },
+        ].map((g) => (
+          <Link key={g.href} href={g.href} className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4 transition-colors hover:border-purple-500 hover:bg-purple-900/30">
+            <p className="font-bold text-white">{g.title}</p>
+            <p className="mt-0.5 text-xs text-purple-300/80">{g.desc}</p>
+          </Link>
+        ))}
+      </div>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
