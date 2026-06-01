@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import researchData from "@/data/research.json";
 import type { ResearchTree } from "@/types";
+import ResearchGlobalStats from "./ResearchGlobalStats";
 
 export const metadata: Metadata = {
   title: "Research Trees — GAMIDES | Last Z: Survival Shooter",
@@ -33,6 +34,8 @@ export default function ResearchPage() {
       <p className="mt-2 text-purple-100/95">
         9 trees · {fmtBadges(totalBadges)} total badges to max everything. <strong>Badges</strong> are the primary research currency in Last Z: Survival Shooter, earned from daily tasks and events, and spent across trees to unlock stat bonuses (ATK, DEF, HP, march speed, and more).
       </p>
+
+      <ResearchGlobalStats />
 
       <h2 className="mt-8 text-xl font-bold text-white">Which Research Tree Should You Focus On First?</h2>
       <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

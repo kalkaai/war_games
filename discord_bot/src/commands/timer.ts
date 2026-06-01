@@ -5,7 +5,7 @@ import {
   Colors,
 } from 'discord.js'
 import { getOrCreateUser } from '../services/accountService'
-import { addTimer, listTimers, deleteTimer, clearExpiredTimers, nextPresetOccurrence, seedDefaultPresets } from '../services/timerService'
+import { addTimer, listTimers, deleteTimer, deleteAllTimers, clearExpiredTimers, nextPresetOccurrence, seedDefaultPresets } from '../services/timerService'
 import { parseDuration } from '../utils/parseDuration'
 import { formatTimeUntil, formatDuration } from '../utils/formatDuration'
 import { TIMER_TYPES, TIMER_EMOJI, GAME_PRESETS, PRO_ENABLED } from '../types'
@@ -43,6 +43,9 @@ export const data = new SlashCommandBuilder()
   )
   .addSubcommand((sub) =>
     sub.setName('setup_all_presets').setDescription('Start all built-in game event timers at once'),
+  )
+  .addSubcommand((sub) =>
+    sub.setName('delete_all').setDescription('Delete ALL your timers (cannot be undone)'),
   )
 
 export async function execute(interaction: ChatInputCommandInteraction) {
@@ -187,6 +190,20 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       count > 0
         ? `Cleared ${count} expired timer${count !== 1 ? 's' : ''}.`
         : 'No expired timers to clear.',
+    )
+    return
+  }
+
+  if (sub === 'delete_all') {
+    const timers = await listTimers(interaction.user.id, user.activeAccount)
+    if (timers.length === 0) {
+      await interaction.editReply('You have no timers to delete.')
+      return
+    }
+
+    const count = await deleteAllTimers(interaction.user.id, user.activeAccount)
+    await interaction.editReply(
+      `Deleted **${count}** timer${count !== 1 ? 's' : ''}. Use \`/timer setup_all_presets\` to start fresh.`,
     )
     return
   }

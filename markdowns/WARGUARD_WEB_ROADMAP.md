@@ -330,6 +330,190 @@ Cross-promotion placements:
 
 ---
 
+## Competitive Gap Closure — stresswar.com Comparison (May 2026)
+
+Full audit vs. lastz.stresswar.com. Items ordered by priority.
+
+---
+
+### P1 — Tank Modification Tracker (High Impact)
+
+**Gap:** Our `/tank` is a static 5-card summary. Their site is a full interactive tracker with all 49 modifications, individual sub-level toggles (levels 0–240), and a live Spent / Remaining wrench counter.
+
+**What to build:**
+- Add full modification data to `tanks.json`: 49 mods across 8 difficulty tiers (Intern Modifier → Modding Overlord), each with sub-levels and wrench cost per sub-level
+- Convert `/tank` from static guide to interactive tracker:
+  - Toggle each sub-level complete
+  - Live wrench Spent / Remaining counter (max: 70,700)
+  - Progress saved in localStorage (same pattern as research trees)
+  - Tier groupings with color badges
+- Named mods to include: Elite Weapon I/II/III, Elite Tire I/II/III, Elite Trunk I/II/III, Plasma Chain, Inferno Furnace, Phase Amp, plus all others
+
+---
+
+### P1 — HQ Data: Levels 36–40
+
+**Gap:** Our `hq.json` only covers levels 1–35. Their site shows levels up to 40 (36–40 marked "unconfirmed").
+
+**What to build:**
+- Research and add levels 36–40 to `hq.json` (required buildings, resource costs, heroes cap, build time)
+- Mark unverified rows with a `confirmed: false` flag; display a visual "Unconfirmed" badge in the table
+- Update HQ resource planner calculator to support range up to level 40
+
+---
+
+### P1 — Shooter Training Research Tree
+
+**Gap:** Their changelog documents a "Shooter Training" tree added as a new research category. Our `research.json` does not include it.
+
+**What to build:**
+- Research node names, badge costs, and stat bonuses for the Shooter Training tree
+- Add as a 10th tree to `research.json`
+- Appears automatically on `/research` grid and is fully interactive on `/research/shooter-training`
+
+---
+
+### P2 — Hero Roster Tracker
+
+**Gap:** Their heroes page has an "+ Activate" button per hero — players mark which heroes they've unlocked. We have no owned/unlocked state.
+
+**What to build:**
+- Add a toggle per hero card on `/heroes` (e.g., "Owned" checkbox or star icon)
+- Save to localStorage keyed by hero ID
+- Show owned count in header (e.g., "12 / 30 heroes owned")
+- Optional: filter view to "Owned only" or "Not yet owned"
+
+---
+
+### P2 — Global Research Badge Tracker
+
+**Gap:** Their `/research` index shows a single global Spent / Remaining badge counter across all trees. We only show per-tree progress on individual tree pages.
+
+**What to build:**
+- On `/research` index, compute total badges spent across all trees from localStorage
+- Display "X badges spent · Y remaining" summary at top of page (same pattern as per-tree view)
+- Pulls from the same localStorage keys already written by `ResearchTreeClient`
+
+---
+
+### P3 — Feedback / Data Correction Form
+
+**Gap:** They have a 4-category feedback form (General, Bug Report, Feature Request, Data Correction) with optional email reply. We have no user feedback mechanism.
+
+**What to build:**
+- Add `/feedback` page with a simple form:
+  - Category dropdown: General | Bug Report | Feature Request | Data Correction
+  - Message field (required)
+  - Email field (optional, "include if you'd like a response")
+  - Submit button
+- Backend: route handler POSTing to a Discord webhook (no database needed — posts submissions to a private Discord channel)
+- Disclaimer: not affiliated with game developers; in-game issues go to official support
+
+---
+
+### P3 — Research Auto-Complete Toggle
+
+**Gap:** Their changelog mentions an "auto-complete toggle" on research trees — likely a "mark all nodes complete" button.
+
+**What to build:**
+- Add "Mark all complete" / "Mark all incomplete" toggle button to each research tree detail page
+- Sits alongside the existing "Reset progress" button
+- Updates localStorage in one action
+
+---
+
+## Competitive Gap Closure — lastzdata.com Comparison (May 2026)
+
+Full audit vs. lastzdata.com. Items ordered by priority. Note: items already captured in the stresswar.com section (tank tracker, HQ 36–40) are not duplicated here.
+
+---
+
+### P1 — Alliance Duel Calculator (Missing Category)
+
+**Gap:** lastzdata.com covers Alliance Duel as a dedicated calculator and guide section. We have zero Alliance Duel coverage — not a single page. This is a major recurring game event.
+
+**What the Alliance Duel is:** A multi-day competitive event between alliances. Each day focuses on a different activity (Day 1: Modded Vehicle Power, Day 2: Shelter Upgrade, Day 3: Age of Science). Players earn Alliance Recognition badges through a 19-node research tree (356,770 total badges).
+
+**What to build:**
+
+*Data:*
+- Add `alliance.json` with 19 Alliance Recognition research nodes: names, per-level badge costs, stat bonuses (resource gathering +%, event multipliers +%, march speed, training rewards, chest unlocks, "One More" daily doubler)
+
+*Page (`/alliance`):*
+- Alliance Recognition tracker (same pattern as research tree detail):
+  - Sequential mode: prerequisite-locked node progression
+  - Custom mode: freely set any node level regardless of order
+  - Spent / Remaining badge counter (total pool: 356,770)
+  - Progress bar + % complete
+  - Save to localStorage
+- Alliance Duel weekly event guide section:
+  - Day 1: Modded Vehicle Power — tips (upgrade tank mods, spend wrenches)
+  - Day 2: Shelter Upgrade — tips (queue building upgrades in advance)
+  - Day 3: Age of Science — tips (use research speed-ups, time badge spend)
+  - What rewards to expect (orange-tier items, alliance chests)
+
+**Why P1:** Alliance Duel is a high-engagement recurring event. Players actively search for tips and badge tracking for it. Neither stresswar.com nor our site covers it. This is a clear gap to own.
+
+---
+
+### P1 — T10 Research Calculator (Calculator Upgrade)
+
+**Gap:** Our `/calc` Badge Budget Calculator asks "can I max tree X with Y badges?" — lastzdata.com has a dedicated T10 Research Calculator that tracks the 22 specific technologies required to unlock Tier 10 units, with per-tech level sliders and sequential/custom modes.
+
+**What the T10 path is:** A specific sequence of research nodes across trees that unlocks T10 troops — the most important long-term progression milestone for competitive players.
+
+**What to build:**
+- Add a dedicated T10 Research Calculator to `/calc` (or as `/calc/t10`):
+  - 22 technology sliders (level 0 → max per tech)
+  - Sequential mode: prerequisites locked until parent nodes are complete
+  - Custom mode: set any tech independently
+  - Per-tech: stat shown, level range, badge cost per level, cumulative cost
+  - Live Spent / Remaining / % complete summary panel
+  - Example techs: Fire Up (10 levels, 21,350 badges), Recharge Shield (20 levels, 219,000 badges), Unit Special Training (1 level, 54,900 badges)
+- Save progress to localStorage
+
+**Why P1:** T10 units are the defining milestone for competitive Last Z players. A T10-specific tracker answers the most common planning question: "how many badges until I unlock T10?"
+
+---
+
+### P2 — Tank Calculator: Weekly Rate → Time Estimate
+
+**Gap:** lastzdata.com's Modified Vehicle Calculator includes a unique feature our roadmap item doesn't: input your weekly wrench collection rate → get a time estimate (days, months, years) to complete full progression. This is more useful than just a toggle tracker.
+
+**What to build (add-on to P1 Tank Tracker from stresswar.com section):**
+- Add "Weekly wrenches earned" number input at the top of `/tank`
+- Compute: estimated days/months to reach each vehicle milestone (Cheetah, Hercules, Destroyer, Destroyer-EX, full 70,700)
+- Show floating or sticky "At your pace: X months to Destroyer" summary
+- No save needed — derived from wrench count + current progress state
+
+---
+
+### P2 — Sequential vs. Custom Mode (Calculator Pattern)
+
+**Gap:** lastzdata.com uses a Sequential / Custom toggle across all their trackers. Sequential locks nodes behind prerequisites (matching how the game works); Custom lets players set any level freely for planning hypotheticals. We have no equivalent — our research trees always require sequential clicking.
+
+**What to build:**
+- Add a mode toggle to research tree detail pages (`/research/[tree]`):
+  - **Sequential** (default): clicking a node auto-completes all parents (current behavior)
+  - **Custom**: any node can be toggled independently, no prerequisite enforcement
+- Apply same pattern to the T10 calculator and Alliance Duel tracker when built
+- Single `useState` flag, no localStorage needed for the mode itself
+
+---
+
+### P3 — Alliance Duel Day-by-Day Event Guides
+
+**Gap:** lastzdata.com publishes written guides for each day of Alliance Duel (Day 1/2/3 tips, authored by players). We have no Alliance Duel guide content.
+
+**What to build:**
+- Extend the `/alliance` page (or add `/guide/alliance-duel`) with:
+  - Day-by-day breakdown: what activity is scored, what items to use, what to prepare in advance
+  - Tip cards per day (same card format as `/guide` page)
+  - "What rewards to expect" section (orange-tier items, recognition badges, chest drops)
+- Static content in the page file — no data file needed
+
+---
+
 ## Open Questions
 
 1. **Domain:** warguard.gg or a Last Z-specific domain (e.g., lastzguide.com)? A Last Z-specific domain may rank better in search.

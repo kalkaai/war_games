@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { sendGAEvent } from "@next/third-parties/google";
@@ -8,6 +8,7 @@ import heroesData from "@/data/heroes.json";
 import type { Hero, HeroFaction, TroopType } from "@/types";
 
 const heroes = heroesData.heroes as Hero[];
+const OWNED_KEY = "wg_heroes_owned";
 
 const TIER_ORDER: Record<string, number> = {
   "S+": 0, "S": 1, "A+": 2, "A": 3, "B+": 4, "B": 5, "C": 6,
@@ -41,7 +42,7 @@ const TIER_COLORS: Record<string, string> = {
   "C":  "bg-slate-800 text-slate-300",
 };
 
-type Filter = HeroFaction | "all";
+type Filter = HeroFaction | "all" | "owned";
 type SortMode = "tier" | "priority";
 
 function RatingBadge({ label, rating }: { label: string; rating: string }) {
@@ -67,79 +68,134 @@ function PriorityDots({ priority }: { priority: number }) {
   );
 }
 
-function HeroCard({ hero }: { hero: Hero }) {
+function HeroCard({ hero, owned, onToggleOwned }: { hero: Hero; owned: boolean; onToggleOwned: (id: string) => void }) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <Link
-      href={`/heroes/${hero.id}`}
-      className={`block rounded-xl border p-4 transition-all hover:scale-[1.02] hover:brightness-110 ${FACTION_COLORS[hero.faction]}`}
-    >
-      {/* Portrait */}
-      <div className="relative mx-auto mb-3 h-24 w-24 overflow-hidden rounded-lg bg-purple-800/50">
-        {hero.portrait && !imgError ? (
-          <Image
-            src={hero.portrait}
-            alt={hero.name}
-            fill
-            unoptimized
-            className="object-cover object-top"
-            onError={() => setImgError(true)}
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-3xl font-bold text-purple-300/40">
-            {hero.name[0]}
-          </div>
+    <div className={`relative rounded-xl border transition-all hover:scale-[1.02] hover:brightness-110 ${FACTION_COLORS[hero.faction]}`}>
+      {/* Owned toggle — sibling of Link, not nested inside it */}
+      <button
+        onClick={() => onToggleOwned(hero.id)}
+        aria-label={owned ? `${hero.name} owned — click to unmark` : `Mark ${hero.name} as owned`}
+        className={`absolute left-2 top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold transition-colors ${
+          owned
+            ? "bg-green-500 text-white"
+            : "bg-black/40 text-white/50 hover:bg-black/60 hover:text-white"
+        }`}
+      >
+        {owned ? "✓" : "+"}
+      </button>
+
+      <Link href={`/heroes/${hero.id}`} className="block p-4">
+        {/* Portrait */}
+        <div className="relative mx-auto mb-3 h-24 w-24 overflow-hidden rounded-lg bg-purple-800/50">
+          {hero.portrait && !imgError ? (
+            <Image
+              src={hero.portrait}
+              alt={hero.name}
+              fill
+              unoptimized
+              className="object-cover object-top"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-3xl font-bold text-purple-300/40">
+              {hero.name[0]}
+            </div>
+          )}
+          {/* Tier badge */}
+          <span className={`absolute right-1 top-1 rounded px-1.5 py-0.5 text-xs font-bold ${TIER_COLORS[hero.tier] ?? "bg-slate-700 text-white"}`}>
+            {hero.tier}
+          </span>
+        </div>
+
+        <p className="text-center text-sm font-bold text-white">{hero.name}</p>
+        <p className="mt-0.5 text-center text-xs text-purple-400/70">{TROOP_LABELS[hero.troopType]}</p>
+        <p className="mt-0.5 text-center text-xs text-purple-300/60">{hero.role}</p>
+
+        {/* PvP / PvE ratings */}
+        <div className="mt-2 flex justify-center gap-2 text-xs">
+          <RatingBadge label="PvP" rating={hero.pvpRating} />
+          <RatingBadge label="PvE" rating={hero.pveRating} />
+        </div>
+
+        {/* Priority + F2P */}
+        <div className="mt-2 flex items-center justify-center gap-2">
+          <PriorityDots priority={hero.priority} />
+          {hero.f2p && (
+            <span className="rounded bg-green-800/60 px-1.5 py-0.5 text-xs font-medium text-green-400">F2P</span>
+          )}
+        </div>
+
+        {hero.season && (
+          <p className="mt-1.5 text-center text-xs text-amber-400/70">{hero.season}</p>
         )}
-        {/* Tier badge */}
-        <span className={`absolute right-1 top-1 rounded px-1.5 py-0.5 text-xs font-bold ${TIER_COLORS[hero.tier] ?? "bg-slate-700 text-white"}`}>
-          {hero.tier}
-        </span>
-      </div>
-
-      <p className="text-center text-sm font-bold text-white">{hero.name}</p>
-      <p className="mt-0.5 text-center text-xs text-purple-400/70">{TROOP_LABELS[hero.troopType]}</p>
-      <p className="mt-0.5 text-center text-xs text-purple-300/60">{hero.role}</p>
-
-      {/* PvP / PvE ratings */}
-      <div className="mt-2 flex justify-center gap-2 text-xs">
-        <RatingBadge label="PvP" rating={hero.pvpRating} />
-        <RatingBadge label="PvE" rating={hero.pveRating} />
-      </div>
-
-      {/* Priority + F2P */}
-      <div className="mt-2 flex items-center justify-center gap-2">
-        <PriorityDots priority={hero.priority} />
-        {hero.f2p && (
-          <span className="rounded bg-green-800/60 px-1.5 py-0.5 text-xs font-medium text-green-400">F2P</span>
-        )}
-      </div>
-
-      {hero.season && (
-        <p className="mt-1.5 text-center text-xs text-amber-400/70">{hero.season}</p>
-      )}
-    </Link>
+      </Link>
+    </div>
   );
 }
 
 export default function HeroesClient() {
   const [filter, setFilter] = useState<Filter>("all");
   const [sort, setSort] = useState<SortMode>("tier");
+  const [owned, setOwned] = useState<Set<string>>(new Set());
+  const [ownedLoaded, setOwnedLoaded] = useState(false);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(OWNED_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) setOwned(new Set(parsed as string[]));
+      }
+    } catch {
+      // ignore
+    }
+    setOwnedLoaded(true);
+  }, []);
+
+  function toggleOwned(heroId: string) {
+    setOwned((prev) => {
+      const next = new Set(prev);
+      const nowOwned = !prev.has(heroId);
+      if (nowOwned) next.add(heroId); else next.delete(heroId);
+      sendGAEvent("event", "hero_owned_toggle", { hero: heroId, owned: nowOwned });
+      try {
+        localStorage.setItem(OWNED_KEY, JSON.stringify(Array.from(next)));
+      } catch {
+        // ignore
+      }
+      return next;
+    });
+  }
 
   const factions: HeroFaction[] = ["blood_rose", "wings_of_dawn", "guard_of_order"];
 
   const filtered = heroes
-    .filter((h) => filter === "all" || h.faction === filter)
+    .filter((h) => {
+      if (filter === "owned") return ownedLoaded && owned.has(h.id);
+      if (filter === "all") return true;
+      return h.faction === filter;
+    })
     .sort((a, b) =>
       sort === "priority"
         ? b.priority - a.priority || (TIER_ORDER[a.tier] ?? 99) - (TIER_ORDER[b.tier] ?? 99)
         : (TIER_ORDER[a.tier] ?? 99) - (TIER_ORDER[b.tier] ?? 99)
     );
 
+  const ownedCount = ownedLoaded ? owned.size : 0;
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
 
-      <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Heroes</h1>
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Heroes</h1>
+        {ownedLoaded && ownedCount > 0 && (
+          <span className="text-sm text-purple-300">
+            <span className="font-semibold text-white">{ownedCount}</span> / {heroes.length} owned
+          </span>
+        )}
+      </div>
       <p className="mt-2 text-purple-200/80">
         {heroes.length} heroes across 3 factions · Tiers based on Season 4 rankings
       </p>
@@ -164,6 +220,14 @@ export default function HeroesClient() {
             </button>
           );
         })}
+        {ownedLoaded && ownedCount > 0 && (
+          <button
+            onClick={() => { sendGAEvent("event", "filter_faction", { faction: "owned" }); setFilter("owned"); }}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${filter === "owned" ? "bg-green-600 text-white" : "border border-green-800 text-green-400 hover:border-green-600"}`}
+          >
+            Owned ({ownedCount})
+          </button>
+        )}
 
         <div className="ml-auto flex gap-1">
           <button
@@ -182,7 +246,7 @@ export default function HeroesClient() {
       </div>
 
       {/* Faction label */}
-      {filter !== "all" && (
+      {filter !== "all" && filter !== "owned" && (
         <div className="mt-4 flex items-center gap-2">
           <span className="text-sm text-purple-300">
             {FACTION_LABELS[filter as HeroFaction]} — troops:{" "}
@@ -195,11 +259,26 @@ export default function HeroesClient() {
 
       {/* Hero grid */}
       <h2 className="mt-6 text-xl font-bold text-white">Which Heroes Should You Prioritize?</h2>
+      <p className="mt-1 text-xs text-purple-400">
+        Tap <span className="font-bold text-white">+</span> on a hero card to mark them as owned.
+      </p>
       <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {filtered.map((hero) => (
-          <HeroCard key={hero.id} hero={hero} />
+          <HeroCard
+            key={hero.id}
+            hero={hero}
+            owned={ownedLoaded && owned.has(hero.id)}
+            onToggleOwned={toggleOwned}
+          />
         ))}
       </div>
+
+      {filter === "owned" && filtered.length === 0 && (
+        <div className="mt-8 rounded-xl border border-purple-800/40 bg-purple-900/20 p-8 text-center">
+          <p className="text-purple-400">No heroes marked as owned yet.</p>
+          <p className="mt-1 text-sm text-purple-500">Tap the + button on any hero card to add them.</p>
+        </div>
+      )}
 
       <p className="mt-8 text-xs text-purple-300/70">
         Tier list based on Season 4 community rankings.

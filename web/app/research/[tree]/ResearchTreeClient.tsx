@@ -18,6 +18,7 @@ function storageKey(treeId: string) {
 export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
   const [completed, setCompleted] = useState<Set<string>>(new Set());
   const [loaded, setLoaded] = useState(false);
+  const [mode, setMode] = useState<"custom" | "sequential">("custom");
 
   useEffect(() => {
     try {
@@ -32,20 +33,41 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
     setLoaded(true);
   }, [tree.id]);
 
-  function toggle(nodeId: string) {
+  function persist(next: Set<string>) {
+    try {
+      localStorage.setItem(storageKey(tree.id), JSON.stringify(Array.from(next)));
+    } catch {
+      // ignore
+    }
+  }
+
+  function toggle(nodeId: string, nodeIndex: number) {
     setCompleted((prev) => {
       const next = new Set(prev);
       const completing = !prev.has(nodeId);
-      if (completing) next.add(nodeId);
-      else next.delete(nodeId);
-      sendGAEvent("event", "research_node_toggle", { tree: tree.id, node: nodeId, completed: completing });
-      try {
-        localStorage.setItem(storageKey(tree.id), JSON.stringify(Array.from(next)));
-      } catch {
-        // ignore
+
+      if (completing && mode === "sequential") {
+        // auto-complete all preceding nodes in the list
+        for (let i = 0; i <= nodeIndex; i++) {
+          next.add(tree.nodes[i].id);
+        }
+      } else if (completing) {
+        next.add(nodeId);
+      } else {
+        next.delete(nodeId);
       }
+
+      sendGAEvent("event", "research_node_toggle", { tree: tree.id, node: nodeId, completed: completing });
+      persist(next);
       return next;
     });
+  }
+
+  function markAll() {
+    const next = new Set(tree.nodes.map((n) => n.id));
+    setCompleted(next);
+    persist(next);
+    sendGAEvent("event", "research_mark_all", { tree: tree.id });
   }
 
   function reset() {
@@ -63,6 +85,7 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
     .reduce((s, n) => s + n.totalBadges, 0);
 
   const pct = tree.totalBadges > 0 ? Math.min(100, (spentBadges / tree.totalBadges) * 100) : 0;
+  const allComplete = tree.nodes.length > 0 && completed.size >= tree.nodes.length;
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
@@ -81,14 +104,24 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
             <p className="mt-2 text-xs text-amber-300/80">🔒 Requires: {tree.unlockRequirement}</p>
           )}
         </div>
-        {completed.size > 0 && (
-          <button
-            onClick={reset}
-            className="rounded-md border border-red-800/60 px-3 py-1.5 text-xs text-red-400 transition-colors hover:border-red-600 hover:text-red-300"
-          >
-            Reset progress
-          </button>
-        )}
+        <div className="flex flex-wrap gap-2">
+          {!allComplete && tree.nodes.length > 0 && (
+            <button
+              onClick={markAll}
+              className="rounded-md border border-purple-600/60 px-3 py-1.5 text-xs text-purple-300 transition-colors hover:border-purple-400 hover:text-purple-200"
+            >
+              Mark all complete
+            </button>
+          )}
+          {completed.size > 0 && (
+            <button
+              onClick={reset}
+              className="rounded-md border border-red-800/60 px-3 py-1.5 text-xs text-red-400 transition-colors hover:border-red-600 hover:text-red-300"
+            >
+              Reset progress
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Progress bar */}
@@ -117,20 +150,52 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
         <p className="mt-1 text-right text-xs text-purple-400">{pct.toFixed(1)}% complete</p>
       </div>
 
-      {/* Nodes list */}
-      <h2 className="mt-8 text-xl font-bold text-white">
-        Which Nodes Should You Research in {tree.name}?
-      </h2>
+      {/* Nodes list header + mode toggle */}
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+        <h2 className="text-xl font-bold text-white">
+          Which Nodes Should You Research in {tree.name}?
+        </h2>
+        {tree.nodes.length > 0 && (
+          <div className="flex rounded-lg border border-purple-700/60 p-0.5 text-xs">
+            <button
+              onClick={() => setMode("custom")}
+              className={`rounded-md px-3 py-1 transition-colors ${
+                mode === "custom"
+                  ? "bg-purple-600 text-white"
+                  : "text-purple-400 hover:text-purple-300"
+              }`}
+            >
+              Custom
+            </button>
+            <button
+              onClick={() => setMode("sequential")}
+              className={`rounded-md px-3 py-1 transition-colors ${
+                mode === "sequential"
+                  ? "bg-purple-600 text-white"
+                  : "text-purple-400 hover:text-purple-300"
+              }`}
+            >
+              Sequential
+            </button>
+          </div>
+        )}
+      </div>
+      {mode === "sequential" && tree.nodes.length > 0 && (
+        <p className="mt-1 text-xs text-purple-400">
+          Clicking a node auto-completes all preceding nodes.
+        </p>
+      )}
+
       {tree.nodes.length > 0 ? (
-        <div className="mt-6 space-y-2">
-          {tree.nodes.map((node: ResearchNode) => {
+        <div className="mt-4 space-y-2">
+          {tree.nodes.map((node: ResearchNode, idx: number) => {
             const done = loaded && completed.has(node.id);
             return (
               <button
                 key={node.id}
                 aria-pressed={done}
                 aria-label={`${node.name} — ${done ? "completed" : "not completed"}`}
-                onClick={() => toggle(node.id)}
+                onClick={() => toggle(node.id, idx)}
                 className={[
                   "flex w-full items-center justify-between rounded-lg border px-4 py-3 text-left transition-all",
                   done

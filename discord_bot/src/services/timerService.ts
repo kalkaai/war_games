@@ -154,6 +154,19 @@ export async function clearExpiredTimers(discordId: string, accountName: string)
   return snap.docs.length
 }
 
+export async function deleteAllTimers(discordId: string, accountName: string): Promise<number> {
+  const col = timersCol(discordId, accountName)
+  const snap = await col.get()
+
+  if (snap.empty) return 0
+
+  const batch = col.firestore.batch()
+  snap.docs.forEach((d: any) => batch.delete(d.ref))
+  await batch.commit()
+  await refreshHasActiveTimers(discordId)
+  return snap.docs.length
+}
+
 /**
  * Returns all active timers for a user+account that haven't been alerted yet
  * for a specific threshold (in minutes).
