@@ -24,6 +24,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${tree.name} — Research | GAMIDES | Last Z: Survival Shooter`,
       description: desc,
+      images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `https://www.gamides.com/research/${params.tree}`,

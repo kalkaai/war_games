@@ -20,6 +20,7 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
     openGraph: {
       title: `${hero.name} — GAMIDES | Last Z: Survival Shooter`,
       description: desc,
+      images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `https://www.gamides.com/heroes/${params.id}`,

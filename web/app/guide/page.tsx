@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Beginner Guide — GAMIDES | Last Z: Survival Shooter",
-  description: "Last Z: Survival Shooter: Survival Shooter beginner guide — HQ priorities, hero investment, alliance tips, and resource management for new players.",
+  description: "Last Z: Survival Shooter beginner guide — HQ priorities, hero investment, alliance tips, and resource management for new players.",
   openGraph: {
     title: "Beginner Guide — GAMIDES | Last Z: Survival Shooter",
     description: "Last Z: Survival Shooter beginner guide: HQ priorities, hero investment, alliance tips, and resource management for new players.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/guide",

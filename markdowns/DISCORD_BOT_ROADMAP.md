@@ -216,11 +216,13 @@ Introduce paid tier within 2 weeks of first 50 active users.
 
 Stripe payment link — no billing portal needed yet. Gate Pro via a user-level flag in the database.
 
-| Tier | Price | Features |
-|---|---|---|
-| Free | $0 | 1 account profile, 5 active timers, 30min alerts only |
-| Pro | $4.99/mo | Unlimited accounts, unlimited timers, custom alert thresholds, priority DMs |
-| Annual | $39.99/yr | Pro features at ~33% discount |
+| Tier | Price | Who Pays | Features |
+|---|---|---|---|
+| Free | $0 | — | 1 account profile, 5 active timers, 30min alerts only |
+| Pro | $4.99/mo | Individual player | Unlimited accounts, unlimited timers, custom alert thresholds, priority DMs |
+| Annual | $39.99/yr | Individual player | Pro features at ~33% discount |
+
+**Note:** Alliance-level features (event scheduling, attendance tracking, RSVP, AI assistant) are part of AllianceOS — a separate per-server subscription ($14.99–$24.99/mo) paid by the alliance leader, covering all members. The two products share the same Discord bot infrastructure and cross-sell each other.
 
 ```
 /upgrade
@@ -319,15 +321,39 @@ Native app for better notification reliability and lock screen access.
 
 ## Phase 5 — Multi-Game Expansion (Month 8–12)
 
-### New Games
-- Last War (largest MAU in genre)
-- Whiteout Survival
-- State of Survival
+Each new game requires only a game plugin (event templates, timer type labels, OCR parsers, knowledge base). The bot engine, alert system, and account infrastructure are fully reused.
 
-Each new game requires:
-- OCR template set for that game's UI screens
-- Game-specific knowledge base for AI
-- Event calendar for recurring game events
+### Tier 1 — Launch First (Months 8–12)
+Highest MAU, same mechanics as Last Z, most active Discord communities.
+
+| Game | Publisher | Est. 2025 Revenue |
+|---|---|---|
+| Last War: Survival | FunFly | ~$2.2B/yr |
+| Whiteout Survival | Century Games | ~$1.4B/yr |
+| Kingshot | Century Games | ~$500M/yr |
+
+### Tier 2 — Year 2
+| Game | Publisher |
+|---|---|
+| Rise of Kingdoms | Lilith Games |
+| Lords Mobile | IGG |
+| State of Survival | FunPlus |
+| Evony | TG Inc |
+
+### Tier 3 — Year 2–3
+| Game | Publisher |
+|---|---|
+| Puzzles & Survival | 37Games |
+| Last Fortress: Underground | IM30 |
+| Last Shelter: Survival | Long Tech Network |
+| Call of Dragons | Lilith Games |
+| Age of Z Origins | Camel Games |
+| Infinity Kingdom | GTArcade |
+
+### Tier 4 — Year 3+
+- Doomsday: Last Survivors
+- Frozen City
+- Warpath
 
 ### Platform Features
 - Community timer templates ("HQ 20 build order — 14 timers pre-loaded, one click import")
@@ -338,6 +364,8 @@ Each new game requires:
 
 ## Revenue Projections
 
+### Individual Player Subscriptions
+
 | | Month 3 | Month 6 | Month 12 |
 |---|---|---|---|
 | Free users | 500 | 3,000 | 15,000 |
@@ -346,6 +374,17 @@ Each new game requires:
 | ARPU | $4.99 | $5.50 | $6.00 |
 | MRR | ~$200 | ~$1,650 | ~$10,800 |
 | ARR | ~$2,400 | ~$19,800 | ~$129,600 |
+
+### Ad Revenue (Bot + Web App Combined)
+Bot ads (sponsored embeds, partner integrations) and web app display ads are a secondary revenue stream.
+
+| | Month 6 | Month 12 | Year 2–3 (multi-game) |
+|---|---|---|---|
+| Bot ads | ~$100/mo | ~$500/mo | ~$2,000/mo |
+| Web ads | ~$200/mo | ~$1,000/mo | ~$5,000/mo |
+| Combined ad ARR | ~$3,600 | ~$18,000 | ~$84,000 |
+
+Note: gaming audiences have ~35–40% ad blocker rates. Ad revenue is supplementary — subscriptions are the primary driver.
 
 ---
 
@@ -395,7 +434,7 @@ WarGuard and AllianceOS are complementary, not competing:
 | Customer | Individual player | Alliance leadership |
 | Pain solved | Personal timers, shield alerts | Event ops, attendance, AI knowledge |
 | Primary channel | Discord bot → web app → mobile | Discord bot |
-| Pricing | Per user ($4.99/mo) | Per alliance ($9–25/mo) |
+| Pricing | Per user ($4.99/mo) | Per server ($14.99–$24.99/mo) |
 | Viral loop | Player → friends → alliance | Alliance → members |
 | Shared tech | discord.js, Node.js, PostgreSQL, Redis, Claude API | Same |
 

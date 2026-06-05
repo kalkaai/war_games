@@ -97,7 +97,7 @@ export default function ResearchTreeClient({ tree }: { tree: ResearchTree }) {
       <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-3xl font-extrabold text-white">
-            {tree.icon} {tree.name}
+            {tree.icon} {tree.name} — Last Z: Survival Shooter
           </h1>
           <p className="mt-1 text-sm text-purple-200/80">{tree.description}</p>
           {tree.unlockRequirement && (

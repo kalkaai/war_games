@@ -585,9 +585,77 @@ Each event guide: what the event is, how scoring works, what items to use, how t
 
 ---
 
+## Phase 5 — Multi-Game Expansion
+
+Each new game adds a full set of reference pages (events, HQ, research, heroes, guides) under a game-scoped subpath (e.g., `/lastwar/`, `/whiteout/`). The web app architecture should support this routing pattern from Phase 1 to avoid a painful migration later.
+
+Each game added multiplies ad impressions and bot discovery CTAs with near-zero marginal infrastructure cost.
+
+### Tier 1 — Launch First (alongside bot Phase 5, Month 8–12)
+
+| Game | Publisher | Est. 2025 Revenue | Why |
+|---|---|---|---|
+| Last War: Survival | FunFly | ~$2.2B/yr | Largest MAU in genre |
+| Whiteout Survival | Century Games | ~$1.4B/yr | Fast-growing, same mechanics |
+| Kingshot | Century Games | ~$500M/yr | Same publisher as Whiteout |
+
+### Tier 2 — Year 2
+- Rise of Kingdoms (Lilith Games)
+- Lords Mobile (IGG)
+- State of Survival (FunPlus)
+- Evony (TG Inc)
+
+### Tier 3 — Year 2–3
+- Puzzles & Survival, Last Fortress: Underground, Last Shelter: Survival, Call of Dragons, Age of Z Origins, Infinity Kingdom
+
+### Pessimistic SOM Per Game (web ad revenue + bot referrals, mature)
+
+| Game | Pessimistic SOM |
+|---|---|
+| Last Z *(live)* | ~$61K/yr |
+| Last War | ~$180K/yr |
+| Whiteout Survival | ~$120K/yr |
+| Kingshot | ~$50K/yr |
+| Tier 2 games (×4) | ~$55K/yr each |
+| Tier 3 games (×6) | ~$20K/yr each |
+| **Full platform total** | **~$790K/yr** |
+
+---
+
+## Ad Revenue Strategy
+
+Display ads are a meaningful secondary revenue stream on reference pages. The web app is well-suited for ads because:
+- Players visit repeatedly (event schedules checked multiple times/week)
+- Reference pages (HQ tables, research trees, redeem codes) drive high-frequency return visits
+- No login required — broad reach, no friction
+
+**Target networks:** Google AdSense initially; graduate to Playwire or gaming-specific networks at scale for higher RPM.
+
+**Realistic RPM by page type:**
+
+| Page Type | RPM Estimate | Notes |
+|---|---|---|
+| Redeem codes | $3–6 | Highest-traffic, repeat visits |
+| Event schedule | $2–4 | Daily/weekly visitors |
+| Research / HQ tables | $2–4 | High dwell time |
+| Guides | $2–3 | Good but lower frequency |
+
+**Ad revenue projections:**
+
+| Traffic | RPM | Monthly Ad Revenue |
+|---|---|---|
+| 10K visitors/mo | $3 | ~$30/mo |
+| 50K visitors/mo | $3.50 | ~$175/mo |
+| 200K visitors/mo | $4 | ~$800/mo |
+| 1M visitors/mo | $4 | ~$4,000/mo |
+
+Note: gaming audiences have ~35–40% ad blocker rates. Effective RPM is calculated on non-blocked impressions only.
+
+---
+
 ## Open Questions
 
-1. **Domain:** warguard.gg or a Last Z-specific domain (e.g., lastzguide.com)? A Last Z-specific domain may rank better in search.
+1. **Domain:** warguard.gg or a Last Z-specific domain (e.g., lastzguide.com)? A Last Z-specific domain may rank better in search but limits multi-game expansion branding.
 2. **Data owner:** Who is responsible for populating and maintaining the game data JSON files?
 3. **Research progress:** localStorage is fine for Phase 2, but if users want cross-device progress they need an account. Defer or add light auth later?
-4. **Multi-game:** Whiteout Survival and Last War are listed in the WarGuard Phase 5 expansion. Build the site architecture to support multiple game subpaths (`/lastz/research`, `/lastwar/hq`) from the start?
+4. **Multi-game routing:** Use `/lastz/`, `/lastwar/` subpaths or separate subdomains per game? Subpaths are better for SEO consolidation.

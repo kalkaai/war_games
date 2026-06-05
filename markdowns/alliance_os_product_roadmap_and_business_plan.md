@@ -430,16 +430,23 @@ Introduce paid tier at or before the end of Phase 2 (~month 3–4).
 
 ## Pricing at Launch
 
-| Tier | Price | Features |
-|---|---|---|
-| Free | $0 | Basic reminders, limited events (5/mo), limited AI queries |
-| Pro Alliance | $9/mo | Unlimited events, attendance tracking, analytics, smart reminders |
-| Competitive Alliance | $25/mo | Everything in Pro + advanced dashboards, exports, priority support |
+**Model: per-server subscription. The alliance leader pays one flat fee — all members are covered at no extra cost.**
+
+This is the standard model across every competitor (GuildManager, TL Guild Manager, MEE6, Throney). At $14.99/mo split across a 50-member alliance, the effective cost per member is ~$0.30/mo — far below any individual-tier objection.
+
+| Tier | Price | Who Pays | What's Covered |
+|---|---|---|---|
+| Free | $0 | — | Basic reminders, 5 events/mo, limited AI queries |
+| Alliance | $14.99/mo | Leader (per server) | Unlimited events, attendance tracking, analytics, smart reminders — all members included |
+| Alliance Pro | $24.99/mo | Leader (per server) | Everything in Alliance + AI assistant, OCR automation, advanced dashboards, exports, priority support |
+
+Individual players who want personal timer features (shield alerts, multi-account) use the WarGuard bot at $4.99/mo — a separate, independent purchase.
 
 ---
 
 ## Rationale
 
+- Per-server model removes the "I'm not paying for my members" objection entirely — leaders pay for server capabilities, not headcount
 - Attendance tracking and smart reminders create daily dependency — this is when willingness to pay is highest
 - Early revenue funds infrastructure costs (Redis, Postgres, AI API calls)
 - Price anchors the product before Phase 3 AI features inflate perceived complexity
@@ -689,17 +696,42 @@ Become a cross-game guild operations platform.
 
 ## Target Games
 
-### Initial Expansion
-- Whiteout Survival
-- Last War
-- State of Survival
+Games are ordered by priority — highest MAU and most active Discord communities first. All share the same core mechanics (base timers, research trees, troop training, events, shields), so each new game requires only a game plugin — no engine changes.
 
-### Later Expansion
-- Rise of Kingdoms
-- Call of Dragons
-- Evony
-- Lords Mobile
-- Infinity Kingdom
+### Tier 1 — Launch Targets (Months 7–12)
+Highest ROI. Same mechanics as Last Z, massive active communities.
+
+| Game | Publisher | Est. 2025 Revenue | Priority |
+|---|---|---|---|
+| Last War: Survival | FunFly | ~$2.2B/yr | First |
+| Whiteout Survival | Century Games | ~$1.4B/yr | First |
+| Kingshot | Century Games | ~$500M/yr | Second |
+
+### Tier 2 — High-Value Legacy Giants (Year 2)
+Large established bases. Harder to break into but significant upside.
+
+| Game | Publisher | Notes |
+|---|---|---|
+| Rise of Kingdoms | Lilith Games | $2B+ lifetime, ~10–20M MAU |
+| Lords Mobile | IGG | $2B+ lifetime, strong guild culture |
+| State of Survival | FunPlus | Zombie 4X, $1B+ lifetime |
+| Evony | TG Inc | $1B lifetime, loyal long-term base |
+
+### Tier 3 — Mid-Size (Year 2–3)
+
+| Game | Publisher |
+|---|---|
+| Puzzles & Survival | 37Games |
+| Last Fortress: Underground | IM30 |
+| Last Shelter: Survival | Long Tech Network |
+| Call of Dragons | Lilith Games |
+| Age of Z Origins | Camel Games |
+| Infinity Kingdom | GTArcade |
+
+### Tier 4 — Long Tail (Year 3+)
+- Doomsday: Last Survivors
+- Frozen City
+- Warpath
 
 ---
 
@@ -790,122 +822,72 @@ Potential future:
 
 # Revenue Model
 
-# Pricing Strategy
+## Revenue Streams
 
-## Free Tier
-Features:
-- basic reminders
-- limited events
-- limited AI usage
-- small alliance support
+### 1. Alliance Subscriptions (primary)
+Per-server subscription. Leader pays, all members covered.
 
-Purpose:
-- viral growth
-- onboarding
-- community adoption
+| Tier | Price | Features |
+|---|---|---|
+| Free | $0 | Basic reminders, 5 events/mo |
+| Alliance | $14.99/mo | Unlimited events, attendance, analytics, smart reminders |
+| Alliance Pro | $24.99/mo | + AI assistant, OCR, dashboards, exports |
 
----
+### 2. Individual Player Tier (WarGuard cross-sell)
+Members who want personal timers and shield alerts use the WarGuard bot at $4.99/mo — separate purchase, separate product. The cross-sell flywheel: AllianceOS members discover WarGuard; WarGuard users who lead alliances discover AllianceOS.
 
-## Premium Tier
-
-### Suggested Pricing
-
-| Tier | Price |
-|---|---|
-| Casual Alliance | $5–15/mo |
-| Competitive Alliance | $20–50/mo |
-| Large Community | $100+/mo |
-
----
-
-## Premium Features
-- attendance analytics
-- advanced AI
-- OCR automation
-- advanced dashboards
-- exports
-- recurring workflows
-- unlimited reminders
-- advanced integrations
+### 3. Ad Revenue
+- Display ads on the companion web app (game reference pages, guides, event schedules)
+- Sponsored embeds in bot responses (partner integrations, game-related sponsors)
+- Target RPM: $2–5 on web (gaming audience; ad blocker rate ~35–40%)
+- Realistic web ad revenue at scale: $30–120K/yr across all supported games
 
 ---
 
 # Revenue Projection
 
-# Scenario 1 — Small Niche SaaS
+Projections reflect the per-server pricing model ($14.99–$24.99/mo avg ~$18/mo) across multi-game expansion phases.
 
-## Assumptions
-- 100 paying alliances
-- average $15/mo
+## Pessimistic Scenario
 
-## Revenue
+Assumes slow community adoption, high churn, ad blockers limiting ad revenue.
 
-### Monthly
-```text
-$1,500 MRR
-```
+| Phase | Games | Paying Alliances | MRR | ARR |
+|---|---|---|---|---|
+| Year 1 (Last Z) | 1 | 50 | ~$900 | ~$11K |
+| Year 2 (+Tier 1) | 4 | 300 | ~$5,400 | ~$65K |
+| Year 3 (+Tier 2) | 8 | 700 | ~$12,600 | ~$151K |
+| Year 4–5 (all games) | 14+ | 1,500 | ~$27,000 | ~$324K |
 
-### Yearly
-```text
-$18,000 ARR
-```
-
-Likely achievable by:
-- solo founder
-- focused niche growth
-- strong Discord adoption
+Add individual WarGuard subs + web ads: **~$1.1M/yr total platform pessimistic**
 
 ---
 
-# Scenario 2 — Strong Mid-Size SaaS
+## Base Scenario
 
-## Assumptions
-- 1,000 paying alliances
-- average $25/mo
+| Phase | Games | Paying Alliances | MRR | ARR |
+|---|---|---|---|---|
+| Year 1 (Last Z) | 1 | 150 | ~$2,700 | ~$32K |
+| Year 2 (+Tier 1) | 4 | 800 | ~$14,400 | ~$173K |
+| Year 3 (+Tier 2) | 8 | 2,000 | ~$36,000 | ~$432K |
+| Year 4–5 (all games) | 14+ | 5,000 | ~$90,000 | ~$1.1M |
 
-## Revenue
-
-### Monthly
-```text
-$25,000 MRR
-```
-
-### Yearly
-```text
-$300,000 ARR
-```
-
-Requirements:
-- multiple supported games
-- strong retention
-- polished UX
-- operational stickiness
+Add individual WarGuard subs + web ads: **~$5.4M/yr total platform base**
 
 ---
 
-# Scenario 3 — Large Cross-Game Platform
+## Optimistic Scenario
 
-## Assumptions
-- 5,000+ paying alliances
-- average $30/mo
+Assumes strong creator partnerships, fast community adoption, AI as a major retention driver.
 
-## Revenue
+| Phase | Games | Paying Alliances | MRR | ARR |
+|---|---|---|---|---|
+| Year 1 | 1 | 300 | ~$5,400 | ~$65K |
+| Year 2 | 4 | 2,000 | ~$36,000 | ~$432K |
+| Year 3 | 8 | 6,000 | ~$108,000 | ~$1.3M |
+| Year 4–5 | 14+ | 15,000+ | ~$270,000 | ~$3.2M |
 
-### Monthly
-```text
-$150,000+ MRR
-```
-
-### Yearly
-```text
-$1.8M+ ARR
-```
-
-Requirements:
-- strong SaaS operations
-- multi-game ecosystem
-- excellent onboarding
-- advanced AI tooling
+Add individual WarGuard subs + web ads: **~$9–11M/yr total platform optimistic**
 
 ---
 

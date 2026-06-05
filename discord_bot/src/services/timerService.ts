@@ -186,8 +186,10 @@ export async function getTimersDueForAlert(
     // was down or a check cycle was skipped.
     snap = await col.where('expiresAt', '<=', Timestamp.fromDate(now)).get()
   } else {
-    // Pre-expiry warning: 1-minute window centred on the threshold.
-    const windowStart = new Date(now.getTime() + (thresholdMinutes - 1) * 60 * 1000)
+    // Pre-expiry warning: 2-minute window ending at the threshold.
+    // Wide enough to survive one missed cron tick (bot restart, API slowness).
+    // alertsSent array prevents duplicate notifications.
+    const windowStart = new Date(now.getTime() + (thresholdMinutes - 2) * 60 * 1000)
     const windowEnd = new Date(now.getTime() + thresholdMinutes * 60 * 1000)
     snap = await col
       .where('expiresAt', '>=', Timestamp.fromDate(windowStart))

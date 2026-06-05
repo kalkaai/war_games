@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "F2P Progression Guide — Last Z: Survival Shooter | GAMIDES",
+  title: "F2P Progression Guide — GAMIDES | Last Z: Survival Shooter",
   description:
-    "Complete Last Z: Survival Shooter free-to-play guide. Diamond management, HQ vs research balance, daily checklist, shield strategy, hero priorities, and monthly milestones for F2P players.",
+    "Last Z: Survival Shooter F2P guide: diamond management, daily checklist, HQ vs research balance, shield strategy, and monthly milestones for free-to-play players.",
   openGraph: {
-    title: "F2P Progression Guide — Last Z: Survival Shooter | GAMIDES",
+    title: "F2P Progression Guide — GAMIDES | Last Z: Survival Shooter",
     description:
       "Last Z F2P guide: diamond management, daily checklist, HQ vs research balance, shield strategy, and common mistakes to avoid.",
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/guide/f2p",
@@ -195,7 +196,7 @@ export default function F2PGuidePage() {
       </div>
 
       <h1 className="mt-3 text-3xl font-extrabold text-white sm:text-4xl">
-        Last Z F2P Progression Guide
+        Last Z: Survival Shooter F2P Progression Guide
       </h1>
       <p className="mt-2 text-purple-200/80">
         Diamond management, daily routine, HQ vs research balance, and the mistakes that cost F2P players months of progress.
@@ -203,7 +204,7 @@ export default function F2PGuidePage() {
 
       {/* Diamond Management */}
       <section className="mt-8">
-        <h2 className="text-xl font-bold text-white">Diamond Management</h2>
+        <h2 className="text-xl font-bold text-white">How Should I Manage Diamonds as F2P?</h2>
         <p className="mt-1 text-sm text-purple-200/80">
           F2P players earn ~20,000–40,000 diamonds/month from all free sources. Every diamond matters.
         </p>
@@ -256,7 +257,7 @@ export default function F2PGuidePage() {
 
       {/* Daily Checklist */}
       <section className="mt-10">
-        <h2 className="text-xl font-bold text-white">Daily Checklist</h2>
+        <h2 className="text-xl font-bold text-white">What Is the Daily Checklist for F2P Players?</h2>
         <p className="mt-1 text-sm text-purple-200/80">
           ~20–30 minutes/day. Completing this list automatically satisfies daily task requirements.
         </p>
@@ -277,7 +278,7 @@ export default function F2PGuidePage() {
 
       {/* HQ vs Research */}
       <section className="mt-10">
-        <h2 className="text-xl font-bold text-white">HQ Rush vs Research Balance</h2>
+        <h2 className="text-xl font-bold text-white">Should I Rush HQ or Focus on Research?</h2>
         <div className="mt-3 rounded-xl border border-blue-800/40 bg-blue-900/10 p-4 text-sm text-blue-100/80">
           <strong className="text-white">Core principle:</strong> Always have something in the Laboratory. Only upgrade buildings that are prerequisites for your next HQ level. Never upgrade resource production buildings — their output is negligible.
         </div>
@@ -325,7 +326,7 @@ export default function F2PGuidePage() {
 
       {/* Shield Strategy */}
       <section className="mt-10">
-        <h2 className="text-xl font-bold text-white">Shield Strategy</h2>
+        <h2 className="text-xl font-bold text-white">When Should I Use a Shield?</h2>
         <div className="mt-4 space-y-2">
           {SHIELD_RULES.map((s) => (
             <div key={s.rule} className="rounded-xl border border-purple-700/60 bg-purple-900/20 p-4">
@@ -338,7 +339,7 @@ export default function F2PGuidePage() {
 
       {/* Common Mistakes */}
       <section className="mt-10">
-        <h2 className="text-xl font-bold text-white">Common Mistakes</h2>
+        <h2 className="text-xl font-bold text-white">What Are the Most Common F2P Mistakes?</h2>
         <p className="mt-1 text-sm text-purple-200/80">Each of these can set an account back by weeks or months.</p>
         <div className="mt-4 space-y-4">
           {MISTAKES.map((m) => (
@@ -359,7 +360,7 @@ export default function F2PGuidePage() {
 
       {/* Monthly Milestones */}
       <section className="mt-10">
-        <h2 className="text-xl font-bold text-white">Monthly Milestones</h2>
+        <h2 className="text-xl font-bold text-white">What Are the Monthly Milestones for F2P Players?</h2>
         <p className="mt-1 text-sm text-purple-200/80">
           Timelines vary by alliance quality, event participation, and play frequency. Use these as benchmarks, not deadlines.
         </p>
@@ -382,7 +383,7 @@ export default function F2PGuidePage() {
 
       {/* Alliance selection */}
       <section className="mt-10">
-        <h2 className="text-xl font-bold text-white">Alliance Selection</h2>
+        <h2 className="text-xl font-bold text-white">How Should I Choose an Alliance?</h2>
         <p className="mt-1 text-sm text-purple-200/80">
           Alliance choice is one of the highest-leverage decisions for F2P — construction help, research buffs, Explore Treasure triggers, and weekly events all depend on it.
         </p>

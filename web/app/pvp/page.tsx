@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "PvP & Formations — GAMIDES | Last Z: Survival Shooter",
     description: "Last Z: Survival Shooter PvP guide: troop counters, formations, faction compositions, and competitive strategy for arena and alliance battles.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/pvp",
@@ -217,6 +217,9 @@ export default function PvPPage() {
         ))}
       </div>
 
+      <p className="mt-6 text-xs text-purple-300/70">
+        Last updated May 2026.
+      </p>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

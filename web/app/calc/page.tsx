@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Calculators — GAMIDES | Last Z: Survival Shooter",
     description: "Last Z: Survival Shooter calculators: speed-up timer, badge budget planner, HQ resource totals, and CP gain estimator. All client-side.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/calc",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Changelog — GAMIDES | Last Z: Survival Shooter",
     description: "GAMIDES update history for Last Z: Survival Shooter players: new pages, data updates, and feature releases.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/changelog",

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tank & Vehicles — GAMIDES | Last Z: Survival Shooter",
     description: "Last Z: Survival Shooter vehicle modification tracker: all 49 modifications, wrench costs, time estimates, and progress tracking.",
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/tank",
@@ -16,6 +17,28 @@ export const metadata: Metadata = {
 };
 
 const vehicles = tanksData.vehicles as Vehicle[];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the vehicle upgrade path in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The 5 vehicles in progression order are: Conqueror (starter, free), Cheetah (150+ wrenches — unlock for Magnetic Storm Shield), Hercules Tank (mid-game — War Frenzy hero attack boost), Titan (late-game), and Destroyer EX (endgame, 35,000+ wrenches). Upgrade on Monday (VS Vehicle Day) for double event points." }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I upgrade my vehicle in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Always use Golden Wrenches and Blueprints on Monday (VS Vehicle Day) to earn double VS event points. Save wrench and blueprint spending throughout the week and spend it all on Monday for maximum scoring efficiency." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many wrenches does it take to fully upgrade vehicles in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Full vehicle progression requires approximately 70,700 total wrenches across all 49 modifications and levels 0–240. Golden Wrenches are the primary currency, available from VS Vehicle Day rewards, VIP shop (300 diamonds each, limit 10/week), and Alliance Shop." }
+    }
+  ]
+};
 
 function fmtWrenches(n: number): string {
   if (n === 0) return "Starter";
@@ -55,7 +78,7 @@ export default function TankPage() {
       </div>
 
       {/* Vehicle stage guide */}
-      <h2 className="mt-10 text-xl font-bold text-white">Vehicle Upgrade Path Overview</h2>
+      <h2 className="mt-10 text-xl font-bold text-white">What Is the Vehicle Upgrade Path?</h2>
       <p className="mt-1 text-sm text-purple-200/80">The 5 vehicles in order of progression.</p>
       <div className="mt-4 space-y-4">
         {vehicles.map((vehicle, i) => (
@@ -115,6 +138,13 @@ export default function TankPage() {
         ))}
       </div>
 
+      <p className="mt-8 text-xs text-purple-300/70">
+        Last updated May 2026.
+      </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }

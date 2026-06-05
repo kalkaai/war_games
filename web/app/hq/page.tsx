@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HQ Upgrades — GAMIDES | Last Z: Survival Shooter",
     description: "Last Z: Survival Shooter HQ upgrade requirements for levels 1–35: required buildings, resource costs, heroes cap, and build times.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/hq",

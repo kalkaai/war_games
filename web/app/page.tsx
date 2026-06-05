@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "GAMIDES — Last Z: Survival Shooter Game Guide",
     description: "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/",
@@ -29,7 +29,7 @@ const SECTIONS = [
     emoji: "🏰",
     title: "HQ",
     description:
-      "Headquarters upgrade requirements for levels 1–40: required buildings, resource costs, and heroes cap.",
+      "Headquarters upgrade requirements for levels 1–35: required buildings, resource costs, and heroes cap.",
   },
   {
     href: "/research",

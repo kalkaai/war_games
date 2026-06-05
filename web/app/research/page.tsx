@@ -10,11 +10,33 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Research Trees — GAMIDES | Last Z: Survival Shooter",
     description: "All 9 Last Z: Survival Shooter research trees with badge costs, node counts, and interactive progress tracking.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/research",
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which research tree should I focus on first in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Start with zero-badge trees first (New Home, Shelter Building, HQ Management, Rapid Growth, Elite Troops). Then focus on Military Strategies for core ATK/DEF/HP bonuses, followed by Hero Training up to Cockpit only. Badges are the primary research currency, earned from daily tasks and events." }
+    },
+    {
+      "@type": "Question",
+      "name": "How many badges does it cost to max all research trees in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Maxing all 9 research trees requires tens of millions of badges. Unit Special Training alone costs approximately 1,488,100 badges — roughly 500 days of F2P badge income at standard rates. Prioritise trees by combat impact rather than trying to max everything at once." }
+    },
+    {
+      "@type": "Question",
+      "name": "What are badges used for in Last Z: Survival Shooter?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Badges are the primary research currency in Last Z: Survival Shooter, spent to unlock nodes across all 9 research trees. They are earned from daily tasks, Danger Lurks, events, and Alliance Duel rewards. Unlike resources, badges cannot be raided." }
+    }
+  ]
 };
 
 function fmtBadges(n: number): string {
@@ -103,6 +125,10 @@ export default function ResearchPage() {
       <p className="mt-6 text-xs text-purple-300/70">
         Last updated May 2026.
       </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </div>
   );
 }

@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Events — GAMIDES | Last Z: Survival Shooter",
     description: "Last Z: Survival Shooter event schedules: VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl. Timezone converter included.",
-
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/events",

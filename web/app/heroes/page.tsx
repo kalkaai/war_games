@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Heroes — GAMIDES | Last Z: Survival Shooter",
     description: "Last Z: Survival Shooter hero tier list (S+, A+, A, B) across three factions. Skills and Season 4 rankings included.",
+    images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://www.gamides.com/heroes",
@@ -41,6 +42,10 @@ export default function HeroesPage() {
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter Heroes &amp; Tier List</h1>
       <p className="mt-2 text-purple-100/95">
         Last Z: Survival Shooter has 30 heroes across three factions: <strong>Blood Rose</strong> (Assaulters), <strong>Wings of Dawn</strong> (Shooters), and <strong>Guard of Order</strong> (Riders). Heroes are ranked S+, A+, A, and B tier based on PvP and PvE performance.
+      </p>
+      <h2 className="mt-8 text-xl font-bold text-white">Which Heroes Are Best in Last Z: Survival Shooter?</h2>
+      <p className="mt-1 text-sm text-purple-200/80">
+        S+ tier: <strong>Yu Chan, Licia, Queenie, Liliana, Amber, Dodomeki</strong>. Filter by faction, tier, or role below.
       </p>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <HeroesClient />
