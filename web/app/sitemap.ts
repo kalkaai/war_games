@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/guide/migration`,       priority: 0.6, changeFrequency: "monthly" },
     { url: `${BASE}/calc`,                  priority: 0.8, changeFrequency: "monthly" },
     { url: `${BASE}/calc/t10`,              priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/profile`,              priority: 0.7, changeFrequency: "monthly" },
     { url: `${BASE}/changelog`,             priority: 0.5, changeFrequency: "weekly" },
     { url: `${BASE}/disclosure`,            priority: 0.3, changeFrequency: "yearly" },
   ];

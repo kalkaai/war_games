@@ -15,6 +15,7 @@ const NAV_ITEMS = [
   { href: "/guide",    label: "Guide" },
   { href: "/codes",    label: "Codes" },
   { href: "/calc",     label: "Calc" },
+  { href: "/profile",  label: "Profile" },
 ];
 
 export function PrimaryNav() {

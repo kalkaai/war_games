@@ -72,17 +72,31 @@ Build the Discord bot first. Validate that players use it daily before investing
 → Bot DMs you at expiry with a second alert
 ```
 
-### Phase 2 — Web App (Month 2–3)
+### Phase 1.5 — Progress Tracking (localStorage, ships now)
 
-Build the web app once the Discord bot proves daily retention. The bot backend is reused — only the frontend is new.
+Static progress profile on the GAMIDES web app using localStorage. No auth, no backend — ships immediately. Migrates to server-side when Phase 2 auth lands.
 
-**Why web app second:**
-- Better visual dashboard for timers (text embeds have limits)
-- Screenshot upload for OCR is natural on web
-- AI chat interface works better in a browser
-- Sets up the path to mobile app
+- HQ level, hero roster + ranks, key research levels, tank tier
+- Manually entered, persisted in browser localStorage
+- Device-specific until auth migration
 
-### Phase 4 — Mobile App (Month 5–8)
+### Phase 2 — Auth + Database (Month 2)
+
+Discord OAuth login and database to back the progress profile across devices. No payments yet.
+
+- Discord OAuth via NextAuth
+- Database schema for user progress profile
+- Migrate localStorage data to DB on first login
+
+### Phase 3 — Web App + Stripe (Month 2–3)
+
+Build the timer dashboard and wire up payments once auth + DB are in place.
+
+- Timer dashboard, account switcher, web notifications
+- Stripe subscription (monthly + annual), webhook activates Pro flag
+- Pro flag gates AI assistant and OCR import
+
+### Phase 5 — Mobile App (Month 5–8)
 
 React Native app using the same backend. Native push notifications replace Discord DMs as the primary alert channel.
 
@@ -96,24 +110,39 @@ React Native app using the same backend. Native push notifications replace Disco
 |---|---|---|
 | Bot framework | discord.js + TypeScript | Same stack as AllianceOS, well documented |
 | Backend | Node.js + Fastify | Lightweight, fast |
-| Database | PostgreSQL + Prisma | Simple, reliable |
+| Database | Firestore (GCP Firebase) | Already live, stores users/{discordId}/accounts/timers |
 | Queue | BullMQ + Redis | Scheduled timer alerts |
 | Hosting | Railway | One process, ~$5/mo to start |
 
-### Phase 2 — Web App (added on top)
+### Phase 1.5 — Progress Tracking (added on top)
 
 | Layer | Choice | Reason |
 |---|---|---|
-| Frontend | Next.js | Fast to ship, works on desktop and mobile browser |
+| Storage | localStorage | No backend needed, ships immediately |
+
+### Phase 2 — Auth + Database (added on top)
+
+| Layer | Choice | Reason |
+|---|---|---|
 | Auth | NextAuth (Discord OAuth) | Player already has Discord — one click login |
+| Session store | Firestore via @auth/firebase-adapter | Same project as bot, no new infrastructure |
+| Profile store | Firestore users/{discordId} | Extends existing user doc, shared with bot |
+| Admin SDK | firebase-admin (same service account) | Reuse bot credentials |
+
+### Phase 3 — Web App + Stripe (added on top)
+
+| Layer | Choice | Reason |
+|---|---|---|
+| Frontend | Next.js on Vercel | Fast to ship, works on desktop and mobile browser |
+| Payments | Stripe (subscriptions + webhook) | Pro flag activated on payment event |
 | OCR | Google Vision API | Best accuracy for mobile game screenshots |
 
-### Phase 3 — AI (added on top)
+### Phase 4 — AI (added on top)
 
 | Layer | Choice | Reason |
 |---|---|---|
 | AI | Claude API (claude-sonnet-4-6) | Strategy advice, screenshot interpretation |
-| Vector Search | pgvector | RAG over game knowledge base |
+| Knowledge base | Firestore + vector search | RAG over game knowledge base |
 
 ---
 
@@ -218,8 +247,8 @@ Stripe payment link — no billing portal needed yet. Gate Pro via a user-level 
 
 | Tier | Price | Who Pays | Features |
 |---|---|---|---|
-| Free | $0 | — | 1 account profile, 5 active timers, 30min alerts only |
-| Pro | $4.99/mo | Individual player | Unlimited accounts, unlimited timers, custom alert thresholds, priority DMs |
+| Free | $0 | — | 1 account profile, 5 active timers, 30min alerts only, progress tracking (HQ, heroes, research, tank) |
+| Pro | $4.99/mo | Individual player | Unlimited accounts, unlimited timers, custom alert thresholds, priority DMs, AI Strategy Assistant, OCR import |
 | Annual | $39.99/yr | Individual player | Pro features at ~33% discount |
 
 **Note:** Alliance-level features (event scheduling, attendance tracking, RSVP, AI assistant) are part of AllianceOS — a separate per-server subscription ($14.99–$24.99/mo) paid by the alliance leader, covering all members. The two products share the same Discord bot infrastructure and cross-sell each other.
@@ -232,11 +261,28 @@ Stripe payment link — no billing portal needed yet. Gate Pro via a user-level 
 
 ---
 
-## Phase 2 — Web App (Month 2–3)
+## Phase 2 — Auth + Database (Month 2)
 
 ### Goal
 
-Add a visual dashboard on top of the validated bot backend. Same database, same timer data — new interface.
+Add Discord login and migrate the localStorage progress profile to the database so data persists across devices.
+
+### Auth
+- Discord OAuth via NextAuth — player logs in with same Discord account used with the bot
+- No separate registration needed
+
+### Database
+- Extends existing Firestore `users/{discordId}` document with a `profile` field
+- On first login: import localStorage data into Firestore, clear localStorage
+- Same Firebase project and service account as the Discord bot
+
+---
+
+## Phase 3 — Web App + Stripe (Month 2–3)
+
+### Goal
+
+Add the timer dashboard and payments on top of the validated auth + DB layer. Requires Phase 2 to be in place.
 
 ### Features
 
@@ -250,43 +296,55 @@ Add a visual dashboard on top of the validated bot backend. Same database, same 
 - Sidebar with all account profiles
 - One-click switch between Main, Farm 1, Farm 2, etc.
 
-#### Screenshot OCR Import
+#### Screenshot OCR Import *(Pro)*
 - Player uploads a screenshot from Last Z / Last War
 - Google Vision API extracts all visible timers and countdowns
 - Extracted data populates the timer dashboard automatically
 - Player confirms or edits before saving
 - Supported screens: base overview, research, troop queue, healing queue, shield
 
+#### Player Profile — Progress Tracking *(Free)*
+- HQ level
+- Hero roster + ranks
+- Key research levels (combat, development)
+- Tank tier
+- Manually entered; OCR import can auto-populate *(Pro)*
+- Serves as context for the AI assistant in Phase 4
+
 #### Web Notifications
 - Browser push notifications as alternative to Discord DMs
 - Player can enable both — Discord DM + browser push
 
-### Auth
-- Discord OAuth via NextAuth — player logs in with same Discord account used with the bot
-- No separate registration needed
+#### Payments
+- Stripe subscription (monthly + annual plans)
+- Webhook endpoint activates/deactivates Pro flag on user record
+- `/upgrade` bot command sends Stripe payment link via DM
+- Web `/upgrade` page for players who arrive via the web app
 
 ---
 
-## Phase 3 — AI Strategy Assistant (Month 3–5)
+## Phase 4 — AI Strategy Assistant *(Pro only)* (Month 3–5)
 
 ### Goal
 
-Answer the questions players ask every day in Discord and Reddit.
+Answer the questions players ask every day in Discord and Reddit. **Pro feature** — AI inference costs money per query; gated behind the paid tier.
 
-### Discord Commands (bot extension)
+### Discord Commands (bot extension, Pro only)
 ```
 /ask <question>
   Example: /ask What should I upgrade next?
   Example: /ask Is my hero build good for rally?
   Example: /ask What events are coming up this week?
+
+→ Free users see: "AI assistant is a Pro feature. /upgrade to unlock."
 ```
 
-### Web Chat Interface
+### Web Chat Interface *(Pro only)*
 - Persistent chat in the web dashboard
-- Context-aware: AI sees the player's current timers and account state
+- Context-aware: AI sees the player's current timers, account state, and saved progress profile
 - Game knowledge base via RAG (event guides, upgrade priorities, hero builds)
 
-### Screenshot Analysis
+### Screenshot Analysis *(Pro only)*
 Player uploads a screenshot and asks:
 ```
 "What should I upgrade next?"
@@ -301,7 +359,7 @@ Player uploads a screenshot and asks:
 
 ---
 
-## Phase 4 — Mobile App (Month 5–8)
+## Phase 5 — Mobile App (Month 5–8)
 
 ### Goal
 
@@ -319,7 +377,7 @@ Native app for better notification reliability and lock screen access.
 
 ---
 
-## Phase 5 — Multi-Game Expansion (Month 8–12)
+## Phase 6 — Multi-Game Expansion (Month 8–12)
 
 Each new game requires only a game plugin (event templates, timer type labels, OCR parsers, knowledge base). The bot engine, alert system, and account infrastructure are fully reused.
 
@@ -436,6 +494,6 @@ WarGuard and AllianceOS are complementary, not competing:
 | Primary channel | Discord bot → web app → mobile | Discord bot |
 | Pricing | Per user ($4.99/mo) | Per server ($14.99–$24.99/mo) |
 | Viral loop | Player → friends → alliance | Alliance → members |
-| Shared tech | discord.js, Node.js, PostgreSQL, Redis, Claude API | Same |
+| Shared tech | discord.js, Node.js, Firestore (Firebase), Redis, Claude API | Same |
 
 **Cross-sell flywheel:** WarGuard players who lead alliances discover AllianceOS. AllianceOS alliance members get recommended WarGuard for personal timers. Both products grow each other with zero paid acquisition.

@@ -5,6 +5,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Link from "next/link";
 import { GameidesLogo } from "./components/GameidesLogo";
 import { PrimaryNav } from "./components/PrimaryNav";
+import { Providers } from "./providers";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -144,6 +145,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+        <Providers>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
 
         {/* Skip link */}
@@ -226,6 +228,7 @@ export default function RootLayout({
             strategy="afterInteractive"
           />
         )}
+        </Providers>
       </body>
     </html>
   );
