@@ -3,6 +3,8 @@ import researchData from "@/data/research.json";
 import heroesData from "@/data/heroes.json";
 import hqData from "@/data/hq.json";
 import seasonsData from "@/data/seasons.json";
+import whiteoutData from "@/data/whiteoutSurvival.json";
+import lastWarData from "@/data/lastWar.json";
 
 const BASE = "https://www.gamides.com";
 
@@ -30,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/guide/migration`,       priority: 0.6, changeFrequency: "monthly" },
     { url: `${BASE}/calc`,                  priority: 0.8, changeFrequency: "monthly" },
     { url: `${BASE}/calc/t10`,              priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/whiteout-survival`,     priority: 0.9, changeFrequency: "weekly" },
+    { url: `${BASE}/last-war`,              priority: 0.9, changeFrequency: "weekly" },
     { url: `${BASE}/profile`,               priority: 0.7, changeFrequency: "monthly" },
     { url: `${BASE}/changelog`,             priority: 0.5, changeFrequency: "weekly" },
     { url: `${BASE}/disclosure`,            priority: 0.3, changeFrequency: "yearly" },
@@ -49,6 +53,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const hqLevelRoutes: MetadataRoute.Sitemap = hqData.levels.map((l) => ({
     url: `${BASE}/hq/level-${l.level}-requirements`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  }));
+
+  const whiteoutFurnaceRoutes: MetadataRoute.Sitemap = whiteoutData.levels.map((l) => ({
+    url: `${BASE}/whiteout-survival/furnace/level-${l.level}-requirements`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  }));
+
+  const lastWarHqRoutes: MetadataRoute.Sitemap = lastWarData.levels.map((l) => ({
+    url: `${BASE}/last-war/hq/level-${l.level}-requirements`,
     priority: 0.7,
     changeFrequency: "monthly" as const,
   }));
@@ -79,6 +95,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...seasonRoutes,
     ...treeRoutes,
     ...hqLevelRoutes,
+    ...whiteoutFurnaceRoutes,
+    ...lastWarHqRoutes,
     ...heroRoutes,
     ...heroCompareRoutes,
   ];

@@ -126,6 +126,72 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Multi-Game Cross-Promotion Hub */}
+      <section className="pb-20">
+        <div className="mb-8 text-center">
+          <span className="inline-block rounded-full border border-purple-500/40 bg-purple-900/50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-purple-200">
+            GAMIDES Multi-Game Network
+          </span>
+          <h2 className="mt-3 text-2xl font-bold text-white">
+            Also Playing Other 4X Survival Games?
+          </h2>
+          <p className="mt-1 text-sm text-purple-200/75">
+            Explore our dedicated upgrade databases, calculators, and Discord alert hubs for top survival strategy games.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <Link
+            href="/whiteout-survival"
+            className="group relative overflow-hidden rounded-2xl border border-purple-700/60 bg-purple-900/40 p-6 transition-all duration-200 hover:border-purple-500 hover:bg-purple-900/70"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">❄️</span>
+                  <h3 className="text-xl font-bold text-white group-hover:text-purple-200">
+                    Whiteout Survival Hub
+                  </h3>
+                </div>
+                <p className="mt-2 text-sm text-purple-200/80">
+                  Complete Furnace 1–30 &amp; Fire Crystal FC1–FC5 requirements, Bear Trap &amp; Crazy Joe timers, State of Power (SvS) prep planner, and Gen 1–4 SSR hero guides.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2 text-xs text-purple-300">
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">35 Furnace &amp; FC Pages</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">SvS &amp; Bear Trap Timers</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">Fire Crystal Calculator</span>
+                </div>
+              </div>
+              <span className="text-purple-400 transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/last-war"
+            className="group relative overflow-hidden rounded-2xl border border-purple-700/60 bg-purple-900/40 p-6 transition-all duration-200 hover:border-purple-500 hover:bg-purple-900/70"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">🎖️</span>
+                  <h3 className="text-xl font-bold text-white group-hover:text-purple-200">
+                    Last War: Survival Game Hub
+                  </h3>
+                </div>
+                <p className="mt-2 text-sm text-purple-200/80">
+                  Headquarters 1–30 Iron/Food/Coin table, T10 Special Forces prerequisite tracker, Arms Race 4-hour rotation schedule, and Kimberly / DVA / Tesla UR hero builds.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2 text-xs text-purple-300">
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">30 HQ Level Pages</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">VS Alliance Duel &amp; Arms Race</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">T10 Prerequisite Planner</span>
+                </div>
+              </div>
+              <span className="text-purple-400 transition-transform group-hover:translate-x-1">→</span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }

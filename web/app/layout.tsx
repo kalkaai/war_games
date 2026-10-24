@@ -4,6 +4,7 @@ import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Link from "next/link";
 import { GameidesLogo } from "./components/GameidesLogo";
+import { GameSwitcher } from "./components/GameSwitcher";
 import { PrimaryNav } from "./components/PrimaryNav";
 import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { Providers } from "./providers";
@@ -194,6 +195,7 @@ export default function RootLayout({
               <GameidesLogo />
             </div>
             <div className="flex items-center gap-2 lg:order-last py-2">
+              <GameSwitcher />
               <ThemeSwitcher />
             </div>
             <PrimaryNav />
