@@ -84,3 +84,15 @@ export const FREE_TIER = {
   MAX_TIMERS: configData.freeTier.maxTimers,
   ALERT_THRESHOLDS: configData.freeTier.alertThresholds,
 } as const
+
+export type SupportedGameId = 'last-z' | 'whiteout-survival' | 'last-war'
+
+export interface GuildAlertConfigDoc {
+  guildId: string
+  channelId: string
+  utcOffsetHours: number
+  game: SupportedGameId
+  enabled: boolean
+  sentWindowKeys: string[]
+  updatedAt: Timestamp
+}

@@ -199,3 +199,9 @@ export function accountRef(discordId: string, accountName: string): MemDocRef {
 export function timersCol(discordId: string, accountName: string): MemCollectionRef {
   return new MemCollectionRef(`users/${discordId}/accounts/${accountName}/timers`)
 }
+
+export const guildAlertsCol = new MemCollectionRef('guild_alerts')
+
+export function guildAlertRef(guildId: string): MemDocRef {
+  return new MemDocRef(`guild_alerts/${guildId}`)
+}

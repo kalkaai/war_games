@@ -37,14 +37,18 @@ const fb  = useMemoryStore ? mem : (() => {
   const { getFirestore } = require('firebase-admin/firestore')
   const db = getFirestore()
   return {
-    usersCol:   db.collection('users'),
-    userRef:    (id: string) => db.collection('users').doc(id),
-    accountRef: (id: string, name: string) => db.collection('users').doc(id).collection('accounts').doc(name),
-    timersCol:  (id: string, name: string) => db.collection('users').doc(id).collection('accounts').doc(name).collection('timers'),
+    usersCol:       db.collection('users'),
+    userRef:        (id: string) => db.collection('users').doc(id),
+    accountRef:     (id: string, name: string) => db.collection('users').doc(id).collection('accounts').doc(name),
+    timersCol:      (id: string, name: string) => db.collection('users').doc(id).collection('accounts').doc(name).collection('timers'),
+    guildAlertsCol: db.collection('guild_alerts'),
+    guildAlertRef:  (guildId: string) => db.collection('guild_alerts').doc(guildId),
   }
 })()
 
-export const usersCol   = fb.usersCol
-export const userRef    = fb.userRef    as (discordId: string) => any
-export const accountRef = fb.accountRef as (discordId: string, accountName: string) => any
-export const timersCol  = fb.timersCol  as (discordId: string, accountName: string) => any
+export const usersCol       = fb.usersCol
+export const userRef        = fb.userRef        as (discordId: string) => any
+export const accountRef     = fb.accountRef     as (discordId: string, accountName: string) => any
+export const timersCol      = fb.timersCol      as (discordId: string, accountName: string) => any
+export const guildAlertsCol = fb.guildAlertsCol
+export const guildAlertRef  = fb.guildAlertRef  as (guildId: string) => any

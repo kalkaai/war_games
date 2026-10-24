@@ -6,6 +6,9 @@ import * as accountCommand from './commands/account'
 import * as alertsCommand from './commands/alerts'
 import * as upgradeCommand from './commands/upgrade'
 import * as helpCommand from './commands/help'
+import * as setupCommand from './commands/setup'
+import * as calcCommand from './commands/calc'
+import * as allianceAlertsCommand from './commands/allianceAlerts'
 import { startTimerChecker } from './workers/timerChecker'
 
 // --- Command registry ---
@@ -22,6 +25,9 @@ commands.set(accountCommand.data.name, accountCommand)
 commands.set(alertsCommand.data.name, alertsCommand)
 commands.set(upgradeCommand.data.name, upgradeCommand)
 commands.set(helpCommand.data.name, helpCommand)
+commands.set(setupCommand.data.name, setupCommand)
+commands.set(calcCommand.data.name, calcCommand)
+commands.set(allianceAlertsCommand.data.name, allianceAlertsCommand)
 
 // --- Discord client ---
 

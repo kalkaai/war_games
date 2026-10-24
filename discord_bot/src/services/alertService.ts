@@ -3,6 +3,7 @@ import { getActiveUsers, listAccounts } from './accountService'
 import { getTimersDueForAlert, markAlertSent, addTimer, deleteTimerById } from './timerService'
 import { TIMER_EMOJI } from '../types'
 import { formatTimeUntil, formatDuration } from '../utils/formatDuration'
+import { buildGameHubHandoffRow } from '../utils/viralLinks'
 
 export async function runAlertCheck(client: Client): Promise<void> {
   const users = await getActiveUsers()
@@ -74,10 +75,11 @@ export async function runAlertCheck(client: Client): Promise<void> {
                   ? `**${timer.label}** (${timer.type}) has finished.${recurringFootnote}`
                   : `**${timer.label}** (${timer.type}) expires ${formatTimeUntil(timer.expiresAt.toDate())}.`,
               )
-              .setFooter({ text: `GAMIDES — ${account.name}` })
+              .setFooter({ text: `GAMIDES — ${account.name} • gamides.com` })
               .setTimestamp()
 
-            await dmChannel.send({ embeds: [embed] })
+            const handoffRow = buildGameHubHandoffRow('last-z')
+            await dmChannel.send({ embeds: [embed], components: [handoffRow] })
             await markAlertSent(user.discordId, account.name, timer.id, threshold)
 
             if (isRecurring && nextExpiry) {

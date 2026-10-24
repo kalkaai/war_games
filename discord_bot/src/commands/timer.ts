@@ -10,6 +10,7 @@ import { parseDuration } from '../utils/parseDuration'
 import { formatTimeUntil, formatDuration } from '../utils/formatDuration'
 import { TIMER_TYPES, TIMER_EMOJI, GAME_PRESETS, PRO_ENABLED } from '../types'
 import { AutocompleteInteraction, MessageFlags } from 'discord.js'
+import { buildWatermarkedCardUrl, buildGameHubHandoffRow } from '../utils/viralLinks'
 
 
 export async function autocomplete(interaction: AutocompleteInteraction): Promise<void> {
@@ -152,6 +153,20 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       return
     }
 
+    const nextTimer = live[0]
+    const cardUrl = buildWatermarkedCardUrl({
+      type: 'schedule',
+      title: `Active Timers — ${user.activeAccount}`,
+      subtitle: 'Last Z: Survival Shooter • GAMIDES.COM',
+      stat1Label: 'Tracked Timers',
+      stat1Val: `${live.length} Active`,
+      stat2Label: 'Next Expiry',
+      stat2Val: nextTimer.label.slice(0, 18),
+      stat3Label: 'Alert Status',
+      stat3Val: 'DM Armed',
+      note: 'Manage HQ, T10 & Seasonal Calculators at www.gamides.com',
+    })
+
     const embed = new EmbedBuilder()
       .setColor(Colors.Blurple)
       .setTitle(`Timers — ${user.activeAccount}`)
@@ -165,9 +180,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
           })
           .join('\n'),
       )
-      .setFooter({ text: `${live.length} active timer${live.length !== 1 ? 's' : ''} • 🔁 = recurring` })
+      .setImage(cardUrl)
+      .setFooter({ text: `${live.length} active timer${live.length !== 1 ? 's' : ''} • 🔁 = recurring • gamides.com` })
 
-    await interaction.editReply({ embeds: [embed] })
+    const row = buildGameHubHandoffRow('last-z')
+    await interaction.editReply({ embeds: [embed], components: [row] })
     return
   }
 

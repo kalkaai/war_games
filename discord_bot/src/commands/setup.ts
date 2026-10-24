@@ -8,6 +8,7 @@ import {
 import { getOrCreateUser } from '../services/accountService'
 import { seedDefaultPresets } from '../services/timerService'
 import { GAME_PRESETS, TIMER_EMOJI } from '../types'
+import { buildWatermarkedCardUrl, buildGameHubHandoffRow } from '../utils/viralLinks'
 
 export const data = new SlashCommandBuilder()
   .setName('setup')
@@ -32,6 +33,19 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     return `${TIMER_EMOJI[preset.type]} ${name}`
   }).join('\n')
 
+  const cardUrl = buildWatermarkedCardUrl({
+    type: 'schedule',
+    title: 'Active Event Timers Synced',
+    subtitle: 'Last Z: Survival Shooter • GAMIDES.COM',
+    stat1Label: 'Recurring Presets',
+    stat1Val: `${added.length} Active`,
+    stat2Label: 'Alert Window',
+    stat2Val: '30m Warning',
+    stat3Label: 'Server Reset',
+    stat3Val: '02:00 UTC',
+    note: 'Full VS Rotation, HQ Tables & Seasonal Guides at www.gamides.com',
+  })
+
   const embed = new EmbedBuilder()
     .setColor(Colors.Green)
     .setTitle('✅ Event Timers Started')
@@ -40,10 +54,14 @@ export async function execute(interaction: ChatInputCommandInteraction) {
       name: 'What happens next',
       value: "You'll get a DM 30 minutes before each event resets.\nUse `/timer list` to see all active timers.",
     })
+    .setImage(cardUrl)
 
   if (skipped.length > 0) {
-    embed.setFooter({ text: `${skipped.length} already tracked and skipped.` })
+    embed.setFooter({ text: `${skipped.length} already tracked and skipped • gamides.com` })
+  } else {
+    embed.setFooter({ text: 'gamides.com • Free Strategy Companion' })
   }
 
-  await interaction.editReply({ embeds: [embed] })
+  const row = buildGameHubHandoffRow('last-z')
+  await interaction.editReply({ embeds: [embed], components: [row] })
 }

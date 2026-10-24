@@ -10,6 +10,8 @@ import * as alertsCommand from './commands/alerts'
 import * as upgradeCommand from './commands/upgrade'
 import * as helpCommand from './commands/help'
 import * as setupCommand from './commands/setup'
+import * as calcCommand from './commands/calc'
+import * as allianceAlertsCommand from './commands/allianceAlerts'
 const commands = [
   timerCommand.data.toJSON(),
   accountCommand.data.toJSON(),
@@ -17,6 +19,8 @@ const commands = [
   upgradeCommand.data.toJSON(),
   helpCommand.data.toJSON(),
   setupCommand.data.toJSON(),
+  calcCommand.data.toJSON(),
+  allianceAlertsCommand.data.toJSON(),
 ]
 
 const rest = new REST().setToken(process.env.DISCORD_TOKEN!)
