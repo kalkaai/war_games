@@ -1,0 +1,81 @@
+{
+  "_comment": "Whiteout Survival Furnace levels 1-30 + Fire Crystal FC1-FC5, alliance event cadence, and SvS/Hall of Chiefs rotation.",
+  "furnaceLevels": [
+    { "level": 1, "label": "Lv. 1", "requiredBuildings": [], "meat": 1000, "wood": 1000, "coal": 0, "iron": 0, "fireCrystals": 0, "buildTimeMinutes": 0, "unlock": "Starter Camp" },
+    { "level": 2, "label": "Lv. 2", "requiredBuildings": ["Hunter's Hut Lv.1"], "meat": 2500, "wood": 2500, "coal": 0, "iron": 0, "fireCrystals": 0, "buildTimeMinutes": 1, "unlock": "Sawmill" },
+    { "level": 3, "label": "Lv. 3", "requiredBuildings": ["Sawmill Lv.2"], "meat": 6000, "wood": 6000, "coal": 1200, "iron": 0, "fireCrystals": 0, "buildTimeMinutes": 3, "unlock": "Coal Mine" },
+    { "level": 4, "label": "Lv. 4", "requiredBuildings": ["Coal Mine Lv.3"], "meat": 14000, "wood": 14000, "coal": 2800, "iron": 0, "fireCrystals": 0, "buildTimeMinutes": 8, "unlock": "Exploration Stage" },
+    { "level": 5, "label": "Lv. 5", "requiredBuildings": ["Infantry Camp Lv.4"], "meat": 35000, "wood": 35000, "coal": 7000, "iron": 1800, "fireCrystals": 0, "buildTimeMinutes": 20, "unlock": "Iron Mine & T2 Troops" },
+    { "level": 6, "label": "Lv. 6", "requiredBuildings": ["Iron Mine Lv.5", "Embassy Lv.5"], "meat": 85000, "wood": 85000, "coal": 17000, "iron": 4200, "fireCrystals": 0, "buildTimeMinutes": 45, "unlock": "Alliance Center" },
+    { "level": 7, "label": "Lv. 7", "requiredBuildings": ["Embassy Lv.6", "Lancer Camp Lv.6"], "meat": 160000, "wood": 160000, "coal": 32000, "iron": 8000, "fireCrystals": 0, "buildTimeMinutes": 90, "unlock": "Lighthouse (Intel Missions)" },
+    { "level": 8, "label": "Lv. 8", "requiredBuildings": ["Embassy Lv.7", "Infirmary Lv.7"], "meat": 290000, "wood": 290000, "coal": 58000, "iron": 14500, "fireCrystals": 0, "buildTimeMinutes": 150, "unlock": "T3 Troops" },
+    { "level": 9, "label": "Lv. 9", "requiredBuildings": ["Embassy Lv.8", "Research Center Lv.8"], "meat": 520000, "wood": 520000, "coal": 104000, "iron": 26000, "fireCrystals": 0, "buildTimeMinutes": 240, "unlock": "Research Center Tier II" },
+    { "level": 10, "label": "Lv. 10", "requiredBuildings": ["Embassy Lv.9", "Marksman Camp Lv.9"], "meat": 910000, "wood": 910000, "coal": 182000, "iron": 45500, "fireCrystals": 0, "buildTimeMinutes": 360, "unlock": "T4 Troops" },
+    { "level": 11, "label": "Lv. 11", "requiredBuildings": ["Embassy Lv.10", "Command Center Lv.10"], "meat": 1500000, "wood": 1500000, "coal": 300000, "iron": 75000, "fireCrystals": 0, "buildTimeMinutes": 480, "unlock": "2nd March Queue Gate" },
+    { "level": 12, "label": "Lv. 12", "requiredBuildings": ["Embassy Lv.11", "Infantry Camp Lv.11"], "meat": 2400000, "wood": 2400000, "coal": 480000, "iron": 120000, "fireCrystals": 0, "buildTimeMinutes": 620, "unlock": "Storehouse Expansion" },
+    { "level": 13, "label": "Lv. 13", "requiredBuildings": ["Embassy Lv.12", "Lancer Camp Lv.12"], "meat": 3800000, "wood": 3800000, "coal": 760000, "iron": 190000, "fireCrystals": 0, "buildTimeMinutes": 810, "unlock": "T5 Troops" },
+    { "level": 14, "label": "Lv. 14", "requiredBuildings": ["Embassy Lv.13", "Marksman Camp Lv.13"], "meat": 5900000, "wood": 5900000, "coal": 1180000, "iron": 295000, "fireCrystals": 0, "buildTimeMinutes": 1080, "unlock": "Drill Camp" },
+    { "level": 15, "label": "Lv. 15", "requiredBuildings": ["Embassy Lv.14", "Research Center Lv.14"], "meat": 8800000, "wood": 8800000, "coal": 1760000, "iron": 440000, "fireCrystals": 0, "buildTimeMinutes": 1440, "unlock": "Hero Gear Armory" },
+    { "level": 16, "label": "Lv. 16", "requiredBuildings": ["Embassy Lv.15", "Command Center Lv.15"], "meat": 13500000, "wood": 13500000, "coal": 2700000, "iron": 675000, "fireCrystals": 0, "buildTimeMinutes": 1920, "unlock": "T6 Troops" },
+    { "level": 17, "label": "Lv. 17", "requiredBuildings": ["Embassy Lv.16", "Infantry Camp Lv.16"], "meat": 19500000, "wood": 19500000, "coal": 3900000, "iron": 975000, "fireCrystals": 0, "buildTimeMinutes": 2520, "unlock": "Beast Cage (Pets)" },
+    { "level": 18, "label": "Lv. 18", "requiredBuildings": ["Embassy Lv.17", "Lancer Camp Lv.17"], "meat": 28000000, "wood": 28000000, "coal": 5600000, "iron": 1400000, "fireCrystals": 0, "buildTimeMinutes": 3240, "unlock": "Fishing & Island Unlock" },
+    { "level": 19, "label": "Lv. 19", "requiredBuildings": ["Embassy Lv.18", "Marksman Camp Lv.18"], "meat": 41000000, "wood": 41000000, "coal": 8200000, "iron": 2050000, "fireCrystals": 0, "buildTimeMinutes": 4200, "unlock": "T7 Troops" },
+    { "level": 20, "label": "Lv. 20", "requiredBuildings": ["Embassy Lv.19", "Research Center Lv.19"], "meat": 58000000, "wood": 58000000, "coal": 11600000, "iron": 2900000, "fireCrystals": 0, "buildTimeMinutes": 5460, "unlock": "Mythic Hero Gear Mastery" },
+    { "level": 21, "label": "Lv. 21", "requiredBuildings": ["Embassy Lv.20", "Command Center Lv.20"], "meat": 82000000, "wood": 82000000, "coal": 16400000, "iron": 4100000, "fireCrystals": 0, "buildTimeMinutes": 7020, "unlock": "Chief Gear System" },
+    { "level": 22, "label": "Lv. 22", "requiredBuildings": ["Embassy Lv.21", "Infantry Camp Lv.21"], "meat": 115000000, "wood": 115000000, "coal": 23000000, "iron": 5750000, "fireCrystals": 0, "buildTimeMinutes": 9180, "unlock": "T8 Troops" },
+    { "level": 23, "label": "Lv. 23", "requiredBuildings": ["Embassy Lv.22", "Lancer Camp Lv.22"], "meat": 160000000, "wood": 160000000, "coal": 32000000, "iron": 8000000, "fireCrystals": 0, "buildTimeMinutes": 11880, "unlock": "Storehouse Protected Cap+" },
+    { "level": 24, "label": "Lv. 24", "requiredBuildings": ["Embassy Lv.23", "Marksman Camp Lv.23"], "meat": 220000000, "wood": 220000000, "coal": 44000000, "iron": 11000000, "fireCrystals": 0, "buildTimeMinutes": 15480, "unlock": "Research Tier V" },
+    { "level": 25, "label": "Lv. 25", "requiredBuildings": ["Embassy Lv.24", "Research Center Lv.24"], "meat": 310000000, "wood": 310000000, "coal": 62000000, "iron": 15500000, "fireCrystals": 0, "buildTimeMinutes": 20160, "unlock": "Chief Charms System" },
+    { "level": 26, "label": "Lv. 26", "requiredBuildings": ["Embassy Lv.25", "Command Center Lv.25"], "meat": 430000000, "wood": 430000000, "coal": 86000000, "iron": 21500000, "fireCrystals": 0, "buildTimeMinutes": 26280, "unlock": "T9 Troops" },
+    { "level": 27, "label": "Lv. 27", "requiredBuildings": ["Embassy Lv.26", "Infantry Camp Lv.26"], "meat": 600000000, "wood": 600000000, "coal": 120000000, "iron": 30000000, "fireCrystals": 0, "buildTimeMinutes": 34200, "unlock": "Camp Promotion Speed+" },
+    { "level": 28, "label": "Lv. 28", "requiredBuildings": ["Embassy Lv.27", "Lancer Camp Lv.27"], "meat": 840000000, "wood": 840000000, "coal": 168000000, "iron": 42000000, "fireCrystals": 0, "buildTimeMinutes": 44640, "unlock": "Sunfire Rally Cap+" },
+    { "level": 29, "label": "Lv. 29", "requiredBuildings": ["Embassy Lv.28", "Marksman Camp Lv.28"], "meat": 1180000000, "wood": 1180000000, "coal": 236000000, "iron": 59000000, "fireCrystals": 0, "buildTimeMinutes": 58320, "unlock": "Pre-T10 Gate" },
+    { "level": 30, "label": "Lv. 30", "requiredBuildings": ["Embassy Lv.29", "Research Center Lv.29"], "meat": 1650000000, "wood": 1650000000, "coal": 330000000, "iron": 82500000, "fireCrystals": 0, "buildTimeMinutes": 75600, "unlock": "T10 Troops & Fire Crystal Age" },
+    { "level": 31, "label": "FC 1", "requiredBuildings": ["Embassy FC1", "Infantry/Lancer/Marksman FC1"], "meat": 900000000, "wood": 900000000, "coal": 180000000, "iron": 45000000, "fireCrystals": 660, "buildTimeMinutes": 50400, "unlock": "FC1 Apex Troops" },
+    { "level": 32, "label": "FC 2", "requiredBuildings": ["Embassy FC2", "Infantry/Lancer/Marksman FC2"], "meat": 1100000000, "wood": 1100000000, "coal": 220000000, "iron": 55000000, "fireCrystals": 790, "buildTimeMinutes": 64800, "unlock": "FC2 Apex Troops" },
+    { "level": 33, "label": "FC 3", "requiredBuildings": ["Embassy FC3", "Infantry/Lancer/Marksman FC3"], "meat": 1350000000, "wood": 1350000000, "coal": 270000000, "iron": 67500000, "fireCrystals": 1190, "buildTimeMinutes": 79200, "unlock": "FC3 Apex Troops & War Academy" },
+    { "level": 34, "label": "FC 4", "requiredBuildings": ["Embassy FC4", "Infantry/Lancer/Marksman FC4"], "meat": 1600000000, "wood": 1600000000, "coal": 320000000, "iron": 80000000, "fireCrystals": 1400, "buildTimeMinutes": 93600, "unlock": "FC4 Apex Troops" },
+    { "level": 35, "label": "FC 5", "requiredBuildings": ["Embassy FC5", "Infantry/Lancer/Marksman FC5"], "meat": 1900000000, "wood": 1900000000, "coal": 380000000, "iron": 95000000, "fireCrystals": 1675, "buildTimeMinutes": 108000, "unlock": "FC5 Helios T11 War Academy Gate" }
+  ],
+  "allianceEvents": [
+    {
+      "id": "bear_hunt",
+      "name": "Bear Hunt (Alliance Trap)",
+      "cadence": "Every 48 Hours (Alliance R4/R5 Triggered)",
+      "utcTimes": ["00:00", "12:00", "19:00"],
+      "keyRewards": "Essence Stones, Forgehammers, Construction Speed-ups, Alliance Tokens",
+      "strategyTip": "Lead rallies with Jeronimo/Natalia/Molly; join rallies using Jessie, Jasser, or Seo-yoon in Slot 1 for +25% damage!"
+    },
+    {
+      "id": "sunfire_castle",
+      "name": "Sunfire Castle Battle",
+      "cadence": "Bi-Weekly Saturday (12:00 – 18:00 UTC)",
+      "utcTimes": ["12:00"],
+      "keyRewards": "Supreme President Title, State Buffs, Chief Charm Materials, Gems",
+      "strategyTip": "Hold the Castle for 3 consecutive hours or accumulate the longest total occupation time across the 6-hour window."
+    },
+    {
+      "id": "crazy_joe",
+      "name": "Crazy Joe (Bandit Siege)",
+      "cadence": "Tue & Thu (Alliance Scheduled)",
+      "utcTimes": ["13:00", "19:00"],
+      "keyRewards": "Chief Gear Design Plans, Polishing Solution, Hardened Alloy",
+      "strategyTip": "Reinforce online alliance members with your Infantry/Lancer troops while keeping your own heroes home; Waves 10 and 20 hit the Alliance HQ!"
+    },
+    {
+      "id": "foundry_battle",
+      "name": "Foundry Battle",
+      "cadence": "Bi-Weekly Sunday ( Legion 1 & 2 Windows)",
+      "utcTimes": ["14:00", "19:00"],
+      "keyRewards": "Arsenal Tokens, Mythic Skill Manuals, Essence Stones",
+      "strategyTip": "No permanent troop losses! Assign dedicated interceptors to Imperial Foundry and Boiler Room at the 15-minute mark."
+    }
+  ],
+  "svsPrepRotation": [
+    { "day": 1, "name": "City Construction", "focus": "Use Fire Crystals, Construction Speed-ups & Chief Charms" },
+    { "day": 2, "name": "Basic Skill Up", "focus": "Spend Hero Shards, Lucky Wheel Spins, Research Speed-ups & Gather RSS" },
+    { "day": 3, "name": "Pet & Charm Training", "focus": "Advance Beast/Pets, Chief Charms & Hero Roulette" },
+    { "day": 4, "name": "Troop Training", "focus": "Train/Promote T9-T10 Troops & Spend Essence Stones" },
+    { "day": 5, "name": "Power Boost", "focus": "Upgrade Chief Gear (Alloy/Design Plans), Pet Refinement & All Speed-ups" }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "_comment": "Last War: Survival Game HQ levels 1-30, VS Alliance Duel rotation, Arms Race 4h cycle, and UR Hero Shard costs.",
+  "hqLevels": [
+    { "level": 1, "requiredBuildings": [], "iron": 500, "food": 500, "gold": 0, "buildTimeMinutes": 0, "heroCap": 5, "unlock": "Starter Base" },
+    { "level": 2, "requiredBuildings": ["Barracks Lv.1"], "iron": 1200, "food": 1200, "gold": 0, "buildTimeMinutes": 1, "unlock": "Iron Mine & Farmland" },
+    { "level": 3, "requiredBuildings": ["Wall Lv.2"], "iron": 3000, "food": 3000, "gold": 1000, "buildTimeMinutes": 3, "unlock": "Gold Mine" },
+    { "level": 4, "requiredBuildings": ["Drill Ground Lv.3"], "iron": 8000, "food": 8000, "gold": 2500, "buildTimeMinutes": 8, "unlock": "T2 Troops" },
+    { "level": 5, "requiredBuildings": ["Wall Lv.4", "Barracks Lv.4"], "iron": 22000, "food": 22000, "gold": 7000, "buildTimeMinutes": 18, "unlock": "Radar Station" },
+    { "level": 6, "requiredBuildings": ["Wall Lv.5", "Alliance Center Lv.5"], "iron": 65000, "food": 65000, "gold": 21000, "buildTimeMinutes": 35, "unlock": "Alliance Help & Rallies" },
+    { "level": 7, "requiredBuildings": ["Tech Center Lv.6", "Tank Center Lv.6"], "iron": 140000, "food": 140000, "gold": 45000, "buildTimeMinutes": 65, "unlock": "Tech Center & T3 Troops" },
+    { "level": 8, "requiredBuildings": ["Tech Center Lv.7", "Hospital Lv.7"], "iron": 290000, "food": 290000, "gold": 92000, "buildTimeMinutes": 115, "unlock": "Tactical Drone Hangar" },
+    { "level": 9, "requiredBuildings": ["Tech Center Lv.8", "Wall Lv.8"], "iron": 580000, "food": 580000, "gold": 185000, "buildTimeMinutes": 180, "unlock": "Aircraft Center" },
+    { "level": 10, "requiredBuildings": ["Tech Center Lv.9", "Barracks Lv.9"], "iron": 1100000, "food": 1100000, "gold": 350000, "buildTimeMinutes": 270, "unlock": "T4 Troops & Gear Factory" },
+    { "level": 11, "requiredBuildings": ["Tech Center Lv.10", "Wall Lv.10"], "iron": 2100000, "food": 2100000, "gold": 670000, "buildTimeMinutes": 390, "unlock": "Missile Center" },
+    { "level": 12, "requiredBuildings": ["Tech Center Lv.11", "Tank Center Lv.11"], "iron": 3800000, "food": 3800000, "gold": 1200000, "buildTimeMinutes": 540, "unlock": "2nd Squad March Slot" },
+    { "level": 13, "requiredBuildings": ["Tech Center Lv.12", "Alliance Center Lv.12"], "iron": 6400000, "food": 6400000, "gold": 2050000, "buildTimeMinutes": 750, "unlock": "Smelter & Ore Production" },
+    { "level": 14, "requiredBuildings": ["Tech Center Lv.13", "Barracks Lv.13"], "iron": 10500000, "food": 10500000, "gold": 3350000, "buildTimeMinutes": 1020, "unlock": "T5 Troops" },
+    { "level": 15, "requiredBuildings": ["Tech Center Lv.14", "Wall Lv.14"], "iron": 16800000, "food": 16800000, "gold": 5400000, "buildTimeMinutes": 1410, "unlock": "Secret Mobile Squad (Tasks)" },
+    { "level": 16, "requiredBuildings": ["Tech Center Lv.15", "Hospital Lv.15"], "iron": 26500000, "food": 26500000, "gold": 8500000, "buildTimeMinutes": 1950, "unlock": "Drone Component Workshop" },
+    { "level": 17, "requiredBuildings": ["Tech Center Lv.16", "Drill Ground Lv.16"], "iron": 41000000, "food": 41000000, "gold": 13100000, "buildTimeMinutes": 2700, "unlock": "T6 Troops" },
+    { "level": 18, "requiredBuildings": ["Tech Center Lv.17", "Tank Center Lv.17"], "iron": 63000000, "food": 63000000, "gold": 20200000, "buildTimeMinutes": 3720, "unlock": "3rd Squad March Slot" },
+    { "level": 19, "requiredBuildings": ["Tech Center Lv.18", "Wall Lv.18"], "iron": 96000000, "food": 96000000, "gold": 30800000, "buildTimeMinutes": 5100, "unlock": "Intercity Truck Plunder" },
+    { "level": 20, "requiredBuildings": ["Tech Center Lv.19", "Barracks Lv.19"], "iron": 145000000, "food": 145000000, "gold": 46500000, "buildTimeMinutes": 7020, "unlock": "T7 Troops & UR Gear Crafting" },
+    { "level": 21, "requiredBuildings": ["Tech Center Lv.20", "Aircraft Center Lv.20"], "iron": 215000000, "food": 215000000, "gold": 69000000, "buildTimeMinutes": 9600, "unlock": "Hero Exclusive Weapon Gate" },
+    { "level": 22, "requiredBuildings": ["Tech Center Lv.21", "Wall Lv.21"], "iron": 310000000, "food": 310000000, "gold": 99000000, "buildTimeMinutes": 13200, "unlock": "Advanced Alliance Duel Tier" },
+    { "level": 23, "requiredBuildings": ["Tech Center Lv.22", "Alliance Center Lv.22"], "iron": 440000000, "food": 440000000, "gold": 141000000, "buildTimeMinutes": 18000, "unlock": "Missile Center Mastery" },
+    { "level": 24, "requiredBuildings": ["Tech Center Lv.23", "Barracks Lv.23"], "iron": 620000000, "food": 620000000, "gold": 198000000, "buildTimeMinutes": 24600, "unlock": "T8 Troops" },
+    { "level": 25, "requiredBuildings": ["Tech Center Lv.24", "Tank Center Lv.24"], "iron": 870000000, "food": 870000000, "gold": 278000000, "buildTimeMinutes": 33600, "unlock": "4th Squad March Slot" },
+    { "level": 26, "requiredBuildings": ["Tech Center Lv.25", "Wall Lv.25"], "iron": 1200000000, "food": 1200000000, "gold": 385000000, "buildTimeMinutes": 45600, "unlock": "Special Forces Research" },
+    { "level": 27, "requiredBuildings": ["Tech Center Lv.26", "Barracks Lv.26"], "iron": 1650000000, "food": 1650000000, "gold": 530000000, "buildTimeMinutes": 61800, "unlock": "T9 Troops" },
+    { "level": 28, "requiredBuildings": ["Tech Center Lv.27", "Hospital Lv.27"], "iron": 2250000000, "food": 2250000000, "gold": 720000000, "buildTimeMinutes": 84000, "unlock": "Hospital & Drill Ground Cap+" },
+    { "level": 29, "requiredBuildings": ["Tech Center Lv.28", "Tank/Aircraft/Missile Lv.28"], "iron": 3100000000, "food": 3100000000, "gold": 990000000, "buildTimeMinutes": 114000, "unlock": "Pre-HQ 30 Gate" },
+    { "level": 30, "requiredBuildings": ["Tech Center Lv.29", "Barracks Lv.29", "Drill Ground Lv.29", "Wall Lv.29"], "iron": 4300000000, "food": 4300000000, "gold": 1380000000, "buildTimeMinutes": 156000, "unlock": "T10 Special Forces Troops & Hero Lv.150" }
+  ],
+  "vsDuelSchedule": [
+    { "day": "Monday", "name": "Radar Training (Drone Boost)", "keyItems": ["Radar Missions (stack 35/40 on Sunday)", "Drone Combat Data", "Drone Parts", "Stamina"], "tip": "Stack Radar tasks on Sunday afternoon without claiming them until Monday 02:00 UTC reset!" },
+    { "day": "Tuesday", "name": "Base Expansion (Construction)", "keyItems": ["Construction Speed-ups", "UR Trade Trucks", "Gold Secret Tasks", "Survivor Recruitment"], "tip": "Leave finished buildings wrapped in gift-boxes until Tuesday reset before popping them!" },
+    { "day": "Wednesday", "name": "Age of Science (Tech Research)", "keyItems": ["Valor Badges (Special Forces / Duel Tech)", "Research Speed-ups", "Drone Component Chests"], "tip": "Prioritize Alliance Duel Tech to 100% first so all future VS actions earn double points." },
+    { "day": "Thursday", "name": "Train Heroes", "keyItems": ["UR Universal Shards", "SSR/SR Hero Shards", "Skill Medals", "Hero Recruitment Tickets", "Hero EXP"], "tip": "Sync Hero Advancement Arms Race window with Thursday VS Duel for double chest rewards." },
+    { "day": "Friday", "name": "Total Mobilization (Troops)", "keyItems": ["Waterfall Troop Promotion (T5→T6→T7→T8→T9)", "Training Speed-ups", "Radar Tasks"], "tip": "Train lower-tier troops Mon-Thu, then promote them to your max tier during Friday Arms Race!" },
+    { "day": "Saturday", "name": "Enemy Buster (Kill Event)", "keyItems": ["8h / 24h Peace Shields", "War Fever Teleports", "Healing Speed-ups", "UR Trucks"], "tip": "Never leave troops on your Wall unless you are a whale; shield up 10 minutes before 02:00 UTC!" }
+  ],
+  "armsRaceWindows": [
+    { "slot": "02:00 – 06:00 UTC", "theme": "City Building", "action": "Pop construction speed-ups & claim wrapped buildings" },
+    { "slot": "06:00 – 10:00 UTC", "theme": "Unit Progression", "action": "Claim trained/promoted troops from Barracks" },
+    { "slot": "10:00 – 14:00 UTC", "theme": "Tech Research", "action": "Complete Tech Center nodes & use research speed-ups" },
+    { "slot": "14:00 – 18:00 UTC", "theme": "Drone Boost", "action": "Spend Stamina & Drone Battle Data" },
+    { "slot": "18:00 – 22:00 UTC", "theme": "Hero Advancement", "action": "Spend Hero EXP & Recruitment Tickets" },
+    { "slot": "22:00 – 02:00 UTC", "theme": "City Building / Rotation", "action": "Check in-game Arms Race preview for daily rotation shift" }
+  ],
+  "urHeroes": [
+    { "id": "kimberly", "name": "Kimberly", "type": "Tank (Energy DPS)", "tier": "S+", "note": "#1 Priority UR Hero — unlock Exclusive Weapon at HQ 21+ immediately." },
+    { "id": "stetmann", "name": "Stetmann", "type": "Tank (Backline AoE)", "tier": "S+", "note": "Pairs with Kimberly for the highest burst Tank squad." },
+    { "id": "williams", "name": "Williams", "type": "Tank (Frontline Shield)", "tier": "S+", "note": "Premier damage-mitigation Tank defender alongside Murphy." },
+    { "id": "murphy", "name": "Murphy", "type": "Tank (Frontline Buff)", "tier": "S", "note": "F2P accessible frontline Tank anchor with team physical defense buff." },
+    { "id": "marshall", "name": "Marshall", "type": "Tank (Command Support)", "tier": "S", "note": "Reduces cooldowns and boosts crit rate for Kimberly & Stetmann." },
+    { "id": "dva", "name": "DVA", "type": "Aircraft (Backline Burst)", "tier": "S+", "note": "Core carry of the Aircraft meta squad (counters Tank squads)." },
+    { "id": "lucius", "name": "Lucius", "type": "Aircraft (Energy Barrier)", "tier": "S+", "note": "Grants massive energy damage resistance against Kimberly squads." },
+    { "id": "tesla", "name": "Tesla", "type": "Missile (Backline DPS)", "tier": "S", "note": "Core carry for Missile squads (counters Aircraft formations)." }
+  ]
+}
