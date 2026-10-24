@@ -2,37 +2,191 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Dark gaming theme CSS variables (shadcn convention, always-dark) ── */
-:root {
-  --background: 270 100% 8%;       /* #0a0014 — deep purple-black */
-  --foreground: 214 32% 91%;       /* #e2e8f0 */
+/* ── Multi-Theme Token System (Default: Nebula Purple) ───────────────── */
+:root,
+html[data-theme="nebula"] {
+  color-scheme: dark;
 
+  --theme-body-bg: 24 0 48;
+  --theme-body-fg: 226 232 240;
+  --theme-star: 255 255 255;
+
+  --theme-50: 250 245 255;
+  --theme-100: 243 232 255;
+  --theme-200: 233 213 255;
+  --theme-300: 216 180 254;
+  --theme-400: 192 132 252;
+  --theme-500: 168 85 247;
+  --theme-600: 147 51 234;
+  --theme-700: 126 34 206;
+  --theme-800: 107 33 168;
+  --theme-900: 88 28 135;
+  --theme-950: 16 2 32;
+
+  --background: 270 100% 8%;
+  --foreground: 214 32% 91%;
   --card: 268 77% 10%;
   --card-foreground: 214 32% 91%;
-
   --popover: 268 77% 10%;
   --popover-foreground: 214 32% 91%;
-
-  --primary: 262 83% 58%;          /* #7c3aed — purple-600 */
+  --primary: 262 83% 58%;
   --primary-foreground: 0 0% 100%;
-
   --secondary: 265 67% 20%;
   --secondary-foreground: 214 32% 91%;
-
   --muted: 265 67% 14%;
   --muted-foreground: 259 50% 70%;
-
   --accent: 265 67% 20%;
   --accent-foreground: 214 32% 91%;
-
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-
   --border: 263 67% 25%;
   --input: 263 67% 15%;
   --ring: 262 83% 58%;
-
   --radius: 0.5rem;
+}
+
+/* ── Theme 2: Blood Rose (Crimson & Obsidian — Assaulter Faction) ────── */
+html[data-theme="blood-rose"] {
+  color-scheme: dark;
+
+  --theme-body-bg: 28 4 12;
+  --theme-body-fg: 254 226 226;
+  --theme-star: 254 205 211;
+
+  --theme-50: 255 241 242;
+  --theme-100: 255 228 230;
+  --theme-200: 254 205 211;
+  --theme-300: 253 164 175;
+  --theme-400: 251 113 133;
+  --theme-500: 244 63 94;
+  --theme-600: 225 29 72;
+  --theme-700: 190 18 60;
+  --theme-800: 159 18 57;
+  --theme-900: 112 14 43;
+  --theme-950: 42 4 16;
+
+  --background: 342 80% 7%;
+  --primary: 347 77% 50%;
+  --border: 345 70% 25%;
+  --ring: 347 77% 50%;
+}
+
+/* ── Theme 3: Wings of Dawn (Cyber Azure & Deep Navy — Shooter Faction) */
+html[data-theme="wings-of-dawn"] {
+  color-scheme: dark;
+
+  --theme-body-bg: 4 18 38;
+  --theme-body-fg: 224 242 254;
+  --theme-star: 186 230 253;
+
+  --theme-50: 240 249 255;
+  --theme-100: 224 242 254;
+  --theme-200: 186 230 253;
+  --theme-300: 125 211 252;
+  --theme-400: 56 189 248;
+  --theme-500: 14 165 233;
+  --theme-600: 2 132 199;
+  --theme-700: 3 105 161;
+  --theme-800: 7 89 133;
+  --theme-900: 12 64 98;
+  --theme-950: 6 24 46;
+
+  --background: 212 82% 8%;
+  --primary: 199 89% 48%;
+  --border: 201 75% 24%;
+  --ring: 199 89% 48%;
+}
+
+/* ── Theme 4: Guard of Order (Tactical Gold & Obsidian — Rider Faction) */
+html[data-theme="guard-of-order"] {
+  color-scheme: dark;
+
+  --theme-body-bg: 24 15 4;
+  --theme-body-fg: 254 243 199;
+  --theme-star: 253 230 138;
+
+  --theme-50: 255 251 235;
+  --theme-100: 254 243 199;
+  --theme-200: 253 230 138;
+  --theme-300: 252 211 77;
+  --theme-400: 251 191 36;
+  --theme-500: 245 158 11;
+  --theme-600: 217 119 6;
+  --theme-700: 180 83 9;
+  --theme-800: 146 64 14;
+  --theme-900: 102 44 10;
+  --theme-950: 38 16 3;
+
+  --background: 36 80% 6%;
+  --primary: 38 92% 50%;
+  --border: 32 75% 24%;
+  --ring: 38 92% 50%;
+}
+
+/* ── Theme 5: Biotech Matrix (Bio-Helix Emerald — Season 3 Lab) ──────── */
+html[data-theme="biotech"] {
+  color-scheme: dark;
+
+  --theme-body-bg: 3 24 17;
+  --theme-body-fg: 209 250 229;
+  --theme-star: 167 243 208;
+
+  --theme-50: 236 253 245;
+  --theme-100: 209 250 229;
+  --theme-200: 167 243 208;
+  --theme-300: 110 231 183;
+  --theme-400: 52 211 153;
+  --theme-500: 16 185 129;
+  --theme-600: 5 150 105;
+  --theme-700: 4 120 87;
+  --theme-800: 6 95 70;
+  --theme-900: 6 70 52;
+  --theme-950: 2 32 23;
+
+  --background: 160 84% 6%;
+  --primary: 160 84% 39%;
+  --border: 162 72% 22%;
+  --ring: 160 84% 39%;
+}
+
+/* ── Theme 6: Daylight Tactical (Crisp Light Mode) ───────────────────── */
+html[data-theme="daylight"] {
+  color-scheme: light;
+
+  --theme-body-bg: 248 250 252;
+  --theme-body-fg: 15 23 42;
+  --theme-star: 99 102 241;
+
+  --theme-50: 15 23 42;
+  --theme-100: 30 41 59;
+  --theme-200: 51 65 85;
+  --theme-300: 71 85 105;
+  --theme-400: 100 116 139;
+  --theme-500: 99 102 241;
+  --theme-600: 79 70 229;
+  --theme-700: 165 180 252;
+  --theme-800: 203 213 225;
+  --theme-900: 226 232 240;
+  --theme-950: 255 255 255;
+
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --primary: 243 75% 59%;
+  --primary-foreground: 0 0% 100%;
+  --border: 214 32% 85%;
+  --input: 214 32% 91%;
+  --ring: 243 75% 59%;
+}
+
+html[data-theme="daylight"] .text-white:not(.bg-purple-600):not(.bg-purple-500):not(.bg-green-600):not(.bg-green-500):not(.bg-blue-600):not(.bg-blue-800):not(.bg-slate-600):not(.bg-slate-700) {
+  color: #0f172a;
+}
+
+html[data-theme="daylight"] .bg-purple-600.text-white,
+html[data-theme="daylight"] .bg-purple-600 .text-white {
+  color: #ffffff;
 }
 
 /* ── Base reset ─────────────────────────────────────────────────────── */
@@ -45,11 +199,12 @@ html {
 }
 
 body {
-  background-color: #180030;
-  color: #e2e8f0;
+  background-color: rgb(var(--theme-body-bg));
+  color: rgb(var(--theme-body-fg));
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* ── Starfield animation ─────────────────────────────────────────────── */
@@ -68,7 +223,7 @@ body {
 .star {
   position: absolute;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: rgb(var(--theme-star));
   animation:
     twinkle var(--twinkle-dur, 3s) ease-in-out infinite var(--twinkle-delay, 0s),
     drift   var(--drift-dur, 8s)   ease-in-out infinite var(--drift-delay, 0s);

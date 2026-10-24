@@ -92,7 +92,7 @@ export function FeedbackForm() {
           className="mt-1.5 w-full rounded-lg border border-purple-700/60 bg-purple-900/40 px-3 py-2.5 text-sm text-white focus:border-purple-500 focus:outline-none"
         >
           {CATEGORIES.map((c) => (
-            <option key={c.value} value={c.value} className="bg-[#180030]">
+            <option key={c.value} value={c.value} className="bg-purple-950">
               {c.label}
             </option>
           ))}

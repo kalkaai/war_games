@@ -5,6 +5,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Link from "next/link";
 import { GameidesLogo } from "./components/GameidesLogo";
 import { PrimaryNav } from "./components/PrimaryNav";
+import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -143,8 +144,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeInitScript = `try{var t=localStorage.getItem("wg_theme")||"nebula";document.documentElement.setAttribute("data-theme",t);if(t==="daylight"){document.documentElement.classList.remove("dark");document.querySelector('meta[name="color-scheme"]')?.setAttribute("content","light");}}catch(e){}`;
+
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" data-theme="nebula" suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="dark" />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <Providers>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
@@ -181,10 +188,13 @@ export default function RootLayout({
         </div>
 
         {/* Sticky header */}
-        <header className="sticky top-0 z-50 w-full border-b border-purple-900/40 bg-[#180030]/85 backdrop-blur-sm">
+        <header className="sticky top-0 z-50 w-full border-b border-purple-900/40 bg-purple-950/85 backdrop-blur-sm transition-colors">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4">
             <div className="py-3">
               <GameidesLogo />
+            </div>
+            <div className="flex items-center gap-2 lg:order-last py-2">
+              <ThemeSwitcher />
             </div>
             <PrimaryNav />
           </div>

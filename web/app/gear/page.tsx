@@ -143,7 +143,7 @@ export default function GearPage() {
         <div className="mt-4 overflow-x-auto rounded-xl border border-purple-800/40">
           <table aria-label="Key gear stats" className="w-full text-sm">
             <thead>
-              <tr className="border-b border-purple-800/40 bg-[#0a0014]">
+              <tr className="border-b border-purple-800/40 bg-purple-950">
                 <th scope="col" className="px-4 py-3 text-left text-purple-300">Stat</th>
                 <th scope="col" className="px-4 py-3 text-left text-purple-300">Best For</th>
                 <th scope="col" className="px-4 py-3 text-left text-purple-300">Notes</th>
