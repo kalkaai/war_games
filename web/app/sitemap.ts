@@ -57,13 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  const whiteoutFurnaceRoutes: MetadataRoute.Sitemap = whiteoutData.levels.map((l) => ({
+  const whiteoutFurnaceRoutes: MetadataRoute.Sitemap = whiteoutData.furnaceLevels.map((l) => ({
     url: `${BASE}/whiteout-survival/furnace/level-${l.level}-requirements`,
     priority: 0.7,
     changeFrequency: "monthly" as const,
   }));
 
-  const lastWarHqRoutes: MetadataRoute.Sitemap = lastWarData.levels.map((l) => ({
+  const lastWarHqRoutes: MetadataRoute.Sitemap = lastWarData.hqLevels.map((l) => ({
     url: `${BASE}/last-war/hq/level-${l.level}-requirements`,
     priority: 0.7,
     changeFrequency: "monthly" as const,
