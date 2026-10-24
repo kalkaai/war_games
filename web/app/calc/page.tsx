@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import CalcClient from "./CalcClient";
 
 export const metadata: Metadata = {
@@ -38,7 +39,9 @@ export default function CalcPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CalcClient />
+      <Suspense fallback={null}>
+        <CalcClient />
+      </Suspense>
     </>
   );
 }

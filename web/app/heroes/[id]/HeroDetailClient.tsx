@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { sendGAEvent } from "@next/third-parties/google";
+import heroesData from "@/data/heroes.json";
 import type { Hero, HeroFaction, TroopType } from "@/types";
+
+const allHeroes = heroesData.heroes as Hero[];
 
 const FACTION_LABELS: Record<HeroFaction, string> = {
   blood_rose: "Blood Rose",
@@ -166,6 +169,41 @@ export default function HeroDetailClient({ hero }: { hero: Hero }) {
           </div>
         </div>
       )}
+
+      {/* Compare Against Other Heroes */}
+      <div className="mt-8 rounded-xl border border-purple-800/50 bg-purple-950/40 p-5">
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-purple-300">
+            ⚔️ Compare {hero.name} Head-to-Head
+          </h2>
+          <Link
+            href="/seasons"
+            className="text-xs font-semibold text-purple-400 hover:text-white"
+          >
+            Hero Pivot Calculator →
+          </Link>
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {allHeroes
+            .filter((other) => other.id !== hero.id)
+            .slice(0, 9)
+            .map((other) => {
+              const slug =
+                hero.id < other.id
+                  ? `${hero.id}-vs-${other.id}`
+                  : `${other.id}-vs-${hero.id}`;
+              return (
+                <Link
+                  key={other.id}
+                  href={`/heroes/${slug}`}
+                  className="rounded-lg border border-purple-800/50 bg-purple-900/30 px-3 py-2 text-xs font-medium text-purple-200 transition-colors hover:border-purple-600 hover:text-white"
+                >
+                  {hero.name} vs {other.name} →
+                </Link>
+              );
+            })}
+        </div>
+      </div>
 
     </div>
   );

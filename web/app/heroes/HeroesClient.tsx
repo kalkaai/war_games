@@ -137,9 +137,12 @@ function HeroCard({ hero, owned, onToggleOwned }: { hero: Hero; owned: boolean; 
 
 export default function HeroesClient() {
   const [filter, setFilter] = useState<Filter>("all");
+  const [seasonFilter, setSeasonFilter] = useState<string>("all");
   const [sort, setSort] = useState<SortMode>("tier");
   const [owned, setOwned] = useState<Set<string>>(new Set());
   const [ownedLoaded, setOwnedLoaded] = useState(false);
+  const [compareA, setCompareA] = useState<string>("amber");
+  const [compareB, setCompareB] = useState<string>("queenie");
 
   useEffect(() => {
     try {
@@ -170,12 +173,15 @@ export default function HeroesClient() {
   }
 
   const factions: HeroFaction[] = ["blood_rose", "wings_of_dawn", "guard_of_order"];
+  const seasonOptions = ["all", "S4", "S3", "S2", "S1", "base"] as const;
 
   const filtered = heroes
     .filter((h) => {
-      if (filter === "owned") return ownedLoaded && owned.has(h.id);
-      if (filter === "all") return true;
-      return h.faction === filter;
+      if (filter === "owned" && (!ownedLoaded || !owned.has(h.id))) return false;
+      if (filter !== "all" && filter !== "owned" && h.faction !== filter) return false;
+      if (seasonFilter === "base") return !h.season;
+      if (seasonFilter !== "all") return h.season === seasonFilter;
+      return true;
     })
     .sort((a, b) =>
       sort === "priority"
@@ -184,6 +190,12 @@ export default function HeroesClient() {
     );
 
   const ownedCount = ownedLoaded ? owned.size : 0;
+  const compareSlug =
+    compareA === compareB
+      ? null
+      : compareA < compareB
+      ? `${compareA}-vs-${compareB}`
+      : `${compareB}-vs-${compareA}`;
 
   return (
     <div>
@@ -192,6 +204,87 @@ export default function HeroesClient() {
           <span className="font-semibold text-white">{ownedCount}</span> / {heroes.length} owned
         </p>
       )}
+
+      {/* Quick Hero Comparison Bar & Seasonal Pivot CTA */}
+      <div className="mt-6 rounded-xl border border-purple-700/60 bg-purple-900/30 p-4">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-purple-300">
+              ⚔️ Head-to-Head Hero Comparison &amp; Seasonal Meta
+            </p>
+            <p className="mt-0.5 text-xs text-purple-200/80">
+              Compare any two heroes side-by-side or calculate fragment costs in the{" "}
+              <Link href="/seasons" className="font-semibold text-purple-300 underline hover:text-white">
+                Seasonal Pivot Calculator
+              </Link>
+              .
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <select
+              aria-label="First hero to compare"
+              value={compareA}
+              onChange={(e) => setCompareA(e.target.value)}
+              className="rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              {heroes.map((h) => (
+                <option key={h.id} value={h.id}>
+                  {h.name} ({h.tier})
+                </option>
+              ))}
+            </select>
+            <span className="text-xs font-bold text-purple-400">VS</span>
+            <select
+              aria-label="Second hero to compare"
+              value={compareB}
+              onChange={(e) => setCompareB(e.target.value)}
+              className="rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            >
+              {heroes.map((h) => (
+                <option key={h.id} value={h.id}>
+                  {h.name} ({h.tier})
+                </option>
+              ))}
+            </select>
+            {compareSlug ? (
+              <Link
+                href={`/heroes/${compareSlug}`}
+                className="rounded-md bg-purple-600 px-3.5 py-1.5 text-xs font-bold text-white transition-colors hover:bg-purple-500"
+              >
+                Compare →
+              </Link>
+            ) : (
+              <span className="rounded-md bg-purple-950/60 px-3.5 py-1.5 text-xs text-purple-400">
+                Select 2 heroes
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Season Filter Pills */}
+      <div className="mt-4 flex flex-wrap items-center gap-1.5">
+        <span className="mr-1 text-xs font-semibold text-purple-300">Season:</span>
+        {seasonOptions.map((s) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => {
+              sendGAEvent("event", "filter_season", { season: s });
+              setSeasonFilter(s);
+            }}
+            aria-pressed={seasonFilter === s}
+            className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-colors ${
+              seasonFilter === s
+                ? "bg-amber-500 text-black"
+                : "border border-purple-800 bg-purple-950/50 text-purple-300 hover:border-purple-600"
+            }`}
+          >
+            {s === "all" ? "All Seasons" : s === "base" ? "Base Roster" : s}
+          </button>
+        ))}
+      </div>
 
       {/* Filter + Sort */}
       <div className="mt-6 flex flex-wrap items-center gap-2">

@@ -215,3 +215,60 @@ export interface Vehicle {
   description: string;
   keyUpgrades: VehicleUpgrade[];
 }
+
+// ── Seasonal Domination data ──────────────────────────────────────────────────
+
+export type SeasonId = "s1" | "s2" | "s3" | "s4" | "s5";
+
+export interface SeasonHoardItem {
+  id: string;
+  resource: string;
+  icon: string;
+  targetAmount: number;
+  unit: string;
+  priority: "critical" | "high" | "medium";
+  reason: string;
+}
+
+export interface SeasonMechanicNode {
+  id: string;
+  name: string;
+  maxLevel: number;
+  currencyName: string;
+  totalCost: number;
+  dailyFarmRate: number;
+  buffDescription: string;
+}
+
+export interface SeasonMetaShift {
+  topFaction: HeroFaction;
+  featuredHeroes: string[];
+  metaSummary: string;
+  counterTip: string;
+}
+
+export interface SeasonData {
+  id: SeasonId;
+  number: number;
+  name: string;
+  subtitle: string;
+  theme: string;
+  durationWeeks: number;
+  summary: string;
+  mechanicName: string;
+  mechanicCurrency: string;
+  dailyFreeCurrency: number;
+  hoardingChecklist: SeasonHoardItem[];
+  mechanicNodes: SeasonMechanicNode[];
+  metaShift: SeasonMetaShift;
+}
+
+export interface HeroPivotCost {
+  starLevel: number;
+  fragmentsRequired: number;
+  cumulativeFragments: number;
+  skillBadgesRequired: number;
+  cumulativeSkillBadges: number;
+  vsPointsEarned: number;
+}
+

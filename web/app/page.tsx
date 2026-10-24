@@ -25,6 +25,13 @@ const SECTIONS = [
       "VS Weekly Rotation, Apocalypse Time cycle, Radar Reset, and Arena Brawl schedules with timezone converter.",
   },
   {
+    href: "/seasons",
+    emoji: "🧬",
+    title: "Seasons Hub",
+    description:
+      "Season 1–5 prep checklists, Biotech & Dinosaurs progression calculators, and S+ Hero Pivot planner.",
+  },
+  {
     href: "/hq",
     emoji: "🏰",
     title: "HQ",

@@ -1,0 +1,544 @@
+{
+  "_comment": "Seasonal progression, hoarding prep checklists, seasonal mechanic nodes (S1-S5), and hero star pivot costs for Last Z: Survival Shooter.",
+  "seasons": [
+    {
+      "id": "s1",
+      "number": 1,
+      "name": "Season 1: Outbreak",
+      "subtitle": "Server Genesis & Capitol Conquest",
+      "theme": "Mutant Containment & Faction Foundation",
+      "durationWeeks": 8,
+      "summary": "The foundational server season. Alliances race to capture tier-1 through tier-6 cities, culminating in the first Capitol Clash and the unlocking of Season 1 Exclusive Heroes.",
+      "mechanicName": "Virus Resistance Institute",
+      "mechanicCurrency": "Mutant Samples",
+      "dailyFreeCurrency": 12000,
+      "hoardingChecklist": [
+        {
+          "id": "s1_speedups",
+          "resource": "Universal & Construction Speed-ups",
+          "icon": "⏱️",
+          "targetAmount": 120,
+          "unit": "Hours",
+          "priority": "critical",
+          "reason": "Push HQ 20-24 early to unlock higher march capacity and T7/T8 troops before City Lv.4 opens."
+        },
+        {
+          "id": "s1_stamina",
+          "resource": "Fuel / Stamina Cans",
+          "icon": "⚡",
+          "targetAmount": 50,
+          "unit": "Cans",
+          "priority": "critical",
+          "reason": "Farm highest-tier Infected & Radar missions on Day 1 to rush Virus Resistance levels."
+        },
+        {
+          "id": "s1_fragments",
+          "resource": "Universal Gold Hero Fragments",
+          "icon": "🧩",
+          "targetAmount": 150,
+          "unit": "Fragments",
+          "priority": "high",
+          "reason": "Immediately bring your primary S1 carry (Nyx, Selena, or Sakura) to 3-star on VS Heroes Day."
+        },
+        {
+          "id": "s1_badges",
+          "resource": "Courage Badges",
+          "icon": "🎖️",
+          "targetAmount": 45000,
+          "unit": "Badges",
+          "priority": "high",
+          "reason": "Complete Alliance Recognition multiplier nodes early so every VS day yields double chests."
+        },
+        {
+          "id": "s1_shields",
+          "resource": "8h & 24h Peace Shields",
+          "icon": "🛡️",
+          "targetAmount": 10,
+          "unit": "Shields",
+          "priority": "medium",
+          "reason": "Required for Saturday Kill Event (Combat Day) and initial Capitol border skirmishes."
+        }
+      ],
+      "mechanicNodes": [
+        {
+          "id": "s1_vaccine_lab",
+          "name": "Vaccine Synthesis Lab",
+          "maxLevel": 30,
+          "currencyName": "Mutant Samples",
+          "totalCost": 180000,
+          "dailyFarmRate": 12000,
+          "buffDescription": "+3,000 Virus Resistance & +15% Passive Mutant Sample Production"
+        },
+        {
+          "id": "s1_quarantine_post",
+          "name": "Quarantine Outpost",
+          "maxLevel": 30,
+          "currencyName": "Mutant Samples",
+          "totalCost": 210000,
+          "dailyFarmRate": 12000,
+          "buffDescription": "+25% Troop Attack & Defense against Season 1 Doom Walkers"
+        },
+        {
+          "id": "s1_serum_refinery",
+          "name": "Serum Refinery",
+          "maxLevel": 25,
+          "currencyName": "Mutant Samples",
+          "totalCost": 165000,
+          "dailyFarmRate": 12000,
+          "buffDescription": "+10% March Size during City Capture and Capitol Siege"
+        }
+      ],
+      "metaShift": {
+        "topFaction": "wings_of_dawn",
+        "featuredHeroes": ["nyx", "selena", "sakura", "scarlett", "oliveira", "evelyn"],
+        "metaSummary": "Wings of Dawn (Shooter) leads early S1 thanks to Nyx + Scarlett + Laura synergy, while Blood Rose players build around Selena and Oliveira for strong frontline sustain.",
+        "counterTip": "Guard of Order (Sakura + Evelyn Riders) hard-counters early Wings of Dawn Shooter stacks in Canyon Clash."
+      }
+    },
+    {
+      "id": "s2",
+      "number": 2,
+      "name": "Season 2: Frozen Wasteland",
+      "subtitle": "Polar Expedition & Thermal Warfare",
+      "theme": "Blizzard Survival & Thermal Core Control",
+      "durationWeeks": 8,
+      "summary": "A brutal sub-zero map transition where bases freeze without Thermal Cores. Introduces S+ hero Alma and shifts server warfare to cross-server Polar Citadels.",
+      "mechanicName": "Thermal Reactor Network",
+      "mechanicCurrency": "Titanium Coal",
+      "dailyFreeCurrency": 16000,
+      "hoardingChecklist": [
+        {
+          "id": "s2_fragments",
+          "resource": "Universal Gold Hero Fragments",
+          "icon": "🧩",
+          "targetAmount": 350,
+          "unit": "Fragments",
+          "priority": "critical",
+          "reason": "Season 2 introduces Alma (S+ Shooter) and Bella/Harleyna. 350 fragments unlocks immediate 4-star power spikes."
+        },
+        {
+          "id": "s2_stamina",
+          "resource": "Fuel / Stamina Cans",
+          "icon": "⚡",
+          "targetAmount": 80,
+          "unit": "Cans",
+          "priority": "critical",
+          "reason": "First 72 hours of S2 require heavy Polar Beast hunting to upgrade Thermal Furnaces before the first Blizzard wave."
+        },
+        {
+          "id": "s2_speedups_healing",
+          "resource": "Healing & Training Speed-ups",
+          "icon": "💊",
+          "targetAmount": 200,
+          "unit": "Hours",
+          "priority": "high",
+          "reason": "Cross-server Polar Citadel battles cause massive hospital overflow; healing speed-ups decide territory control."
+        },
+        {
+          "id": "s2_wrenches",
+          "resource": "Golden Wrenches & Blueprints",
+          "icon": "🔧",
+          "targetAmount": 1200,
+          "unit": "Wrenches",
+          "priority": "high",
+          "reason": "Save for S2 Week 1 Vehicle Day to push Tank Modification milestones and unlock seasonal score tiers."
+        },
+        {
+          "id": "s2_teleports",
+          "resource": "Advanced & Alliance Teleports",
+          "icon": "🌀",
+          "targetAmount": 15,
+          "unit": "Teleports",
+          "priority": "medium",
+          "reason": "Frequent relocation across Frozen Zones as Thermal Towers expand toward the center."
+        }
+      ],
+      "mechanicNodes": [
+        {
+          "id": "s2_thermal_furnace",
+          "name": "Personal Thermal Furnace",
+          "maxLevel": 30,
+          "currencyName": "Titanium Coal",
+          "totalCost": 240000,
+          "dailyFarmRate": 16000,
+          "buffDescription": "+4,500 Cold Resistance & prevents troop march speed penalty during Blizzards"
+        },
+        {
+          "id": "s2_coal_extractor",
+          "name": "Sub-Zero Coal Extractor",
+          "maxLevel": 30,
+          "currencyName": "Titanium Coal",
+          "totalCost": 220000,
+          "dailyFarmRate": 16000,
+          "buffDescription": "+22,000 Titanium Coal/day passive output & +15% Resource Gathering Speed"
+        },
+        {
+          "id": "s2_cryo_armory",
+          "name": "Cryo-Alloy Armory",
+          "maxLevel": 30,
+          "currencyName": "Titanium Coal",
+          "totalCost": 310000,
+          "dailyFarmRate": 16000,
+          "buffDescription": "+18% All Troop HP and +12% Siege Damage in Polar Citadel battles"
+        }
+      ],
+      "metaShift": {
+        "topFaction": "wings_of_dawn",
+        "featuredHeroes": ["alma", "bella", "harleyna"],
+        "metaSummary": "Alma elevates Wings of Dawn to S+ status with massive backline AoE burst, while Bella gives Blood Rose a premier bruiser and Harleyna stabilizes Guard of Order.",
+        "counterTip": "Invest in Harleyna + Sakura Rider formations to snipe Alma backlines before her second active skill cycle."
+      }
+    },
+    {
+      "id": "s3",
+      "number": 3,
+      "name": "Season 3: Biotech Lab",
+      "subtitle": "Genetic Mutation & Cybernetic Ascension",
+      "theme": "Biotech Research Trees & Gene Splicing",
+      "durationWeeks": 8,
+      "summary": "Season 3 introduces the Biotech Lab progression tree and three meta-warping S+ heroes: Dodomeki, Licia, and Liliana. Biotech nodes permanently boost seasonal combat stats and reward T10 badge chests.",
+      "mechanicName": "Biotech Gene Splicer",
+      "mechanicCurrency": "Bio-Helix Cells",
+      "dailyFreeCurrency": 20000,
+      "hoardingChecklist": [
+        {
+          "id": "s3_badges",
+          "resource": "Courage Badges",
+          "icon": "🎖️",
+          "targetAmount": 180000,
+          "unit": "Badges",
+          "priority": "critical",
+          "reason": "HQ 30 gates open around S3; hoard badges for the T10 Research prerequisite chain and Wednesday VS bursts."
+        },
+        {
+          "id": "s3_fragments",
+          "resource": "Universal Gold Hero Fragments",
+          "icon": "🧩",
+          "targetAmount": 620,
+          "unit": "Fragments",
+          "priority": "critical",
+          "reason": "Dodomeki (Rider), Licia (Assaulter), and Liliana (Shooter) are all S+ tier. 620 fragments takes one hero straight to 4.5-star."
+        },
+        {
+          "id": "s3_skill_medals",
+          "resource": "Hero Skill Medals / Badges",
+          "icon": "🏅",
+          "targetAmount": 85000,
+          "unit": "Medals",
+          "priority": "high",
+          "reason": "Maxing Active + Passive skills on S3 S+ heroes to Lv. 20+ provides a 35% combat efficiency jump."
+        },
+        {
+          "id": "s3_stamina",
+          "resource": "Fuel / Stamina Cans",
+          "icon": "⚡",
+          "targetAmount": 100,
+          "unit": "Cans",
+          "priority": "high",
+          "reason": "Biotech Lab requires Bio-Helix Cells dropped exclusively from S3 Bio-Mutant Rallies and Radar anomalies."
+        },
+        {
+          "id": "s3_resources",
+          "resource": "Choice Resource Chests (Wood/Food/Zent)",
+          "icon": "📦",
+          "targetAmount": 2500,
+          "unit": "M RSS",
+          "priority": "medium",
+          "reason": "Keep resources in unopened chests so they cannot be plundered while pushing HQ 28–31."
+        }
+      ],
+      "mechanicNodes": [
+        {
+          "id": "s3_bio_cultivator",
+          "name": "Bio-Helix Cultivator",
+          "maxLevel": 30,
+          "currencyName": "Bio-Helix Cells",
+          "totalCost": 280000,
+          "dailyFarmRate": 20000,
+          "buffDescription": "+30,000 Bio-Helix Cells/day output & +5,000 Toxin Resistance"
+        },
+        {
+          "id": "s3_cellular_overclock",
+          "name": "Cellular Overclocking Branch",
+          "maxLevel": 30,
+          "currencyName": "Bio-Helix Cells",
+          "totalCost": 360000,
+          "dailyFarmRate": 20000,
+          "buffDescription": "+25% Troop Attack, +15% Skill Crit Rate in Seasonal Map Zones"
+        },
+        {
+          "id": "s3_neural_symbiosis",
+          "name": "Neural Symbiosis Matrix",
+          "maxLevel": 30,
+          "currencyName": "Bio-Helix Cells",
+          "totalCost": 420000,
+          "dailyFarmRate": 20000,
+          "buffDescription": "+20% Hospital Capacity, -15% Troop Healing Cost, & unlocks S3 Mythic Gene Core"
+        },
+        {
+          "id": "s3_mutation_apex",
+          "name": "Apex Mutation Protocol",
+          "maxLevel": 20,
+          "currencyName": "Bio-Helix Cells",
+          "totalCost": 310000,
+          "dailyFarmRate": 20000,
+          "buffDescription": "+10% Counter Damage Factor & +15,000 March Capacity in Cross-Server Wars"
+        }
+      ],
+      "metaShift": {
+        "topFaction": "blood_rose",
+        "featuredHeroes": ["licia", "dodomeki", "liliana"],
+        "metaSummary": "All three factions receive S+ anchors: Licia transforms Blood Rose into a sustain powerhouse, Dodomeki gives Riders lethal backline execution, and Liliana pairs with Alma for dual-S+ Shooters.",
+        "counterTip": "Licia + Bella + Selena (Blood Rose Assaulters) melts Dodomeki Rider squads while surviving Liliana burst."
+      }
+    },
+    {
+      "id": "s4",
+      "number": 4,
+      "name": "Season 4: Primal Dinosaurs",
+      "subtitle": "Jurassic Hollow & Dino Hatchery",
+      "theme": "Dinosaur Taming, Fossil Excavation & Apex Predators",
+      "durationWeeks": 8,
+      "summary": "Commanders enter the Hollow Earth where prehistoric apex predators roam. Tame and evolve combat Dinosaurs while unlocking the current peak S+ trio: Yu Chan, Queenie, and Amber.",
+      "mechanicName": "Primal Dino Hatchery",
+      "mechanicCurrency": "Amber Fossils",
+      "dailyFreeCurrency": 25000,
+      "hoardingChecklist": [
+        {
+          "id": "s4_fragments",
+          "resource": "Universal Gold Hero Fragments",
+          "icon": "🧩",
+          "targetAmount": 975,
+          "unit": "Fragments",
+          "priority": "critical",
+          "reason": "975 fragments maxes an S4 apex carry (Yu Chan, Queenie, or Amber) to 5-Star on Week 1 Heroes Day."
+        },
+        {
+          "id": "s4_exclusive_shards",
+          "resource": "Exclusive Weapon Shards",
+          "icon": "⚔️",
+          "targetAmount": 200,
+          "unit": "Shards",
+          "priority": "critical",
+          "reason": "S4 heroes gain Crimson Dominion / Crimson Tide exclusive skills (+10-12% faction ATK & counter mitigation)."
+        },
+        {
+          "id": "s4_badges",
+          "resource": "Courage Badges",
+          "icon": "🎖️",
+          "targetAmount": 350000,
+          "unit": "Badges",
+          "priority": "critical",
+          "reason": "Finish Phase 3 & Phase 4 of T10 Troop Research (totaling 1.48M badges) to compete in S4 Apex brackets."
+        },
+        {
+          "id": "s4_stamina",
+          "resource": "Fuel / Stamina Cans",
+          "icon": "⚡",
+          "targetAmount": 120,
+          "unit": "Cans",
+          "priority": "high",
+          "reason": "Required for Apex Tyrant Rallies and Amber Fossil excavation nodes during Week 1-2."
+        },
+        {
+          "id": "s4_gear_materials",
+          "resource": "Mythic Gear Blueprints & Alloy",
+          "icon": "🛡️",
+          "targetAmount": 50,
+          "unit": "Blueprints",
+          "priority": "high",
+          "reason": "Reforge main march Weapon and Boots to Mythic tier before S4 cross-server Canyon Clash."
+        }
+      ],
+      "mechanicNodes": [
+        {
+          "id": "s4_fossil_excavator",
+          "name": "Deep-Core Fossil Rig",
+          "maxLevel": 30,
+          "currencyName": "Amber Fossils",
+          "totalCost": 340000,
+          "dailyFarmRate": 25000,
+          "buffDescription": "+38,000 Amber Fossils/day & +6,000 Primal Ferocity Resistance"
+        },
+        {
+          "id": "s4_raptor_pack",
+          "name": "Velociraptor Strike Pack",
+          "maxLevel": 30,
+          "currencyName": "Amber Fossils",
+          "totalCost": 450000,
+          "dailyFarmRate": 25000,
+          "buffDescription": "+22% March Speed & +18% First-Strike Skill Damage in PvP"
+        },
+        {
+          "id": "s4_ankylo_bastion",
+          "name": "Ankylosaur Iron Bastion",
+          "maxLevel": 30,
+          "currencyName": "Amber Fossils",
+          "totalCost": 480000,
+          "dailyFarmRate": 25000,
+          "buffDescription": "+25% Garrison Defense & -12% Incoming Crit Damage during City Sieges"
+        },
+        {
+          "id": "s4_trex_alpha",
+          "name": "Tyrannosaur Alpha Awakening",
+          "maxLevel": 25,
+          "currencyName": "Amber Fossils",
+          "totalCost": 560000,
+          "dailyFarmRate": 25000,
+          "buffDescription": "Unlocks Apex Roar active battle skill (+30% All Troop ATK for 10s)"
+        }
+      ],
+      "metaShift": {
+        "topFaction": "blood_rose",
+        "featuredHeroes": ["yu_chan", "queenie", "amber"],
+        "metaSummary": "Yu Chan + Licia defines the S4 endgame Assaulter meta with +15% Assaulter ATK and +12% Faction ATK, while Queenie + Liliana + Alma creates the highest burst Shooter lineup in the game.",
+        "counterTip": "Amber's Crimson Dominion (+10% vs Assaulters, -10% damage taken from Riders) makes Guard of Order and Wings of Dawn hybrids viable counters to pure Blood Rose stacks."
+      }
+    },
+    {
+      "id": "s5",
+      "number": 5,
+      "name": "Season 5: Night Falls",
+      "subtitle": "Eternal Eclipse & Shadow Citadel",
+      "theme": "Light Beacon Network, Shadow Corrosion & HQ 35 Endgame",
+      "durationWeeks": 8,
+      "summary": "A total solar eclipse blankets the warzone in darkness. Alliances must construct Luminance Beacons to push back Shadow Corrosion, defend against Nocturnal Hordes, and battle for the Shadow Throne.",
+      "mechanicName": "Luminance Beacon Grid",
+      "mechanicCurrency": "Solar Shards",
+      "dailyFreeCurrency": 30000,
+      "hoardingChecklist": [
+        {
+          "id": "s5_fragments",
+          "resource": "Universal Gold Hero Fragments",
+          "icon": "🧩",
+          "targetAmount": 975,
+          "unit": "Fragments",
+          "priority": "critical",
+          "reason": "Guarantees an instant 5-Star S5 Eclipse Hero on Day 4 VS Heroes Day."
+        },
+        {
+          "id": "s5_steel_zent",
+          "resource": "Steel & Zent Reserves",
+          "icon": "⚙️",
+          "targetAmount": 1200,
+          "unit": "M Zent/Steel",
+          "priority": "critical",
+          "reason": "HQ 31-35 upgrades and T10 troop replacements consume massive Zent and Steel reserves."
+        },
+        {
+          "id": "s5_speedups_universal",
+          "resource": "Universal Speed-ups",
+          "icon": "⏱️",
+          "targetAmount": 600,
+          "unit": "Hours",
+          "priority": "critical",
+          "reason": "HQ 33-35 build timers exceed 25-40 days per building before buffs."
+        },
+        {
+          "id": "s5_wrenches",
+          "resource": "Golden Wrenches",
+          "icon": "🔧",
+          "targetAmount": 3500,
+          "unit": "Wrenches",
+          "priority": "high",
+          "reason": "Required to push Destroyer EX and Vanguard late-tier vehicle modifications."
+        },
+        {
+          "id": "s5_stamina",
+          "resource": "Fuel / Stamina Cans",
+          "icon": "⚡",
+          "targetAmount": 150,
+          "unit": "Cans",
+          "priority": "high",
+          "reason": "Shadow Stalker elites only spawn during Eclipse windows and drop 2x Solar Shards."
+        }
+      ],
+      "mechanicNodes": [
+        {
+          "id": "s5_photon_generator",
+          "name": "Photon Condenser Array",
+          "maxLevel": 30,
+          "currencyName": "Solar Shards",
+          "totalCost": 420000,
+          "dailyFarmRate": 30000,
+          "buffDescription": "+45,000 Solar Shards/day & +7,500 Shadow Corrosion Immunity"
+        },
+        {
+          "id": "s5_beacon_spire",
+          "name": "Tactical Beacon Spire",
+          "maxLevel": 30,
+          "currencyName": "Solar Shards",
+          "totalCost": 540000,
+          "dailyFarmRate": 30000,
+          "buffDescription": "Illuminates surrounding 5x5 tiles & grants +28% Troop Attack inside Beacon radius"
+        },
+        {
+          "id": "s5_eclipse_aegis",
+          "name": "Eclipse Aegis Protocol",
+          "maxLevel": 30,
+          "currencyName": "Solar Shards",
+          "totalCost": 600000,
+          "dailyFarmRate": 30000,
+          "buffDescription": "+30% All Troop Defense & -15% Dead-to-Wounded conversion in Shadow Throne PvP"
+        },
+        {
+          "id": "s5_solar_overdrive",
+          "name": "Solar Flare Overdrive",
+          "maxLevel": 25,
+          "currencyName": "Solar Shards",
+          "totalCost": 690000,
+          "dailyFarmRate": 30000,
+          "buffDescription": "+20% Exclusive Weapon Skill Damage & +25,000 Rally Capacity"
+        }
+      ],
+      "metaShift": {
+        "topFaction": "wings_of_dawn",
+        "featuredHeroes": ["queenie", "yu_chan", "amber", "liliana", "licia", "dodomeki"],
+        "metaSummary": "Season 5 rewards full 5-S+ multi-march rosters. Players pivot remaining A+/S filler heroes out of their 1st and 2nd marches to form pure S+ Faction Trios (Yu Chan/Licia/Bella, Queenie/Liliana/Alma, Amber/Dodomeki/Harleyna).",
+        "counterTip": "Inside Luminance Beacon zones, Exclusive Weapon skill damage scales +20% — prioritize Exclusive Lv.20 on your primary backline carry."
+      }
+    }
+  ],
+  "pivotCosts": [
+    {
+      "starLevel": 1,
+      "fragmentsRequired": 25,
+      "cumulativeFragments": 25,
+      "skillBadgesRequired": 3000,
+      "cumulativeSkillBadges": 3000,
+      "vsPointsEarned": 375000
+    },
+    {
+      "starLevel": 2,
+      "fragmentsRequired": 50,
+      "cumulativeFragments": 75,
+      "skillBadgesRequired": 8000,
+      "cumulativeSkillBadges": 11000,
+      "vsPointsEarned": 1125000
+    },
+    {
+      "starLevel": 3,
+      "fragmentsRequired": 150,
+      "cumulativeFragments": 225,
+      "skillBadgesRequired": 22000,
+      "cumulativeSkillBadges": 33000,
+      "vsPointsEarned": 3375000
+    },
+    {
+      "starLevel": 4,
+      "fragmentsRequired": 300,
+      "cumulativeFragments": 525,
+      "skillBadgesRequired": 45000,
+      "cumulativeSkillBadges": 78000,
+      "vsPointsEarned": 7875000
+    },
+    {
+      "starLevel": 5,
+      "fragmentsRequired": 450,
+      "cumulativeFragments": 975,
+      "skillBadgesRequired": 85000,
+      "cumulativeSkillBadges": 163000,
+      "vsPointsEarned": 14625000
+    }
+  ]
+}

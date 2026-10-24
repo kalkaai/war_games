@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { sendGAEvent } from "@next/third-parties/google";
 import researchData from "@/data/research.json";
 import hqData from "@/data/hq.json";
@@ -19,9 +20,20 @@ function fmt(n: number): string {
 
 // ── Speed-up Calculator ───────────────────────────────────────────────────────
 
-function SpeedupCalc() {
-  const [hours, setHours] = useState("");
-  const [minutes, setMinutes] = useState("");
+function SpeedupCalc({
+  initialHours = "",
+  initialMinutes = "",
+}: {
+  initialHours?: string;
+  initialMinutes?: string;
+}) {
+  const [hours, setHours] = useState(initialHours);
+  const [minutes, setMinutes] = useState(initialMinutes);
+
+  useEffect(() => {
+    if (initialHours) setHours(initialHours);
+    if (initialMinutes) setMinutes(initialMinutes);
+  }, [initialHours, initialMinutes]);
 
   const totalMins = (parseInt(hours || "0", 10) * 60) + parseInt(minutes || "0", 10);
   const oneHour = Math.ceil(totalMins / 60);
@@ -86,8 +98,12 @@ function SpeedupCalc() {
 
 // ── Badge Budget Calculator ───────────────────────────────────────────────────
 
-function BadgeBudgetCalc() {
-  const [budget, setBudget] = useState("");
+function BadgeBudgetCalc({ initialBadges = "" }: { initialBadges?: string }) {
+  const [budget, setBudget] = useState(initialBadges);
+
+  useEffect(() => {
+    if (initialBadges) setBudget(initialBadges);
+  }, [initialBadges]);
 
   const available = parseInt(budget, 10) || 0;
 
@@ -169,9 +185,20 @@ function BadgeBudgetCalc() {
 
 // ── Resource Planner ──────────────────────────────────────────────────────────
 
-function ResourcePlanner() {
-  const [startLevel, setStartLevel] = useState("1");
-  const [endLevel, setEndLevel] = useState("10");
+function ResourcePlanner({
+  initialFrom = "1",
+  initialTo = "10",
+}: {
+  initialFrom?: string;
+  initialTo?: string;
+}) {
+  const [startLevel, setStartLevel] = useState(initialFrom);
+  const [endLevel, setEndLevel] = useState(initialTo);
+
+  useEffect(() => {
+    if (initialFrom) setStartLevel(initialFrom);
+    if (initialTo) setEndLevel(initialTo);
+  }, [initialFrom, initialTo]);
 
   const start = Math.max(1, Math.min(34, parseInt(startLevel, 10) || 1));
   const end   = Math.max(start + 1, Math.min(35, parseInt(endLevel, 10) || 10));
@@ -318,29 +345,51 @@ function CPCalc() {
 }
 
 export default function CalcClient() {
+  const searchParams = useSearchParams();
+  const initialHours = searchParams.get("hours") ?? "";
+  const initialMinutes = searchParams.get("minutes") ?? "";
+  const initialBadges = searchParams.get("badges") ?? "";
+  const initialFrom = searchParams.get("from") ?? "1";
+  const initialTo = searchParams.get("to") ?? "10";
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
       <h1 className="text-3xl font-extrabold text-white sm:text-4xl">Last Z: Survival Shooter Calculators</h1>
       <p className="mt-2 text-purple-200/80">All calculations are client-side — nothing is sent to a server.</p>
 
-      {/* T10 tracker link card */}
-      <Link
-        href="/calc/t10"
-        className="mt-8 flex items-center justify-between rounded-xl border border-amber-700/40 bg-amber-900/10 p-5 transition-colors hover:border-amber-600/60 hover:bg-amber-900/20"
-      >
-        <div>
-          <p className="font-bold text-white">T10 Research Calculator</p>
-          <p className="mt-0.5 text-sm text-amber-200/80">
-            22 nodes · 1,488,100 badges · prerequisite chain · phase milestones
-          </p>
-        </div>
-        <span className="text-amber-400 text-lg">→</span>
-      </Link>
+      {/* T10 & Seasonal Pivot link cards */}
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <Link
+          href="/calc/t10"
+          className="flex items-center justify-between rounded-xl border border-amber-700/40 bg-amber-900/10 p-5 transition-colors hover:border-amber-600/60 hover:bg-amber-900/20"
+        >
+          <div>
+            <p className="font-bold text-white">T10 Research Calculator</p>
+            <p className="mt-0.5 text-xs text-amber-200/80">
+              22 nodes · 1,488,100 badges · phase milestones
+            </p>
+          </div>
+          <span className="text-amber-400 text-lg">→</span>
+        </Link>
+
+        <Link
+          href="/seasons"
+          className="flex items-center justify-between rounded-xl border border-purple-600/50 bg-purple-900/30 p-5 transition-colors hover:border-purple-500 hover:bg-purple-900/50"
+        >
+          <div>
+            <p className="font-bold text-white">Seasonal Prep &amp; Hero Pivot</p>
+            <p className="mt-0.5 text-xs text-purple-200/80">
+              S1–S5 Biotech/Dino calculators &amp; 5★ fragment planner
+            </p>
+          </div>
+          <span className="text-purple-300 text-lg">→</span>
+        </Link>
+      </div>
 
       <div className="mt-6 space-y-6">
-        <SpeedupCalc />
-        <BadgeBudgetCalc />
-        <ResourcePlanner />
+        <SpeedupCalc initialHours={initialHours} initialMinutes={initialMinutes} />
+        <BadgeBudgetCalc initialBadges={initialBadges} />
+        <ResourcePlanner initialFrom={initialFrom} initialTo={initialTo} />
         <CPCalc />
       </div>
     </div>

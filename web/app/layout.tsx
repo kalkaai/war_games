@@ -20,6 +20,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.gamides.com"),
   title: "GAMIDES — The Last Z: Survival Shooter Game Guide",
   description:
     "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game guide.",

@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import researchData from "@/data/research.json";
 import heroesData from "@/data/heroes.json";
+import hqData from "@/data/hq.json";
+import seasonsData from "@/data/seasons.json";
 
 const BASE = "https://www.gamides.com";
 
@@ -8,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${BASE}/`,                      priority: 1.0, changeFrequency: "weekly" },
     { url: `${BASE}/events`,                priority: 0.9, changeFrequency: "weekly" },
+    { url: `${BASE}/seasons`,               priority: 0.9, changeFrequency: "weekly" },
     { url: `${BASE}/hq`,                    priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE}/research`,              priority: 0.9, changeFrequency: "monthly" },
     { url: `${BASE}/heroes`,                priority: 0.9, changeFrequency: "monthly" },
@@ -27,10 +30,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/guide/migration`,       priority: 0.6, changeFrequency: "monthly" },
     { url: `${BASE}/calc`,                  priority: 0.8, changeFrequency: "monthly" },
     { url: `${BASE}/calc/t10`,              priority: 0.8, changeFrequency: "monthly" },
-    { url: `${BASE}/profile`,              priority: 0.7, changeFrequency: "monthly" },
+    { url: `${BASE}/profile`,               priority: 0.7, changeFrequency: "monthly" },
     { url: `${BASE}/changelog`,             priority: 0.5, changeFrequency: "weekly" },
     { url: `${BASE}/disclosure`,            priority: 0.3, changeFrequency: "yearly" },
   ];
+
+  const seasonRoutes: MetadataRoute.Sitemap = seasonsData.seasons.map((s) => ({
+    url: `${BASE}/seasons/${s.id}`,
+    priority: 0.8,
+    changeFrequency: "weekly" as const,
+  }));
 
   const treeRoutes: MetadataRoute.Sitemap = researchData.trees.map((t) => ({
     url: `${BASE}/research/${t.id}`,
@@ -38,11 +47,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  const heroRoutes: MetadataRoute.Sitemap = heroesData.heroes.map((h) => ({
-    url: `${BASE}/heroes/${h.id}`,
-    priority: 0.6,
+  const hqLevelRoutes: MetadataRoute.Sitemap = hqData.levels.map((l) => ({
+    url: `${BASE}/hq/level-${l.level}-requirements`,
+    priority: 0.7,
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticRoutes, ...treeRoutes, ...heroRoutes];
+  const heroRoutes: MetadataRoute.Sitemap = heroesData.heroes.map((h) => ({
+    url: `${BASE}/heroes/${h.id}`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  }));
+
+  const heroCompareRoutes: MetadataRoute.Sitemap = [];
+  const heroes = heroesData.heroes;
+  for (let i = 0; i < heroes.length; i++) {
+    for (let j = i + 1; j < heroes.length; j++) {
+      const id1 = heroes[i].id;
+      const id2 = heroes[j].id;
+      const canonical = id1 < id2 ? `${id1}-vs-${id2}` : `${id2}-vs-${id1}`;
+      heroCompareRoutes.push({
+        url: `${BASE}/heroes/${canonical}`,
+        priority: 0.6,
+        changeFrequency: "monthly" as const,
+      });
+    }
+  }
+
+  return [
+    ...staticRoutes,
+    ...seasonRoutes,
+    ...treeRoutes,
+    ...hqLevelRoutes,
+    ...heroRoutes,
+    ...heroCompareRoutes,
+  ];
 }

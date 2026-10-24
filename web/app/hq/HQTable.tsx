@@ -2,6 +2,7 @@
 
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Link from "next/link";
 import { sendGAEvent } from "@next/third-parties/google";
 import hqData from "@/data/hq.json";
 import type { HQLevel } from "@/types";
@@ -123,7 +124,12 @@ export default function HQTable() {
                   ].join(" ")}
                 >
                   <td className="px-4 py-2.5 font-bold text-white">
-                    {row.level}
+                    <Link
+                      href={`/hq/level-${row.level}-requirements`}
+                      className="inline-flex items-center gap-1 text-purple-200 underline decoration-purple-600/70 underline-offset-2 hover:text-white"
+                    >
+                      Lv. {row.level}
+                    </Link>
                     {row.level === 30 && (
                       <span className="ml-2 rounded bg-amber-600/70 px-1.5 py-0.5 text-xs">T10</span>
                     )}
