@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import EventsClient from "./EventsClient";
 import { GameIcon, type GameIconType } from "../components/GameIcon";
+import { MiniGameBanner } from "../components/MiniGameBanner";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -160,6 +161,12 @@ export default function EventsPage() {
         <h2 className="mb-4 text-xl font-bold text-white">Timezone Converter</h2>
         <EventsClient recurring={RECURRING} />
       </section>
+
+      <MiniGameBanner
+        heading="🕹️ Waiting for the Next Radar Reset or Full Preparedness Cycle?"
+        subtitle="Play a quick survival mini-game between event windows and challenge your alliance on Discord:"
+        featuredSlugs={["radar-scan", "zombie-sniper-360", "wasteland-dash"]}
+      />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </div>

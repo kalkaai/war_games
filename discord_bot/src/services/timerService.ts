@@ -181,10 +181,12 @@ export async function getTimersDueForAlert(
 
   let snap: any
   if (thresholdMinutes === 0) {
-    // Catch ALL expired timers regardless of how long they've been expired.
-    // Using a 1-minute window here would permanently miss timers if the bot
-    // was down or a check cycle was skipped.
-    snap = await col.where('expiresAt', '<=', Timestamp.fromDate(now)).get()
+    // Only alert on timers that expired within the last 10 minutes.
+    // This prevents spamming old alerts after the bot was down for a long time.
+    const lookbackStart = new Date(now.getTime() - 10 * 60 * 1000)
+    snap = await col
+      .where('expiresAt', '>=', Timestamp.fromDate(lookbackStart))
+      .where('expiresAt', '<=', Timestamp.fromDate(now)).get()
   } else {
     // Pre-expiry warning: 2-minute window ending at the threshold.
     // Wide enough to survive one missed cron tick (bot restart, API slowness).

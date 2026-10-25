@@ -66,6 +66,13 @@ const SECTIONS = [
     description:
       "Badge budget, resource planner, and speed-up calculator — all client-side.",
   },
+  {
+    href: "/play",
+    emoji: "🕹️",
+    title: "Survival Arcade (100 Games)",
+    description:
+      "100 instant survival, base-building, and zombie defense mini-games with alliance Discord score sharing.",
+  },
 ] as const;
 
 export default function HomePage() {

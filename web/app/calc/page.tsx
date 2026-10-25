@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import CalcClient from "./CalcClient";
+import { MiniGameBanner } from "../components/MiniGameBanner";
 
 export const metadata: Metadata = {
   title: "Calculators — GAMIDES | Last Z: Survival Shooter",
@@ -42,6 +43,13 @@ export default function CalcPage() {
       <Suspense fallback={null}>
         <CalcClient />
       </Suspense>
+      <div className="mx-auto max-w-6xl px-4 pb-10">
+        <MiniGameBanner
+          heading="🕹️ Waiting on a Multi-Day HQ or Research Upgrade Timer?"
+          subtitle="Test your base-building and resource reflexes in the GAMIDES Survival Arcade:"
+          featuredSlugs={["barricade-builder", "hq-constructor", "base-builder-2048"]}
+        />
+      </div>
     </>
   );
 }

@@ -5,6 +5,7 @@ import hqData from "@/data/hq.json";
 import seasonsData from "@/data/seasons.json";
 import whiteoutData from "@/data/whiteoutSurvival.json";
 import lastWarData from "@/data/lastWar.json";
+import { MINIGAMES_MANIFEST } from "@gamides/minigames/manifest";
 
 const BASE = "https://www.gamides.com";
 
@@ -32,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/guide/migration`,       priority: 0.6, changeFrequency: "monthly" },
     { url: `${BASE}/calc`,                  priority: 0.8, changeFrequency: "monthly" },
     { url: `${BASE}/calc/t10`,              priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/play`,                  priority: 0.9, changeFrequency: "weekly" },
     { url: `${BASE}/whiteout-survival`,          priority: 0.9, changeFrequency: "weekly" },
     { url: `${BASE}/whiteout-survival/events`,   priority: 0.8, changeFrequency: "weekly" },
     { url: `${BASE}/whiteout-survival/seasons`,  priority: 0.8, changeFrequency: "monthly" },
@@ -110,6 +112,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  const miniGameRoutes: MetadataRoute.Sitemap = MINIGAMES_MANIFEST.map((g) => ({
+    url: `${BASE}/play/${g.slug}`,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  }));
+
   return [
     ...staticRoutes,
     ...seasonRoutes,
@@ -119,5 +127,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...lastWarHqRoutes,
     ...heroRoutes,
     ...heroCompareRoutes,
+    ...miniGameRoutes,
   ];
 }

@@ -25,6 +25,7 @@ const LAST_Z_NAV: NavItem[] = [
   { href: "/guide",    label: "Guide",    icon: "📖" },
   { href: "/codes",    label: "Codes",    icon: "🎁" },
   { href: "/calc",     label: "Calc",     icon: "📊" },
+  { href: "/play",     label: "Arcade",   icon: "🕹️" },
   { href: "/profile",  label: "Profile",  icon: "👤" },
 ];
 
@@ -40,6 +41,7 @@ const WHITEOUT_NAV: NavItem[] = [
   { href: "/whiteout-survival/pvp",      label: "PvP",      icon: "🛡️" },
   { href: "/whiteout-survival/codes",    label: "Codes",    icon: "🎁" },
   { href: "/whiteout-survival/calc",     label: "Calc",     icon: "📊" },
+  { href: "/play",                       label: "Arcade",   icon: "🕹️" },
 ];
 
 const LAST_WAR_NAV: NavItem[] = [
@@ -54,6 +56,7 @@ const LAST_WAR_NAV: NavItem[] = [
   { href: "/last-war/pvp",      label: "PvP",      icon: "🛡️" },
   { href: "/last-war/codes",    label: "Codes",    icon: "🎁" },
   { href: "/last-war/calc",     label: "Calc",     icon: "📊" },
+  { href: "/play",              label: "Arcade",   icon: "🕹️" },
 ];
 
 function isItemActive(pathname: string, item: NavItem): boolean {
