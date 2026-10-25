@@ -204,27 +204,34 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* ── Starfield animation ─────────────────────────────────────────────── */
+/* ── Deferred off-screen rendering (CWV: LCP & INP optimization) ─────── */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 560px;
+}
+
+/* ── Starfield animation (compositor-friendly opacity only) ─────────── */
 @keyframes twinkle {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.08; }
-}
-
-@keyframes drift {
-  0%   { transform: translateY(0px) translateX(0px); }
-  33%  { transform: translateY(-4px) translateX(2px); }
-  66%  { transform: translateY(2px) translateX(-2px); }
-  100% { transform: translateY(0px) translateX(0px); }
+  0%, 100% { opacity: 0.85; }
+  50%       { opacity: 0.12; }
 }
 
 .star {
   position: absolute;
   border-radius: 50%;
   background-color: rgb(var(--theme-star));
-  animation:
-    twinkle var(--twinkle-dur, 3s) ease-in-out infinite var(--twinkle-delay, 0s),
-    drift   var(--drift-dur, 8s)   ease-in-out infinite var(--drift-delay, 0s);
+  will-change: opacity;
+  animation: twinkle var(--twinkle-dur, 3s) ease-in-out infinite var(--twinkle-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .star {
+    animation: none;
+    opacity: 0.45;
+  }
 }

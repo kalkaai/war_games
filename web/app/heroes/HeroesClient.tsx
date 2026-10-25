@@ -68,7 +68,17 @@ function PriorityDots({ priority }: { priority: number }) {
   );
 }
 
-function HeroCard({ hero, owned, onToggleOwned }: { hero: Hero; owned: boolean; onToggleOwned: (id: string) => void }) {
+function HeroCard({
+  hero,
+  owned,
+  priorityLoad,
+  onToggleOwned,
+}: {
+  hero: Hero;
+  owned: boolean;
+  priorityLoad: boolean;
+  onToggleOwned: (id: string) => void;
+}) {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -93,9 +103,13 @@ function HeroCard({ hero, owned, onToggleOwned }: { hero: Hero; owned: boolean; 
             <Image
               src={hero.portrait}
               alt={hero.name}
-              fill
+              width={96}
+              height={96}
+              sizes="96px"
+              priority={priorityLoad}
+              loading={priorityLoad ? "eager" : "lazy"}
               unoptimized
-              className="object-cover object-top"
+              className="h-24 w-24 object-cover object-top"
               onError={() => setImgError(true)}
             />
           ) : (
@@ -199,11 +213,16 @@ export default function HeroesClient() {
 
   return (
     <div>
-      {ownedLoaded && ownedCount > 0 && (
-        <p className="mt-1 text-sm text-purple-300">
-          <span className="font-semibold text-white">{ownedCount}</span> / {heroes.length} owned
-        </p>
-      )}
+      {/* Reserve fixed height for owned counter to eliminate CLS on hydration */}
+      <p className="mt-1 min-h-[20px] text-sm text-purple-300">
+        {ownedLoaded && ownedCount > 0 ? (
+          <>
+            <span className="font-semibold text-white">{ownedCount}</span> / {heroes.length} owned
+          </>
+        ) : (
+          <span>{heroes.length} heroes in database</span>
+        )}
+      </p>
 
       {/* Quick Hero Comparison Bar & Seasonal Pivot CTA */}
       <div className="mt-6 rounded-xl border border-purple-700/60 bg-purple-900/30 p-4">
@@ -354,11 +373,12 @@ export default function HeroesClient() {
         Tap <span className="font-bold text-white">+</span> on a hero card to mark them as owned.
       </p>
       <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {filtered.map((hero) => (
+        {filtered.map((hero, idx) => (
           <HeroCard
             key={hero.id}
             hero={hero}
             owned={ownedLoaded && owned.has(hero.id)}
+            priorityLoad={idx < 5}
             onToggleOwned={toggleOwned}
           />
         ))}

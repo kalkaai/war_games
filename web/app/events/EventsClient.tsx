@@ -103,6 +103,35 @@ export default function EventsClient({ recurring }: { recurring: readonly Recurr
       <p className="mt-3 text-xs text-purple-400/70">
         AT (Apocalypse Time) = UTC−02:00. Server reset = 02:00 UTC = 00:00 AT.
       </p>
+
+      {/* Lucky Rose Weekly Buff & Spin Planner (Competitor Parity with lastz.gg / ztools) */}
+      <div className="mt-6 rounded-xl border border-purple-700/50 bg-purple-950/40 p-4">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h3 className="text-sm font-bold text-white">
+            🌹 Lucky Rose Weekly Buff Rotation &amp; Double-Dip Planner
+          </h3>
+          <span className="rounded bg-amber-500/20 px-2 py-0.5 text-[11px] font-semibold text-amber-300">
+            Sync with VS Alliance Duel
+          </span>
+        </div>
+        <p className="mt-1 text-xs text-purple-200/85">
+          Activate your weekly <strong>Lucky Rose</strong> buff right before popping wrapped buildings (Tuesday Base Expansion) or starting high-tier Special Forces / T10 research nodes (Wednesday Age of Science):
+        </p>
+        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3 text-xs">
+          <div className="rounded-lg border border-purple-800/50 bg-purple-900/30 p-3">
+            <p className="font-bold text-white">🌹 Rose #1 / #4: Construction Speed +10%</p>
+            <p className="mt-0.5 text-purple-300">Trigger on Tuesday 02:00 UTC before starting HQ 25–35 builds.</p>
+          </div>
+          <div className="rounded-lg border border-purple-800/50 bg-purple-900/30 p-3">
+            <p className="font-bold text-white">🌹 Rose #2 / #5: Research Speed +10%</p>
+            <p className="mt-0.5 text-purple-300">Trigger on Wednesday 02:00 UTC before spending Valor Badges.</p>
+          </div>
+          <div className="rounded-lg border border-purple-800/50 bg-purple-900/30 p-3">
+            <p className="font-bold text-white">🌹 Rose #3 / #6: Troop Training &amp; ATK +8%</p>
+            <p className="mt-0.5 text-purple-300">Trigger on Friday Total Mobilization or Saturday Server War / Canyon Clash.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

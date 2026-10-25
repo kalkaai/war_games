@@ -3,7 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NAV_ITEMS = [
+interface NavItem {
+  href: string;
+  label: string;
+  exact?: boolean;
+}
+
+const LAST_Z_NAV: NavItem[] = [
   { href: "/events",   label: "Events" },
   { href: "/seasons",  label: "Seasons" },
   { href: "/hq",       label: "HQ" },
@@ -19,58 +25,68 @@ const NAV_ITEMS = [
   { href: "/profile",  label: "Profile" },
 ];
 
+const WHITEOUT_NAV: NavItem[] = [
+  { href: "/whiteout-survival",         label: "Overview",              exact: true },
+  { href: "/whiteout-survival/events",  label: "Events & SvS" },
+  { href: "/whiteout-survival/furnace", label: "Furnace & FC Table" },
+  { href: "/whiteout-survival/heroes",  label: "SSR Heroes (Gen 1–7)" },
+  { href: "/whiteout-survival/calc",    label: "FC, Gear & Charm Calcs" },
+];
+
+const LAST_WAR_NAV: NavItem[] = [
+  { href: "/last-war",        label: "Overview",                  exact: true },
+  { href: "/last-war/events", label: "VS, Arms Race & Seasons" },
+  { href: "/last-war/hq",     label: "HQ 1–35 (Age of Oil)" },
+  { href: "/last-war/heroes", label: "UR Heroes & Weapons" },
+  { href: "/last-war/calc",   label: "HQ, Drone & Weapon Calcs" },
+];
+
+function isItemActive(pathname: string, item: NavItem): boolean {
+  if (item.exact) {
+    return pathname === item.href;
+  }
+  return pathname === item.href || pathname.startsWith(item.href + "/");
+}
+
 export function PrimaryNav() {
   const pathname = usePathname();
 
-  const links = NAV_ITEMS.map(({ href, label }) => ({
-    href,
-    label,
-    active: pathname === href || pathname.startsWith(href + "/"),
-  }));
+  const isWhiteout = pathname.startsWith("/whiteout-survival");
+  const isLastWar = pathname.startsWith("/last-war");
+
+  const items = isWhiteout
+    ? WHITEOUT_NAV
+    : isLastWar
+    ? LAST_WAR_NAV
+    : LAST_Z_NAV;
 
   return (
-    <>
-      {/* Desktop nav — lg+ only; py-3 matches the logo row height */}
-      <nav aria-label="Primary" className="hidden lg:flex items-center gap-1 mx-4 py-3">
-        {links.map(({ href, label, active }) => (
-          <Link
-            key={href}
-            href={href}
-            aria-current={active ? "page" : undefined}
-            className={`rounded px-2.5 py-1.5 text-sm transition-colors ${
-              active
-                ? "bg-purple-700/60 text-white font-medium"
-                : "text-purple-200/90 hover:bg-purple-800/50 hover:text-white"
-            }`}
-          >
-            {label}
-          </Link>
-        ))}
-      </nav>
-
-      {/* Mobile nav — wraps to its own row via basis-full, hidden on lg+ */}
+    <div className="w-full border-t border-purple-900/40 bg-purple-950/60">
       <nav
-        aria-label="Navigation"
-        className="lg:hidden basis-full border-t border-purple-900/40 overflow-x-auto"
+        aria-label="Game Sections"
+        className="mx-auto max-w-6xl overflow-x-auto px-4"
         style={{ scrollbarWidth: "none" }}
       >
-        <div className="flex gap-0.5 px-4 py-1.5">
-          {links.map(({ href, label, active }) => (
-            <Link
-              key={href}
-              href={href}
-              aria-current={active ? "page" : undefined}
-              className={`shrink-0 rounded px-3 py-1.5 text-xs whitespace-nowrap transition-colors ${
-                active
-                  ? "bg-purple-700/60 text-white font-medium"
-                  : "text-purple-200/90 hover:bg-purple-800/50 hover:text-white"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+        <div className="flex items-center gap-1 py-2">
+          {items.map((item) => {
+            const active = isItemActive(pathname, item);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`shrink-0 rounded-md px-3 py-1.5 text-xs sm:text-sm whitespace-nowrap transition-colors ${
+                  active
+                    ? "bg-purple-700/75 text-white font-semibold shadow-sm"
+                    : "text-purple-200/90 hover:bg-purple-800/50 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
       </nav>
-    </>
+    </div>
   );
 }

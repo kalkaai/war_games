@@ -6,20 +6,26 @@ import { usePathname } from "next/navigation";
 const GAMES = [
   {
     id: "last-z",
-    label: "Last Z",
+    emoji: "🧟",
+    shortLabel: "Last Z",
+    fullLabel: "Last Z: Survival",
     href: "/",
     match: (path: string) =>
       !path.startsWith("/whiteout-survival") && !path.startsWith("/last-war"),
   },
   {
     id: "whiteout-survival",
-    label: "Whiteout",
+    emoji: "❄️",
+    shortLabel: "Whiteout",
+    fullLabel: "Whiteout Survival",
     href: "/whiteout-survival",
     match: (path: string) => path.startsWith("/whiteout-survival"),
   },
   {
     id: "last-war",
-    label: "Last War",
+    emoji: "🎖️",
+    shortLabel: "Last War",
+    fullLabel: "Last War: Survival",
     href: "/last-war",
     match: (path: string) => path.startsWith("/last-war"),
   },
@@ -30,8 +36,9 @@ export function GameSwitcher() {
 
   return (
     <div
-      aria-label="Game Switcher"
-      className="flex items-center rounded-lg border border-purple-700/70 bg-purple-900/40 p-0.5 text-xs"
+      role="navigation"
+      aria-label="Select Game"
+      className="grid w-full grid-cols-3 gap-1 rounded-xl border border-purple-700/70 bg-purple-900/40 p-1 sm:w-auto sm:inline-flex"
     >
       {GAMES.map((g) => {
         const active = g.match(pathname);
@@ -39,13 +46,16 @@ export function GameSwitcher() {
           <Link
             key={g.id}
             href={g.href}
-            className={`rounded-md px-2.5 py-1 font-semibold transition-colors ${
+            aria-current={active ? "true" : undefined}
+            className={`flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
               active
-                ? "bg-purple-600 text-white"
-                : "text-purple-200 hover:text-white"
+                ? "bg-purple-600 text-white shadow-sm"
+                : "text-purple-200/90 hover:bg-purple-800/50 hover:text-white"
             }`}
           >
-            {g.label}
+            <span aria-hidden="true">{g.emoji}</span>
+            <span className="md:hidden">{g.shortLabel}</span>
+            <span className="hidden md:inline">{g.fullLabel}</span>
           </Link>
         );
       })}

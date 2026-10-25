@@ -9,7 +9,7 @@ function parseLevelSlug(slug: string): number | null {
   const match = /^level-(\d+)-requirements$/.exec(slug);
   if (!match) return null;
   const lv = parseInt(match[1], 10);
-  if (lv < 1 || lv > 30) return null;
+  if (lv < 1 || lv > 35) return null;
   return lv;
 }
 
@@ -137,7 +137,7 @@ export default function LastWarHQLevelPage({
           </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="rounded-lg border border-purple-800/50 bg-purple-950/60 p-4">
             <p className="text-xs text-purple-300">🔩 Iron</p>
             <p className="mt-1 font-mono text-xl font-extrabold text-white">
@@ -156,13 +156,19 @@ export default function LastWarHQLevelPage({
               {fmt(hq.gold)}
             </p>
           </div>
+          <div className="rounded-lg border border-purple-800/50 bg-purple-950/60 p-4">
+            <p className="text-xs text-emerald-300">🛢️ Age of Oil</p>
+            <p className="mt-1 font-mono text-xl font-extrabold text-emerald-300">
+              {"oil" in hq && hq.oil ? fmt(hq.oil) : "—"}
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Browse All Last War HQ Levels */}
       <div className="mt-8 rounded-xl border border-purple-800/50 bg-purple-950/40 p-5">
         <h2 className="text-xs font-bold uppercase tracking-wider text-purple-300">
-          All Last War HQ Levels (1–30)
+          All Last War HQ Levels (1–35 · Includes Age of Oil)
         </h2>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {hqLevels.map((row) => (

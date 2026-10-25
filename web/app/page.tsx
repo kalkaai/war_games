@@ -103,7 +103,7 @@ export default function HomePage() {
       </section>
 
       {/* Section cards */}
-      <section className="pb-20">
+      <section className="pb-20 cv-auto">
         <h2 className="mb-8 text-center text-2xl font-bold text-white">
           What Does GAMIDES Cover?
         </h2>
@@ -127,7 +127,7 @@ export default function HomePage() {
       </section>
 
       {/* Multi-Game Cross-Promotion Hub */}
-      <section className="pb-20">
+      <section className="pb-20 cv-auto">
         <div className="mb-8 text-center">
           <span className="inline-block rounded-full border border-purple-500/40 bg-purple-900/50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-purple-200">
             GAMIDES Multi-Game Network

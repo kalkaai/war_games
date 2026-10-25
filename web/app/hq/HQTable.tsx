@@ -89,7 +89,7 @@ export default function HQTable() {
       {/* Table */}
       <div className="mt-6 overflow-x-auto rounded-xl border border-purple-700/60">
         <table aria-label="HQ upgrade requirements" className="w-full text-sm">
-          <thead className="sticky top-[57px] z-20">
+          <thead className="sticky top-[98px] z-20">
             <tr className="border-b border-purple-700/60 bg-purple-950">
               <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Level</th>
               <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Required Buildings</th>

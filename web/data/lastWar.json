@@ -30,7 +30,12 @@
     { "level": 27, "requiredBuildings": ["Tech Center Lv.26", "Barracks Lv.26"], "iron": 1650000000, "food": 1650000000, "gold": 530000000, "buildTimeMinutes": 61800, "unlock": "T9 Troops" },
     { "level": 28, "requiredBuildings": ["Tech Center Lv.27", "Hospital Lv.27"], "iron": 2250000000, "food": 2250000000, "gold": 720000000, "buildTimeMinutes": 84000, "unlock": "Hospital & Drill Ground Cap+" },
     { "level": 29, "requiredBuildings": ["Tech Center Lv.28", "Tank/Aircraft/Missile Lv.28"], "iron": 3100000000, "food": 3100000000, "gold": 990000000, "buildTimeMinutes": 114000, "unlock": "Pre-HQ 30 Gate" },
-    { "level": 30, "requiredBuildings": ["Tech Center Lv.29", "Barracks Lv.29", "Drill Ground Lv.29", "Wall Lv.29"], "iron": 4300000000, "food": 4300000000, "gold": 1380000000, "buildTimeMinutes": 156000, "unlock": "T10 Special Forces Troops & Hero Lv.150" }
+    { "level": 30, "requiredBuildings": ["Tech Center Lv.29", "Barracks Lv.29", "Drill Ground Lv.29", "Wall Lv.29"], "iron": 4300000000, "food": 4300000000, "gold": 1380000000, "buildTimeMinutes": 156000, "unlock": "T10 Special Forces Troops & Hero Lv.150" },
+    { "level": 31, "requiredBuildings": ["Tech Center Lv.30", "Barracks Lv.30", "Tank/Air/Missile Center Lv.30", "Age of Oil Base Expansion"], "iron": 4700000000, "food": 4700000000, "gold": 1520000000, "oil": 1460000, "buildTimeMinutes": 172800, "unlock": "Age of Oil Expansion & Hero Lv.155 Cap" },
+    { "level": 32, "requiredBuildings": ["Tech Center Lv.31", "Barracks Lv.31", "Tank Center Lv.31", "Wall Lv.31"], "iron": 5200000000, "food": 5200000000, "gold": 1700000000, "oil": 2240000, "buildTimeMinutes": 190080, "unlock": "Hero Lv.160 Cap & Oil Refinery III" },
+    { "level": 33, "requiredBuildings": ["Tech Center Lv.32", "Barracks Lv.32", "Tank Center Lv.32", "Hospital Lv.32", "Drill Ground Lv.32"], "iron": 5800000000, "food": 5800000000, "gold": 1920000000, "oil": 3920000, "buildTimeMinutes": 210240, "unlock": "Hero Lv.165 Cap & Apex Garrison" },
+    { "level": 34, "requiredBuildings": ["Tech Center Lv.33", "Barracks Lv.33", "Tank Center Lv.33", "Wall Lv.33", "Alliance Center Lv.33"], "iron": 6500000000, "food": 6500000000, "gold": 2180000000, "oil": 7050000, "buildTimeMinutes": 233280, "unlock": "Hero Lv.170 Cap" },
+    { "level": 35, "requiredBuildings": ["Tech Center Lv.34", "Barracks Lv.34", "Tank Center Lv.34", "Hospital Lv.34", "Drill Ground Lv.34"], "iron": 7400000000, "food": 7400000000, "gold": 2500000000, "oil": 14100000, "buildTimeMinutes": 259200, "unlock": "Max Age of Oil HQ 35 & Hero Lv.175 Cap" }
   ],
   "vsDuelSchedule": [
     { "day": "Monday", "name": "Radar Training (Drone Boost)", "keyItems": ["Radar Missions (stack 35/40 on Sunday)", "Drone Combat Data", "Drone Parts", "Stamina"], "tip": "Stack Radar tasks on Sunday afternoon without claiming them until Monday 02:00 UTC reset!" },
@@ -56,6 +61,30 @@
     { "id": "marshall", "name": "Marshall", "type": "Tank (Command Support)", "tier": "S", "note": "Reduces cooldowns and boosts crit rate for Kimberly & Stetmann." },
     { "id": "dva", "name": "DVA", "type": "Aircraft (Backline Burst)", "tier": "S+", "note": "Core carry of the Aircraft meta squad (counters Tank squads)." },
     { "id": "lucius", "name": "Lucius", "type": "Aircraft (Energy Barrier)", "tier": "S+", "note": "Grants massive energy damage resistance against Kimberly squads." },
-    { "id": "tesla", "name": "Tesla", "type": "Missile (Backline DPS)", "tier": "S", "note": "Core carry for Missile squads (counters Aircraft formations)." }
+    { "id": "tesla", "name": "Tesla", "type": "Missile (Backline DPS)", "tier": "S", "note": "Core carry for Missile squads (counters Aircraft formations)." },
+    { "id": "carlie", "name": "Carlie", "type": "Aircraft (Frontline Evasion)", "tier": "S+", "note": "Frontline Aircraft tank; Exclusive Weapon unlocks in Season 1 alongside Kimberly and DVA." },
+    { "id": "swift", "name": "Swift", "type": "Missile (Crit Finisher)", "tier": "S+", "note": "Targets lowest-HP enemy units; Exclusive Weapon makes Missile squads lethal against Aircraft whales." }
+  ],
+  "droneMilestones": [
+    { "level": 10, "stepParts": 10, "cumulativeParts": 15, "battleData": 12000, "unlock": "Early Recon Drone" },
+    { "level": 30, "stepParts": 50, "cumulativeParts": 145, "battleData": 85000, "unlock": "Combat Boost Tier I" },
+    { "level": 50, "stepParts": 120, "cumulativeParts": 515, "battleData": 320000, "unlock": "Lv.50 Drone Skin & Skill Chip Slot" },
+    { "level": 75, "stepParts": 260, "cumulativeParts": 1465, "battleData": 980000, "unlock": "Mid-Game Tactical Frame" },
+    { "level": 100, "stepParts": 500, "cumulativeParts": 3445, "battleData": 2800000, "unlock": "Lv.100 Drone Skin & Crit Damage+" },
+    { "level": 125, "stepParts": 1600, "cumulativeParts": 9445, "battleData": 7500000, "unlock": "High-Altitude Strike Frame" },
+    { "level": 150, "stepParts": 5000, "cumulativeParts": 27045, "battleData": 19500000, "unlock": "B-2 Stealth Bomber Skin (151+ requires parts every level)" },
+    { "level": 175, "stepParts": 800, "cumulativeParts": 45545, "battleData": 38000000, "unlock": "Apex Drone Tier I" },
+    { "level": 200, "stepParts": 1000, "cumulativeParts": 69545, "battleData": 68000000, "unlock": "Apex Drone Tier II" },
+    { "level": 250, "stepParts": 1400, "cumulativeParts": 123545, "battleData": 145000000, "unlock": "Max Lv.250 Tactical Drone" }
+  ],
+  "seasons": [
+    { "id": "s1", "name": "Season 1: The Crimson Plague", "mechanic": "Protein Farms & Virus Research Institute (Virus Resistance)", "exclusiveWeapons": ["Kimberly", "DVA", "Tesla"], "summary": "Build Virus Resistance via Protein Farms and Mutant Crystals to capture higher-tier infected strongholds and cities." },
+    { "id": "s2", "name": "Season 2: Polar World", "mechanic": "Titanium Alloy Factory & High-Heat Furnace (-60°C Blizzard Survival)", "exclusiveWeapons": ["Murphy", "Carlie", "Swift"], "summary": "Manage base temperature during blizzards, upgrade your High-Heat Furnace with Coal/Titanium, and unlock the Age of Oil (HQ 31–35) tech tree afterward." },
+    { "id": "s3", "name": "Season 3: Golden Realm", "mechanic": "Curse Resistance & Desert Oasis Sanctuaries", "exclusiveWeapons": ["Marshall", "Williams", "Schuyler"], "summary": "Cleanse desert miasma, convert green tiles around Alliance Centers, and push T10 Special Forces + Exclusive Weapon Lv.20+ milestones." }
+  ],
+  "redeemCodes": [
+    { "code": "LWDC400K", "rewards": "Diamonds ×300, Universal UR Shard ×1, Hero EXP Chest ×3", "status": "Active" },
+    { "code": "LASTWAR2026", "rewards": "Diamonds ×500, 1h Speed-ups ×5, Drone Parts ×20", "status": "Active" },
+    { "code": "HAPPYLW", "rewards": "Recruitment Tickets ×5, Gold Chests ×2", "status": "Try it" }
   ]
 }
