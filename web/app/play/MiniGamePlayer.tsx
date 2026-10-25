@@ -28,6 +28,7 @@ export default function MiniGamePlayer({ game }: MiniGamePlayerProps) {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [canvasTheme, setCanvasTheme] = useState<"dark" | "light">("dark");
   const [cleared, setCleared] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);
   const [challengeScore, setChallengeScore] = useState<number | null>(null);
@@ -66,9 +67,13 @@ export default function MiniGamePlayer({ game }: MiniGamePlayerProps) {
       const { mountMiniGame } = await import("@gamides/minigames");
       if (cancelled || !containerRef.current) return;
 
+      const isSiteLight = !document.documentElement.classList.contains("dark");
+      setCanvasTheme(isSiteLight ? "light" : "dark");
+
       const instance = await mountMiniGame(containerRef.current, {
         slug: game.slug,
         soundEnabled: true,
+        themeMode: isSiteLight ? "light" : "dark",
         onScoreChange: (newScore, newBest) => {
           setScore(newScore);
           setHighScore(newBest);
@@ -120,14 +125,32 @@ export default function MiniGamePlayer({ game }: MiniGamePlayerProps) {
 
     boot();
 
+    function handleSiteThemeChange(e: Event) {
+      const custom = e as CustomEvent<{ scheme?: "dark" | "light" }>;
+      const nextMode =
+        custom.detail?.scheme ??
+        (!document.documentElement.classList.contains("dark") ? "light" : "dark");
+      setCanvasTheme(nextMode);
+      instanceRef.current?.setThemeMode(nextMode);
+    }
+
+    window.addEventListener("wg-theme-change", handleSiteThemeChange);
+
     return () => {
       cancelled = true;
+      window.removeEventListener("wg-theme-change", handleSiteThemeChange);
       if (instanceRef.current) {
         instanceRef.current.destroy();
         instanceRef.current = null;
       }
     };
   }, [game.slug, game.targetScore]);
+
+  const handleToggleCanvasTheme = () => {
+    const next = canvasTheme === "dark" ? "light" : "dark";
+    setCanvasTheme(next);
+    instanceRef.current?.setThemeMode(next);
+  };
 
   const handleToggleSound = () => {
     const next = !soundEnabled;
@@ -190,6 +213,14 @@ export default function MiniGamePlayer({ game }: MiniGamePlayerProps) {
         <div className="flex items-center gap-1.5">
           <button
             type="button"
+            onClick={handleToggleCanvasTheme}
+            aria-label={canvasTheme === "dark" ? "Switch game canvas to light background" : "Switch game canvas to dark background"}
+            className="rounded-lg border border-purple-700/70 bg-purple-900/60 px-2.5 py-1.5 font-semibold text-purple-100 transition-colors hover:bg-purple-800"
+          >
+            {canvasTheme === "light" ? "☀️ Light" : "🌙 Dark"}
+          </button>
+          <button
+            type="button"
             onClick={handleToggleSound}
             aria-label={soundEnabled ? "Mute audio" : "Unmute audio"}
             className="rounded-lg border border-purple-700/70 bg-purple-900/60 px-2.5 py-1.5 font-semibold text-purple-100 transition-colors hover:bg-purple-800"
@@ -209,7 +240,9 @@ export default function MiniGamePlayer({ game }: MiniGamePlayerProps) {
       {/* Phaser Canvas Mount Container — fixed 5:8 aspect ratio prevents any CLS */}
       <div
         ref={containerRef}
-        className="relative flex w-full max-w-[420px] aspect-[400/640] items-center justify-center overflow-hidden rounded-2xl border-2 border-purple-700/70 bg-[#0a0014] shadow-2xl shadow-purple-950/70"
+        className={`relative flex w-full max-w-[420px] aspect-[400/640] items-center justify-center overflow-hidden rounded-2xl border-2 border-purple-700/70 shadow-2xl shadow-purple-950/70 ${
+          canvasTheme === "light" ? "bg-[#f8fafc]" : "bg-[#0a0014]"
+        }`}
       >
         <div className="flex flex-col items-center gap-2 p-6 text-center">
           <span className="text-4xl" aria-hidden="true">

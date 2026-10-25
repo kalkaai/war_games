@@ -109,7 +109,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const themeInitScript = `try{var t=localStorage.getItem("wg_theme")||"nebula";document.documentElement.setAttribute("data-theme",t);if(t==="daylight"){document.documentElement.classList.remove("dark");document.querySelector('meta[name="color-scheme"]')?.setAttribute("content","light");}}catch(e){}`;
+  const themeInitScript = `try{var t=localStorage.getItem("wg_theme")||"nebula";document.documentElement.setAttribute("data-theme",t);if(t==="daylight"||t==="glacier"||t==="sandstorm"||t==="meadow"){document.documentElement.classList.remove("dark");document.querySelector('meta[name="color-scheme"]')?.setAttribute("content","light");}}catch(e){}`;
 
   return (
     <html lang="en" className="dark" data-theme="nebula" suppressHydrationWarning>

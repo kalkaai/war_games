@@ -9,7 +9,10 @@ export type AppThemeId =
   | "arctic"
   | "solaris"
   | "emerald"
-  | "daylight";
+  | "daylight"
+  | "glacier"
+  | "sandstorm"
+  | "meadow";
 
 // Map legacy theme IDs to generic multi-game IDs for seamless migration
 const LEGACY_THEME_MAP: Record<string, AppThemeId> = {
@@ -66,8 +69,29 @@ export const THEMES: ThemeOption[] = [
   {
     id: "daylight",
     name: "Daylight Tactical",
-    subtitle: "High-Contrast Light",
+    subtitle: "High-Contrast Indigo Light",
     swatch: "#4f46e5",
+    scheme: "light",
+  },
+  {
+    id: "glacier",
+    name: "Glacier Day",
+    subtitle: "Frost Cyan & Ice White Light",
+    swatch: "#0284c7",
+    scheme: "light",
+  },
+  {
+    id: "sandstorm",
+    name: "Sandstorm Light",
+    subtitle: "Desert Amber & Ivory Light",
+    swatch: "#d97706",
+    scheme: "light",
+  },
+  {
+    id: "meadow",
+    name: "Bio-Meadow Light",
+    subtitle: "Fresh Emerald & Mint Light",
+    swatch: "#059669",
     scheme: "light",
   },
 ];
@@ -93,6 +117,11 @@ function applyThemeToDOM(themeId: AppThemeId) {
   if (meta) {
     meta.setAttribute("content", theme.scheme);
   }
+  window.dispatchEvent(
+    new CustomEvent("wg-theme-change", {
+      detail: { themeId: theme.id, scheme: theme.scheme },
+    })
+  );
 }
 
 export function ThemeSwitcher() {

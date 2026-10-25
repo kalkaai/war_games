@@ -153,7 +153,7 @@ html[data-theme="biotech"] {
   --ring: 160 84% 39%;
 }
 
-/* ── Theme 6: Daylight Tactical (Crisp Light Mode) ───────────────────── */
+/* ── Theme 6: Daylight Tactical (Crisp Indigo Light Mode) ────────────── */
 html[data-theme="daylight"] {
   color-scheme: light;
 
@@ -184,12 +184,107 @@ html[data-theme="daylight"] {
   --ring: 243 75% 59%;
 }
 
-html[data-theme="daylight"] .text-white:not(.bg-purple-600):not(.bg-purple-500):not(.bg-green-600):not(.bg-green-500):not(.bg-blue-600):not(.bg-blue-800):not(.bg-slate-600):not(.bg-slate-700) {
+/* ── Theme 7: Glacier Day (Frost Cyan & Ice White Light Mode) ────────── */
+html[data-theme="glacier"] {
+  color-scheme: light;
+
+  --theme-body-bg: 240 249 255;
+  --theme-body-fg: 12 42 74;
+  --theme-star: 14 165 233;
+
+  --theme-50: 12 42 74;
+  --theme-100: 15 58 98;
+  --theme-200: 30 78 122;
+  --theme-300: 51 105 150;
+  --theme-400: 82 136 181;
+  --theme-500: 14 165 233;
+  --theme-600: 2 132 199;
+  --theme-700: 125 211 252;
+  --theme-800: 186 230 253;
+  --theme-900: 224 242 254;
+  --theme-950: 255 255 255;
+
+  --background: 204 100% 97%;
+  --foreground: 208 72% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 208 72% 16%;
+  --primary: 199 89% 42%;
+  --primary-foreground: 0 0% 100%;
+  --border: 201 65% 84%;
+  --input: 201 65% 90%;
+  --ring: 199 89% 42%;
+}
+
+/* ── Theme 8: Sandstorm Light (Desert Amber & Ivory Light Mode) ──────── */
+html[data-theme="sandstorm"] {
+  color-scheme: light;
+
+  --theme-body-bg: 255 251 235;
+  --theme-body-fg: 38 19 5;
+  --theme-star: 217 119 6;
+
+  --theme-50: 38 19 5;
+  --theme-100: 69 26 3;
+  --theme-200: 92 40 8;
+  --theme-300: 120 53 15;
+  --theme-400: 146 64 14;
+  --theme-500: 245 158 11;
+  --theme-600: 217 119 6;
+  --theme-700: 252 211 77;
+  --theme-800: 253 230 138;
+  --theme-900: 254 243 199;
+  --theme-950: 255 255 255;
+
+  --background: 48 100% 96%;
+  --foreground: 26 80% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 26 80% 12%;
+  --primary: 32 95% 44%;
+  --primary-foreground: 0 0% 100%;
+  --border: 38 70% 82%;
+  --input: 38 70% 90%;
+  --ring: 32 95% 44%;
+}
+
+/* ── Theme 9: Bio-Meadow Light (Fresh Emerald & Mint Light Mode) ─────── */
+html[data-theme="meadow"] {
+  color-scheme: light;
+
+  --theme-body-bg: 240 253 244;
+  --theme-body-fg: 6 46 30;
+  --theme-star: 16 185 129;
+
+  --theme-50: 6 46 30;
+  --theme-100: 10 68 45;
+  --theme-200: 20 83 45;
+  --theme-300: 34 108 68;
+  --theme-400: 52 138 92;
+  --theme-500: 16 185 129;
+  --theme-600: 5 150 105;
+  --theme-700: 110 231 183;
+  --theme-800: 167 243 208;
+  --theme-900: 209 250 229;
+  --theme-950: 255 255 255;
+
+  --background: 138 76% 97%;
+  --foreground: 158 78% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 158 78% 12%;
+  --primary: 160 84% 35%;
+  --primary-foreground: 0 0% 100%;
+  --border: 152 55% 83%;
+  --input: 152 55% 90%;
+  --ring: 160 84% 35%;
+}
+
+html:not(.dark) .text-white:not(.bg-purple-600):not(.bg-purple-500):not(.bg-indigo-600):not(.bg-amber-500):not(.bg-green-600):not(.bg-green-500):not(.bg-blue-600):not(.bg-blue-800):not(.bg-slate-600):not(.bg-slate-700) {
   color: #0f172a;
 }
 
-html[data-theme="daylight"] .bg-purple-600.text-white,
-html[data-theme="daylight"] .bg-purple-600 .text-white {
+html:not(.dark) .bg-purple-600.text-white,
+html:not(.dark) .bg-purple-600 .text-white,
+html:not(.dark) .bg-indigo-600.text-white,
+html:not(.dark) .bg-indigo-600 .text-white {
   color: #ffffff;
 }
 
