@@ -10,6 +10,7 @@ interface ArcadeHubClientProps {
 
 const CATEGORIES: ("All" | GameCategory)[] = [
   "All",
+  "Classic Arcade",
   "Zombie Combat",
   "Base Building",
   "Survival",
@@ -18,7 +19,13 @@ const CATEGORIES: ("All" | GameCategory)[] = [
 ];
 
 const TEMPLATES: { id: "all" | TemplateId; label: string }[] = [
-  { id: "all", label: "All 10 Mechanics" },
+  { id: "all", label: "All 16 Mechanics" },
+  { id: "snake-arcade", label: "🐍 Classic Snake" },
+  { id: "brick-breaker", label: "🧱 Brick Breaker" },
+  { id: "space-invaders", label: "👾 Space Invaders" },
+  { id: "frogger-crossing", label: "🐸 Frogger Crossing" },
+  { id: "falling-blocks", label: "🟦 Block Drop (Tetris)" },
+  { id: "asteroids-shooter", label: "☄️ Asteroids 360" },
   { id: "gravity-tap", label: "1. Gravity Tap" },
   { id: "lane-runner", label: "2. 3-Lane Runner" },
   { id: "physics-catcher", label: "3. Physics Catcher" },
@@ -30,6 +37,15 @@ const TEMPLATES: { id: "all" | TemplateId; label: string }[] = [
   { id: "endless-jumper", label: "9. Endless Jumper" },
   { id: "slingshot-physics", label: "10. Slingshot Physics" },
 ];
+
+const FEATURED_CLASSIC_SLUGS = [
+  "classic-snake",
+  "brick-breaker-classic",
+  "space-invaders-classic",
+  "frogger-crossing",
+  "block-drop-tetris",
+  "asteroids-360",
+] as const;
 
 export default function ArcadeHubClient({ games }: ArcadeHubClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<"All" | GameCategory>("All");
@@ -71,19 +87,86 @@ export default function ArcadeHubClient({ games }: ArcadeHubClientProps) {
     return Object.values(scoresMap).filter((s) => s.cleared).length;
   }, [scoresMap]);
 
+  const featuredClassics = useMemo(() => {
+    return FEATURED_CLASSIC_SLUGS.map((slug) =>
+      games.find((g) => g.slug === slug)
+    ).filter((g): g is GameManifestItem => Boolean(g));
+  }, [games]);
+
   return (
     <div className="space-y-8">
+      {/* Featured Classic Arcade Cabinet Strip */}
+      {featuredClassics.length > 0 &&
+        (selectedCategory === "All" || selectedCategory === "Classic Arcade") &&
+        selectedTemplate === "all" &&
+        !searchQuery.trim() && (
+          <div className="rounded-2xl border border-amber-500/50 bg-gradient-to-br from-purple-950/90 via-indigo-950/80 to-purple-900/60 p-5 shadow-lg">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span className="inline-block rounded-full border border-amber-400/50 bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-300">
+                  ★ Featured Classic Cabinets
+                </span>
+                <h2 className="mt-1 text-lg font-extrabold text-white">
+                  🕹️ Timeless Arcade Classics — Instant Play
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedCategory("Classic Arcade")}
+                className="rounded-lg border border-amber-400/50 bg-amber-500/20 px-3 py-1.5 text-xs font-bold text-amber-200 transition-colors hover:bg-amber-500/30 hover:text-white"
+              >
+                View All 12 Classic Arcade Games →
+              </button>
+            </div>
+
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredClassics.map((classic) => {
+                const best = scoresMap[classic.slug]?.bestScore ?? 0;
+                return (
+                  <Link
+                    key={classic.slug}
+                    href={`/play/${classic.slug}`}
+                    className="group flex items-center justify-between rounded-xl border border-purple-700/70 bg-purple-950/85 p-3.5 transition-all hover:border-amber-400 hover:bg-purple-900/80"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-purple-600/60 bg-purple-900/70 text-2xl">
+                        {classic.iconEmoji}
+                      </span>
+                      <div>
+                        <h3 className="text-sm font-extrabold text-white group-hover:text-amber-300">
+                          {classic.title}
+                        </h3>
+                        <p className="text-[11px] text-purple-300/85">{classic.templateName}</p>
+                        {best > 0 && (
+                          <span className="mt-0.5 inline-block text-[10px] font-bold text-emerald-300">
+                            BEST: {best}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <span className="rounded-lg bg-purple-600 px-2.5 py-1 text-xs font-bold text-white transition-colors group-hover:bg-amber-500">
+                      Play →
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
       {/* Player Progression Summary & Filter Bar */}
       <div className="rounded-2xl border border-purple-700/60 bg-purple-900/40 p-5">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-lg font-bold text-white">
-              🕹️ Survival Mini-Game Catalog ({filteredGames.length} / {games.length})
+              🕹️ Arcade &amp; Survival Mini-Game Catalog ({filteredGames.length} / {games.length})
             </h2>
             <p className="text-xs text-purple-200/80">
               Missions Cleared:{" "}
-              <strong className="text-emerald-300">{totalCleared} / 100</strong> • High scores save
-              automatically in your browser.
+              <strong className="text-emerald-300">
+                {totalCleared} / {games.length}
+              </strong>{" "}
+              • High scores save automatically in your browser.
             </p>
           </div>
 
@@ -92,8 +175,8 @@ export default function ArcadeHubClient({ games }: ArcadeHubClientProps) {
               type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search 100 games (e.g. sniper, 2048, hq)..."
-              aria-label="Search 100 mini-games"
+              placeholder="Search games (e.g. snake, tetris, sniper)..."
+              aria-label="Search mini-games"
               className="w-full rounded-lg border border-purple-700/80 bg-purple-950/90 px-3.5 py-2 text-sm text-white placeholder-purple-300/60 focus:border-purple-400 focus:outline-none"
             />
           </div>
