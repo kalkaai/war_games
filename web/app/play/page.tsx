@@ -3,13 +3,13 @@ import { MINIGAMES_MANIFEST } from "@gamides/minigames/manifest";
 import ArcadeHubClient from "./ArcadeHubClient";
 
 export const metadata: Metadata = {
-  title: "Survival Arcade — 100 Free Mini-Games | GAMIDES",
+  title: "GAMIDES Arcade — 112 Free Classic & Survival Mini-Games (Snake, Tetris, Space Invaders & More)",
   description:
-    "Play 100 instant-loading survival, base-building, and zombie sniper mini-games on GAMIDES. Built for Last Z: Survival Shooter, Whiteout Survival, and Last War alliance players.",
+    "Play 112 instant-loading browser mini-games on GAMIDES—including Classic Snake, Brick Breaker, Space Invaders, Frogger, Block Drop Tetris, Asteroids 360, and 100 survival & zombie defense games.",
   openGraph: {
-    title: "Survival Arcade — 100 Free Mini-Games | GAMIDES",
+    title: "GAMIDES Arcade — 112 Free Classic & Survival Mini-Games",
     description:
-      "100 instant-loading survival, base-building, and zombie combat mini-games. Challenge your alliance on Discord!",
+      "Instant-loading Classic Arcade (Snake, Tetris, Space Invaders, Brick Breaker, Frogger, Asteroids) and 100 survival mini-games. Challenge your alliance on Discord!",
     images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
   },
   alternates: {

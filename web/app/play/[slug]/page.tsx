@@ -106,6 +106,31 @@ export default function MiniGameSlugPage({ params }: PageProps) {
     ],
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "GAMIDES",
+        item: "https://www.gamides.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Survival & Classic Arcade",
+        item: "https://www.gamides.com/play/",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: game.title,
+        item: `https://www.gamides.com/play/${game.slug}/`,
+      },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
       <script
@@ -115,6 +140,10 @@ export default function MiniGameSlugPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Breadcrumb Navigation */}
@@ -142,7 +171,7 @@ export default function MiniGameSlugPage({ params }: PageProps) {
           <div className="rounded-2xl border border-purple-700/60 bg-purple-900/40 p-6">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded-md border border-purple-600/60 bg-purple-950/80 px-2.5 py-1 text-xs font-mono text-purple-200">
-                Game #{game.id} of 100
+                Game #{game.id} of {MINIGAMES_MANIFEST.length}
               </span>
               <span className="rounded-md bg-purple-700/60 px-2.5 py-1 text-xs font-semibold text-white">
                 {game.category}

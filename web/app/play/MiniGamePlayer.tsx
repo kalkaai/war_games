@@ -206,11 +206,19 @@ export default function MiniGamePlayer({ game }: MiniGamePlayerProps) {
         </div>
       </div>
 
-      {/* Phaser Canvas Mount Container */}
+      {/* Phaser Canvas Mount Container — fixed 5:8 aspect ratio prevents any CLS */}
       <div
         ref={containerRef}
-        className="relative w-full max-w-[420px] aspect-[400/640] overflow-hidden rounded-2xl border-2 border-purple-700/70 bg-[#0a0014] shadow-2xl shadow-purple-950/70"
-      />
+        className="relative flex w-full max-w-[420px] aspect-[400/640] items-center justify-center overflow-hidden rounded-2xl border-2 border-purple-700/70 bg-[#0a0014] shadow-2xl shadow-purple-950/70"
+      >
+        <div className="flex flex-col items-center gap-2 p-6 text-center">
+          <span className="text-4xl" aria-hidden="true">
+            {game.iconEmoji}
+          </span>
+          <p className="text-sm font-bold text-white">{game.title}</p>
+          <p className="text-xs text-purple-300/80">Loading {game.templateName} engine…</p>
+        </div>
+      </div>
 
       {/* Retention & Share Bar */}
       <div className="mt-4 flex w-full max-w-[420px] flex-col gap-2.5 rounded-xl border border-purple-800/60 bg-purple-900/40 p-3.5">
@@ -232,12 +240,11 @@ export default function MiniGamePlayer({ game }: MiniGamePlayerProps) {
           </button>
         </div>
 
-        {loadMetrics && (
-          <p className="text-center text-[11px] text-purple-300/70">
-            ⚡ Pure Web-Native Phaser 3 Engine • Dynamic Config ({loadMetrics.payloadKb} KB) loaded in{" "}
-            {loadMetrics.loadTimeMs}ms
-          </p>
-        )}
+        <p className="min-h-[16px] text-center text-[11px] text-purple-300/70">
+          {loadMetrics
+            ? `⚡ Pure Web-Native Phaser 3 Engine • Dynamic Config (${loadMetrics.payloadKb} KB) loaded in ${loadMetrics.loadTimeMs}ms`
+            : "⚡ Pure Web-Native Phaser 3 Engine • Dynamic Asset Pipeline"}
+        </p>
       </div>
     </div>
   );
