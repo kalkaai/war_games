@@ -1,44 +1,46 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface NavItem {
   href: string;
   label: string;
+  icon: string;
   exact?: boolean;
 }
 
 const LAST_Z_NAV: NavItem[] = [
-  { href: "/events",   label: "Events" },
-  { href: "/seasons",  label: "Seasons" },
-  { href: "/hq",       label: "HQ" },
-  { href: "/research", label: "Research" },
-  { href: "/heroes",   label: "Heroes" },
-  { href: "/tank",     label: "Vehicles" },
-  { href: "/gear",     label: "Gear" },
-  { href: "/pvp",      label: "PvP" },
-  { href: "/alliance", label: "Alliance" },
-  { href: "/guide",    label: "Guide" },
-  { href: "/codes",    label: "Codes" },
-  { href: "/calc",     label: "Calc" },
-  { href: "/profile",  label: "Profile" },
+  { href: "/events",   label: "Events",   icon: "📅" },
+  { href: "/seasons",  label: "Seasons",  icon: "🧬" },
+  { href: "/hq",       label: "HQ",       icon: "🏰" },
+  { href: "/research", label: "Research", icon: "🔬" },
+  { href: "/heroes",   label: "Heroes",   icon: "🦸" },
+  { href: "/tank",     label: "Vehicles", icon: "🔧" },
+  { href: "/gear",     label: "Gear",     icon: "⚔️" },
+  { href: "/pvp",      label: "PvP",      icon: "🛡️" },
+  { href: "/alliance", label: "Alliance", icon: "🤝" },
+  { href: "/guide",    label: "Guide",    icon: "📖" },
+  { href: "/codes",    label: "Codes",    icon: "🎁" },
+  { href: "/calc",     label: "Calc",     icon: "📊" },
+  { href: "/profile",  label: "Profile",  icon: "👤" },
 ];
 
 const WHITEOUT_NAV: NavItem[] = [
-  { href: "/whiteout-survival",         label: "Overview",              exact: true },
-  { href: "/whiteout-survival/events",  label: "Events & SvS" },
-  { href: "/whiteout-survival/furnace", label: "Furnace & FC Table" },
-  { href: "/whiteout-survival/heroes",  label: "SSR Heroes (Gen 1–7)" },
-  { href: "/whiteout-survival/calc",    label: "FC, Gear & Charm Calcs" },
+  { href: "/whiteout-survival",         label: "Overview",              icon: "❄️", exact: true },
+  { href: "/whiteout-survival/events",  label: "Events & SvS",          icon: "📅" },
+  { href: "/whiteout-survival/furnace", label: "Furnace & FC Table",    icon: "🔥" },
+  { href: "/whiteout-survival/heroes",  label: "SSR Heroes (Gen 1–7)",  icon: "🦸" },
+  { href: "/whiteout-survival/calc",    label: "FC, Gear & Charm Calcs", icon: "📊" },
 ];
 
 const LAST_WAR_NAV: NavItem[] = [
-  { href: "/last-war",        label: "Overview",                  exact: true },
-  { href: "/last-war/events", label: "VS, Arms Race & Seasons" },
-  { href: "/last-war/hq",     label: "HQ 1–35 (Age of Oil)" },
-  { href: "/last-war/heroes", label: "UR Heroes & Weapons" },
-  { href: "/last-war/calc",   label: "HQ, Drone & Weapon Calcs" },
+  { href: "/last-war",        label: "Overview",                  icon: "🎖️", exact: true },
+  { href: "/last-war/events", label: "VS, Arms Race & Seasons",   icon: "📅" },
+  { href: "/last-war/hq",     label: "HQ 1–35 (Age of Oil)",      icon: "🏰" },
+  { href: "/last-war/heroes", label: "UR Heroes & Weapons",       icon: "🦸" },
+  { href: "/last-war/calc",   label: "HQ, Drone & Weapon Calcs",  icon: "📊" },
 ];
 
 function isItemActive(pathname: string, item: NavItem): boolean {
@@ -50,6 +52,12 @@ function isItemActive(pathname: string, item: NavItem): boolean {
 
 export function PrimaryNav() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Close mobile drawer automatically when route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   const isWhiteout = pathname.startsWith("/whiteout-survival");
   const isLastWar = pathname.startsWith("/last-war");
@@ -60,14 +68,19 @@ export function PrimaryNav() {
     ? LAST_WAR_NAV
     : LAST_Z_NAV;
 
+  const gameName = isWhiteout
+    ? "Whiteout Survival"
+    : isLastWar
+    ? "Last War: Survival"
+    : "Last Z: Survival";
+
+  const activeItem = items.find((item) => isItemActive(pathname, item));
+
   return (
-    <div className="w-full border-t border-purple-900/40 bg-purple-950/60">
-      <nav
-        aria-label="Game Sections"
-        className="mx-auto max-w-6xl overflow-x-auto px-4"
-        style={{ scrollbarWidth: "none" }}
-      >
-        <div className="flex items-center gap-1 py-2">
+    <div className="w-full border-t border-purple-900/40 bg-purple-950/75">
+      <nav aria-label={`${gameName} Sections`} className="mx-auto max-w-6xl px-3 sm:px-4">
+        {/* Desktop & Tablet (md+): Wrapping flex row so no links ever clip off-screen */}
+        <div className="hidden md:flex md:flex-wrap md:items-center md:gap-1 md:py-2">
           {items.map((item) => {
             const active = isItemActive(pathname, item);
             return (
@@ -75,17 +88,97 @@ export function PrimaryNav() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`shrink-0 rounded-md px-3 py-1.5 text-xs sm:text-sm whitespace-nowrap transition-colors ${
+                className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs lg:text-sm whitespace-nowrap transition-colors ${
                   active
-                    ? "bg-purple-700/75 text-white font-semibold shadow-sm"
+                    ? "bg-purple-700/80 text-white font-semibold shadow-sm"
                     : "text-purple-200/90 hover:bg-purple-800/50 hover:text-white"
                 }`}
               >
-                {item.label}
+                <span aria-hidden="true" className="text-xs">{item.icon}</span>
+                <span>{item.label}</span>
               </Link>
             );
           })}
         </div>
+
+        {/* Mobile (< md): Quick horizontal scroll strip + Pinned "Menu" Drawer Toggle */}
+        <div className="flex items-center justify-between gap-2 py-1.5 md:hidden">
+          <div
+            className="flex flex-1 items-center gap-1 overflow-x-auto pr-2"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {items.map((item) => {
+              const active = isItemActive(pathname, item);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`shrink-0 inline-flex items-center gap-1 rounded-md px-2.5 py-1.5 text-xs whitespace-nowrap transition-colors ${
+                    active
+                      ? "bg-purple-700 text-white font-semibold shadow-sm"
+                      : "text-purple-200/90 hover:bg-purple-800/50 hover:text-white"
+                  }`}
+                >
+                  <span aria-hidden="true">{item.icon}</span>
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-game-nav-drawer"
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open all pages menu"}
+            className="shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-purple-600/80 bg-purple-900/90 px-2.5 py-1.5 text-xs font-bold text-white shadow-sm transition-colors hover:bg-purple-800"
+          >
+            <span aria-hidden="true">{mobileMenuOpen ? "✕" : "☰"}</span>
+            <span>{mobileMenuOpen ? "Close" : "Menu"}</span>
+          </button>
+        </div>
+
+        {/* Mobile Expandable Grid Drawer (< md) */}
+        {mobileMenuOpen && (
+          <div
+            id="mobile-game-nav-drawer"
+            className="border-t border-purple-800/60 py-3 md:hidden"
+          >
+            <div className="mb-2 flex items-center justify-between px-1">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-purple-300">
+                {gameName} Pages ({items.length})
+              </span>
+              {activeItem && (
+                <span className="text-[11px] text-purple-300/80">
+                  Current: <strong className="text-white">{activeItem.label}</strong>
+                </span>
+              )}
+            </div>
+            <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3">
+              {items.map((item) => {
+                const active = isItemActive(pathname, item);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium transition-colors ${
+                      active
+                        ? "border-purple-500 bg-purple-700/80 text-white font-bold shadow-sm"
+                        : "border-purple-800/50 bg-purple-900/40 text-purple-200 hover:border-purple-600 hover:bg-purple-800/60 hover:text-white"
+                    }`}
+                  >
+                    <span aria-hidden="true" className="text-sm">{item.icon}</span>
+                    <span className="truncate">{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </nav>
     </div>
   );

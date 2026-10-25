@@ -162,19 +162,19 @@ export default function ProfileClient() {
     <div className="space-y-8">
       {/* Auth banner */}
       {!isLoggedIn ? (
-        <div className="rounded-xl border border-purple-600/40 bg-purple-900/20 px-5 py-4 flex items-center justify-between gap-4">
+        <div className="rounded-xl border border-purple-600/40 bg-purple-900/20 px-4 sm:px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
           <p className="text-sm text-purple-200/80">
             Sign in with Discord to sync your progress across devices.
           </p>
           <button
             onClick={() => signIn("discord")}
-            className="shrink-0 rounded-lg bg-[#5865F2] px-4 py-2 text-sm font-semibold text-white hover:bg-[#4752C4] transition-colors"
+            className="w-full sm:w-auto shrink-0 rounded-lg bg-[#5865F2] px-4 py-2 text-sm font-semibold text-white hover:bg-[#4752C4] transition-colors"
           >
             Sign in with Discord
           </button>
         </div>
       ) : (
-        <div className="rounded-xl border border-purple-700/40 bg-purple-900/20 px-5 py-3 flex items-center justify-between gap-4">
+        <div className="rounded-xl border border-purple-700/40 bg-purple-900/20 px-4 sm:px-5 py-3 flex flex-wrap items-center justify-between gap-3">
           <p className="text-sm text-purple-200/80">
             Signed in as <span className="text-white font-medium">{session.user?.name}</span> — progress syncs across devices.
           </p>
@@ -233,7 +233,7 @@ export default function ProfileClient() {
                   <span className={`inline-block text-xs font-medium mb-3 px-2 py-0.5 rounded border ${FACTION_COLORS[faction]}`}>
                     {FACTION_LABELS[faction]}
                   </span>
-                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
                     {factionHeroes.map((hero) => (
                       <HeroRankCard
                         key={hero.id}

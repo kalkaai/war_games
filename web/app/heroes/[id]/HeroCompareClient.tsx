@@ -142,10 +142,10 @@ export default function HeroCompareClient({
         ].map(({ hero, imgErr, setImgErr }) => (
           <div
             key={hero.id}
-            className={`rounded-xl border p-6 ${FACTION_COLORS[hero.faction]}`}
+            className={`rounded-xl border p-4 sm:p-6 ${FACTION_COLORS[hero.faction]}`}
           >
-            <div className="flex items-center gap-4">
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl bg-purple-800/50">
+            <div className="flex items-start sm:items-center gap-3 sm:gap-4">
+              <div className="relative h-16 w-16 sm:h-24 sm:w-24 shrink-0 overflow-hidden rounded-xl bg-purple-800/50">
                 {hero.portrait && !imgErr ? (
                   <Image
                     src={hero.portrait}
@@ -156,17 +156,17 @@ export default function HeroCompareClient({
                     onError={() => setImgErr(true)}
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center text-3xl font-bold text-purple-300/40">
+                  <div className="flex h-full w-full items-center justify-center text-2xl sm:text-3xl font-bold text-purple-300/40">
                     {hero.name[0]}
                   </div>
                 )}
               </div>
 
-              <div className="flex-1">
-                <div className="flex items-center justify-between">
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <Link
                     href={`/heroes/${hero.id}`}
-                    className="text-2xl font-extrabold text-white hover:text-purple-200"
+                    className="text-xl sm:text-2xl font-extrabold text-white hover:text-purple-200"
                   >
                     {hero.name}
                   </Link>

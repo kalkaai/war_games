@@ -274,8 +274,8 @@ export default function SeasonsClient({
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div>
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <div className="flex-1 min-w-[140px] sm:flex-initial">
               <label
                 htmlFor="current-season-select"
                 className="block text-[11px] text-purple-300"
@@ -286,7 +286,7 @@ export default function SeasonsClient({
                 id="current-season-select"
                 value={currentSeasonId}
                 onChange={(e) => setCurrentSeasonId(e.target.value as SeasonId)}
-                className="mt-1 rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="mt-1 w-full rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
               >
                 {seasons.map((s) => (
                   <option key={s.id} value={s.id}>
@@ -295,8 +295,8 @@ export default function SeasonsClient({
                 ))}
               </select>
             </div>
-            <span className="mt-4 text-purple-400">→</span>
-            <div>
+            <span className="mt-4 hidden sm:inline text-purple-400">→</span>
+            <div className="flex-1 min-w-[140px] sm:flex-initial">
               <label
                 htmlFor="target-season-select"
                 className="block text-[11px] text-purple-300"
@@ -309,7 +309,7 @@ export default function SeasonsClient({
                 onChange={(e) =>
                   setSelectedSeasonId(e.target.value as SeasonId)
                 }
-                className="mt-1 rounded-md border border-purple-500 bg-purple-900 px-3 py-1.5 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="mt-1 w-full rounded-md border border-purple-500 bg-purple-900 px-3 py-1.5 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
               >
                 {seasons.map((s) => (
                   <option key={s.id} value={s.id}>

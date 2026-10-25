@@ -245,7 +245,7 @@ export default function HeroesClient() {
               aria-label="First hero to compare"
               value={compareA}
               onChange={(e) => setCompareA(e.target.value)}
-              className="rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="flex-1 min-w-[130px] sm:flex-initial rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               {heroes.map((h) => (
                 <option key={h.id} value={h.id}>
@@ -258,7 +258,7 @@ export default function HeroesClient() {
               aria-label="Second hero to compare"
               value={compareB}
               onChange={(e) => setCompareB(e.target.value)}
-              className="rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="flex-1 min-w-[130px] sm:flex-initial rounded-md border border-purple-700 bg-purple-950 px-3 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               {heroes.map((h) => (
                 <option key={h.id} value={h.id}>
@@ -269,12 +269,12 @@ export default function HeroesClient() {
             {compareSlug ? (
               <Link
                 href={`/heroes/${compareSlug}`}
-                className="rounded-md bg-purple-600 px-3.5 py-1.5 text-xs font-bold text-white transition-colors hover:bg-purple-500"
+                className="w-full sm:w-auto text-center rounded-md bg-purple-600 px-3.5 py-1.5 text-xs font-bold text-white transition-colors hover:bg-purple-500"
               >
                 Compare →
               </Link>
             ) : (
-              <span className="rounded-md bg-purple-950/60 px-3.5 py-1.5 text-xs text-purple-400">
+              <span className="w-full sm:w-auto text-center rounded-md bg-purple-950/60 px-3.5 py-1.5 text-xs text-purple-400">
                 Select 2 heroes
               </span>
             )}

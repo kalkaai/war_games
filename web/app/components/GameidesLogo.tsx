@@ -34,11 +34,6 @@ export function GameidesLogo() {
       <span className="text-xl font-bold tracking-tight text-white group-hover:text-purple-100 transition-colors">
         GAMIDES
       </span>
-
-      {/* Beta badge */}
-      <span className="rounded bg-purple-600/70 px-1.5 py-0.5 text-xs font-medium text-purple-100">
-        Beta
-      </span>
     </a>
   )
 }

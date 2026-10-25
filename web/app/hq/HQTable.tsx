@@ -88,23 +88,23 @@ export default function HQTable() {
 
       {/* Table */}
       <div className="mt-6 overflow-x-auto rounded-xl border border-purple-700/60">
-        <table aria-label="HQ upgrade requirements" className="w-full text-sm">
-          <thead className="sticky top-[98px] z-20">
+        <table aria-label="HQ upgrade requirements" className="w-full text-xs sm:text-sm">
+          <thead>
             <tr className="border-b border-purple-700/60 bg-purple-950">
-              <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Level</th>
-              <th scope="col" className="px-4 py-3 text-left font-semibold text-purple-200">Required Buildings</th>
+              <th scope="col" className="px-2.5 py-2.5 sm:px-4 sm:py-3 text-left font-semibold text-purple-200 whitespace-nowrap">Level</th>
+              <th scope="col" className="px-2.5 py-2.5 sm:px-4 sm:py-3 text-left font-semibold text-purple-200 min-w-[140px]">Required Buildings</th>
               {RESOURCE_COLS.map((c) => (
-                <th key={c.key} scope="col" className="px-4 py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
+                <th key={c.key} scope="col" className="px-2.5 py-2.5 sm:px-4 sm:py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
                   {c.label}
                 </th>
               ))}
-              <th scope="col" className="px-4 py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
+              <th scope="col" className="px-2.5 py-2.5 sm:px-4 sm:py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
                 🦸 Heroes Cap
               </th>
-              <th scope="col" className="px-4 py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
+              <th scope="col" className="px-2.5 py-2.5 sm:px-4 sm:py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
                 ⏱ Build Time
               </th>
-              <th scope="col" className="px-4 py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
+              <th scope="col" className="px-2.5 py-2.5 sm:px-4 sm:py-3 text-right font-semibold text-purple-200 whitespace-nowrap">
                 CP
               </th>
             </tr>
@@ -123,7 +123,7 @@ export default function HQTable() {
                       : i % 2 === 0 ? "bg-purple-900/10" : "bg-transparent",
                   ].join(" ")}
                 >
-                  <td className="px-4 py-2.5 font-bold text-white">
+                  <td className="px-2.5 py-2 sm:px-4 sm:py-2.5 font-bold text-white whitespace-nowrap">
                     <Link
                       href={`/hq/level-${row.level}-requirements`}
                       className="inline-flex items-center gap-1 text-purple-200 underline decoration-purple-600/70 underline-offset-2 hover:text-white"
@@ -131,26 +131,26 @@ export default function HQTable() {
                       Lv. {row.level}
                     </Link>
                     {row.level === 30 && (
-                      <span className="ml-2 rounded bg-amber-600/70 px-1.5 py-0.5 text-xs">T10</span>
+                      <span className="ml-1.5 rounded bg-amber-600/70 px-1.5 py-0.5 text-[10px] sm:text-xs">T10</span>
                     )}
                   </td>
-                  <td className="px-4 py-2.5 text-purple-200">
+                  <td className="px-2.5 py-2 sm:px-4 sm:py-2.5 text-purple-200">
                     {row.requiredBuildings.length > 0
                       ? row.requiredBuildings.join(", ")
                       : <span className="text-purple-300/70">—</span>}
                   </td>
                   {RESOURCE_COLS.map((c) => (
-                    <td key={c.key} className="px-4 py-2.5 text-right font-mono text-purple-200">
+                    <td key={c.key} className="px-2.5 py-2 sm:px-4 sm:py-2.5 text-right font-mono text-purple-200 whitespace-nowrap">
                       {fmt(row.cost[c.key])}
                     </td>
                   ))}
-                  <td className="px-4 py-2.5 text-right font-semibold text-purple-100">
+                  <td className="px-2.5 py-2 sm:px-4 sm:py-2.5 text-right font-semibold text-purple-100 whitespace-nowrap">
                     {row.heroesCap}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono text-purple-200 whitespace-nowrap">
+                  <td className="px-2.5 py-2 sm:px-4 sm:py-2.5 text-right font-mono text-purple-200 whitespace-nowrap">
                     {fmtTime(row.buildTimeMinutes)}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono text-purple-200">
+                  <td className="px-2.5 py-2 sm:px-4 sm:py-2.5 text-right font-mono text-purple-200 whitespace-nowrap">
                     {row.cp > 0 ? fmt(row.cp) : "—"}
                   </td>
                 </tr>

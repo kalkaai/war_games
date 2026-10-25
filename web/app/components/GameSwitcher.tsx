@@ -47,7 +47,7 @@ export function GameSwitcher() {
             key={g.id}
             href={g.href}
             aria-current={active ? "true" : undefined}
-            className={`flex items-center justify-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
+            className={`flex items-center justify-center gap-1 sm:gap-1.5 rounded-lg px-2 sm:px-3 py-1.5 text-xs font-bold whitespace-nowrap transition-all ${
               active
                 ? "bg-purple-600 text-white shadow-sm"
                 : "text-purple-200/90 hover:bg-purple-800/50 hover:text-white"

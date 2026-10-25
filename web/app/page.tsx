@@ -73,21 +73,21 @@ export default function HomePage() {
     <div className="mx-auto max-w-6xl px-4">
 
       {/* Hero */}
-      <section className="flex min-h-[70vh] flex-col items-center justify-center py-20 text-center">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
+      <section className="flex min-h-[60vh] sm:min-h-[70vh] flex-col items-center justify-center py-12 sm:py-20 text-center">
+        <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-7xl">
           The Last Z: Survival Shooter Game Guide
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-purple-100/95 sm:text-xl">
+        <p className="mt-4 sm:mt-6 max-w-2xl text-base text-purple-100/95 sm:text-xl">
           Event schedules, upgrade tables, research trees, and calculators for
           serious Last Z: Survival Shooter players.
         </p>
-        <p className="mt-3 max-w-xl text-sm text-purple-200/75">
+        <p className="mt-3 max-w-xl text-xs sm:text-sm text-purple-200/75">
           <strong>Last Z: Survival Shooter</strong> is a competitive strategy &amp; survival game with base building, research, hero collection, and alliance PvP. <strong>GAMIDES</strong> is the community game guide.
         </p>
-        <div className="mt-10 flex flex-col items-center gap-4">
+        <div className="mt-8 sm:mt-10 flex w-full max-w-xs sm:max-w-none flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <a
             href={discordInviteUrl}
-            className="rounded-lg bg-purple-600 px-10 py-4 text-xl font-bold text-white shadow-lg shadow-purple-900/50 transition-all hover:bg-purple-500 hover:scale-105 hover:shadow-purple-700/50"
+            className="w-full sm:w-auto rounded-lg bg-purple-600 px-8 sm:px-10 py-3.5 sm:py-4 text-base sm:text-xl font-bold text-white shadow-lg shadow-purple-900/50 transition-all hover:bg-purple-500 hover:scale-105 hover:shadow-purple-700/50"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -95,7 +95,7 @@ export default function HomePage() {
           </a>
           <Link
             href="/events"
-            className="rounded-md border border-purple-700 px-6 py-2.5 text-sm font-medium text-purple-400 transition-colors hover:border-purple-500 hover:text-white"
+            className="w-full sm:w-auto rounded-md border border-purple-700 px-6 py-3 sm:py-4 text-sm sm:text-base font-medium text-purple-300 transition-colors hover:border-purple-500 hover:text-white"
           >
             Browse Events
           </Link>
