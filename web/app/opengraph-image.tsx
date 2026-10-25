@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "GAMIDES — Last Z: Survival Shooter Game Guide";
+export const alt = "GAMIDES — Strategy & Survival War Games Companion";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -85,13 +85,13 @@ export default function Image() {
           {/* Subtitle */}
           <div
             style={{
-              fontSize: "26px",
-              color: "rgba(216,180,254,0.7)",
-              letterSpacing: "5px",
+              fontSize: "24px",
+              color: "rgba(216,180,254,0.8)",
+              letterSpacing: "4px",
               textTransform: "uppercase",
             }}
           >
-            Last Z: Survival Shooter
+            Last Z · Whiteout Survival · Last War
           </div>
 
           {/* Section pills */}

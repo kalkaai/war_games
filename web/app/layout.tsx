@@ -25,13 +25,13 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gamides.com"),
-  title: "GAMIDES — The Last Z: Survival Shooter Game Guide",
+  title: "GAMIDES — Strategy & Survival War Games Companion (Last Z, Whiteout Survival & Last War)",
   description:
-    "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game guide.",
+    "Event schedules, HQ & Furnace upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter, Whiteout Survival, and Last War: Survival Game.",
   openGraph: {
-    title: "GAMIDES — The Last Z: Survival Shooter Game Guide",
+    title: "GAMIDES — Strategy & Survival War Games Companion",
     description:
-      "Event schedules, HQ upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter players. The complete game guide.",
+      "Event schedules, HQ & Furnace upgrade tables, research trees, hero guides, and calculators for Last Z: Survival Shooter, Whiteout Survival, and Last War: Survival Game.",
     type: "website",
     url: "https://www.gamides.com",
     images: [{ url: "https://www.gamides.com/opengraph-image", width: 1200, height: 630 }],
@@ -76,17 +76,32 @@ const STARS = [
 const discordInviteUrl =
   process.env.NEXT_PUBLIC_DISCORD_INVITE_URL ?? "#";
 
+const adsenseClientId =
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID ?? "ca-pub-2170985466863364";
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "GAMIDES",
   "url": "https://www.gamides.com",
-  "description": "Community game guide for Last Z: Survival Shooter players — event schedules, HQ upgrade tables, research trees, hero guides, and calculators.",
-  "about": {
-    "@type": "VideoGame",
-    "name": "Last Z: Survival Shooter",
-    "description": "Competitive strategy and survival game with base building, research, hero collection, and alliance PvP.",
-  },
+  "description": "Community companion and calculator hub for strategy & survival war games — Last Z: Survival Shooter, Whiteout Survival, and Last War: Survival Game.",
+  "about": [
+    {
+      "@type": "VideoGame",
+      "name": "Last Z: Survival Shooter",
+      "description": "Competitive strategy and survival game with base building, research, hero collection, and alliance PvP.",
+    },
+    {
+      "@type": "VideoGame",
+      "name": "Whiteout Survival",
+      "description": "Glacial apocalypse 4X strategy game featuring Furnace & Fire Crystal upgrades, SSR hero generations, and State of Power (SvS) warfare.",
+    },
+    {
+      "@type": "VideoGame",
+      "name": "Last War: Survival Game",
+      "description": "Action-strategy mobile game featuring HQ 1–35 Age of Oil progression, UR hero squads, Tactical Drones, and VS Alliance Duels.",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -175,8 +190,15 @@ export default function RootLayout({
             >
               Add GAMIDES to Discord
             </a>
-            <p className="mt-2">GAMIDES — Personal companion for Last Z: Survival Shooter players.</p>
-            <p className="mt-2 text-purple-200/80">Copyright &copy; {new Date().getFullYear()} GAMIDES. Not affiliated with Last Z: Survival Shooter or its developers.</p>
+            <p className="mt-2">
+              GAMIDES — Multi-game strategy &amp; survival companion for{" "}
+              <Link href="/" className="text-purple-300 hover:text-white underline decoration-purple-600/60">Last Z: Survival Shooter</Link>,{" "}
+              <Link href="/whiteout-survival" className="text-purple-300 hover:text-white underline decoration-purple-600/60">Whiteout Survival</Link> &amp;{" "}
+              <Link href="/last-war" className="text-purple-300 hover:text-white underline decoration-purple-600/60">Last War: Survival Game</Link>.
+            </p>
+            <p className="mt-2 text-purple-200/80">
+              Copyright &copy; {new Date().getFullYear()} GAMIDES. Independent fan-made guide — not affiliated with or endorsed by the developers or publishers of Last Z, Whiteout Survival, or Last War.
+            </p>
             <p className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1">
               <Link href="/feedback" className="text-purple-400 hover:text-purple-300 transition-colors">Feedback</Link>
               <Link href="/credits" className="text-purple-400 hover:text-purple-300 transition-colors">Credits</Link>
@@ -190,12 +212,12 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}
-        {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
+        {adsenseClientId && (
           <Script
             async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID}`}
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
             crossOrigin="anonymous"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
         )}
         </Providers>

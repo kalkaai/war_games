@@ -1,5 +1,5 @@
 {
-  "_comment": "Whiteout Survival Furnace levels 1-30 + Fire Crystal FC1-FC5, alliance event cadence, and SvS/Hall of Chiefs rotation.",
+  "_comment": "Comprehensive Whiteout Survival database: Furnace 1-30 + FC1-FC5, 8 Alliance Events, SvS Rotation, 27 SSR/SR Heroes (Gen 1-8), Server Seasons Timeline, Research & War Academy (Helios T11), Beast Cage Pets (Gen 1-5), Chief Charms (1-16), Chief Gear (1-11), PvP Meta Guides, and Gift Codes.",
   "furnaceLevels": [
     { "level": 1, "label": "Lv. 1", "requiredBuildings": [], "meat": 1000, "wood": 1000, "coal": 0, "iron": 0, "fireCrystals": 0, "buildTimeMinutes": 0, "unlock": "Starter Camp" },
     { "level": 2, "label": "Lv. 2", "requiredBuildings": ["Hunter's Hut Lv.1"], "meat": 2500, "wood": 2500, "coal": 0, "iron": 0, "fireCrystals": 0, "buildTimeMinutes": 1, "unlock": "Sawmill" },
@@ -44,53 +44,240 @@
       "cadence": "Every 48 Hours (Alliance R4/R5 Triggered)",
       "utcTimes": ["00:00", "12:00", "19:00"],
       "keyRewards": "Essence Stones, Forgehammers, Construction Speed-ups, Alliance Tokens",
-      "strategyTip": "Lead rallies with Jeronimo/Natalia/Molly; join rallies using Jessie, Jasser, or Seo-yoon in Slot 1 for +25% damage!"
+      "strategyTip": "Lead rallies with Jeronimo/Natalia/Hector/Bradley; join rallies using Jessie, Jasser, Seo-yoon, or Reina in Slot 1 for +25–30% rally damage!"
     },
     {
       "id": "sunfire_castle",
       "name": "Sunfire Castle Battle",
       "cadence": "Bi-Weekly Saturday (12:00 – 18:00 UTC)",
-      "utcTimes": ["12:00"],
+      "utcTimes": ["12:00", "14:00", "18:00"],
       "keyRewards": "Supreme President Title, State Buffs, Chief Charm Materials, Gems",
-      "strategyTip": "Hold the Castle for 3 consecutive hours or accumulate the longest total occupation time across the 6-hour window."
+      "strategyTip": "Hold the Castle for 3 consecutive hours or accumulate the longest total occupation time across the 6-hour window using timed double-rallies."
     },
     {
       "id": "crazy_joe",
       "name": "Crazy Joe (Bandit Siege)",
       "cadence": "Tue & Thu (Alliance Scheduled)",
-      "utcTimes": ["13:00", "19:00"],
+      "utcTimes": ["13:00", "19:00", "21:00"],
       "keyRewards": "Chief Gear Design Plans, Polishing Solution, Hardened Alloy",
-      "strategyTip": "Reinforce online alliance members with your Infantry/Lancer troops while keeping your own heroes home; Waves 10 and 20 hit the Alliance HQ!"
+      "strategyTip": "Reinforce online alliance members with Infantry/Lancer troops while keeping your own heroes home; Waves 10 and 20 hit the Alliance HQ!"
     },
     {
       "id": "foundry_battle",
       "name": "Foundry Battle",
-      "cadence": "Bi-Weekly Sunday ( Legion 1 & 2 Windows)",
+      "cadence": "Bi-Weekly Sunday (Legion 1 & 2 Windows)",
       "utcTimes": ["14:00", "19:00"],
-      "keyRewards": "Arsenal Tokens, Mythic Skill Manuals, Essence Stones",
-      "strategyTip": "No permanent troop losses! Assign dedicated interceptors to Imperial Foundry and Boiler Room at the 15-minute mark."
+      "keyRewards": "Arsenal Tokens, Mythic Skill Manuals, Essence Stones, Design Plans",
+      "strategyTip": "Zero permanent troop losses! Assign dedicated interceptors to Imperial Foundry and Boiler Room at the 15-minute mark."
+    },
+    {
+      "id": "canyon_clash",
+      "name": "Canyon Clash (3-Way Alliance War)",
+      "cadence": "Monthly Sunday (Legion 1 & 2 Windows)",
+      "utcTimes": ["14:00", "19:00"],
+      "keyRewards": "Pet Advancement Manuals, Charm Guides, Essence Stones, Canyon Tokens",
+      "strategyTip": "Manage March Fuel carefully! Capture the Frozen Citadel in Phase 3 while keeping two mobile squads guarding Bridge chokepoints."
+    },
+    {
+      "id": "frostfire_mine",
+      "name": "Frostfire Mine (Solo Instance)",
+      "cadence": "Bi-Weekly (30-Min Registered Slot)",
+      "utcTimes": ["02:00", "08:00", "14:00", "20:00"],
+      "keyRewards": "Charm Designs, Charm Guides, Fire Crystals, Speed-ups",
+      "strategyTip": "Take the Left Vein Skill Branch (+Orichalcum from Smelters) and save your 5-minute Vein Burst skill for the Level 23 and 43 Vein Outbursts!"
+    },
+    {
+      "id": "mercenary_prestige",
+      "name": "Mercenary Prestige (Phaethon Hunt)",
+      "cadence": "Tri-Weekly (3-Day Window)",
+      "utcTimes": ["00:00"],
+      "keyRewards": "Fire Crystals, Mythic General Shards, Chief Gear Materials",
+      "strategyTip": "Complete all 50 solo mercenary waves first, then call Alliance Boss rallies using Gina in your march to save 20% Chief Stamina."
+    },
+    {
+      "id": "state_of_power",
+      "name": "State of Power (SvS Cross-Server War)",
+      "cadence": "Monthly (5-Day Prep + Saturday Battle)",
+      "utcTimes": ["10:00", "12:00", "18:00"],
+      "keyRewards": "Supreme President, Jewel Secrets, Lunar Amber, Fire Crystal Shards",
+      "strategyTip": "Win the 5-Day Prep Phase so your State attacks the enemy Sunfire Castle; up to 90% of dead SvS troops can be revived in the Enlistment Office."
     }
   ],
   "svsPrepRotation": [
-    { "day": 1, "name": "City Construction", "focus": "Use Fire Crystals, Construction Speed-ups & Chief Charms" },
+    { "day": 1, "name": "City Construction", "focus": "Use Fire Crystals, Refined FC, Construction Speed-ups & Chief Charms" },
     { "day": 2, "name": "Basic Skill Up", "focus": "Spend Hero Shards, Lucky Wheel Spins, Research Speed-ups & Gather RSS" },
-    { "day": 3, "name": "Pet & Charm Training", "focus": "Advance Beast/Pets, Chief Charms & Hero Roulette" },
-    { "day": 4, "name": "Troop Training", "focus": "Train/Promote T9-T10 Troops & Spend Essence Stones" },
+    { "day": 3, "name": "Pet & Charm Training", "focus": "Advance Beast/Pets, Chief Charms & Spin Hero Roulette" },
+    { "day": 4, "name": "Troop Training", "focus": "Train/Promote T9-T10/T11 Troops & Spend Hero Gear Essence Stones" },
     { "day": 5, "name": "Power Boost", "focus": "Upgrade Chief Gear (Alloy/Design Plans), Pet Refinement & All Speed-ups" }
   ],
+  "seasons": [
+    {
+      "id": "gen1",
+      "era": "Era 1: Server Launch (Days 1–39)",
+      "unlockWindow": "Day 1",
+      "heroes": ["Jeronimo (SSR)", "Natalia (SSR)", "Molly (SSR)", "Zinman (SSR)", "Jessie (SR)", "Bahiti (SR)", "Sergey (SR)"],
+      "buildingsAndSystems": ["Furnace Lv. 1–30", "Chief Gear (Lv. 22)", "Chief Charms (Lv. 25)", "First Sunfire Castle (Day 55)"],
+      "hoardingPriority": "Save Gems for VIP 7+ and Gen 2 Lucky Wheel (Flint); upgrade Zinman's construction skill early; max Jessie's top-right Expedition skill to Lv.5."
+    },
+    {
+      "id": "gen2",
+      "era": "Era 2: Generation 2 & Fire Crystal Age (Days 40–110)",
+      "unlockWindow": "Day 40 (Heroes) · Day 60 (FC1–FC3) · Day 85 (State of Power SvS)",
+      "heroes": ["Flint (Lucky Wheel Infantry)", "Alonso (Hall of Hero Marksman)", "Philly (King of Icefield Lancer)"],
+      "buildingsAndSystems": ["Fire Crystal Furnace FC1–FC3", "Beast Cage Pets Gen 1–2 (Cave Hyena, Arctic Wolf, Musk Ox, Titan Roc)", "First State vs State (SvS)"],
+      "hoardingPriority": "Hoard 162,000 Gems for 120 Lucky Wheel spins on Flint; stockpile Fire Crystals for SvS Day 1 Construction bursts."
+    },
+    {
+      "id": "gen3",
+      "era": "Era 3: Generation 3 & FC5 Apex Era (Days 115–190)",
+      "unlockWindow": "Day 115 (Gen 3 Heroes) · Day 150 (FC4–FC5 & Red Chief Gear)",
+      "heroes": ["Mia (Lucky Wheel Lancer)", "Logan (Hall of Hero Infantry)", "Greg (SvS Marksman)"],
+      "buildingsAndSystems": ["Furnace FC4–FC5", "Legendary Red Chief Gear (Lunar Amber)", "Gen 3 Pets (Snow Leopard, Giant Elk)"],
+      "hoardingPriority": "Spin Mia on Lucky Wheel for permanent Bear Hunt Lancer lead; save Mythic General Shards for Gen 4 Reina or Alonso."
+    },
+    {
+      "id": "gen4",
+      "era": "Era 4: Generation 4 & War Academy Helios T11 (Days 195–265)",
+      "unlockWindow": "Day 195 (Gen 4 Heroes) · Day 220 (War Academy Helios T11 Troops)",
+      "heroes": ["Ahmose (Infantry Tank)", "Reina (Lancer Carry & +30% Joiner)", "Lynn (Lucky Wheel Marksman)"],
+      "buildingsAndSystems": ["War Academy (Helios T11 Infantry, Lancer & Marksman)", "Fire Crystal Shards & Steel Research", "Gen 4 Pets (Cave Lion, Snow Ape)"],
+      "hoardingPriority": "Convert excess Fire Crystals into Fire Crystal Shards (13,040 FC Shards per T11 branch); unlock Reina to 4★ minimum for rally joining."
+    },
+    {
+      "id": "gen5_6",
+      "era": "Era 5: Generation 5–6 & FC6–FC8 Refined Crystal Era (Days 270–420)",
+      "unlockWindow": "Day 270 (Gen 5) · Day 350 (Gen 6 & FC6–FC8)",
+      "heroes": ["Hector (Gen 5 Lucky Wheel Infantry)", "Gwen (Gen 5 Marksman)", "Norah (Gen 5 Lancer)", "Wu Ming (Gen 6 Infantry)", "Renee (Gen 6 Lucky Wheel)", "Wayne (Gen 6 Marksman)"],
+      "buildingsAndSystems": ["Refined Fire Crystals (FC6–FC8)", "Chief Charms Lv. 12–16 (Jewel Secrets)", "Gen 5 Pets (Iron Rhino, Saber-tooth Tiger)"],
+      "hoardingPriority": "Hector (Gen 5 Lucky Wheel) is the highest-value F2P Infantry in the game — save 300,000+ Gems to max him."
+    },
+    {
+      "id": "gen7_8",
+      "era": "Era 6: Generation 7–8 & FC9–FC10 Endgame (Day 430+)",
+      "unlockWindow": "Day 430 (Gen 7) · Day 510 (Gen 8 & FC10)",
+      "heroes": ["Bradley (Gen 7 Lucky Wheel Marksman)", "Edith (Gen 7 Infantry)", "Gordon (Gen 7 Lancer)", "Gatot (Gen 8 Lucky Wheel Infantry)", "Sonya (Gen 8 Lancer)", "Hendrik (Gen 8 Marksman)"],
+      "buildingsAndSystems": ["Furnace FC9–FC10", "Mythic Red Hero Gear Mastery Lv. 20", "Frostdragon Tyrant Cross-State Championship"],
+      "hoardingPriority": "Bradley (Gen 7 Lucky Wheel) serves as both a top-tier Marksman carry AND a +25% ATK Bear Hunt rally joiner."
+    }
+  ],
+  "researchTrees": [
+    {
+      "id": "growth",
+      "name": "Growth Tree (Research Center)",
+      "icon": "🏗️",
+      "unlock": "Furnace Lv. 9",
+      "priority": "High (Early–Mid Game)",
+      "keyNodes": ["Tool Enhancement I–VII (+Construction Speed)", "Research Speed I–VII", "Camp Expansion & Training Speed I–VI", "Ward Expansion (Hospital Cap)"],
+      "summary": "Always max Tool Enhancement and Research Speed nodes first before pushing high-level Furnace or Battle tech."
+    },
+    {
+      "id": "economy",
+      "name": "Economy Tree (Research Center)",
+      "icon": "⛏️",
+      "unlock": "Furnace Lv. 9",
+      "priority": "Medium",
+      "keyNodes": ["Meat / Wood / Coal / Iron Gathering Speed I–VI", "Load Capacity I–V"],
+      "summary": "Unlock gathering speed nodes to level 4–5 for SvS Day 2 gathering tasks, then pivot all speed-ups into Battle."
+    },
+    {
+      "id": "battle",
+      "name": "Battle Tree (Research Center)",
+      "icon": "⚔️",
+      "unlock": "Furnace Lv. 9",
+      "priority": "Critical (All Stages)",
+      "keyNodes": ["Regimental Expansion (March Capacity)", "Infantry Defense & HP I–VIII", "Marksman & Lancer Lethality I–VIII", "Special Defensive Training"],
+      "summary": "Lethality and Health nodes in Tier V–VI require 40+ days per node — save Research Speed-ups and Vice President buffs (+10% speed) before starting."
+    },
+    {
+      "id": "war_academy_infantry",
+      "name": "War Academy: Helios T11 Infantry",
+      "icon": "🛡️",
+      "unlock": "Furnace FC5 + Day 220",
+      "priority": "Critical (#1 T11 Unlock)",
+      "fcShardsTotal": 13040,
+      "steelTotal": 3100000,
+      "keyNodes": ["Flame Shield (Infantry Defense)", "Flame Tomahawk (Infantry Attack)", "Flame Armor (Infantry HP)", "Helios Infantry Unlock (T11)"],
+      "summary": "Unlocks Helios T11 Infantry. Because frontline Infantry absorb 70%+ of battle casualties, 90% of players unlock Helios Infantry first."
+    },
+    {
+      "id": "war_academy_marksman",
+      "name": "War Academy: Helios T11 Marksman",
+      "icon": "🏹",
+      "unlock": "Furnace FC5 + Day 220",
+      "priority": "Critical (#2 T11 Unlock)",
+      "fcShardsTotal": 13040,
+      "steelTotal": 3100000,
+      "keyNodes": ["Flame Musket (Marksman Attack)", "Flame Sight (Marksman Lethality)", "Crystal Ammo", "Helios Marksman Unlock (T11)"],
+      "summary": "Unlocks Helios T11 Marksman — massive Bear Trap and Sunfire rally damage boost after Helios Infantry is completed."
+    },
+    {
+      "id": "war_academy_lancer",
+      "name": "War Academy: Helios T11 Lancer",
+      "icon": "🔱",
+      "unlock": "Furnace FC5 + Day 220",
+      "priority": "High (#3 T11 Unlock)",
+      "fcShardsTotal": 13040,
+      "steelTotal": 3100000,
+      "keyNodes": ["Flame Halberd (Lancer Attack)", "Flame Charge (Lancer Lethality)", "Crystal Barding", "Helios Lancer Unlock (T11)"],
+      "summary": "Completes the full T11 Helios trinity for 60/40/0 Infantry-Lancer garrison and canyon formations."
+    }
+  ],
+  "pets": [
+    { "id": "cave_hyena", "name": "Cave Hyena", "gen": "Gen 1", "rarity": "Common", "skill": "Builder's Aide (+5%–15% Construction Speed for 5m)", "cooldown": "24h", "role": "Economy / Construction", "note": "Activate right before starting Furnace or Embassy upgrades to shave days off build timers." },
+    { "id": "arctic_wolf", "name": "Arctic Wolf", "gen": "Gen 1", "rarity": "Uncommon", "skill": "Pack Stamina (+30–60 Chief Stamina Instantly)", "cooldown": "24h", "role": "Intel & Mercenary Stamina", "note": "Free daily Chief Stamina for Lighthouse Intel and Mercenary Prestige hunts." },
+    { "id": "musk_ox", "name": "Musk Ox", "gen": "Gen 1", "rarity": "Rare", "skill": "Burden Bearer (Instant Gather 1 Level 8 Resource Tile)", "cooldown": "24h", "role": "Instant Gathering", "note": "Send 1 troop to a Lv.8 Iron/Coal tile with Musk Ox active to finish gathering in 1 second!" },
+    { "id": "giant_tapir", "name": "Giant Tapir", "gen": "Gen 2", "rarity": "Rare", "skill": "Forager's Instinct (+Pet Food Passive)", "cooldown": "24h", "role": "Pet Progression", "note": "Generates free Pet Food every day to feed your SSR combat beasts." },
+    { "id": "titan_roc", "name": "Titan Roc", "gen": "Gen 2", "rarity": "Epic", "skill": "Armor Rift (-5%–15% Enemy Troop Health for 2h)", "cooldown": "20h", "role": "PvP Sunfire Debuff", "note": "Mandatory active pet during Sunfire Castle and Foundry Battle." },
+    { "id": "giant_elk", "name": "Giant Elk", "gen": "Gen 3", "rarity": "Epic", "skill": "Bountiful Horn (Bonus Rare Chests)", "cooldown": "24h", "role": "Item Chest Generator", "note": "Grants random high-value resource or speed-up chests every 24 hours." },
+    { "id": "snow_leopard", "name": "Snow Leopard", "gen": "Gen 3", "rarity": "Epic", "skill": "Lightning Raid (+30% March Speed & +5%–15% Troop Lethality for 2h)", "cooldown": "20h", "role": "Bear Hunt & PvP Lethality", "note": "Pop Snow Leopard before Bear Hunt for a 2-hour Troop Lethality buff across all rallies!" },
+    { "id": "cave_lion", "name": "Cave Lion", "gen": "Gen 4", "rarity": "Mythic", "skill": "Fierce Roar (+5%–10% All Troop Attack for 2h)", "cooldown": "20h", "role": "Bear Hunt & SvS Rally Burst", "note": "Stacks with Snow Leopard and Saber-tooth Tiger for maximum Bear Hunt and Sunfire damage." },
+    { "id": "snow_ape", "name": "Snow Ape", "gen": "Gen 4", "rarity": "Mythic", "skill": "Primal Might (+5,000–15,000 Deployment Capacity for 2h)", "cooldown": "20h", "role": "Rally & Solo March Size+", "note": "Increases your solo march and rally lead capacity during SvS and Sunfire Castle." },
+    { "id": "iron_rhino", "name": "Iron Rhino", "gen": "Gen 5", "rarity": "Mythic", "skill": "Colossus Charge (+50,000–150,000 Rally Capacity for 2h)", "cooldown": "20h", "role": "Whale Rally Leader", "note": "Adds up to 150,000 extra troops to your Bear Trap and Sunfire Castle rallies." },
+    { "id": "saber_tooth_tiger", "name": "Saber-tooth Tiger", "gen": "Gen 5", "rarity": "Mythic", "skill": "Apex Predator (+5%–10% Troop Lethality for 2h)", "cooldown": "20h", "role": "#1 Bear Hunt & SvS Lethality Pet", "note": "Top combat pet in Whiteout Survival; combine with Cave Lion and Snow Leopard during Bear Hunt." }
+  ],
+  "pvpStrategies": [
+    {
+      "title": "Bear Hunt Slot-1 Rally Joiner Rule",
+      "category": "Alliance PvE / Bear Trap",
+      "badge": "Mandatory Rule",
+      "details": "When joining an alliance member's rally, ONLY your Slot-1 (Far Left) Hero's top-right Expedition Skill is contributed to the rally (up to 4 joiner skills total). Always join Bear Hunt rallies with Jessie (+25% DMG), Jasser (+25% DMG), Seo-yoon (+25% ATK), Reina (+30% Normal DMG), or Bradley (+25% ATK) in Slot 1 — never join with Molly, Gina, or Blue gathering heroes!"
+    },
+    {
+      "title": "Sunfire Castle Double-Rally Synchronization",
+      "category": "Sunfire & SvS Castle Warfare",
+      "badge": "Advanced PvP",
+      "details": "To dislodge a heavily garrisoned whale in Sunfire Castle or Turrets, two alliance rally leaders call 5-minute rallies offset by their exact march travel times so Rally B impacts 1 second after Rally A. Rally A breaks the defender's troop count; Rally B hits before their allies' reinforcement marches can land."
+    },
+    {
+      "title": "Attack vs. Garrison Troop Formations (50/20/30 vs. 60/40/0)",
+      "category": "Troop Ratio Meta",
+      "badge": "Formation Guide",
+      "details": "Standard Rally Attack: 50% Infantry / 20% Lancer / 30% Marksman (maximizes backline Marksman lethality while Infantry holds the frontline). Sunfire Garrison Hold: 60% Infantry / 40% Lancer / 0% Marksman (prevents your garrison from being wiped by enemy Lancers diving the backline). Bear Trap Solo/Join: 10% Infantry / 10% Lancer / 80% Marksman."
+    },
+    {
+      "title": "Garrison Hero Swap Trick (Patrick / Sergey)",
+      "category": "Garrison Defense",
+      "badge": "R4/R5 Tactic",
+      "details": "Inside Sunfire Castle, the building uses the stats (Chief Gear, Charms, Tech) of the highest-power player inside, OR the appointed Garrison Captain. Have F2P members reinforce with Patrick (+25% HP) or Sergey (-20% DMG Taken) in Slot 1 to give the whale Garrison Leader massive defensive buffs."
+    }
+  ],
   "ssrHeroes": [
-    { "id": "jeronimo", "name": "Jeronimo", "gen": "Gen 1", "type": "Infantry", "tier": "S+", "acquisition": "VIP 7–12 Packs / Hall ofovan", "bearRole": "Rally Leader (#1 Infantry Widget +15% Lethality)", "note": "Remains the #1 Bear Trap & Sunfire Rally Leader from Gen 1 through Gen 5 thanks to his passive troop ATK/Lethality aura." },
-    { "id": "molly", "name": "Molly", "gen": "Gen 1", "type": "Lancer", "tier": "S", "acquisition": "F2P Daily Intel & Login", "bearRole": "Gen 1–2 Rally Leader", "note": "Best F2P SSR Lancer through Gen 2; AoE stun in Arena/Exploration and +25% damage proc in Expedition." },
+    { "id": "jeronimo", "name": "Jeronimo", "gen": "Gen 1", "type": "Infantry", "tier": "S+", "acquisition": "VIP 7–12 Packs / Hall of Chiefs", "bearRole": "Rally Leader (#1 Infantry Widget +15% Lethality)", "note": "Remains the #1 Bear Trap & Sunfire Rally Leader from Gen 1 through Gen 5 thanks to his passive troop ATK/Lethality aura." },
+    { "id": "natalia", "name": "Natalia", "gen": "Gen 1", "type": "Infantry", "tier": "S", "acquisition": "VIP 1–6 Starter Packs", "bearRole": "Early Rally Leader (+15% Attack Widget)", "note": "Strong Gen 1–2 offensive Infantry lead whose widget buffs rally attack." },
+    { "id": "molly", "name": "Molly", "gen": "Gen 1", "type": "Lancer", "tier": "S", "acquisition": "F2P Daily Intel & Login", "bearRole": "Gen 1–2 Rally Leader (Do NOT use as Slot-1 Joiner)", "note": "Best F2P SSR Lancer through Gen 2; AoE stun in Arena/Exploration and +25% damage proc in Expedition." },
     { "id": "zinman", "name": "Zinman", "gen": "Gen 1", "type": "Marksman", "tier": "A", "acquisition": "Gen 1 Lucky Wheel", "bearRole": "Base Construction Buff (-15% Build Cost/Time)", "note": "Upgrade his right-side Expedition construction skill early to save millions of Meat/Wood/Iron and days of build time on Furnace 15–30." },
     { "id": "jessie", "name": "Jessie", "gen": "Gen 1 (SR)", "type": "Lancer", "tier": "S+", "acquisition": "F2P Intel & Gold Keys", "bearRole": "Mandatory Rally Joiner (+25% All Troop Damage)", "note": "Place Jessie in Slot 1 when joining Bear Trap or Sunfire Castle rallies — her Lv.5 top-right Expedition skill grants +25% damage to the entire rally." },
+    { "id": "jasser", "name": "Jasser", "gen": "Gen 1 (SR)", "type": "Marksman", "tier": "S+", "acquisition": "F2P Intel & Gold Keys", "bearRole": "Mandatory Rally Joiner (+25% All Troop Damage) & Research Speed+", "note": "Second mandatory Bear Trap Slot-1 rally joiner (+25% damage) AND grants up to +15% Research Speed passively!" },
+    { "id": "seo_yoon", "name": "Seo-yoon", "gen": "Gen 1 (SR)", "type": "Marksman", "tier": "S", "acquisition": "F2P Intel & Gold Keys", "bearRole": "Mandatory Rally Joiner (+25% All Troop Attack) & Healing Speed+", "note": "Third F2P Bear Trap Slot-1 rally joiner (+25% Attack) for your 3rd march queue." },
+    { "id": "patrick", "name": "Patrick", "gen": "Gen 1 (SR)", "type": "Infantry", "tier": "S", "acquisition": "F2P Intel & Gold Keys", "bearRole": "Garrison Joiner (+25% All Troop Health)", "note": "Essential Slot-1 joiner when reinforcing Sunfire Castle, Turrets, or Crazy Joe defenses." },
     { "id": "flint", "name": "Flint", "gen": "Gen 2", "type": "Infantry", "tier": "S+", "acquisition": "Gen 2 Lucky Wheel (F2P Friendly)", "bearRole": "F2P Rally Leader & Garrison Anchor", "note": "Essential F2P Gen 2 Lucky Wheel target; replaces Sergey as your frontline Infantry tank." },
-    { "id": "alonso", "name": "Alonso", "gen": "Gen 2", "type": "Marksman", "tier": "S+", "acquisition": "Gen 2 Hall of Hero / General Shards", "bearRole": "Top Arena Carry & Rally Leader", "note": "Dominates Arena and Exploration from Gen 2 to Gen 4 with massive backline AoE burst and healing." },
-    { "id": "philly", "name": "Philly", "gen": "Gen 2", "type": "Lancer", "tier": "S", "acquisition": "Gen 2 King of Icefield / SvS", "bearRole": "Secondary Rally Joiner (+15% ATK)", "note": "Strong hybrid healer and attack buffer for both Sunfire garrison and rally joining." },
-    { "id": "mia", "name": "Mia", "gen": "Gen 3", "type": "Lancer", "tier": "S+", "acquisition": "Gen 3 Lucky Wheel (F2P Friendly)", "bearRole": "Meta Bear Trap Lancer Lead", "note": "High-roll RNG multiplier makes Mia a staple in top Bear Hunt damage records even in later generations." },
-    { "id": "logan", "name": "Logan", "gen": "Gen 3", "type": "Infantry", "tier": "A+", "acquisition": "Gen 3 Hall of Hero", "bearRole": "Garrison Defender", "note": "Solid defensive Infantry tank for Sunfire Castle defense holds." },
-    { "id": "greg", "name": "Greg", "gen": "Gen 3", "type": "Marksman", "tier": "S", "acquisition": "Gen 3 SvS / King of Icefield", "bearRole": "Arena Crowd Control Carry", "note": "Team-wide stun and accuracy disruption in Arena." },
+    { "id": "alonso", "name": "Alonso", "gen": "Gen 2", "type": "Marksman", "tier": "S+", "acquisition": "Gen 2 Hall of Hero / General Shards", "bearRole": "Top Arena Carry & Rally Leader (+15% Rally Lethality Widget)", "note": "Dominates Arena and Exploration from Gen 2 to Gen 4 with massive backline AoE burst and healing." },
+    { "id": "philly", "name": "Philly", "gen": "Gen 2", "type": "Lancer", "tier": "S", "acquisition": "Gen 2 King of Icefield / SvS", "bearRole": "Secondary Rally Joiner (+15% ATK & +15% DEF)", "note": "Strong hybrid healer and attack buffer for both Sunfire garrison and rally joining." },
+    { "id": "mia", "name": "Mia", "gen": "Gen 3", "type": "Lancer", "tier": "S+", "acquisition": "Gen 3 Lucky Wheel (F2P Friendly)", "bearRole": "Meta Bear Trap Lancer Lead (+15% Rally Attack Widget)", "note": "High-roll RNG multiplier makes Mia a staple in top Bear Hunt damage records even in later generations." },
+    { "id": "logan", "name": "Logan", "gen": "Gen 3", "type": "Infantry", "tier": "A+", "acquisition": "Gen 3 Hall of Hero", "bearRole": "Garrison Defender (+15% Defender Health Widget)", "note": "Solid defensive Infantry tank for Sunfire Castle defense holds." },
+    { "id": "greg", "name": "Greg", "gen": "Gen 3", "type": "Marksman", "tier": "S", "acquisition": "Gen 3 SvS / King of Icefield", "bearRole": "Arena Crowd Control Carry & Rally Joiner (+20% HP)", "note": "Team-wide stun and accuracy disruption in Arena." },
     { "id": "ahmose", "name": "Ahmose", "gen": "Gen 4", "type": "Infantry", "tier": "S+", "acquisition": "Gen 4 SvS / Hall of Hero", "bearRole": "Apex Infantry Tank", "note": "Massive shield absorption and Infantry lethality scaling for Fire Crystal FC3–FC5 wars." },
-    { "id": "reina", "name": "Reina", "gen": "Gen 4", "type": "Lancer", "tier": "S+", "acquisition": "Gen 4 Hall of Hero", "bearRole": "Rally Joiner (+30% Normal Attack Damage) & Arena Assassin", "note": "Top-tier Gen 4 Lancer; works both as a main march carry and an elite rally joiner." },
+    { "id": "reina", "name": "Reina", "gen": "Gen 4", "type": "Lancer", "tier": "S+", "acquisition": "Gen 4 Hall of Hero", "bearRole": "Elite Rally Joiner (+30% Normal Attack Damage) & Arena Assassin", "note": "Top-tier Gen 4 Lancer; works both as a main march carry and the #1 Slot-1 Bear Trap rally joiner." },
     { "id": "lynn", "name": "Lynn", "gen": "Gen 4", "type": "Marksman", "tier": "S+", "acquisition": "Gen 4 Lucky Wheel (F2P Friendly)", "bearRole": "F2P Marksman Carry & Debuff Cleanser", "note": "Must-spin Gen 4 Lucky Wheel hero for F2P and low-spenders." },
     { "id": "hector", "name": "Hector", "gen": "Gen 5", "type": "Infantry", "tier": "S+", "acquisition": "Gen 5 Lucky Wheel (F2P Friendly)", "bearRole": "Gen 5–6 Meta Infantry Lead & Bear Carry", "note": "Best F2P Infantry in Whiteout Survival history; massive damage ramp and survivability." },
     { "id": "norah", "name": "Norah", "gen": "Gen 5", "type": "Lancer", "tier": "S", "acquisition": "Gen 5 King of Icefield / General Shards", "bearRole": "Garrison & Rally Joiner (+15% Bonus DMG)", "note": "Strong multi-target Lancer with AoE Expedition damage." },
@@ -99,7 +286,9 @@
     { "id": "renee", "name": "Renee", "gen": "Gen 6", "type": "Lancer", "tier": "S+", "acquisition": "Gen 6 Lucky Wheel (F2P Friendly)", "bearRole": "F2P Lancer Carry & Rally Joiner", "note": "High-value Lucky Wheel Lancer for mid-to-late Fire Crystal servers." },
     { "id": "wayne", "name": "Wayne", "gen": "Gen 6", "type": "Marksman", "tier": "S+", "acquisition": "Gen 6 King of Icefield", "bearRole": "Critical Strike Marksman Hypercarry", "note": "Replaces Gwen in whale rallies with massive crit lethality scaling." },
     { "id": "bradley", "name": "Bradley", "gen": "Gen 7", "type": "Marksman", "tier": "S+", "acquisition": "Gen 7 Lucky Wheel (F2P Friendly)", "bearRole": "#1 F2P Marksman & Rally Joiner (+25% ATK)", "note": "Universal S+ Marksman that excels as both a rally leader and a 4-march Bear Hunt joiner." },
-    { "id": "edith", "name": "Edith", "gen": "Gen 7", "type": "Infantry", "tier": "S+", "acquisition": "Gen 7 Hall of Hero", "bearRole": "Helios T11 Infantry Anchor", "note": "Pairs with Bradley for dominant Gen 7–8 SvS rallies." }
+    { "id": "edith", "name": "Edith", "gen": "Gen 7", "type": "Infantry", "tier": "S+", "acquisition": "Gen 7 Hall of Hero", "bearRole": "Helios T11 Infantry Anchor", "note": "Pairs with Bradley for dominant Gen 7–8 SvS rallies." },
+    { "id": "gatot", "name": "Gatot", "gen": "Gen 8", "type": "Infantry", "tier": "S+", "acquisition": "Gen 8 Lucky Wheel (F2P Friendly)", "bearRole": "Gen 8 F2P Infantry Juggernaut", "note": "Massive counter-attack shield and garrison defense aura for FC10 servers." },
+    { "id": "hendrik", "name": "Hendrik", "gen": "Gen 8", "type": "Marksman", "tier": "S+", "acquisition": "Gen 8 King of Icefield / SvS", "bearRole": "Gen 8 Apex Marksman Rally Lead", "note": "Highest single-target and Bear Trap Marksman burst in Gen 8." }
   ],
   "chiefCharmLevels": [
     { "level": 1, "designs": 5, "guides": 5, "secrets": 0, "power": 205700, "statPct": 9 },
@@ -135,6 +324,9 @@
   "redeemCodes": [
     { "code": "WOS2026GIFT", "rewards": "Gems ×1,000, Gold Keys ×2, 1h Speed-ups ×3", "status": "Active" },
     { "code": "FROSTDRAGON", "rewards": "Gems ×500, Mythic General Shard ×1, Meat/Wood Chests", "status": "Active" },
-    { "code": "BEARHUNTVIP", "rewards": "Essence Stone ×5, Chief Stamina ×100, Gems ×500", "status": "Try it" }
+    { "code": "BEARHUNTVIP", "rewards": "Essence Stone ×5, Chief Stamina ×100, Gems ×500", "status": "Active" },
+    { "code": "HELIOSFC10", "rewards": "Fire Crystals ×20, 1h Research Speed-up ×5, Gems ×800", "status": "Active" },
+    { "code": "SUNFIREKING", "rewards": "Charm Guides ×10, Charm Designs ×10, Gems ×500", "status": "Try it" },
+    { "code": "WOSDISCORD", "rewards": "Gems ×500, Silver Keys ×5, Chief Stamina ×60", "status": "Try it" }
   ]
 }

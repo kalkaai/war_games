@@ -5,11 +5,19 @@ import { sendGAEvent } from "@next/third-parties/google";
 
 export type AppThemeId =
   | "nebula"
-  | "blood-rose"
-  | "wings-of-dawn"
-  | "guard-of-order"
-  | "biotech"
+  | "crimson"
+  | "arctic"
+  | "solaris"
+  | "emerald"
   | "daylight";
+
+// Map legacy theme IDs to generic multi-game IDs for seamless migration
+const LEGACY_THEME_MAP: Record<string, AppThemeId> = {
+  "blood-rose": "crimson",
+  "wings-of-dawn": "arctic",
+  "guard-of-order": "solaris",
+  "biotech": "emerald",
+};
 
 export interface ThemeOption {
   id: AppThemeId;
@@ -23,35 +31,35 @@ export const THEMES: ThemeOption[] = [
   {
     id: "nebula",
     name: "Nebula Purple",
-    subtitle: "GAMIDES Default",
+    subtitle: "Cosmic Dark (Default)",
     swatch: "#9333ea",
     scheme: "dark",
   },
   {
-    id: "blood-rose",
-    name: "Blood Rose",
-    subtitle: "Assaulter Crimson",
+    id: "crimson",
+    name: "Crimson Command",
+    subtitle: "Tactical Ruby & Obsidian",
     swatch: "#e11d48",
     scheme: "dark",
   },
   {
-    id: "wings-of-dawn",
-    name: "Wings of Dawn",
-    subtitle: "Shooter Cyber Azure",
+    id: "arctic",
+    name: "Arctic Frost",
+    subtitle: "Glacial Cyan & Deep Navy",
     swatch: "#0284c7",
     scheme: "dark",
   },
   {
-    id: "guard-of-order",
-    name: "Guard of Order",
-    subtitle: "Rider Tactical Gold",
+    id: "solaris",
+    name: "Solaris Gold",
+    subtitle: "Imperial Amber & Bronze",
     swatch: "#d97706",
     scheme: "dark",
   },
   {
-    id: "biotech",
-    name: "Biotech Lab",
-    subtitle: "Season 3 Emerald",
+    id: "emerald",
+    name: "Emerald Ops",
+    subtitle: "Bio-Tactical Matrix",
     swatch: "#059669",
     scheme: "dark",
   },
@@ -65,6 +73,13 @@ export const THEMES: ThemeOption[] = [
 ];
 
 const STORAGE_KEY = "wg_theme";
+
+function normalizeThemeId(raw: string | null): AppThemeId {
+  if (!raw) return "nebula";
+  if (raw in LEGACY_THEME_MAP) return LEGACY_THEME_MAP[raw];
+  if (THEMES.some((t) => t.id === raw)) return raw as AppThemeId;
+  return "nebula";
+}
 
 function applyThemeToDOM(themeId: AppThemeId) {
   const theme = THEMES.find((t) => t.id === themeId) ?? THEMES[0];
@@ -87,10 +102,12 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) as AppThemeId | null;
-      if (saved && THEMES.some((t) => t.id === saved)) {
-        setActiveTheme(saved);
-        applyThemeToDOM(saved);
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const resolved = normalizeThemeId(saved);
+      setActiveTheme(resolved);
+      applyThemeToDOM(resolved);
+      if (saved && saved !== resolved) {
+        localStorage.setItem(STORAGE_KEY, resolved);
       }
     } catch {
       // ignore storage errors
@@ -98,11 +115,9 @@ export function ThemeSwitcher() {
 
     function onStorage(e: StorageEvent) {
       if (e.key === STORAGE_KEY && e.newValue) {
-        const next = e.newValue as AppThemeId;
-        if (THEMES.some((t) => t.id === next)) {
-          setActiveTheme(next);
-          applyThemeToDOM(next);
-        }
+        const next = normalizeThemeId(e.newValue);
+        setActiveTheme(next);
+        applyThemeToDOM(next);
       }
     }
 
@@ -159,7 +174,7 @@ export function ThemeSwitcher() {
           className="absolute right-0 z-50 mt-2 w-56 rounded-xl border border-purple-700/80 bg-purple-950 p-1.5 shadow-xl"
         >
           <p className="px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-purple-300">
-            Select Faction / UI Theme
+            Select UI Theme
           </p>
           {THEMES.map((t) => {
             const isSelected = t.id === activeTheme;

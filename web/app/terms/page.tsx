@@ -18,7 +18,7 @@ export default function TermsPage() {
 
                 <section>
                     <h2 className="text-xl font-bold text-white mb-3">About GAMIDES</h2>
-                    <p className="text-sm">GAMIDES is a free, fan-made companion tool for players of Last Z: Survival Shooter. It provides a reference website and a Discord bot for tracking in-game timers and events. GAMIDES is not affiliated with, endorsed by, or connected to the developers or publishers of Last Z: Survival Shooter.</p>
+                    <p className="text-sm">GAMIDES is a free, fan-made companion tool for players of strategy and survival games including Last Z: Survival Shooter, Whiteout Survival, and Last War: Survival Game. It provides a reference website and a Discord bot for tracking in-game timers, upgrades, and events. GAMIDES is not affiliated with, endorsed by, or connected to the developers or publishers of Last Z: Survival Shooter, Whiteout Survival, or Last War: Survival Game.</p>
                 </section>
 
                 <section>
@@ -56,7 +56,7 @@ export default function TermsPage() {
 
                 <section>
                     <h2 className="text-xl font-bold text-white mb-3">Intellectual property</h2>
-                    <p className="text-sm">All game names, images, and related content belong to their respective owners. GAMIDES does not claim ownership of any Last Z: Survival Shooter intellectual property. GAMIDES&apos;s own code, design, and original content are the property of its operators.</p>
+                    <p className="text-sm">All game names, images, and related content belong to their respective owners. GAMIDES does not claim ownership of any third-party game intellectual property. GAMIDES&apos;s own code, design, and original content are the property of its operators.</p>
                 </section>
 
                 <section>

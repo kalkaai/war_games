@@ -18,7 +18,7 @@ export default function DisclosurePage() {
 
                 <section>
                     <h2 className="text-xl font-bold text-white mb-3">Fan-made tool</h2>
-                    <p className="text-sm">GAMIDES is an independently created, fan-made companion tool for Last Z: Survival Shooter. It is not affiliated with, sponsored by, endorsed by, or otherwise connected to the developers or publishers of Last Z: Survival Shooter. All game names, trademarks, and related assets are the property of their respective owners.</p>
+                    <p className="text-sm">GAMIDES is an independently created, fan-made companion tool for mobile strategy and survival games including Last Z: Survival Shooter, Whiteout Survival, and Last War: Survival Game. It is not affiliated with, sponsored by, endorsed by, or otherwise connected to the developers or publishers of these games. All game names, trademarks, and related assets are the property of their respective owners.</p>
                 </section>
 
                 <section>
@@ -37,7 +37,7 @@ export default function DisclosurePage() {
 
                 <section>
                     <h2 className="text-xl font-bold text-white mb-3">Community data</h2>
-                    <p className="text-sm">Game data published on this site (stats, timers, research trees, etc.) is sourced from the Last Z player community. GAMIDES does not receive compensation from any party for featuring or presenting this data. See the <a href="/credits" className="text-purple-400 hover:text-purple-300 underline">Credits</a> page for contributors.</p>
+                    <p className="text-sm">Game data published on this site (stats, timers, research trees, calculators, etc.) is sourced from the player communities across Last Z, Whiteout Survival, and Last War. GAMIDES does not receive compensation from any party for featuring or presenting this data. See the <a href="/credits" className="text-purple-400 hover:text-purple-300 underline">Credits</a> page for contributors.</p>
                 </section>
 
                 <section>

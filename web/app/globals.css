@@ -45,7 +45,8 @@ html[data-theme="nebula"] {
   --radius: 0.5rem;
 }
 
-/* ── Theme 2: Blood Rose (Crimson & Obsidian — Assaulter Faction) ────── */
+/* ── Theme 2: Crimson Command (Tactical Ruby & Obsidian) ─────────────── */
+html[data-theme="crimson"],
 html[data-theme="blood-rose"] {
   color-scheme: dark;
 
@@ -71,7 +72,8 @@ html[data-theme="blood-rose"] {
   --ring: 347 77% 50%;
 }
 
-/* ── Theme 3: Wings of Dawn (Cyber Azure & Deep Navy — Shooter Faction) */
+/* ── Theme 3: Arctic Frost (Glacial Cyan & Deep Navy) ────────────────── */
+html[data-theme="arctic"],
 html[data-theme="wings-of-dawn"] {
   color-scheme: dark;
 
@@ -97,7 +99,8 @@ html[data-theme="wings-of-dawn"] {
   --ring: 199 89% 48%;
 }
 
-/* ── Theme 4: Guard of Order (Tactical Gold & Obsidian — Rider Faction) */
+/* ── Theme 4: Solaris Gold (Imperial Amber & Bronze) ─────────────────── */
+html[data-theme="solaris"],
 html[data-theme="guard-of-order"] {
   color-scheme: dark;
 
@@ -123,7 +126,8 @@ html[data-theme="guard-of-order"] {
   --ring: 38 92% 50%;
 }
 
-/* ── Theme 5: Biotech Matrix (Bio-Helix Emerald — Season 3 Lab) ──────── */
+/* ── Theme 5: Emerald Ops (Bio-Tactical Matrix) ──────────────────────── */
+html[data-theme="emerald"],
 html[data-theme="biotech"] {
   color-scheme: dark;
 

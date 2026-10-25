@@ -12,6 +12,7 @@ interface NavItem {
 }
 
 const LAST_Z_NAV: NavItem[] = [
+  { href: "/",         label: "Overview", icon: "🏠", exact: true },
   { href: "/events",   label: "Events",   icon: "📅" },
   { href: "/seasons",  label: "Seasons",  icon: "🧬" },
   { href: "/hq",       label: "HQ",       icon: "🏰" },
@@ -28,19 +29,31 @@ const LAST_Z_NAV: NavItem[] = [
 ];
 
 const WHITEOUT_NAV: NavItem[] = [
-  { href: "/whiteout-survival",         label: "Overview",              icon: "❄️", exact: true },
-  { href: "/whiteout-survival/events",  label: "Events & SvS",          icon: "📅" },
-  { href: "/whiteout-survival/furnace", label: "Furnace & FC Table",    icon: "🔥" },
-  { href: "/whiteout-survival/heroes",  label: "SSR Heroes (Gen 1–7)",  icon: "🦸" },
-  { href: "/whiteout-survival/calc",    label: "FC, Gear & Charm Calcs", icon: "📊" },
+  { href: "/whiteout-survival",          label: "Overview", icon: "🏠", exact: true },
+  { href: "/whiteout-survival/events",   label: "Events",   icon: "📅" },
+  { href: "/whiteout-survival/seasons",  label: "Seasons",  icon: "🧬" },
+  { href: "/whiteout-survival/furnace",  label: "Furnace",  icon: "🔥" },
+  { href: "/whiteout-survival/research", label: "Research", icon: "🔬" },
+  { href: "/whiteout-survival/heroes",   label: "Heroes",   icon: "🦸" },
+  { href: "/whiteout-survival/pets",     label: "Pets",     icon: "🐾" },
+  { href: "/whiteout-survival/gear",     label: "Gear",     icon: "⚔️" },
+  { href: "/whiteout-survival/pvp",      label: "PvP",      icon: "🛡️" },
+  { href: "/whiteout-survival/codes",    label: "Codes",    icon: "🎁" },
+  { href: "/whiteout-survival/calc",     label: "Calc",     icon: "📊" },
 ];
 
 const LAST_WAR_NAV: NavItem[] = [
-  { href: "/last-war",        label: "Overview",                  icon: "🎖️", exact: true },
-  { href: "/last-war/events", label: "VS, Arms Race & Seasons",   icon: "📅" },
-  { href: "/last-war/hq",     label: "HQ 1–35 (Age of Oil)",      icon: "🏰" },
-  { href: "/last-war/heroes", label: "UR Heroes & Weapons",       icon: "🦸" },
-  { href: "/last-war/calc",   label: "HQ, Drone & Weapon Calcs",  icon: "📊" },
+  { href: "/last-war",          label: "Overview", icon: "🏠", exact: true },
+  { href: "/last-war/events",   label: "Events",   icon: "📅" },
+  { href: "/last-war/seasons",  label: "Seasons",  icon: "🧬" },
+  { href: "/last-war/hq",       label: "HQ",       icon: "🏰" },
+  { href: "/last-war/research", label: "Research", icon: "🔬" },
+  { href: "/last-war/heroes",   label: "Heroes",   icon: "🦸" },
+  { href: "/last-war/drone",    label: "Drone",    icon: "🛸" },
+  { href: "/last-war/gear",     label: "Gear",     icon: "⚔️" },
+  { href: "/last-war/pvp",      label: "PvP",      icon: "🛡️" },
+  { href: "/last-war/codes",    label: "Codes",    icon: "🎁" },
+  { href: "/last-war/calc",     label: "Calc",     icon: "📊" },
 ];
 
 function isItemActive(pathname: string, item: NavItem): boolean {

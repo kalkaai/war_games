@@ -1,5 +1,5 @@
 {
-  "_comment": "Last War: Survival Game HQ levels 1-30, VS Alliance Duel rotation, Arms Race 4h cycle, and UR Hero Shard costs.",
+  "_comment": "Comprehensive Last War: Survival Game database: HQ levels 1-35 (Age of Oil), VS Alliance Duel, 4h Arms Race, 8 Major Alliance Events, 18 UR/SSR Heroes across Tank/Aircraft/Missile, Seasons 1-4, 8 Research Trees (T10 Special Forces & Age of Oil), Tactical Drone + Components + Skill Chips, UR/Mythic Gear Crafting, PvP Counter Guides, and Gift Codes.",
   "hqLevels": [
     { "level": 1, "requiredBuildings": [], "iron": 500, "food": 500, "gold": 0, "buildTimeMinutes": 0, "heroCap": 5, "unlock": "Starter Base" },
     { "level": 2, "requiredBuildings": ["Barracks Lv.1"], "iron": 1200, "food": 1200, "gold": 0, "buildTimeMinutes": 1, "unlock": "Iron Mine & Farmland" },
@@ -38,12 +38,12 @@
     { "level": 35, "requiredBuildings": ["Tech Center Lv.34", "Barracks Lv.34", "Tank Center Lv.34", "Hospital Lv.34", "Drill Ground Lv.34"], "iron": 7400000000, "food": 7400000000, "gold": 2500000000, "oil": 14100000, "buildTimeMinutes": 259200, "unlock": "Max Age of Oil HQ 35 & Hero Lv.175 Cap" }
   ],
   "vsDuelSchedule": [
-    { "day": "Monday", "name": "Radar Training (Drone Boost)", "keyItems": ["Radar Missions (stack 35/40 on Sunday)", "Drone Combat Data", "Drone Parts", "Stamina"], "tip": "Stack Radar tasks on Sunday afternoon without claiming them until Monday 02:00 UTC reset!" },
+    { "day": "Monday", "name": "Radar Training (Drone Boost)", "keyItems": ["Radar Missions (stack 35/40 on Sunday)", "Drone Combat Data", "Drone Parts", "Stamina & Chip Chests"], "tip": "Stack Radar tasks on Sunday afternoon without claiming them until Monday 02:00 UTC reset!" },
     { "day": "Tuesday", "name": "Base Expansion (Construction)", "keyItems": ["Construction Speed-ups", "UR Trade Trucks", "Gold Secret Tasks", "Survivor Recruitment"], "tip": "Leave finished buildings wrapped in gift-boxes until Tuesday reset before popping them!" },
     { "day": "Wednesday", "name": "Age of Science (Tech Research)", "keyItems": ["Valor Badges (Special Forces / Duel Tech)", "Research Speed-ups", "Drone Component Chests"], "tip": "Prioritize Alliance Duel Tech to 100% first so all future VS actions earn double points." },
-    { "day": "Thursday", "name": "Train Heroes", "keyItems": ["UR Universal Shards", "SSR/SR Hero Shards", "Skill Medals", "Hero Recruitment Tickets", "Hero EXP"], "tip": "Sync Hero Advancement Arms Race window with Thursday VS Duel for double chest rewards." },
-    { "day": "Friday", "name": "Total Mobilization (Troops)", "keyItems": ["Waterfall Troop Promotion (T5→T6→T7→T8→T9)", "Training Speed-ups", "Radar Tasks"], "tip": "Train lower-tier troops Mon-Thu, then promote them to your max tier during Friday Arms Race!" },
-    { "day": "Saturday", "name": "Enemy Buster (Kill Event)", "keyItems": ["8h / 24h Peace Shields", "War Fever Teleports", "Healing Speed-ups", "UR Trucks"], "tip": "Never leave troops on your Wall unless you are a whale; shield up 10 minutes before 02:00 UTC!" }
+    { "day": "Thursday", "name": "Train Heroes", "keyItems": ["UR Universal Shards", "SSR/SR Hero Shards", "Skill Medals", "Exclusive Weapon Shards", "Hero EXP"], "tip": "Sync Hero Advancement Arms Race window with Thursday VS Duel for double chest rewards." },
+    { "day": "Friday", "name": "Total Mobilization (Troops)", "keyItems": ["Waterfall Troop Promotion (T6→T7→T8→T9→T10)", "Training Speed-ups", "Stacked Radar Tasks"], "tip": "Train lower-tier troops Mon-Thu, then promote them to your max tier during Friday Arms Race!" },
+    { "day": "Saturday", "name": "Enemy Buster (Kill Event)", "keyItems": ["8h / 24h Peace Shields", "War Fever Teleports", "Healing Speed-ups", "UR Trucks & Gold Tasks"], "tip": "Never leave troops on your Wall unless you are a whale; shield up 10 minutes before 02:00 UTC!" }
   ],
   "armsRaceWindows": [
     { "slot": "02:00 – 06:00 UTC", "theme": "City Building", "action": "Pop construction speed-ups & claim wrapped buildings" },
@@ -53,17 +53,69 @@
     { "slot": "18:00 – 22:00 UTC", "theme": "Hero Advancement", "action": "Spend Hero EXP & Recruitment Tickets" },
     { "slot": "22:00 – 02:00 UTC", "theme": "City Building / Rotation", "action": "Check in-game Arms Race preview for daily rotation shift" }
   ],
+  "majorEvents": [
+    {
+      "id": "capitol_war",
+      "name": "Capitol War & Server Warzone Duel",
+      "cadence": "Saturday (10:00 – 16:00 UTC)",
+      "rewards": "Honor Points (Mythic Red Blueprints), Conquest Coins, President Buffs, Diamonds",
+      "strategy": "Fight inside the Grey Mud Zone with troops off your Wall! Farm Honor Points to buy Mythic Gear Blueprints in the Honor Store."
+    },
+    {
+      "id": "desert_storm",
+      "name": "Desert Storm Battlefield (20v20)",
+      "cadence": "Friday (Alliance Registered Slot A & B)",
+      "rewards": "10,000+ Honor Points, Skill Medals, Universal UR Shards, Speed-ups",
+      "strategy": "Zero permanent troop loss! Split into 3 squads: Hospital/Oil Well holders, Nuclear Silo main rally, and 2 fast Aircraft interceptors."
+    },
+    {
+      "id": "winter_storm",
+      "name": "Winter Storm Battlefield (5v5 Solo Queue)",
+      "cadence": "Weekend Matchmaking Windows",
+      "rewards": "Honor Points, Drone Parts, Dielectric Ceramics, Gold Chests",
+      "strategy": "Deliver supply crates and capture the central Bunker using your fastest march; earns massive weekly Honor Points."
+    },
+    {
+      "id": "zombie_siege",
+      "name": "Zombie Siege (Alliance Defense Waves 1–20)",
+      "cadence": "Weekly (R4/R5 Triggered)",
+      "rewards": "Alliance Contribution, Valor Badges, Survivor Tokens, Speed-ups",
+      "strategy": "Keep your main squad on the Wall and send your 2nd/3rd squads to reinforce lower-HQ alliance members so everyone survives Wave 20."
+    },
+    {
+      "id": "marshall_guard",
+      "name": "Marshall's Guard (Alliance Boss Rally)",
+      "cadence": "Every 48 Hours (R4/R5 Scheduled)",
+      "rewards": "UR Hero Shards, Drone Parts, Dielectric Ceramics, Alliance Chests",
+      "strategy": "Call 1-minute rallies simultaneously so all online members can hit theLv.6–10 Marshall Guard before the 30-minute timer expires."
+    },
+    {
+      "id": "zombies_invade",
+      "name": "Zombies Invade & Gold Zombies",
+      "cadence": "Bi-Weekly (Wed–Fri)",
+      "rewards": "Courage Medals (Trade Store: UR Shards, Drone Parts, Stamina, Gold Chests)",
+      "strategy": "Farm small Gold Zombies solo to spawn Doom Elites, then chain alliance rallies to clear out the entire Courage Medal shop!"
+    }
+  ],
   "urHeroes": [
-    { "id": "kimberly", "name": "Kimberly", "type": "Tank (Energy DPS)", "tier": "S+", "note": "#1 Priority UR Hero — unlock Exclusive Weapon at HQ 21+ immediately." },
-    { "id": "stetmann", "name": "Stetmann", "type": "Tank (Backline AoE)", "tier": "S+", "note": "Pairs with Kimberly for the highest burst Tank squad." },
-    { "id": "williams", "name": "Williams", "type": "Tank (Frontline Shield)", "tier": "S+", "note": "Premier damage-mitigation Tank defender alongside Murphy." },
-    { "id": "murphy", "name": "Murphy", "type": "Tank (Frontline Buff)", "tier": "S", "note": "F2P accessible frontline Tank anchor with team physical defense buff." },
-    { "id": "marshall", "name": "Marshall", "type": "Tank (Command Support)", "tier": "S", "note": "Reduces cooldowns and boosts crit rate for Kimberly & Stetmann." },
-    { "id": "dva", "name": "DVA", "type": "Aircraft (Backline Burst)", "tier": "S+", "note": "Core carry of the Aircraft meta squad (counters Tank squads)." },
-    { "id": "lucius", "name": "Lucius", "type": "Aircraft (Energy Barrier)", "tier": "S+", "note": "Grants massive energy damage resistance against Kimberly squads." },
-    { "id": "tesla", "name": "Tesla", "type": "Missile (Backline DPS)", "tier": "S", "note": "Core carry for Missile squads (counters Aircraft formations)." },
-    { "id": "carlie", "name": "Carlie", "type": "Aircraft (Frontline Evasion)", "tier": "S+", "note": "Frontline Aircraft tank; Exclusive Weapon unlocks in Season 1 alongside Kimberly and DVA." },
-    { "id": "swift", "name": "Swift", "type": "Missile (Crit Finisher)", "tier": "S+", "note": "Targets lowest-HP enemy units; Exclusive Weapon makes Missile squads lethal against Aircraft whales." }
+    { "id": "kimberly", "name": "Kimberly", "squad": "Tank", "type": "Tank (Energy Backline Hypercarry)", "tier": "S+", "weaponSeason": "Season 1", "note": "#1 Priority UR Hero in Last War — max to 5★ first and unlock her Exclusive Weapon at HQ 21+ / Season 1 immediately." },
+    { "id": "stetmann", "name": "Stetmann", "squad": "Tank", "type": "Tank (Energy Crit AoE DPS)", "tier": "S+", "weaponSeason": "Season 4", "note": "Pairs with Kimberly and Marshall in the backline for the highest burst Tank squad." },
+    { "id": "williams", "name": "Williams", "squad": "Tank", "type": "Tank (Frontline Damage Mitigation)", "tier": "S+", "weaponSeason": "Season 3", "note": "Premier frontline Tank defender alongside Murphy; reduces all incoming energy and physical damage." },
+    { "id": "murphy", "name": "Murphy", "squad": "Tank", "type": "Tank (Frontline Physical Shield)", "tier": "S", "weaponSeason": "Season 2", "note": "F2P accessible frontline Tank anchor; Season 2 Exclusive Weapon adds backline damage reduction." },
+    { "id": "marshall", "name": "Marshall", "squad": "Tank", "type": "Tank (Command Support & Crit Buffer)", "tier": "S+", "weaponSeason": "Season 3", "note": "Focuses your entire squad's fire onto the same target while boostingKimberly & Stetmann's Crit Rate." },
+    { "id": "mason_ur", "name": "Mason (UR Promotion)", "squad": "Tank", "type": "Tank (PvE World Boss Specialist)", "tier": "A+", "weaponSeason": "Season 1 Upgrade", "note": "Upgrades from 5★ SSR to UR in Season 1! All Wall of Honor shards refund via mail on Thursday VS Hero Day for millions of points." },
+    { "id": "violet_ur", "name": "Violet (UR Promotion)", "squad": "Tank", "type": "Tank (F2P Frontline Poison Tank)", "tier": "A+", "weaponSeason": "Season 2 Upgrade", "note": "Upgrades from 5★ SSR to UR in Season 2; great F2P frontline tank if you don't have Williams." },
+    { "id": "scarlett_ur", "name": "Scarlett (UR Promotion)", "squad": "Tank", "type": "Tank (F2P Frontline Shield)", "tier": "A+", "weaponSeason": "Season 3 Upgrade", "note": "Upgrades from SSR to UR in Season 3 for huge Thursday VS Alliance Duel points." },
+    { "id": "dva", "name": "DVA", "squad": "Aircraft", "type": "Aircraft (Backline Burst Carry)", "tier": "S+", "weaponSeason": "Season 1", "note": "Core hypercarry of the Aircraft meta squad (counters Tank squads by +20%); unlock her Exclusive Weapon in Season 1." },
+    { "id": "lucius", "name": "Lucius", "squad": "Aircraft", "type": "Aircraft (Frontline Energy Barrier)", "tier": "S+", "weaponSeason": "Season 4", "note": "Grants massive energy damage resistance, completely neutralizing enemy Kimberly Tank squads." },
+    { "id": "carlie", "name": "Carlie", "squad": "Aircraft", "type": "Aircraft (Frontline Evasion & Debuff)", "tier": "S+", "weaponSeason": "Season 2", "note": "Frontline Aircraft tank; her Season 2 Exclusive Weapon makes her nearly untouchable against Tank and Aircraft teams." },
+    { "id": "morrison", "name": "Morrison", "squad": "Aircraft", "type": "Aircraft (Physical Armor Shred DPS)", "tier": "S+", "weaponSeason": "Base", "note": "Deals physical damage on an Aircraft team and shreds enemy defense so DVA can wipe the mirror Aircraft matchup." },
+    { "id": "schuyler", "name": "Schuyler", "squad": "Aircraft", "type": "Aircraft (Backline Multi-Stun Control)", "tier": "S", "weaponSeason": "Season 3", "note": "Stuns multiple enemy heroes in the backline; Season 3 Exclusive Weapon makes her a PvP nightmare." },
+    { "id": "tesla", "name": "Tesla", "squad": "Missile", "type": "Missile (Backline Energy Lightning Carry)", "tier": "S+", "weaponSeason": "Season 1", "note": "Core carry for Missile squads (counters Aircraft formations by +20%); Season 1 Exclusive Weapon." },
+    { "id": "swift", "name": "Swift", "squad": "Missile", "type": "Missile (Physical Crit Finisher)", "tier": "S+", "weaponSeason": "Season 2", "note": "Targets lowest-HP enemy units; Season 2 Exclusive Weapon makes Missile squads lethal against Aircraft whales." },
+    { "id": "mcgregor", "name": "McGregor", "squad": "Missile", "type": "Missile (Frontline Taunt Tank)", "tier": "S", "weaponSeason": "Base", "note": "Taunts enemy DPS away from Tesla and Fiona while absorbing massive burst damage." },
+    { "id": "fiona", "name": "Fiona", "squad": "Missile", "type": "Missile (Backline Radiation AoE)", "tier": "S", "weaponSeason": "Base", "note": "Stacks multi-hit radiation damage alongside Tesla and Swift." },
+    { "id": "adam", "name": "Adam", "squad": "Missile", "type": "Missile (Frontline Counter-Attack)", "tier": "S+", "weaponSeason": "Base", "note": "Grants counter-attack state to your frontline Missile defenders, shredding rapid-fire Aircraft squads." }
   ],
   "droneMilestones": [
     { "level": 10, "stepParts": 10, "cumulativeParts": 15, "battleData": 12000, "unlock": "Early Recon Drone" },
@@ -77,14 +129,149 @@
     { "level": 200, "stepParts": 1000, "cumulativeParts": 69545, "battleData": 68000000, "unlock": "Apex Drone Tier II" },
     { "level": 250, "stepParts": 1400, "cumulativeParts": 123545, "battleData": 145000000, "unlock": "Max Lv.250 Tactical Drone" }
   ],
+  "droneComponents": [
+    { "slot": "Right Side (Slots 4, 5, 6)", "names": ["Missile Engine", "Radar Guidance", "External Armor"], "priority": "#1 Priority (Lv. 8 → Lv. 9 First)", "effect": "Boosts Drone Attack Rate, Crit Rate & Skill Damage Reduction — far more impactful in PvP than flat stats." },
+    { "slot": "Left Side (Slots 1, 2, 3)", "names": ["High-Explosive Warhead", "Fuel Cell", "Composite Frame"], "priority": "#2 Priority", "effect": "Provides flat Hero Attack, Defense, and HP bonuses; open Left/Right choice chests only for Right-Side Lv.8/Lv.9 breakpoints!" }
+  ],
   "seasons": [
-    { "id": "s1", "name": "Season 1: The Crimson Plague", "mechanic": "Protein Farms & Virus Research Institute (Virus Resistance)", "exclusiveWeapons": ["Kimberly", "DVA", "Tesla"], "summary": "Build Virus Resistance via Protein Farms and Mutant Crystals to capture higher-tier infected strongholds and cities." },
-    { "id": "s2", "name": "Season 2: Polar World", "mechanic": "Titanium Alloy Factory & High-Heat Furnace (-60°C Blizzard Survival)", "exclusiveWeapons": ["Murphy", "Carlie", "Swift"], "summary": "Manage base temperature during blizzards, upgrade your High-Heat Furnace with Coal/Titanium, and unlock the Age of Oil (HQ 31–35) tech tree afterward." },
-    { "id": "s3", "name": "Season 3: Golden Realm", "mechanic": "Curse Resistance & Desert Oasis Sanctuaries", "exclusiveWeapons": ["Marshall", "Williams", "Schuyler"], "summary": "Cleanse desert miasma, convert green tiles around Alliance Centers, and push T10 Special Forces + Exclusive Weapon Lv.20+ milestones." }
+    { "id": "s1", "name": "Season 1: The Crimson Plague", "mechanic": "Protein Farms & Virus Research Institute (Virus Resistance)", "exclusiveWeapons": ["Kimberly", "DVA", "Tesla"], "summary": "Build Virus Resistance via Protein Farms and Mutant Crystals to capture higher-tier infected strongholds, promote Mason to UR, and battle across neighbor Warzone maps." },
+    { "id": "s2", "name": "Season 2: Polar World", "mechanic": "Titanium Alloy Factory & High-Heat Furnace (-60°C Blizzard Survival)", "exclusiveWeapons": ["Murphy", "Carlie", "Swift"], "summary": "Manage base temperature during blizzards, upgrade your High-Heat Furnace with Coal/Titanium, promote Violet to UR, and unlock the Age of Oil tech tree afterward." },
+    { "id": "oil", "name": "Post-Season 2: Age of Oil (HQ 31–35)", "mechanic": "Oil Wells, Age of Oil Tech Tree & +1 Build/Tech Queue", "exclusiveWeapons": ["HQ 31–35", "Hero Lv.155–175"], "summary": "Research the Age of Oil tree (requires 40% completion to unlock Oil Wells and the HQ 31–35 Prerequisite node) before spending Iron/Gold on HQ 31." },
+    { "id": "s3", "name": "Season 3: Golden Realm", "mechanic": "Curse Resistance & Desert Oasis Sanctuaries", "exclusiveWeapons": ["Marshall", "Williams", "Schuyler"], "summary": "Cleanse desert miasma, convert green tiles around Alliance Centers, promote Scarlett to UR, and push T10 Special Forces + Exclusive Weapon Lv.20+ milestones." },
+    { "id": "s4", "name": "Season 4: Evernight Isle", "mechanic": "Optoelectronic Lab, Quartz & Blood Moon Nightfall", "exclusiveWeapons": ["Stetmann", "Lucius", "Adam"], "summary": "Maintain Lighthouse illumination during Blood Moon eclipses, upgrade Optoelectronic nodes, and unlock Stetmann and Lucius Exclusive Weapons." }
+  ],
+  "researchTrees": [
+    {
+      "id": "alliance_duel",
+      "name": "Alliance Duel (VS) Tech Tree",
+      "icon": "🏆",
+      "unlock": "Tech Center Lv. 10",
+      "badgeCost": "28,500 Valor Badges",
+      "goldCost": "120M Gold",
+      "priority": "#1 Mandatory First Max (100%)",
+      "summary": "Unlocks Chests 7–9 in daily VS Alliance Duel and doubles all VS points earned. Max this to 100% before touching Special Forces."
+    },
+    {
+      "id": "special_forces",
+      "name": "Special Forces (T10 Troops Unlock)",
+      "icon": "🎖️",
+      "unlock": "Tech Center Lv. 26 (T10 requires Tech Center Lv. 30)",
+      "badgeCost": "152,000 Valor Badges",
+      "goldCost": "10.3B Gold",
+      "priority": "#2 Core Endgame Goal",
+      "summary": "Only research the minimum path (40% overall completion) down to the bottom 4 nodes (Advanced Protection, Boost Attack, Boost Health, Boost Defense to Lv.10) to unlock T10 Units!"
+    },
+    {
+      "id": "age_of_oil",
+      "name": "Age of Oil Tech Tree (HQ 31–35 Gate)",
+      "icon": "🛢️",
+      "unlock": "Post-Season 2 + Tech Center Lv. 30",
+      "badgeCost": "Valor Badges + Oil",
+      "goldCost": "3.8B Gold + 18M Oil",
+      "priority": "#3 Post-T10 Priority",
+      "summary": "Unlocks the 2nd Free Tech Queue, +1 Extra Hospital, 3rd Oil Well, and the mandatory HQ 31–35 Upper Limit node at the bottom."
+    },
+    {
+      "id": "units",
+      "name": "Units Tech Tree",
+      "icon": "🛡️",
+      "unlock": "Tech Center Lv. 7",
+      "badgeCost": "No Valor Badges (Gold/Iron/Food)",
+      "goldCost": "4.2B Gold (to ~92%)",
+      "priority": "High (Non-Valor Days)",
+      "summary": "Huge raw Attack, HP, Defense, and Load Capacity scaling across all squads without consuming Valor Badges."
+    },
+    {
+      "id": "hero",
+      "name": "Hero Tech Tree",
+      "icon": "🦸",
+      "unlock": "Tech Center Lv. 12",
+      "badgeCost": "No Valor Badges (Gold/Iron/Food)",
+      "goldCost": "5.5B Gold",
+      "priority": "High (Main Squad Type First)",
+      "summary": "Focus exclusively on your main squad branch (Tank, Aircraft, or Missile) plus the bottom All-Hero nodes."
+    },
+    {
+      "id": "siege_defense",
+      "name": "Siege to Seize & Defense Fortifications",
+      "icon": "⚔️",
+      "unlock": "Tech Center Lv. 20",
+      "badgeCost": "95,000 Valor Badges",
+      "goldCost": "6.8B Gold",
+      "priority": "Late-Game PvP (After T10)",
+      "summary": "Grants massive March Size and Damage Reduction when attacking enemy bases or defending garrisons in Capitol War and Desert Storm."
+    }
+  ],
+  "urGearItems": [
+    {
+      "id": "railgun",
+      "name": "M5-A Thor Railgun",
+      "slot": "Top-Left (Weapon)",
+      "stats": "Attack & Critical Rate (+10% Crit at Lv.40 / 4★)",
+      "priority": "#1 Craft & 4★ First (Backline Attackers: Kimberly, DVA, Tesla, Stetmann)",
+      "blueprintCostTo4Star": "50 Legendary Blueprints + 1.1M Upgrade Ore + 340M Gold",
+      "mythicBonus": "Mythic Red (10 Mythic Blueprints): +10% Bonus Damage vs Countered Troop Type"
+    },
+    {
+      "id": "data_chip",
+      "name": "M5-A Hunter Data Chip",
+      "slot": "Top-Right (Chip)",
+      "stats": "Attack & All-Damage Resistance",
+      "priority": "#2 Offense Priority (Upgrade to Lv.40 on Backline DPS after Railgun)",
+      "blueprintCostTo4Star": "50 Legendary Blueprints + 1.1M Upgrade Ore + 340M Gold",
+      "mythicBonus": "Mythic Red (10 Mythic Blueprints): +5% Skill Crit Damage"
+    },
+    {
+      "id": "armor",
+      "name": "M5-A Guardian Armor",
+      "slot": "Bottom-Left (Armor)",
+      "stats": "Defense & Physical Damage Reduction",
+      "priority": "#1 Frontline Tank Priority (Williams, Murphy, Carlie, Lucius, McGregor)",
+      "blueprintCostTo4Star": "50 Legendary Blueprints + 1.1M Upgrade Ore + 340M Gold",
+      "mythicBonus": "Mythic Red (10 Mythic Blueprints): -15% Critical Damage Taken"
+    },
+    {
+      "id": "radar",
+      "name": "M5-A Predator Radar",
+      "slot": "Bottom-Right (Radar)",
+      "stats": "Defense & Energy Damage Resistance",
+      "priority": "#1 PvP Meta Defense Piece (Counters Kimberly, DVA & Tesla Energy Burst!)",
+      "blueprintCostTo4Star": "50 Legendary Blueprints + 1.1M Upgrade Ore + 340M Gold",
+      "mythicBonus": "Mythic Red (10 Mythic Blueprints): -30% Burn/Energy DoT Damage Taken"
+    }
+  ],
+  "pvpStrategies": [
+    {
+      "title": "The Counter Triangle (+20% / -20% Damage Modifier)",
+      "category": "Squad Matchups",
+      "badge": "Core Combat Rule",
+      "details": "Tank beats Missile (+20% DMG dealt / -20% DMG taken) → Missile beats Aircraft → Aircraft beats Tank. Because 80% of F2P/low-spenders run Tank Squad 1 (Kimberly + Stetmann), mid-spenders pivot to Aircraft (DVA + Lucius + Carlie) in Season 1, while endgame whales build Missile (Tesla + Swift + Adam) to snipe Aircraft squads."
+    },
+    {
+      "title": "5-of-a-Kind Squad Aura (+20% ATK / HP / DEF)",
+      "category": "Squad Building",
+      "badge": "Formation Bonus",
+      "details": "Running 5 heroes of the same vehicle type (e.g., 5 Tanks or 5 Aircraft) activates the maximum +20% Attack, +20% HP, and +20% Defense squad aura. Always place your 2 Tank/Defense heroes in the Front Row and your 2 Attackers + 1 Support (Marshall/Schuyler) in the Back Row."
+    },
+    {
+      "title": "Capitol War & Saturday Enemy Buster Wall Toggle",
+      "category": "Base Defense",
+      "badge": "Zero-Loss Survival",
+      "details": "Uncheck Squads 1, 2, and 3 from your Base Defense Wall before teleporting into the Capitol Mud Zone or Enemy Buster warzone! If your base is zeroed while your squads are unchecked from the Wall, you lose only ~400 Drill Ground troops instead of losing 25,000+ troops into the Hospital."
+    },
+    {
+      "title": "Mythic Red Gear Blueprint Priority (Radar vs. Railgun)",
+      "category": "Endgame Gear",
+      "badge": "Whale / Honor Shop",
+      "details": "Your first 10 Mythic Gear Blueprints (from Season Store, Honor Points, or Ammo Bonanza) should go either to Kimberly/DVA's Thor Railgun (for World Boss & PvP burst) OR to your frontline defender's Predator Radar (which cuts enemy Crit and Energy damage by 30%)."
+    }
   ],
   "redeemCodes": [
     { "code": "LWDC400K", "rewards": "Diamonds ×300, Universal UR Shard ×1, Hero EXP Chest ×3", "status": "Active" },
     { "code": "LASTWAR2026", "rewards": "Diamonds ×500, 1h Speed-ups ×5, Drone Parts ×20", "status": "Active" },
-    { "code": "HAPPYLW", "rewards": "Recruitment Tickets ×5, Gold Chests ×2", "status": "Try it" }
+    { "code": "AGEOFOIL35", "rewards": "Diamonds ×600, Valor Badges ×200, Gold Chests ×3", "status": "Active" },
+    { "code": "HAPPYLW", "rewards": "Recruitment Tickets ×5, Gold Chests ×2", "status": "Try it" },
+    { "code": "LWDISCORD", "rewards": "Diamonds ×300, Stamina ×100, Drone Battle Data ×10K", "status": "Try it" },
+    { "code": "THANKYOU2026", "rewards": "Universal UR Shard ×2, Skill Medals ×1,000, Diamonds ×500", "status": "Try it" }
   ]
 }

@@ -153,12 +153,12 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <p className="mt-2 text-sm text-purple-200/80">
-                  Complete Furnace 1–30 &amp; Fire Crystal FC1–FC5 requirements, Bear Trap &amp; Crazy Joe timers, State of Power (SvS) prep planner, and Gen 1–4 SSR hero guides.
+                  Complete Furnace 1–30 &amp; Fire Crystal FC1–FC5 requirements, War Academy Helios T11 tech, Gen 1–8 SSR/SR heroes, Beast Cage Pets, Chief Gear &amp; Charms calculators.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2 text-xs text-purple-300">
-                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">35 Furnace &amp; FC Pages</span>
-                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">SvS &amp; Bear Trap Timers</span>
-                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">Fire Crystal Calculator</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">10 Dedicated Modules</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">Gen 1–8 Heroes &amp; Pets</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">FC, Gear &amp; Charm Calcs</span>
                 </div>
               </div>
               <span className="text-purple-400 transition-transform group-hover:translate-x-1">→</span>
@@ -178,12 +178,12 @@ export default function HomePage() {
                   </h3>
                 </div>
                 <p className="mt-2 text-sm text-purple-200/80">
-                  Headquarters 1–30 Iron/Food/Coin table, T10 Special Forces prerequisite tracker, Arms Race 4-hour rotation schedule, and Kimberly / DVA / Tesla UR hero builds.
+                  Headquarters 1–35 (Age of Oil) table, T10 Special Forces Gold/Valor calculator, 18 UR heroes &amp; Exclusive Weapons, Tactical Drone Lv. 10–250, and UR/Mythic Red Gear.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2 text-xs text-purple-300">
-                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">30 HQ Level Pages</span>
-                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">VS Alliance Duel &amp; Arms Race</span>
-                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">T10 Prerequisite Planner</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">10 Dedicated Modules</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">HQ 1–35 &amp; T10 Calc</span>
+                  <span className="rounded bg-purple-950/70 px-2.5 py-1 border border-purple-800/50">Drone, Heroes &amp; Red Gear</span>
                 </div>
               </div>
               <span className="text-purple-400 transition-transform group-hover:translate-x-1">→</span>

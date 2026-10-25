@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { FeedbackForm } from "./FeedbackForm";
 
 export const metadata: Metadata = {
-  title: "Feedback — GAMIDES | Last Z: Survival Shooter",
+  title: "Feedback — GAMIDES | Strategy & Survival Game Companion",
   description:
-    "Send feedback, report a bug, request a feature, or correct game data on GAMIDES — the Last Z: Survival Shooter companion site.",
+    "Send feedback, report a bug, request a feature, or correct game data on GAMIDES for Last Z: Survival Shooter, Whiteout Survival, and Last War: Survival Game.",
   alternates: {
     canonical: "https://www.gamides.com/feedback",
   },
@@ -19,8 +19,8 @@ export default function FeedbackPage() {
       </p>
 
       <div className="mt-2 rounded-xl border border-blue-800/40 bg-blue-900/10 p-4 text-sm text-blue-100/80">
-        GAMIDES is a community fan site — not affiliated with Last Z: Survival Shooter or its
-        developers. For in-game issues, contact official support.
+        GAMIDES is an independent community fan site — not affiliated with Last Z: Survival Shooter,
+        Whiteout Survival, Last War: Survival Game, or their developers. For in-game account issues, contact official game support.
       </div>
 
       <div className="mt-6">

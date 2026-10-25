@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Credits — GAMIDES | Last Z: Survival Shooter",
+    title: "Credits — GAMIDES | Strategy & Survival Game Companion",
     description:
-        "Thank you to the Last Z: Survival Shooter communities and alliances who contributed data, testing, and feedback to GAMIDES.",
+        "Thank you to the Last Z, Whiteout Survival, and Last War communities and alliances who contributed data, testing, and feedback to GAMIDES.",
     openGraph: {
-        title: "Credits — GAMIDES | Last Z: Survival Shooter",
+        title: "Credits — GAMIDES | Strategy & Survival Game Companion",
         description:
-            "Thank you to the Last Z: Survival Shooter communities and alliances who contributed data, testing, and feedback to GAMIDES.",
+            "Thank you to the Last Z, Whiteout Survival, and Last War communities and alliances who contributed data, testing, and feedback to GAMIDES.",
     },
     alternates: {
         canonical: "https://www.gamides.com/credits",
